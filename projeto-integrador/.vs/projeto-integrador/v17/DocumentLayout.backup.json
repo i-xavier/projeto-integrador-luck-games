@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -30,25 +30,12 @@
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.cs*",
+              "RelativeToolTip": "Form1.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-19T13:35:32.855Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.Designer.cs",
-              "RelativeDocumentMoniker": "Form1.Designer.cs",
-              "ToolTip": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.Designer.cs",
-              "RelativeToolTip": "Form1.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T13:35:56.461Z",
               "EditorCaption": ""
             },
             {
@@ -57,11 +44,24 @@
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
+              "ToolTip": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.cs [Design]*",
+              "RelativeToolTip": "Form1.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T02:26:52.6Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\X\\OneDrive\\Documents\\Programas\\C#\\projeto-integrador\\projeto-integrador\\Form1.Designer.cs*",
+              "RelativeToolTip": "Form1.Designer.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T13:35:56.461Z",
+              "EditorCaption": ""
             }
           ]
         }

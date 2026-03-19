@@ -30,74 +30,102 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblBemVindo = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEntrar = new System.Windows.Forms.Button();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtCodigoUser = new System.Windows.Forms.TextBox();
+            this.lblTextoBemVindo = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.lblTextoCodigo = new System.Windows.Forms.Label();
+            this.lblTextoSenha = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.lblBemVindo);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.lblTextoSenha);
+            this.panel1.Controls.Add(this.lblTextoCodigo);
+            this.panel1.Controls.Add(this.btnEntrar);
+            this.panel1.Controls.Add(this.txtSenha);
+            this.panel1.Controls.Add(this.txtCodigoUser);
+            this.panel1.Controls.Add(this.lblTextoBemVindo);
+            this.panel1.Controls.Add(this.pbLogo);
             this.panel1.Location = new System.Drawing.Point(289, 58);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(550, 600);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // btnEntrar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.button1.Location = new System.Drawing.Point(55, 438);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(390, 44);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnEntrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar.Location = new System.Drawing.Point(84, 446);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(390, 44);
+            this.btnEntrar.TabIndex = 4;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // txtSenha
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.textBox2.Location = new System.Drawing.Point(55, 394);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(390, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(84, 378);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(390, 38);
+            this.txtSenha.TabIndex = 3;
             // 
-            // textBox1
+            // txtCodigoUser
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.textBox1.Location = new System.Drawing.Point(55, 297);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(390, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtCodigoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtCodigoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoUser.Location = new System.Drawing.Point(84, 297);
+            this.txtCodigoUser.Name = "txtCodigoUser";
+            this.txtCodigoUser.Size = new System.Drawing.Size(390, 38);
+            this.txtCodigoUser.TabIndex = 2;
             // 
-            // lblBemVindo
+            // lblTextoBemVindo
             // 
-            this.lblBemVindo.AutoSize = true;
-            this.lblBemVindo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBemVindo.Location = new System.Drawing.Point(206, 180);
-            this.lblBemVindo.Name = "lblBemVindo";
-            this.lblBemVindo.Size = new System.Drawing.Size(88, 21);
-            this.lblBemVindo.TabIndex = 1;
-            this.lblBemVindo.Text = "Bem-Vindo";
+            this.lblTextoBemVindo.AutoSize = true;
+            this.lblTextoBemVindo.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoBemVindo.Location = new System.Drawing.Point(186, 180);
+            this.lblTextoBemVindo.Name = "lblTextoBemVindo";
+            this.lblTextoBemVindo.Size = new System.Drawing.Size(180, 45);
+            this.lblTextoBemVindo.TabIndex = 1;
+            this.lblTextoBemVindo.Text = "Bem-Vindo";
             // 
-            // pictureBox1
+            // pbLogo
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(105, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(290, 193);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(102, 3);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(348, 232);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
+            // 
+            // lblTextoCodigo
+            // 
+            this.lblTextoCodigo.AutoSize = true;
+            this.lblTextoCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoCodigo.Location = new System.Drawing.Point(90, 265);
+            this.lblTextoCodigo.Name = "lblTextoCodigo";
+            this.lblTextoCodigo.Size = new System.Drawing.Size(80, 25);
+            this.lblTextoCodigo.TabIndex = 5;
+            this.lblTextoCodigo.Text = "Código";
+            // 
+            // lblTextoSenha
+            // 
+            this.lblTextoSenha.AutoSize = true;
+            this.lblTextoSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoSenha.Location = new System.Drawing.Point(90, 348);
+            this.lblTextoSenha.Name = "lblTextoSenha";
+            this.lblTextoSenha.Size = new System.Drawing.Size(74, 25);
+            this.lblTextoSenha.TabIndex = 6;
+            this.lblTextoSenha.Text = "Senha";
             // 
             // frmLogin
             // 
@@ -113,7 +141,7 @@
             this.Resize += new System.EventHandler(this.frmLogin_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -121,11 +149,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblBemVindo;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.Label lblTextoBemVindo;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.TextBox txtCodigoUser;
+        private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.Label lblTextoSenha;
+        private System.Windows.Forms.Label lblTextoCodigo;
     }
 }
 
