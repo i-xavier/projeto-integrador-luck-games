@@ -12,6 +12,8 @@ namespace projeto_integrador
 {
     public partial class frmLogin : Form
     {
+        String codUser = "123";
+        String senhaUser = "123";
         public frmLogin()
         {
             InitializeComponent();
@@ -33,6 +35,24 @@ namespace projeto_integrador
         {
             panel1.Left = (this.ClientSize.Width - panel1.Width) / 2;
             panel1.Top = (this.ClientSize.Height - panel1.Height) / 2;
+        }
+
+        private void Logar(object sender, EventArgs e)
+        {
+            
+
+
+            if (txtCodigoUser.Text == codUser && txtSenha.Text == senhaUser)
+            {
+                MessageBox.Show("Bem-vindo!");
+            }
+
+            else
+            {
+                MessageBox.Show("Senha incorreta.");
+                   
+            }
+
         }
     }
 }

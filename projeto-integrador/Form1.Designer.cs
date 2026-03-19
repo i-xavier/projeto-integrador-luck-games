@@ -30,13 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTextoSenha = new System.Windows.Forms.Label();
+            this.lblTextoCodigo = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtCodigoUser = new System.Windows.Forms.TextBox();
             this.lblTextoBemVindo = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.lblTextoCodigo = new System.Windows.Forms.Label();
-            this.lblTextoSenha = new System.Windows.Forms.Label();
+            this.lblCopyRight = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -45,6 +46,7 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lblCopyRight);
             this.panel1.Controls.Add(this.lblTextoSenha);
             this.panel1.Controls.Add(this.lblTextoCodigo);
             this.panel1.Controls.Add(this.btnEntrar);
@@ -57,6 +59,26 @@
             this.panel1.Size = new System.Drawing.Size(550, 600);
             this.panel1.TabIndex = 0;
             // 
+            // lblTextoSenha
+            // 
+            this.lblTextoSenha.AutoSize = true;
+            this.lblTextoSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoSenha.Location = new System.Drawing.Point(90, 348);
+            this.lblTextoSenha.Name = "lblTextoSenha";
+            this.lblTextoSenha.Size = new System.Drawing.Size(74, 25);
+            this.lblTextoSenha.TabIndex = 6;
+            this.lblTextoSenha.Text = "Senha";
+            // 
+            // lblTextoCodigo
+            // 
+            this.lblTextoCodigo.AutoSize = true;
+            this.lblTextoCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoCodigo.Location = new System.Drawing.Point(90, 265);
+            this.lblTextoCodigo.Name = "lblTextoCodigo";
+            this.lblTextoCodigo.Size = new System.Drawing.Size(80, 25);
+            this.lblTextoCodigo.TabIndex = 5;
+            this.lblTextoCodigo.Text = "Código";
+            // 
             // btnEntrar
             // 
             this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
@@ -68,6 +90,7 @@
             this.btnEntrar.TabIndex = 4;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = false;
+            this.btnEntrar.Click += new System.EventHandler(this.Logar);
             // 
             // txtSenha
             // 
@@ -91,7 +114,7 @@
             // 
             this.lblTextoBemVindo.AutoSize = true;
             this.lblTextoBemVindo.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextoBemVindo.Location = new System.Drawing.Point(186, 180);
+            this.lblTextoBemVindo.Location = new System.Drawing.Point(186, 197);
             this.lblTextoBemVindo.Name = "lblTextoBemVindo";
             this.lblTextoBemVindo.Size = new System.Drawing.Size(180, 45);
             this.lblTextoBemVindo.TabIndex = 1;
@@ -100,32 +123,23 @@
             // pbLogo
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(102, 3);
+            this.pbLogo.Location = new System.Drawing.Point(102, -4);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(348, 232);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
-            // lblTextoCodigo
+            // lblCopyRight
             // 
-            this.lblTextoCodigo.AutoSize = true;
-            this.lblTextoCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextoCodigo.Location = new System.Drawing.Point(90, 265);
-            this.lblTextoCodigo.Name = "lblTextoCodigo";
-            this.lblTextoCodigo.Size = new System.Drawing.Size(80, 25);
-            this.lblTextoCodigo.TabIndex = 5;
-            this.lblTextoCodigo.Text = "Código";
-            // 
-            // lblTextoSenha
-            // 
-            this.lblTextoSenha.AutoSize = true;
-            this.lblTextoSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextoSenha.Location = new System.Drawing.Point(90, 348);
-            this.lblTextoSenha.Name = "lblTextoSenha";
-            this.lblTextoSenha.Size = new System.Drawing.Size(74, 25);
-            this.lblTextoSenha.TabIndex = 6;
-            this.lblTextoSenha.Text = "Senha";
+            this.lblCopyRight.AutoSize = true;
+            this.lblCopyRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCopyRight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.lblCopyRight.Location = new System.Drawing.Point(95, 570);
+            this.lblCopyRight.Name = "lblCopyRight";
+            this.lblCopyRight.Size = new System.Drawing.Size(368, 20);
+            this.lblCopyRight.TabIndex = 7;
+            this.lblCopyRight.Text = "© 2026 Luck Games. Todos os direitos reservados.";
             // 
             // frmLogin
             // 
@@ -156,6 +170,7 @@
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Label lblTextoSenha;
         private System.Windows.Forms.Label lblTextoCodigo;
+        private System.Windows.Forms.Label lblCopyRight;
     }
 }
 
