@@ -41,16 +41,36 @@ namespace projeto_integrador
         {
             
 
-
-            if (txtCodigoUser.Text == codUser && txtSenha.Text == senhaUser)
+            try
             {
-                MessageBox.Show("Bem-vindo!");
+                if (txtCodigoUser.Text.Equals(codUser) && txtSenha.Text.Equals(senhaUser))
+                {
+                    var dashboard = new FormDashboard();
+                    dashboard.Show();
+
+                    this.Visible = false;
+                }
+
+                else
+                {
+                    MessageBox.Show("Usuário ou Senha incorretos.", 
+                                    "Falha", 
+                                    MessageBoxButtons.OK, 
+                                    MessageBoxIcon.Error);
+
+                    txtCodigoUser.Focus();
+                    txtSenha.Text = "";
+
+                }
             }
-
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Senha incorreta.");
-                   
+
+                MessageBox.Show("Desculpe", 
+                                ex.Message, 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Error);
+            
             }
 
         }
