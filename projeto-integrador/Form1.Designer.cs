@@ -99,7 +99,7 @@
             // 
             this.lblTextoCodigo.AutoSize = true;
             this.lblTextoCodigo.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextoCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTextoCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lblTextoCodigo.Location = new System.Drawing.Point(90, 265);
             this.lblTextoCodigo.Name = "lblTextoCodigo";
             this.lblTextoCodigo.Size = new System.Drawing.Size(83, 30);
