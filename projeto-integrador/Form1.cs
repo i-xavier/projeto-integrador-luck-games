@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace projeto_integrador
 {
@@ -17,8 +18,9 @@ namespace projeto_integrador
         public frmLogin()
         {
             InitializeComponent();
-
             this.ClientSize = new Size(550, 600);
+            this.Load += frmLogin_Load;
+            panel1.Resize += panel1_Resize;
         }
 
         private void frmLogin_Resize(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace projeto_integrador
 
         private void Logar(object sender, EventArgs e)
         {
-            
+
 
             try
             {
@@ -53,9 +55,9 @@ namespace projeto_integrador
 
                 else
                 {
-                    MessageBox.Show("Usuário ou Senha incorretos.", 
-                                    "Falha", 
-                                    MessageBoxButtons.OK, 
+                    MessageBox.Show("Usuário ou Senha incorretos.",
+                                    "Falha",
+                                    MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
 
                     txtCodigoUser.Focus();
@@ -66,13 +68,36 @@ namespace projeto_integrador
             catch (Exception ex)
             {
 
-                MessageBox.Show("Desculpe", 
-                                ex.Message, 
-                                MessageBoxButtons.OK, 
+                MessageBox.Show("Desculpe",
+                                ex.Message,
+                                MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-            
-            }
 
+            }
         }
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            ArredondarPainel(panel1, 30);
+        }
+
+        private void panel1_Resize(object sender, EventArgs e)
+        {
+            ArredondarPainel(panel1, 30);
+        }
+
+        private void ArredondarPainel(Panel panel, int raio)
+        {
+            GraphicsPath path = new GraphicsPath();
+
+            path.AddArc(0, 0, raio, raio, 180, 90);
+            path.AddArc(panel.Width - raio, 0, raio, raio, 270, 90);
+            path.AddArc(panel.Width - raio, panel.Height - raio, raio, raio, 0, 90);
+            path.AddArc(0, panel.Height - raio, raio, raio, 90, 90);
+
+            path.CloseFigure();
+
+            panel.Region = new Region(path);
+        }
+
     }
 }
