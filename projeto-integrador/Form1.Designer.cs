@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabelEsqueciSenha = new System.Windows.Forms.LinkLabel();
             this.lblCopyRight = new System.Windows.Forms.Label();
             this.lblTextoSenha = new System.Windows.Forms.Label();
             this.lblTextoCodigo = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.txtCodigoUser = new System.Windows.Forms.TextBox();
             this.lblTextoBemVindo = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.linkLabelEsqueciSenha = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +60,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(550, 600);
             this.panel1.TabIndex = 0;
+            // 
+            // linkLabelEsqueciSenha
+            // 
+            this.linkLabelEsqueciSenha.AutoSize = true;
+            this.linkLabelEsqueciSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelEsqueciSenha.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.linkLabelEsqueciSenha.Location = new System.Drawing.Point(318, 419);
+            this.linkLabelEsqueciSenha.Name = "linkLabelEsqueciSenha";
+            this.linkLabelEsqueciSenha.Size = new System.Drawing.Size(151, 24);
+            this.linkLabelEsqueciSenha.TabIndex = 8;
+            this.linkLabelEsqueciSenha.TabStop = true;
+            this.linkLabelEsqueciSenha.Text = "Esqueci a senha";
             // 
             // lblCopyRight
             // 
@@ -87,7 +99,7 @@
             // 
             this.lblTextoCodigo.AutoSize = true;
             this.lblTextoCodigo.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextoCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
+            this.lblTextoCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTextoCodigo.Location = new System.Drawing.Point(90, 265);
             this.lblTextoCodigo.Name = "lblTextoCodigo";
             this.lblTextoCodigo.Size = new System.Drawing.Size(83, 30);
@@ -149,18 +161,6 @@
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
-            // 
-            // linkLabelEsqueciSenha
-            // 
-            this.linkLabelEsqueciSenha.AutoSize = true;
-            this.linkLabelEsqueciSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelEsqueciSenha.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.linkLabelEsqueciSenha.Location = new System.Drawing.Point(318, 419);
-            this.linkLabelEsqueciSenha.Name = "linkLabelEsqueciSenha";
-            this.linkLabelEsqueciSenha.Size = new System.Drawing.Size(151, 24);
-            this.linkLabelEsqueciSenha.TabIndex = 8;
-            this.linkLabelEsqueciSenha.TabStop = true;
-            this.linkLabelEsqueciSenha.Text = "Esqueci a senha";
             // 
             // frmLogin
             // 
