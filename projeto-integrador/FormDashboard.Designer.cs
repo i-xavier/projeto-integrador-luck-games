@@ -38,17 +38,18 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 544);
+            this.panel1.Size = new System.Drawing.Size(319, 1012);
             this.panel1.TabIndex = 0;
             // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 548);
+            this.ClientSize = new System.Drawing.Size(1266, 760);
             this.Controls.Add(this.panel1);
             this.Name = "FormDashboard";
             this.Text = "FormDashboard";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }
