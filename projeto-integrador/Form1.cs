@@ -41,38 +41,28 @@ namespace projeto_integrador
 
         private void Logar(object sender, EventArgs e)
         {
-
-
             try
             {
                 if (txtCodigoUser.Text.Equals(codUser) && txtSenha.Text.Equals(senhaUser))
                 {
-                    var dashboard = new FormDashboard();
-                    dashboard.Show();
-
-                    this.Visible = false;
+                    this.DialogResult = DialogResult.OK; // sinaliza sucesso e fecha
                 }
-
                 else
                 {
                     MessageBox.Show("Usuário ou Senha incorretos.",
                                     "Falha",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
-
                     txtCodigoUser.Focus();
                     txtSenha.Text = "";
-
                 }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Desculpe",
                                 ex.Message,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-
             }
         }
         private void frmLogin_Load(object sender, EventArgs e)

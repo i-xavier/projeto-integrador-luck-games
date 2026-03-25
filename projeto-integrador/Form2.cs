@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace projeto_integrador
 {
-    public partial class FormDashboard : Form
+    public partial class Form2 : Form
     {
-        public FormDashboard()
+        public Form2()
         {
             InitializeComponent();
         }

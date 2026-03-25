@@ -33,3 +33,5 @@ C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integr
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.csproj.CoreCompileInputs.cache
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.exe
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.pdb
+C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador\projeto-integrador\obj\Debug\projeto_integrador.FormHome.resources
+C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador\projeto-integrador\obj\Debug\projeto_integrador.Form2.resources
