@@ -129,7 +129,7 @@
             this.btnVendas.Text = "          Vendas";
             this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVendas.UseVisualStyleBackColor = true;
-            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
+     
             // 
             // btnOrdens
             // 

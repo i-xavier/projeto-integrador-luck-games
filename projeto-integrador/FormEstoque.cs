@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace projeto_integrador
 {
-    public partial class Form2 : Form
+    public partial class FormEstoque : Form
     {
-        public Form2()
+        public FormEstoque()
         {
             InitializeComponent();
         }

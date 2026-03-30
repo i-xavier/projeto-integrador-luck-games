@@ -24,37 +24,32 @@ namespace projeto_integrador
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form2());
+            openChildForm(new FormDashboard());
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormClientes());
         }
 
         private void btnOrdens_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnVendas_Click(object sender, EventArgs e)
-        {
-
+            openChildForm(new FormOrdens());
         }
 
         private void btnEstoque_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormEstoque());
         }
 
         private void btnAparelhos_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormAparelhos());
         }
 
         private void btnAcompanhamento_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormAcompanhamento());
         }
 
         private Form activeForm = null;
