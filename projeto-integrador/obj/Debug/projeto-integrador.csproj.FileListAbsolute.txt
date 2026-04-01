@@ -48,3 +48,16 @@ C:\Users\pietro.froliveira\source\repos\projeto-integrador-luck-games\projeto-in
 C:\Users\pietro.froliveira\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.csproj.CoreCompileInputs.cache
 C:\Users\pietro.froliveira\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.exe
 C:\Users\pietro.froliveira\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.pdb
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\bin\Debug\projeto-integrador.exe.config
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\bin\Debug\projeto-integrador.exe
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\bin\Debug\projeto-integrador.pdb
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.csproj.AssemblyReference.cache
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.exe.config
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.frmLogin.resources
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.Form2.resources
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormHome.resources
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.Properties.Resources.resources
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.csproj.GenerateResource.cache
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.csproj.CoreCompileInputs.cache
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.exe
+C:\Users\jean.lgsantos\source\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.pdb

@@ -30,13 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAlterasenha = new System.Windows.Forms.LinkLabel();
+            this.btnCriarconta = new System.Windows.Forms.Button();
             this.lblCopyRight = new System.Windows.Forms.Label();
             this.lblTextoSenha = new System.Windows.Forms.Label();
             this.lblTextoCodigo = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtCodigoUser = new System.Windows.Forms.TextBox();
-            this.lblTextoBemVindo = new System.Windows.Forms.Label();
+            this.lblTextoBoasVindas = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -46,25 +48,52 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lblAlterasenha);
+            this.panel1.Controls.Add(this.btnCriarconta);
             this.panel1.Controls.Add(this.lblCopyRight);
             this.panel1.Controls.Add(this.lblTextoSenha);
             this.panel1.Controls.Add(this.lblTextoCodigo);
             this.panel1.Controls.Add(this.btnEntrar);
             this.panel1.Controls.Add(this.txtSenha);
             this.panel1.Controls.Add(this.txtCodigoUser);
-            this.panel1.Controls.Add(this.lblTextoBemVindo);
+            this.panel1.Controls.Add(this.lblTextoBoasVindas);
             this.panel1.Controls.Add(this.pbLogo);
-            this.panel1.Location = new System.Drawing.Point(289, 58);
+            this.panel1.Location = new System.Drawing.Point(347, 81);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(550, 600);
+            this.panel1.Size = new System.Drawing.Size(550, 644);
             this.panel1.TabIndex = 0;
+            // 
+            // lblAlterasenha
+            // 
+            this.lblAlterasenha.AutoSize = true;
+            this.lblAlterasenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlterasenha.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.lblAlterasenha.Location = new System.Drawing.Point(294, 427);
+            this.lblAlterasenha.Name = "lblAlterasenha";
+            this.lblAlterasenha.Size = new System.Drawing.Size(175, 20);
+            this.lblAlterasenha.TabIndex = 9;
+            this.lblAlterasenha.TabStop = true;
+            this.lblAlterasenha.Text = "Esqueceu a Senha?";
+            // 
+            // btnCriarconta
+            // 
+            this.btnCriarconta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnCriarconta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCriarconta.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCriarconta.ForeColor = System.Drawing.Color.White;
+            this.btnCriarconta.Location = new System.Drawing.Point(84, 526);
+            this.btnCriarconta.Name = "btnCriarconta";
+            this.btnCriarconta.Size = new System.Drawing.Size(390, 44);
+            this.btnCriarconta.TabIndex = 8;
+            this.btnCriarconta.Text = "Criar conta ";
+            this.btnCriarconta.UseVisualStyleBackColor = false;
             // 
             // lblCopyRight
             // 
             this.lblCopyRight.AutoSize = true;
             this.lblCopyRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCopyRight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.lblCopyRight.Location = new System.Drawing.Point(95, 570);
+            this.lblCopyRight.Location = new System.Drawing.Point(95, 608);
             this.lblCopyRight.Name = "lblCopyRight";
             this.lblCopyRight.Size = new System.Drawing.Size(368, 20);
             this.lblCopyRight.TabIndex = 7;
@@ -97,9 +126,9 @@
             // 
             this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.btnEntrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEntrar.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrar.ForeColor = System.Drawing.Color.White;
-            this.btnEntrar.Location = new System.Drawing.Point(84, 467);
+            this.btnEntrar.Location = new System.Drawing.Point(84, 477);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(390, 44);
             this.btnEntrar.TabIndex = 4;
@@ -128,16 +157,16 @@
             this.txtCodigoUser.Size = new System.Drawing.Size(390, 38);
             this.txtCodigoUser.TabIndex = 2;
             // 
-            // lblTextoBemVindo
+            // lblTextoBoasVindas
             // 
-            this.lblTextoBemVindo.AutoSize = true;
-            this.lblTextoBemVindo.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextoBemVindo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
-            this.lblTextoBemVindo.Location = new System.Drawing.Point(186, 197);
-            this.lblTextoBemVindo.Name = "lblTextoBemVindo";
-            this.lblTextoBemVindo.Size = new System.Drawing.Size(183, 45);
-            this.lblTextoBemVindo.TabIndex = 1;
-            this.lblTextoBemVindo.Text = "Bem-Vindo";
+            this.lblTextoBoasVindas.AutoSize = true;
+            this.lblTextoBoasVindas.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoBoasVindas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
+            this.lblTextoBoasVindas.Location = new System.Drawing.Point(186, 197);
+            this.lblTextoBoasVindas.Name = "lblTextoBoasVindas";
+            this.lblTextoBoasVindas.Size = new System.Drawing.Size(200, 45);
+            this.lblTextoBoasVindas.TabIndex = 1;
+            this.lblTextoBoasVindas.Text = "Boas-Vindas";
             // 
             // pbLogo
             // 
@@ -154,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
-            this.ClientSize = new System.Drawing.Size(1075, 674);
+            this.ClientSize = new System.Drawing.Size(1191, 720);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.MinimumSize = new System.Drawing.Size(511, 595);
@@ -173,13 +202,15 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Label lblTextoBemVindo;
+        private System.Windows.Forms.Label lblTextoBoasVindas;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtCodigoUser;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Label lblTextoSenha;
         private System.Windows.Forms.Label lblTextoCodigo;
         private System.Windows.Forms.Label lblCopyRight;
+        private System.Windows.Forms.Button btnCriarconta;
+        private System.Windows.Forms.LinkLabel lblAlterasenha;
     }
 }
 
