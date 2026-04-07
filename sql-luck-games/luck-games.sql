@@ -17,7 +17,7 @@ CREATE TABLE aparelhos(
     num_serie VARCHAR (100) NOT NULL,
     modelo VARCHAR (100),
     data_entrada DATETIME,
-    descricao_problema VARCHAR (255),
+    descricao_problema TEXT,
     fk_id_cliente INT,
     FOREIGN KEY (fk_id_cliente) REFERENCES clientes(id_cliente)
 );
