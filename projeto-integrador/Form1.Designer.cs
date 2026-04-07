@@ -40,6 +40,7 @@
             this.txtCodigoUser = new System.Windows.Forms.TextBox();
             this.lblTextoBoasVindas = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -211,6 +212,7 @@
         private System.Windows.Forms.Label lblCopyRight;
         private System.Windows.Forms.Button btnCriarconta;
         private System.Windows.Forms.LinkLabel lblAlterasenha;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }
 
