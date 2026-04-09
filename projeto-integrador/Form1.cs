@@ -89,5 +89,13 @@ namespace projeto_integrador
             panel.Region = new Region(path);
         }
 
+        private void CriarConta(object sender, EventArgs e)
+        {
+            Form3 form = new Form3();
+            this.Hide();
+            this.Close();
+            form.ShowDialog();
+
+        }
     }
 }

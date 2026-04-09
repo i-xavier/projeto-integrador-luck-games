@@ -66,7 +66,7 @@ namespace projeto_integrador
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            panelFundo.Controls.Add(childForm); // ← nome correto agora
+            panelFundo.Controls.Add(childForm); 
             panelFundo.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
