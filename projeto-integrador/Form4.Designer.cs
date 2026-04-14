@@ -126,9 +126,9 @@
             this.lblRecuperarSenha.ForeColor = System.Drawing.Color.White;
             this.lblRecuperarSenha.Location = new System.Drawing.Point(40, 25);
             this.lblRecuperarSenha.Name = "lblRecuperarSenha";
-            this.lblRecuperarSenha.Size = new System.Drawing.Size(312, 47);
+            this.lblRecuperarSenha.Size = new System.Drawing.Size(297, 47);
             this.lblRecuperarSenha.TabIndex = 0;
-            this.lblRecuperarSenha.Text = "Recuperar Senhas";
+            this.lblRecuperarSenha.Text = "Recuperar Senha";
             // 
             // frmEsqueceuSenha
             // 
