@@ -244,7 +244,7 @@
             this.Controls.Add(this.panelFundo);
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "FormHome";
-            this.Text = "FormHome";
+            this.Text = "0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormHome_Load);
             this.panelSideBar.ResumeLayout(false);

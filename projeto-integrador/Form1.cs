@@ -8,11 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
 
 namespace projeto_integrador
 {
     public partial class frmLogin : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+            (
+                int nLeft,
+                int nTop,
+                int nRight,
+                int nBottom,
+                int nWidthEllipse,
+                int nHeightEllipse
+            );
+
         String codUser = "123";
         String senhaUser = "123";
         public frmLogin()
@@ -22,6 +34,7 @@ namespace projeto_integrador
             this.Load += frmLogin_Load;
             panel1.Resize += panel1_Resize;
         }
+        
 
         private void frmLogin_Resize(object sender, EventArgs e)
         {
@@ -67,7 +80,21 @@ namespace projeto_integrador
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            ArredondarPainel(panel1, 30);
+            panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width,
+                panel1.Height, 25, 25));
+
+            txtCodigoUser.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtCodigoUser.Width,
+                txtCodigoUser.Height, 30, 30));
+
+            txtSenha.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtSenha.Width,
+               txtSenha.Height, 30, 30));
+
+            btnEntrar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnEntrar.Width,
+                btnEntrar.Height, 38, 38));
+
+            btnCriarconta.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnCriarconta.Width,
+                btnCriarconta.Height, 38, 38));
+
         }
 
         private void panel1_Resize(object sender, EventArgs e)
@@ -97,5 +124,7 @@ namespace projeto_integrador
             form.ShowDialog();
 
         }
+
+       
     }
 }
