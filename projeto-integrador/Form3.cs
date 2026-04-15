@@ -14,18 +14,18 @@ namespace projeto_integrador
     public partial class Form3 : Form
     {
         MySqlConnection Conexao;
-        string data_source = "datasource=localhost; username=root; password=; database=db_cadastro";
+        string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
 
-        public Form3()
+        public Form3(string texto)
         {
             InitializeComponent();
+            txtCodigoUser.Text = texto;
         }
-
 
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            try
+           try
             {
 
                 //Validando campos obrigatórios
@@ -55,19 +55,20 @@ namespace projeto_integrador
                     return;
                 }
 
-                //validação do CPF
-                /*string cpf = txtCPF.Text.Trim();
 
-                if (!isValidCPFLength(cpf))
+                //validação do Telefone
+                string telefone = txtTelefone.Text.Trim();
+
+                if (!isValidTelefoneLength(telefone))
                 {
                     MessageBox.Show(
-                        "Cpf Inválido. Certifique-se de que o CPF tenha 11 dígitos numéricos",
-                        "Validação de CPF",
+                        "Telefone Inválido. Certifique-se de que o Telefone tenha 11 dígitos numéricos",
+                        "Validação de Telefone",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
 
                     return;
-                }*/
+                }
 
                 //Cria a conexão com o banco de dados
                 Conexao = new MySqlConnection(data_source);
@@ -80,16 +81,16 @@ namespace projeto_integrador
                 };
 
                 cmd.Prepare();
-                cmd.CommandText = "INSERT INTO dadosdoclientes(nomecompleto, nomesocial, email, cpf) " +
-                    "VALUES(@nomecompleto, @nomesocial, @email, @cpf)";
+                cmd.CommandText = "INSERT INTO funcionario (nome_funcionario, cargo, telefone, tipo_acesso, senha) " +
+                    "VALUES(@nome_funcionario, @cargo, @telefone, @tipo_acesso, @senha)";
 
                 //Adiciona os parâmetros com os dados do formulário
-                cmd.Parameters.AddWithValue("@nomecompleto", txtNomeCompleto.Text.Trim());
+                cmd.Parameters.AddWithValue("@nome_funcionario", txtNomeCompleto.Text.Trim());
                 cmd.Parameters.AddWithValue("@cargo", txtCargo.Text.Trim());
                 cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text.Trim());
-                cmd.Parameters.AddWithValue("@cpf", txtCodigoUser.Text.Trim());
+                cmd.Parameters.AddWithValue("@tipo_acesso", txtCodigoUser.Text.Trim());
                 cmd.Parameters.AddWithValue("@senha", txtSenha.Text.Trim());
-                cmd.Parameters.AddWithValue("@confirmarsenha", txtConfirmarSenha.Text.Trim());
+
                 //cmd.Parameters.AddWithValue("@cpf", txtCodigoUser.Text.Trim());
 
                 //Executa o comando de inserção no banco
@@ -97,23 +98,19 @@ namespace projeto_integrador
 
                 //Mensagem de sucesso
                 MessageBox.Show(
-                    "Contato inserido com Sucesso: ",
+                    "Funcionario cadastrado com sucesso: ",
                     "Sucesso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                     );
 
-                //Limpa os campos após o sucesso
+               //Limpa os campos após o sucesso
                 txtNomeCompleto.Clear();
-                txtNomeSocial.Clear();
-                txtEmail.Clear();
-                txtCPF.Clear();
+                txtCargo.Clear();
+                txtTelefone.Clear();
+                //cbTipoAcesso.Clear;
+                txtSenha.Clear();
 
-                //Recarrega os clientes na ListView
-                carregar_clientes();
-
-                //Muda para a aba de consulta
-                tabControl.SelectedIndex = 1;
             }
             catch (MySqlException ex)
             {
@@ -146,6 +143,85 @@ namespace projeto_integrador
             form.ShowDialog();
         }
 
-      
+        /*
+        private void carregar_clientes_com_query(string query)
+        {
+            try
+            {
+                //Cria a conexão ocm o banco de dados
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
+
+                //Executa a consulta SQL fornecida
+                MySqlCommand cmd = new MySqlCommand(query, Conexao);
+
+                //Se a consulta contém o parâmetro @q, adiciona o valor da caixa de pesquisa
+                if (query.Contains("@q"))
+                {
+                    cmd.Parameters.AddWithValue("@q", "%" + txtBuscar.Text + "%");
+                }
+
+                //Executa o comando e obtém os resulttados
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                //Limpa os itens existentes no ListView antes de adiocnar novos
+                lstCliente.Items.Clear();
+
+                //Preenche o ListView com os dados dos cliente
+                while (reader.Read())
+                {
+                    string[] row =
+                    {
+                        Convert.ToString(reader.GetInt32(0)), //Código
+                        reader.GetString(1),                    //Nome Completo
+                        reader.GetString(2),                    //Nome Social
+                        reader.GetString(3),                    //E-mail
+                        reader.GetString(4),                     //CPF
+                    };
+
+                    //Adiicona a linha ao ListView
+                    lstCliente.Items.Add(new ListViewItem(row));
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                //Trata erros relacionados ao MySQL
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                //Trata outros tipos de erro
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            finally
+            {
+                //Garante que a conexão com o banco será fechda, mesmo se ocorrer erro
+                if (Conexao != null && Conexao.State == ConnectionState.Open)
+                {
+                    Conexao.Close();
+                }
+            }
+        }
+
+        private void carregar_clientes(int)
+        {
+            string query = "SELECT MAX(id_funcionario) AS maior_id FROM funcionario";
+            carregar_clientes_com_query(query);
+        }
+        */
+
+        private bool isValidTelefoneLength(string telefone)
+        {
+            // Remove todos os caracteres não númericos
+            telefone = new string(telefone.Where(char.IsDigit).ToArray());
+
+            // Verifica se o CPF tem exatamente 11 dígitos;
+            return telefone.Length == 11;
+        }
+
     }
 }

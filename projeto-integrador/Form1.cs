@@ -1,18 +1,23 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
+using MySql.Data.MySqlClient;
 
 namespace projeto_integrador
 {
     public partial class frmLogin : Form
     {
+        String Valor = "";
+        MySqlConnection Conexao;
+        string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
         String codUser = "123";
         String senhaUser = "123";
         public frmLogin()
@@ -91,11 +96,75 @@ namespace projeto_integrador
 
         private void CriarConta(object sender, EventArgs e)
         {
-            Form3 form = new Form3();
+            carregar_clientes();
+            Form3 form = new Form3(Valor);
             this.Hide();
             this.Close();
             form.ShowDialog();
 
+        }
+
+        private void carregar_clientes_com_query(string query)
+        {
+            try
+            {
+                //Cria a conexão ocm o banco de dados
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
+
+                //Executa a consulta SQL fornecida
+                MySqlCommand cmd = new MySqlCommand(query, Conexao);
+
+                //Se a consulta contém o parâmetro @q, adiciona o valor da caixa de pesquisa
+
+                //Executa o comando e obtém os resulttados
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                //Limpa os itens existentes no ListView antes de adiocnar novos
+                //lstCliente.Items.Clear();
+
+                //Preenche o ListView com os dados dos cliente
+                while (reader.Read())
+                {
+                    string[] row =
+                    {
+                        Convert.ToString(reader.GetInt32(0) + 1), //Código
+                    };
+
+                    //Adiciona a linha ao ListView
+                    
+
+
+                    Valor = row[0];
+                }
+            }
+            catch (MySqlException ex)
+            {
+                //Trata erros relacionados ao MySQL
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                //Trata outros tipos de erro
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            finally
+            {
+                //Garante que a conexão com o banco será fechda, mesmo se ocorrer erro
+                if (Conexao != null && Conexao.State == ConnectionState.Open)
+                {
+                    Conexao.Close();
+                }
+            }
+        }
+
+        private void carregar_clientes()
+        {
+            string query = "SELECT MAX(id_funcionario) FROM funcionario;";
+            carregar_clientes_com_query(query);
         }
     }
 }

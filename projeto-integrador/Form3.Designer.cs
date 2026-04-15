@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.panelCadUser = new System.Windows.Forms.Panel();
             this.btnConfirmar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTipoAcesso = new System.Windows.Forms.ComboBox();
             this.lblTipodeacesso = new System.Windows.Forms.Label();
             this.lblConfirmarSenha = new System.Windows.Forms.Label();
             this.lblSenha = new System.Windows.Forms.Label();
@@ -40,13 +40,13 @@
             this.txtConfirmarSenha = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtCodigoUser = new System.Windows.Forms.TextBox();
-            this.txtTelefone = new System.Windows.Forms.TextBox();
             this.lblCargo = new System.Windows.Forms.Label();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.lblNomecompleto = new System.Windows.Forms.Label();
             this.txtNomeCompleto = new System.Windows.Forms.TextBox();
             this.lblCadastrausuario = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.panelCadUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,8 +54,9 @@
             // 
             this.panelCadUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelCadUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(98)))), ((int)(((byte)(131)))));
+            this.panelCadUser.Controls.Add(this.txtTelefone);
             this.panelCadUser.Controls.Add(this.btnConfirmar);
-            this.panelCadUser.Controls.Add(this.comboBox1);
+            this.panelCadUser.Controls.Add(this.cbTipoAcesso);
             this.panelCadUser.Controls.Add(this.lblTipodeacesso);
             this.panelCadUser.Controls.Add(this.lblConfirmarSenha);
             this.panelCadUser.Controls.Add(this.lblSenha);
@@ -64,7 +65,6 @@
             this.panelCadUser.Controls.Add(this.txtConfirmarSenha);
             this.panelCadUser.Controls.Add(this.txtSenha);
             this.panelCadUser.Controls.Add(this.txtCodigoUser);
-            this.panelCadUser.Controls.Add(this.txtTelefone);
             this.panelCadUser.Controls.Add(this.lblCargo);
             this.panelCadUser.Controls.Add(this.txtCargo);
             this.panelCadUser.Controls.Add(this.lblNomecompleto);
@@ -90,21 +90,21 @@
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
-            // comboBox1
+            // cbTipoAcesso
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbTipoAcesso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbTipoAcesso.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoAcesso.FormattingEnabled = true;
+            this.cbTipoAcesso.Items.AddRange(new object[] {
             "Administrador(a)",
             "Técnico(a)",
             "Estoquista",
             "Recepcionista "});
-            this.comboBox1.Location = new System.Drawing.Point(321, 210);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 33);
-            this.comboBox1.TabIndex = 18;
-            this.comboBox1.Text = "Selecione";
+            this.cbTipoAcesso.Location = new System.Drawing.Point(321, 210);
+            this.cbTipoAcesso.Name = "cbTipoAcesso";
+            this.cbTipoAcesso.Size = new System.Drawing.Size(150, 33);
+            this.cbTipoAcesso.TabIndex = 18;
+            this.cbTipoAcesso.Text = "Selecione";
             // 
             // lblTipodeacesso
             // 
@@ -122,7 +122,7 @@
             this.lblConfirmarSenha.AutoSize = true;
             this.lblConfirmarSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfirmarSenha.ForeColor = System.Drawing.Color.White;
-            this.lblConfirmarSenha.Location = new System.Drawing.Point(78, 458);
+            this.lblConfirmarSenha.Location = new System.Drawing.Point(78, 406);
             this.lblConfirmarSenha.Name = "lblConfirmarSenha";
             this.lblConfirmarSenha.Size = new System.Drawing.Size(154, 25);
             this.lblConfirmarSenha.TabIndex = 14;
@@ -133,7 +133,7 @@
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSenha.ForeColor = System.Drawing.Color.White;
-            this.lblSenha.Location = new System.Drawing.Point(78, 389);
+            this.lblSenha.Location = new System.Drawing.Point(78, 337);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(64, 25);
             this.lblSenha.TabIndex = 13;
@@ -144,7 +144,7 @@
             this.lblCodigousuario.AutoSize = true;
             this.lblCodigousuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigousuario.ForeColor = System.Drawing.Color.White;
-            this.lblCodigousuario.Location = new System.Drawing.Point(78, 320);
+            this.lblCodigousuario.Location = new System.Drawing.Point(78, 258);
             this.lblCodigousuario.Name = "lblCodigousuario";
             this.lblCodigousuario.Size = new System.Drawing.Size(143, 25);
             this.lblCodigousuario.TabIndex = 12;
@@ -155,7 +155,7 @@
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefone.ForeColor = System.Drawing.Color.White;
-            this.lblTelefone.Location = new System.Drawing.Point(78, 251);
+            this.lblTelefone.Location = new System.Drawing.Point(319, 258);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(83, 25);
             this.lblTelefone.TabIndex = 11;
@@ -166,7 +166,7 @@
             this.txtConfirmarSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmarSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
-            this.txtConfirmarSenha.Location = new System.Drawing.Point(81, 486);
+            this.txtConfirmarSenha.Location = new System.Drawing.Point(81, 434);
             this.txtConfirmarSenha.Name = "txtConfirmarSenha";
             this.txtConfirmarSenha.Size = new System.Drawing.Size(390, 29);
             this.txtConfirmarSenha.TabIndex = 10;
@@ -176,7 +176,7 @@
             this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
-            this.txtSenha.Location = new System.Drawing.Point(81, 417);
+            this.txtSenha.Location = new System.Drawing.Point(81, 365);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(390, 29);
             this.txtSenha.TabIndex = 9;
@@ -186,20 +186,10 @@
             this.txtCodigoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtCodigoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
-            this.txtCodigoUser.Location = new System.Drawing.Point(81, 348);
+            this.txtCodigoUser.Location = new System.Drawing.Point(81, 295);
             this.txtCodigoUser.Name = "txtCodigoUser";
-            this.txtCodigoUser.Size = new System.Drawing.Size(390, 29);
+            this.txtCodigoUser.Size = new System.Drawing.Size(176, 29);
             this.txtCodigoUser.TabIndex = 8;
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
-            this.txtTelefone.Location = new System.Drawing.Point(81, 279);
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(390, 29);
-            this.txtTelefone.TabIndex = 7;
             // 
             // lblCargo
             // 
@@ -272,6 +262,15 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
+            // txtTelefone
+            // 
+            this.txtTelefone.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefone.Location = new System.Drawing.Point(322, 291);
+            this.txtTelefone.Mask = "(##) #####-####";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(149, 33);
+            this.txtTelefone.TabIndex = 20;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,15 +298,15 @@
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblCodigousuario;
         private System.Windows.Forms.Label lblTelefone;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTipoAcesso;
         private System.Windows.Forms.Label lblTipodeacesso;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.TextBox txtConfirmarSenha;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtCodigoUser;
-        private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.TextBox txtNomeCompleto;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.MaskedTextBox txtTelefone;
     }
 }
