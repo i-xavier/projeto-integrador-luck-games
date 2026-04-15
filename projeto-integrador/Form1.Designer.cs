@@ -80,6 +80,8 @@
             // 
             this.btnCriarconta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.btnCriarconta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCriarconta.FlatAppearance.BorderSize = 0;
+            this.btnCriarconta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCriarconta.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCriarconta.ForeColor = System.Drawing.Color.White;
             this.btnCriarconta.Location = new System.Drawing.Point(84, 526);
@@ -128,6 +130,8 @@
             // 
             this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.btnEntrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEntrar.FlatAppearance.BorderSize = 0;
+            this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrar.ForeColor = System.Drawing.Color.White;
             this.btnEntrar.Location = new System.Drawing.Point(84, 477);

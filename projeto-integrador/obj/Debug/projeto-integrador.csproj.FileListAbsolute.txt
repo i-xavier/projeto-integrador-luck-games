@@ -141,3 +141,5 @@ C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integr
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormHome.resources
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-.6425B44A.Up2Date
 C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.frmEsqueceuSenha.resources
+C:\Users\pietro.froliveira\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.Form3.resources
+C:\Users\pietro.froliveira\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.frmEsqueceuSenha.resources
