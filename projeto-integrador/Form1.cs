@@ -9,22 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
+
 using MySql.Data.MySqlClient;
-=======
+
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
->>>>>>> ee8bb7b20fbc81451d6a71002c45467541e744b8
-
 namespace projeto_integrador
 {
     public partial class frmLogin : Form
     {
-<<<<<<< HEAD
+
         String Valor = "";
         MySqlConnection Conexao;
         string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
-=======
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
             (
@@ -36,7 +34,7 @@ namespace projeto_integrador
                 int nHeightEllipse
             );
 
->>>>>>> ee8bb7b20fbc81451d6a71002c45467541e744b8
+
         String codUser = "123";
         String senhaUser = "123";
         public frmLogin()
@@ -138,7 +136,7 @@ namespace projeto_integrador
 
         }
 
-<<<<<<< HEAD
+
         private void carregar_clientes_com_query(string query)
         {
             try
@@ -201,8 +199,6 @@ namespace projeto_integrador
             string query = "SELECT MAX(id_funcionario) FROM funcionario;";
             carregar_clientes_com_query(query);
         }
-=======
-       
->>>>>>> ee8bb7b20fbc81451d6a71002c45467541e744b8
+
     }
 }
