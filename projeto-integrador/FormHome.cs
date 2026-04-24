@@ -29,7 +29,7 @@ namespace projeto_integrador
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormCliente());
         }
 
         private void btnOrdens_Click(object sender, EventArgs e)

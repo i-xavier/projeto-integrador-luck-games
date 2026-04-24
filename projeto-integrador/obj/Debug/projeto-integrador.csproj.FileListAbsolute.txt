@@ -189,3 +189,4 @@ C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador-luck-games\projeto
 C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.exe
 C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.pdb
 C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormCadastrarUsuario.resources
+C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormCliente.resources
