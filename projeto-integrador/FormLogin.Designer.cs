@@ -75,6 +75,7 @@
             this.lblAlterasenha.TabIndex = 9;
             this.lblAlterasenha.TabStop = true;
             this.lblAlterasenha.Text = "Esqueceu a Senha?";
+            this.lblAlterasenha.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAlterasenha_LinkClicked);
             // 
             // btnCriarconta
             // 

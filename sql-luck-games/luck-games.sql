@@ -92,3 +92,19 @@ CREATE TABLE movimentacao(
   fk_id_produto INT,
   FOREIGN KEY (fk_id_produto) REFERENCES produto (id_produto)
 );
+
+INSERT INTO cargo (nome_cargo ) VALUES
+("Técnico(a)"),
+("Estoquista"),
+("Atendente"),
+("Proprietário(a)");
+
+INSERT INTO nivel_acesso(nome_nivel) VALUES
+(1),
+(2),
+(3);
+
+INSERT INTO pergunta_seguranca(texto_pergunt) VALUES 
+("Qual é o nome da sua primeira escola?"),
+("Qual é o nome do seu primeiro pet?"),
+("Em que cidade sua mãe nasceu?"); 

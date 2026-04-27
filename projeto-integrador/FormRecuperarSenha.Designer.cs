@@ -139,6 +139,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmEsqueceuSenha";
             this.Text = "Esqueceu  a Senha";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

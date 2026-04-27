@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,22 +38,7 @@ namespace projeto_integrador
 
         }
 
-        private void btnVendas_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEstoque_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAparelhos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAcompanhamento_Click(object sender, EventArgs e)
         {
 
         }
@@ -70,6 +56,23 @@ namespace projeto_integrador
             panelFundo.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                frmLogin form = new frmLogin();
+                this.Hide();
+                this.Close();
+                form.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao abrir cadastro: " + ex.Message);
+            }
         }
     }
 }

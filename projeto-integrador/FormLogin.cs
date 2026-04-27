@@ -205,5 +205,12 @@ namespace projeto_integrador
             carregar_clientes_com_query(query);
         }
 
+        private void lblAlterasenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmEsqueceuSenha form = new frmEsqueceuSenha();
+            this.Hide();
+            this.Close();
+            form.ShowDialog();
+        }
     }
 }

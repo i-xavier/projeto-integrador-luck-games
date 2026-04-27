@@ -31,10 +31,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.panelSideBar = new System.Windows.Forms.Panel();
-            this.btnAcompanhamento = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.btnAparelhos = new System.Windows.Forms.Button();
             this.btnEstoque = new System.Windows.Forms.Button();
-            this.btnVendas = new System.Windows.Forms.Button();
             this.btnOrdens = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
@@ -53,10 +52,9 @@
             // 
             this.panelSideBar.AutoScroll = true;
             this.panelSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
-            this.panelSideBar.Controls.Add(this.btnAcompanhamento);
+            this.panelSideBar.Controls.Add(this.btnLogout);
             this.panelSideBar.Controls.Add(this.btnAparelhos);
             this.panelSideBar.Controls.Add(this.btnEstoque);
-            this.panelSideBar.Controls.Add(this.btnVendas);
             this.panelSideBar.Controls.Add(this.btnOrdens);
             this.panelSideBar.Controls.Add(this.btnClientes);
             this.panelSideBar.Controls.Add(this.btnDashboard);
@@ -67,22 +65,24 @@
             this.panelSideBar.Size = new System.Drawing.Size(236, 561);
             this.panelSideBar.TabIndex = 0;
             // 
-            // btnAcompanhamento
+            // btnLogout
             // 
-            this.btnAcompanhamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAcompanhamento.FlatAppearance.BorderSize = 0;
-            this.btnAcompanhamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcompanhamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcompanhamento.ForeColor = System.Drawing.Color.White;
-            this.btnAcompanhamento.Location = new System.Drawing.Point(0, 382);
-            this.btnAcompanhamento.Name = "btnAcompanhamento";
-            this.btnAcompanhamento.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAcompanhamento.Size = new System.Drawing.Size(236, 47);
-            this.btnAcompanhamento.TabIndex = 7;
-            this.btnAcompanhamento.Text = "          Acompanhamento";
-            this.btnAcompanhamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcompanhamento.UseVisualStyleBackColor = true;
-            this.btnAcompanhamento.Click += new System.EventHandler(this.btnAcompanhamento_Click);
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 335);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(236, 47);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "          Logout";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnAparelhos
             // 
@@ -91,15 +91,17 @@
             this.btnAparelhos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAparelhos.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAparelhos.ForeColor = System.Drawing.Color.White;
-            this.btnAparelhos.Location = new System.Drawing.Point(0, 335);
+            this.btnAparelhos.Image = ((System.Drawing.Image)(resources.GetObject("btnAparelhos.Image")));
+            this.btnAparelhos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAparelhos.Location = new System.Drawing.Point(0, 288);
             this.btnAparelhos.Name = "btnAparelhos";
             this.btnAparelhos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnAparelhos.Size = new System.Drawing.Size(236, 47);
-            this.btnAparelhos.TabIndex = 6;
+            this.btnAparelhos.TabIndex = 5;
             this.btnAparelhos.Text = "          Aparelhos";
             this.btnAparelhos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAparelhos.UseVisualStyleBackColor = true;
-            this.btnAparelhos.Click += new System.EventHandler(this.btnAparelhos_Click);
+            this.btnAparelhos.Click += new System.EventHandler(this.btnEstoque_Click);
             // 
             // btnEstoque
             // 
@@ -108,32 +110,16 @@
             this.btnEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstoque.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstoque.ForeColor = System.Drawing.Color.White;
-            this.btnEstoque.Location = new System.Drawing.Point(0, 288);
+            this.btnEstoque.Image = ((System.Drawing.Image)(resources.GetObject("btnEstoque.Image")));
+            this.btnEstoque.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstoque.Location = new System.Drawing.Point(0, 241);
             this.btnEstoque.Name = "btnEstoque";
             this.btnEstoque.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEstoque.Size = new System.Drawing.Size(236, 47);
-            this.btnEstoque.TabIndex = 5;
+            this.btnEstoque.TabIndex = 4;
             this.btnEstoque.Text = "          Estoque";
             this.btnEstoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstoque.UseVisualStyleBackColor = true;
-            this.btnEstoque.Click += new System.EventHandler(this.btnEstoque_Click);
-            // 
-            // btnVendas
-            // 
-            this.btnVendas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVendas.FlatAppearance.BorderSize = 0;
-            this.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVendas.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVendas.ForeColor = System.Drawing.Color.White;
-            this.btnVendas.Location = new System.Drawing.Point(0, 241);
-            this.btnVendas.Name = "btnVendas";
-            this.btnVendas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnVendas.Size = new System.Drawing.Size(236, 47);
-            this.btnVendas.TabIndex = 4;
-            this.btnVendas.Text = "          Vendas";
-            this.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendas.UseVisualStyleBackColor = true;
-            this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
             // 
             // btnOrdens
             // 
@@ -142,6 +128,8 @@
             this.btnOrdens.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrdens.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrdens.ForeColor = System.Drawing.Color.White;
+            this.btnOrdens.Image = ((System.Drawing.Image)(resources.GetObject("btnOrdens.Image")));
+            this.btnOrdens.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrdens.Location = new System.Drawing.Point(0, 194);
             this.btnOrdens.Name = "btnOrdens";
             this.btnOrdens.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -261,14 +249,13 @@
         private System.Windows.Forms.Panel panelSideBar;
         private System.Windows.Forms.Panel panelFundo;
         private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Button btnAcompanhamento;
         private System.Windows.Forms.Button btnAparelhos;
         private System.Windows.Forms.Button btnEstoque;
-        private System.Windows.Forms.Button btnVendas;
         private System.Windows.Forms.Button btnOrdens;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
