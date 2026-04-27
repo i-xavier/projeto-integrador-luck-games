@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastrarUsuario));
             this.panelCadUser = new System.Windows.Forms.Panel();
+            this.cbCargo = new System.Windows.Forms.ComboBox();
+            this.lblTituloResposta = new System.Windows.Forms.Label();
+            this.lblTituloPerguntaSecreta = new System.Windows.Forms.Label();
+            this.txtRespostaPerguntaSecreta = new System.Windows.Forms.TextBox();
+            this.cbPerguntaSecreta = new System.Windows.Forms.ComboBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.cbTipoAcesso = new System.Windows.Forms.ComboBox();
@@ -46,11 +51,6 @@
             this.txtNomeCompleto = new System.Windows.Forms.TextBox();
             this.lblCadastrausuario = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.cbPerguntaSecreta = new System.Windows.Forms.ComboBox();
-            this.txtRespostaPerguntaSecreta = new System.Windows.Forms.TextBox();
-            this.lblTituloPerguntaSecreta = new System.Windows.Forms.Label();
-            this.lblTituloResposta = new System.Windows.Forms.Label();
-            this.cbCargo = new System.Windows.Forms.ComboBox();
             this.panelCadUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,14 +83,80 @@
             this.panelCadUser.Size = new System.Drawing.Size(550, 672);
             this.panelCadUser.TabIndex = 0;
             // 
+            // cbCargo
+            // 
+            this.cbCargo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbCargo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbCargo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCargo.FormattingEnabled = true;
+            this.cbCargo.Items.AddRange(new object[] {
+            "Técnico",
+            "Atendente",
+            "Estoquista",
+            "Proprietário"});
+            this.cbCargo.Location = new System.Drawing.Point(297, 199);
+            this.cbCargo.Name = "cbCargo";
+            this.cbCargo.Size = new System.Drawing.Size(174, 33);
+            this.cbCargo.TabIndex = 25;
+            this.cbCargo.Text = "Selecione";
+            // 
+            // lblTituloResposta
+            // 
+            this.lblTituloResposta.AutoSize = true;
+            this.lblTituloResposta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloResposta.ForeColor = System.Drawing.Color.White;
+            this.lblTituloResposta.Location = new System.Drawing.Point(81, 517);
+            this.lblTituloResposta.Name = "lblTituloResposta";
+            this.lblTituloResposta.Size = new System.Drawing.Size(86, 25);
+            this.lblTituloResposta.TabIndex = 24;
+            this.lblTituloResposta.Text = "Resposta";
+            // 
+            // lblTituloPerguntaSecreta
+            // 
+            this.lblTituloPerguntaSecreta.AutoSize = true;
+            this.lblTituloPerguntaSecreta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloPerguntaSecreta.ForeColor = System.Drawing.Color.White;
+            this.lblTituloPerguntaSecreta.Location = new System.Drawing.Point(78, 448);
+            this.lblTituloPerguntaSecreta.Name = "lblTituloPerguntaSecreta";
+            this.lblTituloPerguntaSecreta.Size = new System.Drawing.Size(153, 25);
+            this.lblTituloPerguntaSecreta.TabIndex = 23;
+            this.lblTituloPerguntaSecreta.Text = "Pergunta secreta";
+            // 
+            // txtRespostaPerguntaSecreta
+            // 
+            this.txtRespostaPerguntaSecreta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtRespostaPerguntaSecreta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRespostaPerguntaSecreta.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRespostaPerguntaSecreta.Location = new System.Drawing.Point(81, 545);
+            this.txtRespostaPerguntaSecreta.Name = "txtRespostaPerguntaSecreta";
+            this.txtRespostaPerguntaSecreta.Size = new System.Drawing.Size(390, 32);
+            this.txtRespostaPerguntaSecreta.TabIndex = 22;
+            // 
+            // cbPerguntaSecreta
+            // 
+            this.cbPerguntaSecreta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbPerguntaSecreta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPerguntaSecreta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPerguntaSecreta.FormattingEnabled = true;
+            this.cbPerguntaSecreta.Items.AddRange(new object[] {
+            "Qual o nome do seu primeiro pet?",
+            "Qual sua comida favorita?",
+            "Nome da sua primeira escola?"});
+            this.cbPerguntaSecreta.Location = new System.Drawing.Point(81, 476);
+            this.cbPerguntaSecreta.Name = "cbPerguntaSecreta";
+            this.cbPerguntaSecreta.Size = new System.Drawing.Size(390, 33);
+            this.cbPerguntaSecreta.TabIndex = 21;
+            this.cbPerguntaSecreta.Text = "Selecione";
+            // 
             // txtTelefone
             // 
             this.txtTelefone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtTelefone.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(322, 271);
+            this.txtTelefone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTelefone.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefone.Location = new System.Drawing.Point(297, 272);
             this.txtTelefone.Mask = "(##) #####-####";
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(149, 33);
+            this.txtTelefone.Size = new System.Drawing.Size(174, 32);
             this.txtTelefone.TabIndex = 20;
             // 
             // btnConfirmar
@@ -111,15 +177,16 @@
             // cbTipoAcesso
             // 
             this.cbTipoAcesso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbTipoAcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbTipoAcesso.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipoAcesso.FormattingEnabled = true;
             this.cbTipoAcesso.Items.AddRange(new object[] {
             "basico",
             "tecnico",
             "admin"});
-            this.cbTipoAcesso.Location = new System.Drawing.Point(321, 199);
+            this.cbTipoAcesso.Location = new System.Drawing.Point(83, 199);
             this.cbTipoAcesso.Name = "cbTipoAcesso";
-            this.cbTipoAcesso.Size = new System.Drawing.Size(150, 33);
+            this.cbTipoAcesso.Size = new System.Drawing.Size(174, 33);
             this.cbTipoAcesso.TabIndex = 18;
             this.cbTipoAcesso.Text = "Selecione";
             // 
@@ -128,7 +195,7 @@
             this.lblTipodeacesso.AutoSize = true;
             this.lblTipodeacesso.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipodeacesso.ForeColor = System.Drawing.Color.White;
-            this.lblTipodeacesso.Location = new System.Drawing.Point(316, 171);
+            this.lblTipodeacesso.Location = new System.Drawing.Point(292, 171);
             this.lblTipodeacesso.Name = "lblTipodeacesso";
             this.lblTipodeacesso.Size = new System.Drawing.Size(138, 25);
             this.lblTipodeacesso.TabIndex = 17;
@@ -172,7 +239,7 @@
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefone.ForeColor = System.Drawing.Color.White;
-            this.lblTelefone.Location = new System.Drawing.Point(319, 243);
+            this.lblTelefone.Location = new System.Drawing.Point(292, 244);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(83, 25);
             this.lblTelefone.TabIndex = 11;
@@ -181,31 +248,34 @@
             // txtConfirmarSenha
             // 
             this.txtConfirmarSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmarSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmarSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
             this.txtConfirmarSenha.Location = new System.Drawing.Point(81, 405);
             this.txtConfirmarSenha.Name = "txtConfirmarSenha";
-            this.txtConfirmarSenha.Size = new System.Drawing.Size(390, 29);
+            this.txtConfirmarSenha.Size = new System.Drawing.Size(390, 28);
             this.txtConfirmarSenha.TabIndex = 10;
             // 
             // txtSenha
             // 
             this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
             this.txtSenha.Location = new System.Drawing.Point(81, 340);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(390, 29);
+            this.txtSenha.Size = new System.Drawing.Size(390, 28);
             this.txtSenha.TabIndex = 9;
             // 
             // txtCodigoUser
             // 
             this.txtCodigoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtCodigoUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodigoUser.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
             this.txtCodigoUser.Location = new System.Drawing.Point(81, 272);
             this.txtCodigoUser.Name = "txtCodigoUser";
-            this.txtCodigoUser.Size = new System.Drawing.Size(176, 33);
+            this.txtCodigoUser.Size = new System.Drawing.Size(176, 32);
             this.txtCodigoUser.TabIndex = 8;
             // 
             // lblCargo
@@ -233,11 +303,12 @@
             // txtNomeCompleto
             // 
             this.txtNomeCompleto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeCompleto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeCompleto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
             this.txtNomeCompleto.Location = new System.Drawing.Point(81, 130);
             this.txtNomeCompleto.Name = "txtNomeCompleto";
-            this.txtNomeCompleto.Size = new System.Drawing.Size(390, 29);
+            this.txtNomeCompleto.Size = new System.Drawing.Size(390, 28);
             this.txtNomeCompleto.TabIndex = 3;
             // 
             // lblCadastrausuario
@@ -269,69 +340,7 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // cbPerguntaSecreta
-            // 
-            this.cbPerguntaSecreta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.cbPerguntaSecreta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPerguntaSecreta.FormattingEnabled = true;
-            this.cbPerguntaSecreta.Items.AddRange(new object[] {
-            "Qual o nome do seu primeiro pet?",
-            "Qual sua comida favorita?",
-            "Nome da sua primeira escola?"});
-            this.cbPerguntaSecreta.Location = new System.Drawing.Point(81, 476);
-            this.cbPerguntaSecreta.Name = "cbPerguntaSecreta";
-            this.cbPerguntaSecreta.Size = new System.Drawing.Size(390, 33);
-            this.cbPerguntaSecreta.TabIndex = 21;
-            this.cbPerguntaSecreta.Text = "Selecione";
-            // 
-            // txtRespostaPerguntaSecreta
-            // 
-            this.txtRespostaPerguntaSecreta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtRespostaPerguntaSecreta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRespostaPerguntaSecreta.Location = new System.Drawing.Point(81, 545);
-            this.txtRespostaPerguntaSecreta.Name = "txtRespostaPerguntaSecreta";
-            this.txtRespostaPerguntaSecreta.Size = new System.Drawing.Size(390, 33);
-            this.txtRespostaPerguntaSecreta.TabIndex = 22;
-            // 
-            // lblTituloPerguntaSecreta
-            // 
-            this.lblTituloPerguntaSecreta.AutoSize = true;
-            this.lblTituloPerguntaSecreta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloPerguntaSecreta.ForeColor = System.Drawing.Color.White;
-            this.lblTituloPerguntaSecreta.Location = new System.Drawing.Point(78, 448);
-            this.lblTituloPerguntaSecreta.Name = "lblTituloPerguntaSecreta";
-            this.lblTituloPerguntaSecreta.Size = new System.Drawing.Size(153, 25);
-            this.lblTituloPerguntaSecreta.TabIndex = 23;
-            this.lblTituloPerguntaSecreta.Text = "Pergunta secreta";
-            // 
-            // lblTituloResposta
-            // 
-            this.lblTituloResposta.AutoSize = true;
-            this.lblTituloResposta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloResposta.ForeColor = System.Drawing.Color.White;
-            this.lblTituloResposta.Location = new System.Drawing.Point(81, 517);
-            this.lblTituloResposta.Name = "lblTituloResposta";
-            this.lblTituloResposta.Size = new System.Drawing.Size(86, 25);
-            this.lblTituloResposta.TabIndex = 24;
-            this.lblTituloResposta.Text = "Resposta";
-            // 
-            // cbCargo
-            // 
-            this.cbCargo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.cbCargo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCargo.FormattingEnabled = true;
-            this.cbCargo.Items.AddRange(new object[] {
-            "Técnico",
-            "Atendente",
-            "Estoquista",
-            "Proprietário"});
-            this.cbCargo.Location = new System.Drawing.Point(81, 199);
-            this.cbCargo.Name = "cbCargo";
-            this.cbCargo.Size = new System.Drawing.Size(176, 33);
-            this.cbCargo.TabIndex = 25;
-            this.cbCargo.Text = "Selecione";
-            // 
-            // Form3
+            // FormCadastrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -339,9 +348,10 @@
             this.ClientSize = new System.Drawing.Size(1356, 750);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.panelCadUser);
-            this.Name = "Form3";
+            this.Name = "FormCadastrarUsuario";
             this.Text = "Form3";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormCadastrarUsuario_Load);
             this.panelCadUser.ResumeLayout(false);
             this.panelCadUser.PerformLayout();
             this.ResumeLayout(false);

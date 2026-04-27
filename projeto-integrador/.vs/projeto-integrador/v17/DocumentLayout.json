@@ -1,62 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\",
+  "WorkspaceRootPath": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formcadastrarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formcadastrarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|c:\\users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|c:\\users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formrecuperarsenha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formrecuperarsenha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formrecuperarsenha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|c:\\users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formrecuperarsenha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formrecuperarsenha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formcadastrarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formcadastrarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formcadastrarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formcadastrarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formcadastrarusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formcadastrarusuario.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formcadastrarusuario.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formrecuperarsenha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formrecuperarsenha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formhome.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formhome.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|c:\\users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formcliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DE7F5F30-CC38-490A-808E-AED66EE4DFAE}|projeto-integrador.csproj|solutionrelative:formhome.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,29 +54,42 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FormLogin.cs",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.cs",
-              "RelativeDocumentMoniker": "FormLogin.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.cs",
-              "RelativeToolTip": "FormLogin.cs",
-              "ViewState": "AgIAALkAAAAAAAAAAAArwMsAAABXAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "FormCadastrarUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.cs",
+              "RelativeDocumentMoniker": "FormCadastrarUsuario.cs",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.cs",
+              "RelativeToolTip": "FormCadastrarUsuario.cs",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAmwMEAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T13:35:32.855Z",
+              "WhenOpened": "2026-04-24T23:35:30.311Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "FormCadastrarUsuario.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.cs",
+              "RelativeDocumentMoniker": "FormCadastrarUsuario.cs",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.cs [Design]",
+              "RelativeToolTip": "FormCadastrarUsuario.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T23:35:26.856Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "FormRecuperarSenha.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormRecuperarSenha.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormRecuperarSenha.cs",
               "RelativeDocumentMoniker": "FormRecuperarSenha.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormRecuperarSenha.cs [Design]",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormRecuperarSenha.cs [Design]",
               "RelativeToolTip": "FormRecuperarSenha.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-27T18:33:54.869Z",
@@ -96,11 +97,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "FormLogin.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.cs",
+              "RelativeDocumentMoniker": "FormLogin.cs",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.cs",
+              "RelativeToolTip": "FormLogin.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAwwGgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T13:35:32.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "FormHome.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.cs",
               "RelativeDocumentMoniker": "FormHome.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.cs [Design]",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.cs [Design]",
               "RelativeToolTip": "FormHome.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-20T14:22:02.61Z",
@@ -108,11 +122,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "FormCliente.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCliente.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCliente.cs",
               "RelativeDocumentMoniker": "FormCliente.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCliente.cs [Design]",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCliente.cs [Design]",
               "RelativeToolTip": "FormCliente.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-24T18:17:34.366Z",
@@ -120,36 +134,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormCadastrarUsuario.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.cs",
-              "RelativeDocumentMoniker": "FormCadastrarUsuario.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.cs [Design]",
-              "RelativeToolTip": "FormCadastrarUsuario.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T23:35:26.856Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "FormHome.cs",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.cs",
               "RelativeDocumentMoniker": "FormHome.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.cs",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.cs",
               "RelativeToolTip": "FormHome.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAA7wEUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-25T20:03:34.44Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "FormLogin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.cs",
               "RelativeDocumentMoniker": "FormLogin.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.cs [Design]",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.cs [Design]",
               "RelativeToolTip": "FormLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T02:26:52.6Z",
@@ -157,92 +159,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "FormRecuperarSenha.cs",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormRecuperarSenha.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormRecuperarSenha.cs",
               "RelativeDocumentMoniker": "FormRecuperarSenha.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormRecuperarSenha.cs",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormRecuperarSenha.cs",
               "RelativeToolTip": "FormRecuperarSenha.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwCgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-27T18:33:57.129Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FormCadastrarUsuario.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.Designer.cs",
-              "RelativeDocumentMoniker": "FormCadastrarUsuario.Designer.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.Designer.cs",
-              "RelativeToolTip": "FormCadastrarUsuario.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T18:26:36.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FormCadastrarUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.cs",
-              "RelativeDocumentMoniker": "FormCadastrarUsuario.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCadastrarUsuario.cs",
-              "RelativeToolTip": "FormCadastrarUsuario.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAcwJoAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T23:35:30.311Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "FormHome.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.Designer.cs",
-              "RelativeDocumentMoniker": "FormHome.Designer.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormHome.Designer.cs",
-              "RelativeToolTip": "FormHome.Designer.cs",
-              "ViewState": "AgIAANkAAAAAAAAAAAASwOEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T20:25:07.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 5,
               "Title": "FormCliente.cs",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCliente.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCliente.cs",
               "RelativeDocumentMoniker": "FormCliente.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCliente.cs",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormCliente.cs",
               "RelativeToolTip": "FormCliente.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAUwHUAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAUwHUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-24T20:39:45.634Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\Program.cs",
+              "ToolTip": "C:\\Users\\pietro.froliveira\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T20:11:09.806Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "FormLogin.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.Designer.cs",
-              "RelativeDocumentMoniker": "FormLogin.Designer.cs",
-              "ToolTip": "C:\\Users\\igor.xsantos1\\source\\repos\\projeto-integrador-luck-games\\projeto-integrador\\FormLogin.Designer.cs",
-              "RelativeToolTip": "FormLogin.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T13:35:56.461Z",
+              "WhenOpened": "2026-03-25T20:11:09.806Z",
               "EditorCaption": ""
             }
           ]

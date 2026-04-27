@@ -1,18 +1,30 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace projeto_integrador
 {
     public partial class FormCadastrarUsuario : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+           (
+               int nLeft,
+               int nTop,
+               int nRight,
+               int nBottom,
+               int nWidthEllipse,
+               int nHeightEllipse
+           );
+
         MySqlConnection Conexao;
         string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
 
@@ -153,6 +165,33 @@ namespace projeto_integrador
             this.Hide();
             this.Close();
             form.ShowDialog();
+        }
+
+        private void FormCadastrarUsuario_Load(object sender, EventArgs e)
+        {
+            txtCodigoUser.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtCodigoUser.Width,
+               txtCodigoUser.Height, 25, 25));
+
+            txtConfirmarSenha.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtConfirmarSenha.Width,
+               txtConfirmarSenha.Height, 25, 25));
+
+            txtNomeCompleto.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtNomeCompleto.Width,
+               txtNomeCompleto.Height, 25, 25));
+
+            txtRespostaPerguntaSecreta.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtRespostaPerguntaSecreta.Width,
+               txtRespostaPerguntaSecreta.Height, 25, 25));
+
+            txtSenha.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtSenha.Width,
+               txtSenha.Height, 25, 25));
+
+            txtTelefone.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtTelefone.Width,
+               txtTelefone.Height, 25, 25));
+
+            btnConfirmar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnConfirmar.Width,
+               btnConfirmar.Height, 25, 25));
+
+            panelCadUser.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelCadUser.Width,
+               panelCadUser.Height, 25, 25));
         }
     }
 }
