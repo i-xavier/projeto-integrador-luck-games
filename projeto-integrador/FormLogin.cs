@@ -43,6 +43,7 @@ namespace projeto_integrador
             this.ClientSize = new Size(550, 600);
             this.Load += frmLogin_Load;
             panel1.Resize += panel1_Resize;
+            this.AcceptButton = btnEntrar;
         }
         
 

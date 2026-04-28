@@ -31,7 +31,8 @@ namespace projeto_integrador
         public FormCadastrarUsuario(string texto)
         {
             InitializeComponent();
-            txtCodigoUser.Text = texto; 
+            txtCodigoUser.Text = texto;
+            this.AcceptButton = btnConfirmar;
 
             // Importante carregar os dados assim que o form abrir
             CarregarTodosOsCombos();
