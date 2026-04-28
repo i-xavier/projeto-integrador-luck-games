@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6));
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeCompleto = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtCPF = new System.Windows.Forms.TextBox();
             this.btnCadastrarCliente = new System.Windows.Forms.Button();
             this.lblNomeCompleto = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblCPF = new System.Windows.Forms.Label();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.btnFechar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -45,7 +47,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(118, 54);
+            this.label1.Location = new System.Drawing.Point(119, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(179, 30);
             this.label1.TabIndex = 0;
@@ -53,41 +55,48 @@
             // 
             // txtNomeCompleto
             // 
-            this.txtNomeCompleto.Location = new System.Drawing.Point(63, 132);
+            this.txtNomeCompleto.Location = new System.Drawing.Point(63, 148);
             this.txtNomeCompleto.Name = "txtNomeCompleto";
             this.txtNomeCompleto.Size = new System.Drawing.Size(292, 20);
             this.txtNomeCompleto.TabIndex = 1;
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(63, 195);
+            this.txtID.Location = new System.Drawing.Point(63, 208);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(100, 20);
             this.txtID.TabIndex = 2;
             // 
-            // txtEmail
+            // txtCPF
             // 
-            this.txtEmail.Location = new System.Drawing.Point(63, 256);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(292, 20);
-            this.txtEmail.TabIndex = 4;
+            this.txtCPF.Location = new System.Drawing.Point(63, 274);
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(292, 20);
+            this.txtCPF.TabIndex = 4;
             // 
             // btnCadastrarCliente
             // 
+            this.btnCadastrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnCadastrarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastrarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnCadastrarCliente.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(139, 304);
+            this.btnCadastrarCliente.ForeColor = System.Drawing.Color.Black;
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(139, 324);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
             this.btnCadastrarCliente.Size = new System.Drawing.Size(147, 29);
             this.btnCadastrarCliente.TabIndex = 5;
             this.btnCadastrarCliente.Text = "Cadastrar Cliente";
-            this.btnCadastrarCliente.UseVisualStyleBackColor = true;
+            this.btnCadastrarCliente.UseVisualStyleBackColor = false;
             this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click);
             // 
             // lblNomeCompleto
             // 
             this.lblNomeCompleto.AutoSize = true;
             this.lblNomeCompleto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeCompleto.Location = new System.Drawing.Point(60, 113);
+            this.lblNomeCompleto.ForeColor = System.Drawing.Color.White;
+            this.lblNomeCompleto.Location = new System.Drawing.Point(60, 128);
             this.lblNomeCompleto.Name = "lblNomeCompleto";
             this.lblNomeCompleto.Size = new System.Drawing.Size(109, 17);
             this.lblNomeCompleto.TabIndex = 6;
@@ -97,7 +106,8 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(60, 175);
+            this.lblID.ForeColor = System.Drawing.Color.White;
+            this.lblID.Location = new System.Drawing.Point(60, 188);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(22, 17);
             this.lblID.TabIndex = 7;
@@ -107,29 +117,48 @@
             // 
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefone.Location = new System.Drawing.Point(225, 175);
+            this.lblTelefone.ForeColor = System.Drawing.Color.White;
+            this.lblTelefone.Location = new System.Drawing.Point(225, 188);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(61, 17);
             this.lblTelefone.TabIndex = 8;
             this.lblTelefone.Text = "Telefone";
             // 
-            // label5
+            // lblCPF
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(60, 236);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 17);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Email";
+            this.lblCPF.AutoSize = true;
+            this.lblCPF.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPF.ForeColor = System.Drawing.Color.White;
+            this.lblCPF.Location = new System.Drawing.Point(60, 254);
+            this.lblCPF.Name = "lblCPF";
+            this.lblCPF.Size = new System.Drawing.Size(31, 17);
+            this.lblCPF.TabIndex = 9;
+            this.lblCPF.Text = "CPF";
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(228, 195);
+            this.txtTelefone.Location = new System.Drawing.Point(228, 208);
             this.txtTelefone.Mask = "(99) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(127, 20);
             this.txtTelefone.TabIndex = 10;
+            // 
+            // btnFechar
+            // 
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
+            this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFechar.Location = new System.Drawing.Point(12, 23);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnFechar.Size = new System.Drawing.Size(123, 35);
+            this.btnFechar.TabIndex = 11;
+            this.btnFechar.Text = "  Fechar";
+            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // Form6
             // 
@@ -137,18 +166,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(98)))), ((int)(((byte)(131)))));
             this.ClientSize = new System.Drawing.Size(420, 456);
+            this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.txtTelefone);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblCPF);
             this.Controls.Add(this.lblTelefone);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblNomeCompleto);
             this.Controls.Add(this.btnCadastrarCliente);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.txtNomeCompleto);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form6";
-            this.Text = "Form6";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastrar Cliente";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,12 +191,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeCompleto;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.Button btnCadastrarCliente;
         private System.Windows.Forms.Label lblNomeCompleto;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblTelefone;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
+        private System.Windows.Forms.Button btnFechar;
     }
 }

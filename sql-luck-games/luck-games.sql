@@ -104,7 +104,7 @@ INSERT INTO nivel_acesso(nome_nivel) VALUES
 (2),
 (3);
 
-INSERT INTO pergunta_seguranca(texto_pergunt) VALUES 
+INSERT INTO pergunta_seguranca(texto_pergunta) VALUES 
 ("Qual é o nome da sua primeira escola?"),
 ("Qual é o nome do seu primeiro pet?"),
 ("Em que cidade sua mãe nasceu?"); 

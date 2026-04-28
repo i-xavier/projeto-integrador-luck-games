@@ -21,7 +21,7 @@ namespace projeto_integrador
 
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
-            if (txtNomeCompleto.Text == "" || txtTelefone.Text == "" || txtEmail.Text == "")
+            if (txtNomeCompleto.Text == "" || txtTelefone.Text == "" || txtCPF.Text == "")
             {
                 MessageBox.Show("Preencha todos os campos!");
                 return;
@@ -35,9 +35,9 @@ namespace projeto_integrador
             }
 
             // Validação email
-            if (!txtEmail.Text.Contains("@"))
+            if (!txtCPF.Text.Contains("@"))
             {
-                MessageBox.Show("Email inválido!");
+                MessageBox.Show("CPF inválido!");
                 return;
             }
 
@@ -45,13 +45,14 @@ namespace projeto_integrador
 
             using (MySqlConnection conn = new MySqlConnection(conexao))
             {
-                string sql = "INSERT INTO clientes(nome, telefone, CPF) " +
-             "VALUES(@nome, @telefone, @CPF)";
+                string sql = "INSERT INTO cliente(nome, telefone, CPF) " +
+             "VALUES(@nome, @telefone, @CPF)" ;
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@nome", txtNomeCompleto.Text);
                     cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                    cmd.Parameters.AddWithValue("@CPF", txtCPF.Text);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -61,6 +62,12 @@ namespace projeto_integrador
             }
 
 
+
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
 
         }
     }
