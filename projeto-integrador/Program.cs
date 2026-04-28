@@ -8,22 +8,26 @@ namespace projeto_integrador
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            using (var login = new frmLogin())  
+            while (true)
             {
-                if (login.ShowDialog() == DialogResult.OK)
+                using (var login = new frmLogin())
                 {
-                    Application.Run(new FormHome());
+                    if (login.ShowDialog() != DialogResult.OK)
+                    {
+                        break; // fechou ou cancelou → encerra a aplicação
+                    }
                 }
+
+                Application.Run(new FormHome());
+                // Quando o FormHome fecha (logout), volta para o login
             }
         }
     }
 }
+

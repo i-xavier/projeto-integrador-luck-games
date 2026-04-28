@@ -64,29 +64,23 @@ namespace projeto_integrador
 
         private void Logar(object sender, EventArgs e)
         {
-            try
+            if (txtCodigoUser.Text == codUser &&
+                    txtSenha.Text == senhaUser)
             {
-                if (txtCodigoUser.Text.Equals(codUser) && txtSenha.Text.Equals(senhaUser))
-                {
-                    this.DialogResult = DialogResult.OK; // sinaliza sucesso e fecha
-                }
-                else
-                {
-                    MessageBox.Show("Usuário ou Senha incorretos.",
-                                    "Falha",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                    txtCodigoUser.Focus();
-                    txtSenha.Text = "";
-                }
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Desculpe",
-                                ex.Message,
+                MessageBox.Show("Usuário ou Senha incorretos.",
+                                "Falha",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
+
+                txtSenha.Clear();
+                txtCodigoUser.Focus();
             }
+
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {

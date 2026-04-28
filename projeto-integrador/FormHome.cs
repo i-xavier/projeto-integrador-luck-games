@@ -60,19 +60,7 @@ namespace projeto_integrador
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-
-            try
-            {
-                frmLogin form = new frmLogin();
-                this.Hide();
-                this.Close();
-                form.ShowDialog();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao abrir cadastro: " + ex.Message);
-            }
+            this.Close();
         }
     }
 }
