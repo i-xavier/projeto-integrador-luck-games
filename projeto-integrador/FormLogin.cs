@@ -213,7 +213,23 @@ namespace projeto_integrador
             this.Close();
             form.ShowDialog();
         }
-
         
+        private void btnOlhoAberto_Click(object sender, EventArgs e)
+        {
+            if (txtSenha.PasswordChar == '*')
+            {
+                btnOlhoFechado.BringToFront();
+                txtSenha.PasswordChar = '\0';
+            }
+        }
+
+        private void btnOlhoFechado_Click(object sender, EventArgs e)
+        {
+            if (txtSenha.PasswordChar == '\0')
+            {
+                btnOlhoAberto.BringToFront();
+                txtSenha.PasswordChar = '*';
+            }
+        }
     }
 }

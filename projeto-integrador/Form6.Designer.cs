@@ -55,23 +55,26 @@
             // 
             // txtNomeCompleto
             // 
+            this.txtNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeCompleto.Location = new System.Drawing.Point(63, 148);
             this.txtNomeCompleto.Name = "txtNomeCompleto";
-            this.txtNomeCompleto.Size = new System.Drawing.Size(292, 20);
+            this.txtNomeCompleto.Size = new System.Drawing.Size(292, 29);
             this.txtNomeCompleto.TabIndex = 1;
             // 
             // txtID
             // 
+            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(63, 208);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.Size = new System.Drawing.Size(100, 29);
             this.txtID.TabIndex = 2;
             // 
             // txtCPF
             // 
+            this.txtCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPF.Location = new System.Drawing.Point(63, 274);
             this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(292, 20);
+            this.txtCPF.Size = new System.Drawing.Size(292, 29);
             this.txtCPF.TabIndex = 4;
             // 
             // btnCadastrarCliente
@@ -81,11 +84,11 @@
             this.btnCadastrarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.btnCadastrarCliente.FlatAppearance.BorderSize = 0;
             this.btnCadastrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarCliente.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarCliente.ForeColor = System.Drawing.Color.Black;
             this.btnCadastrarCliente.Location = new System.Drawing.Point(139, 324);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
-            this.btnCadastrarCliente.Size = new System.Drawing.Size(147, 29);
+            this.btnCadastrarCliente.Size = new System.Drawing.Size(147, 40);
             this.btnCadastrarCliente.TabIndex = 5;
             this.btnCadastrarCliente.Text = "Cadastrar Cliente";
             this.btnCadastrarCliente.UseVisualStyleBackColor = false;
@@ -118,7 +121,7 @@
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefone.ForeColor = System.Drawing.Color.White;
-            this.lblTelefone.Location = new System.Drawing.Point(225, 188);
+            this.lblTelefone.Location = new System.Drawing.Point(204, 188);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(61, 17);
             this.lblTelefone.TabIndex = 8;
@@ -137,10 +140,11 @@
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(228, 208);
+            this.txtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefone.Location = new System.Drawing.Point(207, 208);
             this.txtTelefone.Mask = "(99) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(127, 20);
+            this.txtTelefone.Size = new System.Drawing.Size(148, 29);
             this.txtTelefone.TabIndex = 10;
             // 
             // btnFechar
@@ -181,6 +185,7 @@
             this.Name = "Form6";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Cliente";
+            this.Load += new System.EventHandler(this.Form6_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

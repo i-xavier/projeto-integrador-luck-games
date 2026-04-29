@@ -193,6 +193,51 @@ namespace projeto_integrador
 
             panelCadUser.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelCadUser.Width,
                panelCadUser.Height, 25, 25));
+
+            cbCargo.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbCargo.Width,
+               cbCargo.Height, 25, 25));
+
+            cbPerguntaSecreta.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbPerguntaSecreta.Width,
+               cbPerguntaSecreta.Height, 25, 25));
+
+            cbTipoAcesso.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbTipoAcesso.Width,
+               cbTipoAcesso.Height, 25, 25));
+        }
+
+        private void btnOlhoAberto_Click(object sender, EventArgs e)
+        {
+            if (txtSenha.PasswordChar == '*')
+            {
+                btnOlhoFechado.BringToFront();
+                txtSenha.PasswordChar = '\0';
+            }
+        }
+
+        private void btnOlhoFechado_Click(object sender, EventArgs e)
+        {
+            if (txtSenha.PasswordChar == '\0')
+            {
+                btnOlhoAberto.BringToFront();
+                txtSenha.PasswordChar = '*';
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmarSenha.PasswordChar == '*')
+            {
+                button1.BringToFront();
+                txtConfirmarSenha.PasswordChar = '\0';
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmarSenha.PasswordChar == '\0')
+            {
+                button2.BringToFront();
+                txtConfirmarSenha.PasswordChar = '*';
+            }
         }
     }
 }

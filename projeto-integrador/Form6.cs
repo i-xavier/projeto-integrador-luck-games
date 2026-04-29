@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,18 @@ namespace projeto_integrador
 {
     public partial class Form6 : Form
     {
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+           (
+               int nLeft,
+               int nTop,
+               int nRight,
+               int nBottom,
+               int nWidthEllipse,
+               int nHeightEllipse
+           );
+
         public Form6()
         {
             InitializeComponent();
@@ -69,6 +82,24 @@ namespace projeto_integrador
         {
             this.Close();
 
+        }
+
+        private void Form6_Load(object sender, EventArgs e)
+        {
+            txtCPF.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtCPF.Width,
+               txtCPF.Height, 25, 25));
+
+            txtID.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtID.Width,
+               txtID.Height, 25, 25));
+
+            txtNomeCompleto.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtNomeCompleto.Width,
+               txtNomeCompleto.Height, 25, 25));
+
+            txtTelefone.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtTelefone.Width,
+               txtTelefone.Height, 25, 25));
+
+            btnCadastrarCliente.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0,btnCadastrarCliente.Width,
+               btnCadastrarCliente.Height, 25, 25));
         }
     }
 }

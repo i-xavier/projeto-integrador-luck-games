@@ -51,6 +51,10 @@
             this.txtNomeCompleto = new System.Windows.Forms.TextBox();
             this.lblCadastrausuario = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnOlhoAberto = new System.Windows.Forms.Button();
+            this.btnOlhoFechado = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelCadUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +62,8 @@
             // 
             this.panelCadUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelCadUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(98)))), ((int)(((byte)(131)))));
+            this.panelCadUser.Controls.Add(this.button2);
+            this.panelCadUser.Controls.Add(this.btnOlhoAberto);
             this.panelCadUser.Controls.Add(this.cbCargo);
             this.panelCadUser.Controls.Add(this.lblTituloResposta);
             this.panelCadUser.Controls.Add(this.lblTituloPerguntaSecreta);
@@ -71,13 +77,15 @@
             this.panelCadUser.Controls.Add(this.lblSenha);
             this.panelCadUser.Controls.Add(this.lblCodigousuario);
             this.panelCadUser.Controls.Add(this.lblTelefone);
-            this.panelCadUser.Controls.Add(this.txtConfirmarSenha);
-            this.panelCadUser.Controls.Add(this.txtSenha);
             this.panelCadUser.Controls.Add(this.txtCodigoUser);
             this.panelCadUser.Controls.Add(this.lblCargo);
             this.panelCadUser.Controls.Add(this.lblNomecompleto);
             this.panelCadUser.Controls.Add(this.txtNomeCompleto);
             this.panelCadUser.Controls.Add(this.lblCadastrausuario);
+            this.panelCadUser.Controls.Add(this.btnOlhoFechado);
+            this.panelCadUser.Controls.Add(this.txtSenha);
+            this.panelCadUser.Controls.Add(this.button1);
+            this.panelCadUser.Controls.Add(this.txtConfirmarSenha);
             this.panelCadUser.Location = new System.Drawing.Point(433, 42);
             this.panelCadUser.Name = "panelCadUser";
             this.panelCadUser.Size = new System.Drawing.Size(550, 672);
@@ -105,7 +113,7 @@
             this.lblTituloResposta.AutoSize = true;
             this.lblTituloResposta.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloResposta.ForeColor = System.Drawing.Color.White;
-            this.lblTituloResposta.Location = new System.Drawing.Point(81, 517);
+            this.lblTituloResposta.Location = new System.Drawing.Point(76, 517);
             this.lblTituloResposta.Name = "lblTituloResposta";
             this.lblTituloResposta.Size = new System.Drawing.Size(86, 25);
             this.lblTituloResposta.TabIndex = 24;
@@ -165,7 +173,7 @@
             this.btnConfirmar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.Location = new System.Drawing.Point(150, 605);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(252, 51);
@@ -249,22 +257,24 @@
             // 
             this.txtConfirmarSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtConfirmarSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmarSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
+            this.txtConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmarSenha.ForeColor = System.Drawing.Color.Black;
             this.txtConfirmarSenha.Location = new System.Drawing.Point(81, 405);
             this.txtConfirmarSenha.Name = "txtConfirmarSenha";
-            this.txtConfirmarSenha.Size = new System.Drawing.Size(390, 28);
+            this.txtConfirmarSenha.PasswordChar = '*';
+            this.txtConfirmarSenha.Size = new System.Drawing.Size(390, 31);
             this.txtConfirmarSenha.TabIndex = 10;
             // 
             // txtSenha
             // 
             this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.ForeColor = System.Drawing.Color.Black;
             this.txtSenha.Location = new System.Drawing.Point(81, 340);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(390, 28);
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(390, 31);
             this.txtSenha.TabIndex = 9;
             // 
             // txtCodigoUser
@@ -272,8 +282,8 @@
             this.txtCodigoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtCodigoUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCodigoUser.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
-            this.txtCodigoUser.Location = new System.Drawing.Point(81, 272);
+            this.txtCodigoUser.ForeColor = System.Drawing.Color.Black;
+            this.txtCodigoUser.Location = new System.Drawing.Point(83, 273);
             this.txtCodigoUser.Name = "txtCodigoUser";
             this.txtCodigoUser.Size = new System.Drawing.Size(176, 32);
             this.txtCodigoUser.TabIndex = 8;
@@ -304,11 +314,11 @@
             // 
             this.txtNomeCompleto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtNomeCompleto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCompleto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
+            this.txtNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeCompleto.ForeColor = System.Drawing.Color.Black;
             this.txtNomeCompleto.Location = new System.Drawing.Point(81, 130);
             this.txtNomeCompleto.Name = "txtNomeCompleto";
-            this.txtNomeCompleto.Size = new System.Drawing.Size(390, 28);
+            this.txtNomeCompleto.Size = new System.Drawing.Size(390, 31);
             this.txtNomeCompleto.TabIndex = 3;
             // 
             // lblCadastrausuario
@@ -339,6 +349,58 @@
             this.btnVoltar.Text = "    Voltar";
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // btnOlhoAberto
+            // 
+            this.btnOlhoAberto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.btnOlhoAberto.FlatAppearance.BorderSize = 0;
+            this.btnOlhoAberto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOlhoAberto.Image = ((System.Drawing.Image)(resources.GetObject("btnOlhoAberto.Image")));
+            this.btnOlhoAberto.Location = new System.Drawing.Point(437, 340);
+            this.btnOlhoAberto.Name = "btnOlhoAberto";
+            this.btnOlhoAberto.Size = new System.Drawing.Size(24, 28);
+            this.btnOlhoAberto.TabIndex = 27;
+            this.btnOlhoAberto.UseVisualStyleBackColor = false;
+            this.btnOlhoAberto.Click += new System.EventHandler(this.btnOlhoAberto_Click);
+            // 
+            // btnOlhoFechado
+            // 
+            this.btnOlhoFechado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.btnOlhoFechado.FlatAppearance.BorderSize = 0;
+            this.btnOlhoFechado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOlhoFechado.Image = ((System.Drawing.Image)(resources.GetObject("btnOlhoFechado.Image")));
+            this.btnOlhoFechado.Location = new System.Drawing.Point(437, 340);
+            this.btnOlhoFechado.Name = "btnOlhoFechado";
+            this.btnOlhoFechado.Size = new System.Drawing.Size(23, 28);
+            this.btnOlhoFechado.TabIndex = 28;
+            this.btnOlhoFechado.UseVisualStyleBackColor = false;
+            this.btnOlhoFechado.Click += new System.EventHandler(this.btnOlhoFechado_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(437, 405);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(23, 28);
+            this.button2.TabIndex = 30;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(437, 405);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(23, 28);
+            this.button1.TabIndex = 31;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormCadastrarUsuario
             // 
@@ -382,5 +444,9 @@
         private System.Windows.Forms.ComboBox cbPerguntaSecreta;
         private System.Windows.Forms.Label lblTituloResposta;
         private System.Windows.Forms.ComboBox cbCargo;
+        private System.Windows.Forms.Button btnOlhoAberto;
+        private System.Windows.Forms.Button btnOlhoFechado;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

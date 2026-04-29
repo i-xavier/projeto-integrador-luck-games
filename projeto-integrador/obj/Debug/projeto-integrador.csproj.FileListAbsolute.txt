@@ -226,3 +226,4 @@ C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integr
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormCliente.resources
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormCadastrarUsuario.resources
 C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.Form6.resources
+C:\Users\pietro.froliveira\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.Form6.resources

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace projeto_integrador
 {
@@ -51,6 +52,24 @@ namespace projeto_integrador
 
             btnConfirmar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnConfirmar.Width,
                 btnConfirmar.Height, 30, 30));
+
+            cbPerguntaSecreta.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbPerguntaSecreta.Width,
+                cbPerguntaSecreta.Height, 20, 20));
+
+            txtRespostaPerguntaSecreta.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtRespostaPerguntaSecreta.Width,
+                txtRespostaPerguntaSecreta.Height, 20, 20));
+
+            button1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button1.Width,
+                button1.Height, 20, 20));
+
+            button2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button2.Width,
+                button2.Height, 20, 20));
+
+            button3.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button3.Width,
+                button3.Height, 20, 20));
+
+            button4.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button4.Width,
+                button4.Height, 20, 20));
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -59,6 +78,42 @@ namespace projeto_integrador
             this.Hide();
             this.Close();
             form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (txtNovaSenha.PasswordChar == '*')
+            {
+                button4.BringToFront();
+                txtNovaSenha.PasswordChar = '\0';
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (txtNovaSenha.PasswordChar == '\0')
+            {
+                button3.BringToFront();
+                txtNovaSenha.PasswordChar = '*';
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmarSenha.PasswordChar == '*')
+            {
+                button1.BringToFront();
+                txtConfirmarSenha.PasswordChar = '\0';
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmarSenha.PasswordChar == '\0')
+            {
+                button2.BringToFront();
+                txtConfirmarSenha.PasswordChar = '*';
+            }
         }
     }
     }

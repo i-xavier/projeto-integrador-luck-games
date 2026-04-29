@@ -41,6 +41,8 @@
             this.lblTextoBoasVindas = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.btnOlhoAberto = new System.Windows.Forms.Button();
+            this.btnOlhoFechado = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -49,19 +51,21 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnOlhoAberto);
             this.panel1.Controls.Add(this.lblAlterasenha);
             this.panel1.Controls.Add(this.btnCriarconta);
             this.panel1.Controls.Add(this.lblCopyRight);
             this.panel1.Controls.Add(this.lblTextoSenha);
             this.panel1.Controls.Add(this.lblTextoCodigo);
             this.panel1.Controls.Add(this.btnEntrar);
-            this.panel1.Controls.Add(this.txtSenha);
             this.panel1.Controls.Add(this.txtCodigoUser);
             this.panel1.Controls.Add(this.lblTextoBoasVindas);
             this.panel1.Controls.Add(this.pbLogo);
-            this.panel1.Location = new System.Drawing.Point(347, 81);
+            this.panel1.Controls.Add(this.btnOlhoFechado);
+            this.panel1.Controls.Add(this.txtSenha);
+            this.panel1.Location = new System.Drawing.Point(347, 69);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(550, 644);
+            this.panel1.Size = new System.Drawing.Size(550, 656);
             this.panel1.TabIndex = 0;
             // 
             // lblAlterasenha
@@ -69,7 +73,7 @@
             this.lblAlterasenha.AutoSize = true;
             this.lblAlterasenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlterasenha.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.lblAlterasenha.Location = new System.Drawing.Point(294, 427);
+            this.lblAlterasenha.Location = new System.Drawing.Point(299, 414);
             this.lblAlterasenha.Name = "lblAlterasenha";
             this.lblAlterasenha.Size = new System.Drawing.Size(175, 20);
             this.lblAlterasenha.TabIndex = 9;
@@ -146,22 +150,24 @@
             // txtSenha
             // 
             this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
             this.txtSenha.Location = new System.Drawing.Point(84, 378);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(390, 38);
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(390, 33);
             this.txtSenha.TabIndex = 3;
-            this.txtSenha.UseSystemPasswordChar = true;
             // 
             // txtCodigoUser
             // 
             this.txtCodigoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtCodigoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodigoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
             this.txtCodigoUser.Location = new System.Drawing.Point(84, 297);
             this.txtCodigoUser.Name = "txtCodigoUser";
-            this.txtCodigoUser.Size = new System.Drawing.Size(390, 38);
+            this.txtCodigoUser.Size = new System.Drawing.Size(390, 33);
             this.txtCodigoUser.TabIndex = 2;
             // 
             // lblTextoBoasVindas
@@ -169,7 +175,7 @@
             this.lblTextoBoasVindas.AutoSize = true;
             this.lblTextoBoasVindas.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextoBoasVindas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
-            this.lblTextoBoasVindas.Location = new System.Drawing.Point(186, 197);
+            this.lblTextoBoasVindas.Location = new System.Drawing.Point(183, 215);
             this.lblTextoBoasVindas.Name = "lblTextoBoasVindas";
             this.lblTextoBoasVindas.Size = new System.Drawing.Size(200, 45);
             this.lblTextoBoasVindas.TabIndex = 1;
@@ -178,12 +184,38 @@
             // pbLogo
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(102, -6);
+            this.pbLogo.Location = new System.Drawing.Point(99, 12);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(348, 232);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
+            // 
+            // btnOlhoAberto
+            // 
+            this.btnOlhoAberto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.btnOlhoAberto.FlatAppearance.BorderSize = 0;
+            this.btnOlhoAberto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOlhoAberto.Image = ((System.Drawing.Image)(resources.GetObject("btnOlhoAberto.Image")));
+            this.btnOlhoAberto.Location = new System.Drawing.Point(426, 378);
+            this.btnOlhoAberto.Name = "btnOlhoAberto";
+            this.btnOlhoAberto.Size = new System.Drawing.Size(37, 31);
+            this.btnOlhoAberto.TabIndex = 11;
+            this.btnOlhoAberto.UseVisualStyleBackColor = false;
+            this.btnOlhoAberto.Click += new System.EventHandler(this.btnOlhoAberto_Click);
+            // 
+            // btnOlhoFechado
+            // 
+            this.btnOlhoFechado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.btnOlhoFechado.FlatAppearance.BorderSize = 0;
+            this.btnOlhoFechado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOlhoFechado.Image = ((System.Drawing.Image)(resources.GetObject("btnOlhoFechado.Image")));
+            this.btnOlhoFechado.Location = new System.Drawing.Point(426, 378);
+            this.btnOlhoFechado.Name = "btnOlhoFechado";
+            this.btnOlhoFechado.Size = new System.Drawing.Size(37, 31);
+            this.btnOlhoFechado.TabIndex = 12;
+            this.btnOlhoFechado.UseVisualStyleBackColor = false;
+            this.btnOlhoFechado.Click += new System.EventHandler(this.btnOlhoFechado_Click);
             // 
             // frmLogin
             // 
@@ -219,6 +251,8 @@
         private System.Windows.Forms.Button btnCriarconta;
         private System.Windows.Forms.LinkLabel lblAlterasenha;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.Button btnOlhoAberto;
+        private System.Windows.Forms.Button btnOlhoFechado;
     }
 }
 
