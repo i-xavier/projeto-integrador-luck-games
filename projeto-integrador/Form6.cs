@@ -26,10 +26,11 @@ namespace projeto_integrador
                int nHeightEllipse
            );
 
-        public Form6()
+        public Form6(String codUser)
         {
             InitializeComponent();
             this.AcceptButton = btnCadastrarCliente;
+            txtID.Text = codUser;
         }
 
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
@@ -48,11 +49,21 @@ namespace projeto_integrador
             }
 
             // Validação email
-            if (!txtCPF.Text.Contains("@"))
+            /* if (!txtCPF.Text.Contains("@"))
+             {
+                 MessageBox.Show("CPF inválido!");
+                 return;
+             }*/
+
+            //Validação cpf
+
+            if (!txtCPF.Text.All(char.IsDigit) || txtCPF.Text.Length != 11)
             {
                 MessageBox.Show("CPF inválido!");
                 return;
             }
+
+
 
             string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
 

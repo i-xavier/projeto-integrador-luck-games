@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace projeto_integrador
 {
     public partial class FormCliente : Form
     {
+        String codUser = "";
+
         MySqlConnection Conexao;
         string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
 
@@ -26,7 +29,7 @@ namespace projeto_integrador
             lstCliente.LabelEdit = true; //Permite editar os títulos das colunas
             lstCliente.AllowColumnReorder = true; //Permite reordenar as colunas
             lstCliente.FullRowSelect = true; //Seleciona a linha inteira ao clica
-            lstCliente.GridLines = true; //Exibe a slinhas de grade no ListView
+            lstCliente.GridLines = false; //Exibe a slinhas de grade no ListView
 
             //Definindo as colunas do ListView
             lstCliente.Columns.Add("ID", 79, HorizontalAlignment.Left); //Coluna do Código
@@ -101,10 +104,67 @@ namespace projeto_integrador
             }
         }
 
+        private void checar_cod(string query)
+        {
+            try
+            {
+                int flag = 0;
+                //Cria a conexão ocm o banco de dados
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
+
+                //Executa a consulta SQL fornecida
+                MySqlCommand cmd = new MySqlCommand(query, Conexao);
+
+                //Se a consulta contém o parâmetro @q, adiciona o valor da caixa de pesquisa
+
+                //Executa o comando e obtém os resulttados
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                //Limpa os itens existentes no ListView antes de adiocnar novos
+                //lstCliente.Items.Clear();
+
+                //Preenche o ListView com os dados dos cliente
+                while (reader.Read())
+                {
+                    if (reader.IsDBNull(0))
+                    {
+                        codUser = "1"; // Valor padrão se a tabela estiver vazia
+                    }
+                    else
+                    {
+                        codUser = Convert.ToString(reader.GetInt32(0) + 1);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                //Trata erros relacionados ao MySQL
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                //Trata outros tipos de erro
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            finally
+            {
+                //Garante que a conexão com o banco será fechda, mesmo se ocorrer erro
+                if (Conexao != null && Conexao.State == ConnectionState.Open)
+                {
+                    Conexao.Close();
+                }
+            }
+        }
+
+
         private void carregar_clientes()
         {
-            string query = "Select * FROM cliente ORDER BY id_cliente DESC";
-            carregar_clientes_com_query(query);
+            string query = "SELECT COALESCE(MAX(id_cliente), 0) FROM cliente;";
+            checar_cod(query);
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -115,11 +175,13 @@ namespace projeto_integrador
 
         private void btnNovoCliente_Click(object sender, EventArgs e)
         {
-            Form6 form = new Form6();
+            carregar_clientes();
+            Form6 form = new Form6(codUser);
             //this.Hide();
             //this.Close();
             form.ShowDialog();
         }
+
 
         /*private void lstCliente_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {

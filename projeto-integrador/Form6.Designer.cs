@@ -55,6 +55,8 @@
             // 
             // txtNomeCompleto
             // 
+            this.txtNomeCompleto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtNomeCompleto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeCompleto.Location = new System.Drawing.Point(63, 148);
             this.txtNomeCompleto.Name = "txtNomeCompleto";
@@ -63,6 +65,8 @@
             // 
             // txtID
             // 
+            this.txtID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(63, 208);
             this.txtID.Name = "txtID";
@@ -71,6 +75,8 @@
             // 
             // txtCPF
             // 
+            this.txtCPF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtCPF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPF.Location = new System.Drawing.Point(63, 274);
             this.txtCPF.Name = "txtCPF";
@@ -84,9 +90,9 @@
             this.btnCadastrarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.btnCadastrarCliente.FlatAppearance.BorderSize = 0;
             this.btnCadastrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarCliente.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarCliente.ForeColor = System.Drawing.Color.Black;
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(139, 324);
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(135, 367);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
             this.btnCadastrarCliente.Size = new System.Drawing.Size(147, 40);
             this.btnCadastrarCliente.TabIndex = 5;
@@ -140,6 +146,8 @@
             // 
             // txtTelefone
             // 
+            this.txtTelefone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtTelefone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefone.Location = new System.Drawing.Point(207, 208);
             this.txtTelefone.Mask = "(99) 00000-0000";

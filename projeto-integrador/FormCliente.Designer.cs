@@ -110,9 +110,9 @@
             this.lstCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.lstCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(22)))));
             this.lstCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstCliente.ForeColor = System.Drawing.Color.Black;
+            this.lstCliente.ForeColor = System.Drawing.Color.White;
             this.lstCliente.HideSelection = false;
             this.lstCliente.Location = new System.Drawing.Point(287, 261);
             this.lstCliente.Name = "lstCliente";
