@@ -101,7 +101,7 @@
             this.btnAparelhos.Text = "          Aparelhos";
             this.btnAparelhos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAparelhos.UseVisualStyleBackColor = true;
-            this.btnAparelhos.Click += new System.EventHandler(this.btnEstoque_Click);
+            this.btnAparelhos.Click += new System.EventHandler(this.btnAparelhos_Click);
             // 
             // btnEstoque
             // 
@@ -120,6 +120,7 @@
             this.btnEstoque.Text = "          Estoque";
             this.btnEstoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstoque.UseVisualStyleBackColor = true;
+            this.btnEstoque.Click += new System.EventHandler(this.btnEstoque_Click);
             // 
             // btnOrdens
             // 

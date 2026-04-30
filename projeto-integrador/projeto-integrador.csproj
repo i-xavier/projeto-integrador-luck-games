@@ -95,23 +95,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAparelho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAparelho.Designer.cs">
+      <DependentUpon>FormAparelho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="FormEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="FormEstoque.Designer.cs">
+      <DependentUpon>FormEstoque.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCadastrarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCadastrarUsuario.Designer.cs">
       <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrdens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrdens.Designer.cs">
+      <DependentUpon>FormOrdens.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRecuperarSenha.cs">
       <SubType>Form</SubType>
@@ -139,20 +157,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAparelho.resx">
+      <DependentUpon>FormAparelho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCadastrarCliente.resx">
       <DependentUpon>FormCadastrarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="FormEstoque.resx">
+      <DependentUpon>FormEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCadastrarUsuario.resx">
       <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrdens.resx">
+      <DependentUpon>FormOrdens.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRecuperarSenha.resx">
       <DependentUpon>FormRecuperarSenha.cs</DependentUpon>

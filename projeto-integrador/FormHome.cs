@@ -25,7 +25,7 @@ namespace projeto_integrador
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form2());
+            openChildForm(new FormDashboard());
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -35,13 +35,9 @@ namespace projeto_integrador
 
         private void btnOrdens_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormOrdens());
         }
 
-        private void btnEstoque_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private Form activeForm = null;
         private void openChildForm(Form childForm)
@@ -61,6 +57,16 @@ namespace projeto_integrador
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAparelhos_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FormAparelho());
+        }
+
+        private void btnEstoque_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FormEstoque());
         }
     }
 }

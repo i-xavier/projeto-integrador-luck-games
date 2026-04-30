@@ -30,15 +30,44 @@ namespace projeto_integrador
             lstCliente.AllowColumnReorder = true; //Permite reordenar as colunas
             lstCliente.FullRowSelect = true; //Seleciona a linha inteira ao clica
             lstCliente.GridLines = false; //Exibe a slinhas de grade no ListView
+            lstCliente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lstCliente.OwnerDraw = true;
+
+
+
+            lstCliente.DrawColumnHeader += (sender, e) =>
+            {
+                using (Brush backBrush = new SolidBrush(Color.Black)) // cor do fundo
+                using (Brush textBrush = new SolidBrush(Color.White))    // cor do texto
+                {
+                    e.Graphics.FillRectangle(backBrush, e.Bounds);
+                    e.Graphics.DrawString(e.Header.Text, e.Font, textBrush, e.Bounds);
+                }
+            };
+
+            lstCliente.DrawItem += (sender, e) =>
+            {
+                e.DrawDefault = true;
+            };
+
+            lstCliente.DrawSubItem += (sender, e) =>
+            {
+                e.DrawDefault = true;
+            };
 
             //Definindo as colunas do ListView
+
             lstCliente.Columns.Add("ID", 79, HorizontalAlignment.Left); //Coluna do Código
             lstCliente.Columns.Add("Nome completo", 158, HorizontalAlignment.Left);//Coluna do Nome completo
             lstCliente.Columns.Add("Telefone", 158, HorizontalAlignment.Left);//Coluna do Nome social
             lstCliente.Columns.Add("CPF", 158, HorizontalAlignment.Left);//Coluna do E-mail
             //lstCliente.Columns.Add("CPF", 158, HorizontalAlignment.Left);//Coluna do CPF
 
-            //Carregar os dados dos clientes na interface
+            AjustarColunasIgualmente();
+
+            lstCliente.Resize += (s, e) => AjustarColunasIgualmente();
+            this.Resize += (s, e) => AjustarColunasIgualmente();
+
         }
 
         private void carregar_clientes_com_query(string query)
@@ -187,6 +216,26 @@ namespace projeto_integrador
 
         }
 
+        private void AjustarColunasIgualmente()
+        {
+            int totalColunas = lstCliente.Columns.Count;
+            if (totalColunas == 0) return;
+
+            int larguraTotal = lstCliente.ClientSize.Width;
+            int larguraBase = larguraTotal / totalColunas;
+            int resto = larguraTotal % totalColunas;
+
+            for (int i = 0; i < totalColunas; i++)
+            {
+                lstCliente.Columns[i].Width = larguraBase;
+
+                if (resto > 0)
+                {
+                    lstCliente.Columns[i].Width += 1;
+                    resto--;
+                }
+            }
+        }
 
         /*private void lstCliente_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
