@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace projeto_integrador
 {
-    public partial class Form6 : Form
+    public partial class FormCadastrarCliente : Form
     {
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -26,7 +26,7 @@ namespace projeto_integrador
                int nHeightEllipse
            );
 
-        public Form6(String codUser)
+        public FormCadastrarCliente(String codUser)
         {
             InitializeComponent();
             this.AcceptButton = btnCadastrarCliente;
@@ -63,8 +63,6 @@ namespace projeto_integrador
                 return;
             }
 
-
-
             string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
 
             using (MySqlConnection conn = new MySqlConnection(conexao))
@@ -81,11 +79,13 @@ namespace projeto_integrador
                     cmd.ExecuteNonQuery();
                     conn.Close();
 
+
                     MessageBox.Show("Cliente cadastrado com sucesso!");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+
                 }
             }
-
-
 
         }
 

@@ -160,7 +160,6 @@ namespace projeto_integrador
             }
         }
 
-
         private void carregar_clientes()
         {
             string query = "SELECT COALESCE(MAX(id_cliente), 0) FROM cliente;";
@@ -176,10 +175,16 @@ namespace projeto_integrador
         private void btnNovoCliente_Click(object sender, EventArgs e)
         {
             carregar_clientes();
-            Form6 form = new Form6(codUser);
-            //this.Hide();
-            //this.Close();
-            form.ShowDialog();
+
+            FormCadastrarCliente form = new FormCadastrarCliente(codUser);
+
+            if (form.ShowDialog() == DialogResult.OK) //Carrega o cliente cadastrado e mostra na consulta
+            {
+                carregar_clientes_com_query(
+                    "SELECT * FROM cliente ORDER BY id_cliente DESC"
+                );
+            }
+
         }
 
 
