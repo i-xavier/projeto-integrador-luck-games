@@ -38,12 +38,12 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHome = new System.Windows.Forms.PictureBox();
             this.panelFundo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelSideBar.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             this.panelFundo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -182,7 +182,7 @@
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
-            this.panelLogo.Controls.Add(this.pictureBox2);
+            this.panelLogo.Controls.Add(this.pictureBoxHome);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
@@ -190,16 +190,18 @@
             this.panelLogo.Size = new System.Drawing.Size(236, 100);
             this.panelLogo.TabIndex = 0;
             // 
-            // pictureBox2
+            // pictureBoxHome
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-3, -20);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(236, 148);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxHome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxHome.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHome.Image")));
+            this.pictureBoxHome.Location = new System.Drawing.Point(-3, -20);
+            this.pictureBoxHome.Name = "pictureBoxHome";
+            this.pictureBoxHome.Size = new System.Drawing.Size(236, 148);
+            this.pictureBoxHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxHome.TabIndex = 1;
+            this.pictureBoxHome.TabStop = false;
+            this.pictureBoxHome.Click += new System.EventHandler(this.pictureBoxHome_Click);
             // 
             // panelFundo
             // 
@@ -233,12 +235,12 @@
             this.Controls.Add(this.panelFundo);
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "FormHome";
-            this.Text = "0";
+            this.Text = "Luck Games";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormHome_Load);
             this.panelSideBar.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             this.panelFundo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -256,7 +258,7 @@
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxHome;
         private System.Windows.Forms.Button btnLogout;
     }
 }

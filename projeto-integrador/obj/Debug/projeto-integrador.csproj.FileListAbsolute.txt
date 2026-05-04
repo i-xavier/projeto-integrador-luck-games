@@ -66,7 +66,6 @@ C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integr
 C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.csproj.AssemblyReference.cache
 C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.exe.config
 C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.frmLogin.resources
-C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.Form2.resources
 C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormHome.resources
 C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.Properties.Resources.resources
 C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto-integrador.csproj.GenerateResource.cache
@@ -229,9 +228,17 @@ C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador-luck-games\projeto
 C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormOrdens.resources
 C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormEstoque.resources
 C:\Users\X\OneDrive\Documents\Programas\C#\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormDashboard.resources
+<<<<<<< HEAD
+C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormAparelho.resources
+C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormDashboard.resources
+C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormEstoque.resources
+C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormOrdens.resources
+=======
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormAparelho.resources
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormCadastrarCliente.resources
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormDashboard.resources
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormEstoque.resources
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormOrdens.resources
 C:\Users\pamela.olemos\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormNovoAparelho.resources
+>>>>>>> cf41fb743f27c21be167fd59944ecb4eb13c612f
+C:\Users\igor.xsantos1\source\repos\projeto-integrador-luck-games\projeto-integrador\obj\Debug\projeto_integrador.FormNovoAparelho.resources
