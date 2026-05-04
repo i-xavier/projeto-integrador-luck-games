@@ -36,7 +36,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnNovoCliente = new System.Windows.Forms.Button();
+            this.btnNovoAparelho = new System.Windows.Forms.Button();
             this.panelFundo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.panelFundo.Controls.Add(this.btnPesquisar);
             this.panelFundo.Controls.Add(this.label1);
             this.panelFundo.Controls.Add(this.panel1);
-            this.panelFundo.Controls.Add(this.btnNovoCliente);
+            this.panelFundo.Controls.Add(this.btnNovoAparelho);
             this.panelFundo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFundo.Location = new System.Drawing.Point(0, 0);
             this.panelFundo.Name = "panelFundo";
@@ -121,23 +121,24 @@
             this.panel1.Size = new System.Drawing.Size(596, 5);
             this.panel1.TabIndex = 5;
             // 
-            // btnNovoCliente
+            // btnNovoAparelho
             // 
-            this.btnNovoCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.btnNovoCliente.FlatAppearance.BorderSize = 0;
-            this.btnNovoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoCliente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovoCliente.ForeColor = System.Drawing.Color.Black;
-            this.btnNovoCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoCliente.Image")));
-            this.btnNovoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovoCliente.Location = new System.Drawing.Point(707, 171);
-            this.btnNovoCliente.Name = "btnNovoCliente";
-            this.btnNovoCliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNovoCliente.Size = new System.Drawing.Size(176, 34);
-            this.btnNovoCliente.TabIndex = 4;
-            this.btnNovoCliente.Text = "    Novo Aparelho";
-            this.btnNovoCliente.UseVisualStyleBackColor = false;
+            this.btnNovoAparelho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovoAparelho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnNovoAparelho.FlatAppearance.BorderSize = 0;
+            this.btnNovoAparelho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoAparelho.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoAparelho.ForeColor = System.Drawing.Color.Black;
+            this.btnNovoAparelho.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoAparelho.Image")));
+            this.btnNovoAparelho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovoAparelho.Location = new System.Drawing.Point(707, 173);
+            this.btnNovoAparelho.Name = "btnNovoAparelho";
+            this.btnNovoAparelho.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNovoAparelho.Size = new System.Drawing.Size(176, 34);
+            this.btnNovoAparelho.TabIndex = 4;
+            this.btnNovoAparelho.Text = "    Novo Aparelho";
+            this.btnNovoAparelho.UseVisualStyleBackColor = false;
+            this.btnNovoAparelho.Click += new System.EventHandler(this.btnNovoAparelho_Click);
             // 
             // FormAparelho
             // 
@@ -165,6 +166,6 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnNovoCliente;
+        private System.Windows.Forms.Button btnNovoAparelho;
     }
 }
