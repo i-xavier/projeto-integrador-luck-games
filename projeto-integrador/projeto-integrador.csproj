@@ -95,6 +95,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormNovoAparelho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNovoAparelho.Designer.cs">
+      <DependentUpon>FormNovoAparelho.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAparelho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCadastrarUsuario.resx">
       <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNovoAparelho.resx">
+      <DependentUpon>FormNovoAparelho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOrdens.resx">
       <DependentUpon>FormOrdens.cs</DependentUpon>
