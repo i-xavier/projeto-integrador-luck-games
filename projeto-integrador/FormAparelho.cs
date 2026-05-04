@@ -16,5 +16,15 @@ namespace projeto_integrador
         {
             InitializeComponent();
         }
+
+        private void btnNovoAparelho_Click(object sender, EventArgs e)
+        {
+            FormNovoAparelho form = new FormNovoAparelho(); // cria novo form
+            form.Show(); // abre sem bloquear
+        }
     }
-}
+    }
+    
+    
+    
+
