@@ -197,8 +197,35 @@ namespace projeto_integrador
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM cliente WHERE nome LIKE @q OR id_cliente LIKE @q ORDER BY id_cliente DESC";
+
+
+            string campo = "";
+
+            switch (cmbFiltro.SelectedItem.ToString())
+            {
+                case "Nome":
+                    campo = "nome";
+                    break;
+                case "CPF":
+                    campo = "cpf";
+                    break;
+                case "Telefone":
+                    campo = "telefone";
+                    break;
+                case "ID":
+                    campo = "CAST(id_cliente AS CHAR)";
+                    break;
+            }
+
+            string query = $@"
+        SELECT id_cliente, nome, telefone, cpf
+        FROM cliente
+        WHERE {campo} LIKE @q
+        ORDER BY id_cliente DESC;
+    ";
+
             carregar_clientes_com_query(query);
+
         }
 
         private void btnNovoCliente_Click(object sender, EventArgs e)

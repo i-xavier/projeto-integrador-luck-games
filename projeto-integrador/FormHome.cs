@@ -68,5 +68,10 @@ namespace projeto_integrador
         {
             openChildForm(new FormEstoque());
         }
+
+        private void pictureBoxHome_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FormHome());
+        }
     }
 }

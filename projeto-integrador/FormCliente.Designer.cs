@@ -31,12 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             this.panelMedidaMenu = new System.Windows.Forms.Panel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnNovoCliente = new System.Windows.Forms.Button();
-            this.panelFundo = new System.Windows.Forms.Panel();
-            this.lstCliente = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lstCliente = new System.Windows.Forms.ListView();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.panelFundo = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelFundo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,19 +62,6 @@
             this.txtBuscar.Size = new System.Drawing.Size(334, 28);
             this.txtBuscar.TabIndex = 2;
             // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.btnPesquisar.FlatAppearance.BorderSize = 0;
-            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(618, 173);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(37, 28);
-            this.btnPesquisar.TabIndex = 3;
-            this.btnPesquisar.UseVisualStyleBackColor = false;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
             // btnNovoCliente
             // 
             this.btnNovoCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -91,19 +81,26 @@
             this.btnNovoCliente.UseVisualStyleBackColor = false;
             this.btnNovoCliente.Click += new System.EventHandler(this.btnNovoCliente_Click);
             // 
-            // panelFundo
+            // panel1
             // 
-            this.panelFundo.BackColor = System.Drawing.Color.Black;
-            this.panelFundo.Controls.Add(this.lstCliente);
-            this.panelFundo.Controls.Add(this.btnPesquisar);
-            this.panelFundo.Controls.Add(this.label1);
-            this.panelFundo.Controls.Add(this.panel1);
-            this.panelFundo.Controls.Add(this.btnNovoCliente);
-            this.panelFundo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFundo.Location = new System.Drawing.Point(0, 0);
-            this.panelFundo.Name = "panelFundo";
-            this.panelFundo.Size = new System.Drawing.Size(934, 561);
-            this.panelFundo.TabIndex = 1;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.panel1.Location = new System.Drawing.Point(287, 133);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(596, 5);
+            this.panel1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(280, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 37);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Clientes";
             // 
             // lstCliente
             // 
@@ -120,26 +117,57 @@
             this.lstCliente.TabIndex = 0;
             this.lstCliente.UseCompatibleStateImageBehavior = false;
             // 
-            // label1
+            // cmbFiltro
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(280, 93);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 37);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Clientes";
+            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
+            "ID",
+            "Nome",
+            "CPF",
+            "Telefone"});
+            this.cmbFiltro.Location = new System.Drawing.Point(312, 207);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cmbFiltro.TabIndex = 7;
             // 
-            // panel1
+            // pictureBox1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel1.Location = new System.Drawing.Point(287, 133);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(596, 5);
-            this.panel1.TabIndex = 5;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(287, 207);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(19, 50);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnPesquisar.FlatAppearance.BorderSize = 0;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
+            this.btnPesquisar.Location = new System.Drawing.Point(618, 173);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(37, 28);
+            this.btnPesquisar.TabIndex = 3;
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // panelFundo
+            // 
+            this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.btnPesquisar);
+            this.panelFundo.Controls.Add(this.pictureBox1);
+            this.panelFundo.Controls.Add(this.cmbFiltro);
+            this.panelFundo.Controls.Add(this.lstCliente);
+            this.panelFundo.Controls.Add(this.label1);
+            this.panelFundo.Controls.Add(this.panel1);
+            this.panelFundo.Controls.Add(this.btnNovoCliente);
+            this.panelFundo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFundo.Location = new System.Drawing.Point(0, 0);
+            this.panelFundo.Name = "panelFundo";
+            this.panelFundo.Size = new System.Drawing.Size(934, 561);
+            this.panelFundo.TabIndex = 1;
             // 
             // FormCliente
             // 
@@ -151,6 +179,7 @@
             this.Controls.Add(this.panelFundo);
             this.Name = "FormCliente";
             this.Text = "Clientes";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
             this.ResumeLayout(false);
@@ -162,11 +191,13 @@
 
         private System.Windows.Forms.Panel panelMedidaMenu;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnNovoCliente;
-        private System.Windows.Forms.Panel panelFundo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView lstCliente;
+        private System.Windows.Forms.ComboBox cmbFiltro;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Panel panelFundo;
     }
 }
