@@ -1,0 +1,10 @@
+# Ignorar pastas ocultas do Visual Studio
+.vs/
+
+# Ignorar resultados de compilação
+bin/
+obj/
+
+# Ignorar arquivos de cache de usuário
+*.user
+*.suo
