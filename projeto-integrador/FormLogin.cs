@@ -34,9 +34,6 @@ namespace projeto_integrador
                 int nHeightEllipse
             );
 
-
-        String codUser = "123";
-        String senhaUser = "123";
         public frmLogin()
         {
             InitializeComponent();
@@ -65,23 +62,62 @@ namespace projeto_integrador
 
         private void Logar(object sender, EventArgs e)
         {
+            int codigo;
+            string senha = txtSenha.Text.Trim();
 
-            if (txtCodigoUser.Text == codUser &&
-                txtSenha.Text == senhaUser)
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Usuário ou Senha incorretos.",
-                                "Falha",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
 
-                txtSenha.Clear();
-                txtCodigoUser.Focus();
+
+                if (!int.TryParse(txtCodigoUser.Text, out codigo))
+                {
+                    MessageBox.Show("Digite um código válido.");
+                    return;
+                }
+
+
+
+
+            string sql =
+                "SELECT id_funcionario, nome_funcionario " +
+                "FROM funcionario " +
+                "WHERE id_funcionario = @codigo " +
+                "AND senha = @senha";
+
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(data_source))
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@codigo", codigo);
+                    cmd.Parameters.AddWithValue("@senha", senha);
+
+
+
+                    conn.Open();
+                    MySqlDataReader dr = cmd.ExecuteReader();
+
+
+
+                    if (dr.Read())
+                    {
+                        MessageBox.Show("Bem-vindo, " + dr["nome_funcionario"]);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close(); // fecha o login
+                    }
+                    else
+                    {
+                        MessageBox.Show("Código ou senha incorretos");
+                        txtSenha.Clear();
+                        txtCodigoUser.Focus();
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao conectar: " + ex.Message);
+            }
+
+
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {

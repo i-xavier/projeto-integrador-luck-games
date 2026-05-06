@@ -32,7 +32,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panelMedidaMenu = new System.Windows.Forms.Panel();
             this.panelFundo = new System.Windows.Forms.Panel();
-            this.lstCliente = new System.Windows.Forms.ListView();
+            this.lstAparelho = new System.Windows.Forms.ListView();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -62,7 +62,7 @@
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
-            this.panelFundo.Controls.Add(this.lstCliente);
+            this.panelFundo.Controls.Add(this.lstAparelho);
             this.panelFundo.Controls.Add(this.btnPesquisar);
             this.panelFundo.Controls.Add(this.label1);
             this.panelFundo.Controls.Add(this.panel1);
@@ -73,20 +73,20 @@
             this.panelFundo.Size = new System.Drawing.Size(934, 561);
             this.panelFundo.TabIndex = 4;
             // 
-            // lstCliente
+            // lstAparelho
             // 
-            this.lstCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lstAparelho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(22)))));
-            this.lstCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstCliente.ForeColor = System.Drawing.Color.White;
-            this.lstCliente.HideSelection = false;
-            this.lstCliente.Location = new System.Drawing.Point(287, 261);
-            this.lstCliente.Name = "lstCliente";
-            this.lstCliente.Size = new System.Drawing.Size(596, 226);
-            this.lstCliente.TabIndex = 0;
-            this.lstCliente.UseCompatibleStateImageBehavior = false;
+            this.lstAparelho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(22)))));
+            this.lstAparelho.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstAparelho.ForeColor = System.Drawing.Color.White;
+            this.lstAparelho.HideSelection = false;
+            this.lstAparelho.Location = new System.Drawing.Point(287, 261);
+            this.lstAparelho.Name = "lstAparelho";
+            this.lstAparelho.Size = new System.Drawing.Size(596, 226);
+            this.lstAparelho.TabIndex = 0;
+            this.lstAparelho.UseCompatibleStateImageBehavior = false;
             // 
             // btnPesquisar
             // 
@@ -162,7 +162,7 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Panel panelMedidaMenu;
         private System.Windows.Forms.Panel panelFundo;
-        private System.Windows.Forms.ListView lstCliente;
+        private System.Windows.Forms.ListView lstAparelho;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
