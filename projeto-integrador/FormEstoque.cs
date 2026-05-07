@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ namespace projeto_integrador
 {
     public partial class FormEstoque : Form
     {
+        String codProd = "";
+
+        MySqlConnection Conexao;
+        string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
         public FormEstoque()
         {
             InitializeComponent();
@@ -64,7 +69,7 @@ namespace projeto_integrador
 
         private void btnNovaMovimentacao_Click(object sender, EventArgs e)
         {
-            FormCadastrarMovimentacao form = new FormCadastrarMovimentacao();
+            FormNovaMovimentacao form = new FormNovaMovimentacao();
             form.ShowDialog();
         }
 
@@ -85,6 +90,145 @@ namespace projeto_integrador
                 {
                     lstProduto.Columns[i].Width += 1;
                     resto--;
+                }
+            }
+        }
+
+        private void btnNovoProduto_Click(object sender, EventArgs e)
+        {
+            carregar_produtos();
+
+            FormNovoCliente form = new FormNovoCliente(codProd);
+
+            if (form.ShowDialog() == DialogResult.OK) //Carrega o cliente cadastrado e mostra na consulta
+            {
+                carregar_produtos_com_query(
+                    "SELECT * FROM produto ORDER BY id_produto DESC"
+                );
+            }
+        }
+
+        private void carregar_produtos()
+        {
+            string query = "SELECT COALESCE(MAX(id_produto), 0) FROM produto;";
+            checar_cod(query);
+        }
+
+        private void checar_cod(string query)
+        {
+            try
+            {
+                //int flag = 0;
+                //Cria a conexão ocm o banco de dados
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
+
+                //Executa a consulta SQL fornecida
+                MySqlCommand cmd = new MySqlCommand(query, Conexao);
+
+                //Se a consulta contém o parâmetro @q, adiciona o valor da caixa de pesquisa
+
+                //Executa o comando e obtém os resulttados
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                //Limpa os itens existentes no ListView antes de adiocnar novos
+                //lstCliente.Items.Clear();
+
+                //Preenche o ListView com os dados dos cliente
+                while (reader.Read())
+                {
+                    if (reader.IsDBNull(0))
+                    {
+                        codProd = "1"; // Valor padrão se a tabela estiver vazia
+                    }
+                    else
+                    {
+                        codProd = Convert.ToString(reader.GetInt32(0) + 1);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                //Trata erros relacionados ao MySQL
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                //Trata outros tipos de erro
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            finally
+            {
+                //Garante que a conexão com o banco será fechda, mesmo se ocorrer erro
+                if (Conexao != null && Conexao.State == ConnectionState.Open)
+                {
+                    Conexao.Close();
+                }
+            }
+        }
+
+        private void carregar_produtos_com_query(string query)
+        {
+            try
+            {
+                //Cria a conexão ocm o banco de dados
+                Conexao = new MySqlConnection(data_source);
+                Conexao.Open();
+
+                //Executa a consulta SQL fornecida
+                MySqlCommand cmd = new MySqlCommand(query, Conexao);
+
+                //Se a consulta contém o parâmetro @q, adiciona o valor da caixa de pesquisa
+                if (query.Contains("@q"))
+                {
+                    cmd.Parameters.AddWithValue("@q", "%" + txtBuscar.Text + "%");
+                }
+
+                //Executa o comando e obtém os resulttados
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                //Limpa os itens existentes no ListView antes de adiocnar novos
+                lstProduto.Items.Clear();
+
+                //Preenche o ListView com os dados dos cliente
+                while (reader.Read())
+                {
+                    string[] row =
+                    {
+                        Convert.ToString(reader.GetInt32(0)), //Código
+                        reader.GetString(1),                    //Nome Completo
+                        reader.GetString(2),                    //Nome Social
+                        reader.GetString(3),                    //E-mail
+                        //reader.GetString(4),                     //CPF
+                    };
+
+                    //Adiicona a linha ao ListView
+                    lstProduto.Items.Add(new ListViewItem(row));
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                //Trata erros relacionados ao MySQL
+                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
+                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                //Trata outros tipos de erro
+                MessageBox.Show("Ocorreu: " + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            finally
+            {
+                //Garante que a conexão com o banco será fechda, mesmo se ocorrer erro
+                if (Conexao != null && Conexao.State == ConnectionState.Open)
+                {
+                    Conexao.Close();
                 }
             }
         }

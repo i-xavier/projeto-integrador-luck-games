@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace projeto_integrador
 {
-    public partial class FormCadastrarCliente : Form
+    public partial class FormNovoCliente : Form
     {
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -26,7 +26,7 @@ namespace projeto_integrador
                int nHeightEllipse
            );
 
-        public FormCadastrarCliente(String codUser)
+        public FormNovoCliente(String codUser)
         {
             InitializeComponent();
             this.AcceptButton = btnCadastrarCliente;

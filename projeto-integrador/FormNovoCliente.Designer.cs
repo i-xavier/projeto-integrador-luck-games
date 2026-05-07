@@ -1,6 +1,6 @@
 ﻿namespace projeto_integrador
 {
-    partial class FormCadastrarCliente
+    partial class FormNovoCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastrarCliente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNovoCliente));
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeCompleto = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();

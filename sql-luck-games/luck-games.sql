@@ -72,6 +72,7 @@ CREATE TABLE ordem (
 CREATE TABLE produto(
   id_produto INT PRIMARY KEY AUTO_INCREMENT,
   nome_produto VARCHAR (100),
+  estoque_minimo INT,
   categoria VARCHAR (50),
   quantidade INT
 );

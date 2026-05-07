@@ -34,11 +34,11 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnNovoCliente = new System.Windows.Forms.Button();
             this.panelFundo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.lstCliente = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cmbFiltro = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelFundo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             this.panelMedidaMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMedidaMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMedidaMenu.Name = "panelMedidaMenu";
-            this.panelMedidaMenu.Size = new System.Drawing.Size(236, 561);
+            this.panelMedidaMenu.Size = new System.Drawing.Size(236, 677);
             this.panelMedidaMenu.TabIndex = 0;
             // 
             // txtBuscar
@@ -85,7 +85,7 @@
             this.btnNovoCliente.ForeColor = System.Drawing.Color.Black;
             this.btnNovoCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoCliente.Image")));
             this.btnNovoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovoCliente.Location = new System.Drawing.Point(707, 171);
+            this.btnNovoCliente.Location = new System.Drawing.Point(1027, 171);
             this.btnNovoCliente.Name = "btnNovoCliente";
             this.btnNovoCliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnNovoCliente.Size = new System.Drawing.Size(176, 34);
@@ -107,8 +107,31 @@
             this.panelFundo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFundo.Location = new System.Drawing.Point(0, 0);
             this.panelFundo.Name = "panelFundo";
-            this.panelFundo.Size = new System.Drawing.Size(934, 561);
+            this.panelFundo.Size = new System.Drawing.Size(1254, 677);
             this.panelFundo.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(315, 222);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 21);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cmbFiltro
+            // 
+            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
+            "ID",
+            "Nome",
+            "CPF",
+            "Telefone"});
+            this.cmbFiltro.Location = new System.Drawing.Point(352, 222);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cmbFiltro.TabIndex = 7;
             // 
             // lstCliente
             // 
@@ -121,7 +144,7 @@
             this.lstCliente.HideSelection = false;
             this.lstCliente.Location = new System.Drawing.Point(287, 261);
             this.lstCliente.Name = "lstCliente";
-            this.lstCliente.Size = new System.Drawing.Size(596, 226);
+            this.lstCliente.Size = new System.Drawing.Size(916, 342);
             this.lstCliente.TabIndex = 0;
             this.lstCliente.UseCompatibleStateImageBehavior = false;
             // 
@@ -143,37 +166,14 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.panel1.Location = new System.Drawing.Point(287, 133);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(596, 5);
+            this.panel1.Size = new System.Drawing.Size(916, 5);
             this.panel1.TabIndex = 5;
-            // 
-            // cmbFiltro
-            // 
-            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.cmbFiltro.FormattingEnabled = true;
-            this.cmbFiltro.Items.AddRange(new object[] {
-            "ID",
-            "Nome",
-            "CPF",
-            "Telefone"});
-            this.cmbFiltro.Location = new System.Drawing.Point(352, 222);
-            this.cmbFiltro.Name = "cmbFiltro";
-            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
-            this.cmbFiltro.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(315, 222);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 21);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
             // 
             // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 561);
+            this.ClientSize = new System.Drawing.Size(1254, 677);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.panelMedidaMenu);
             this.Controls.Add(this.panelFundo);

@@ -1,6 +1,6 @@
 ﻿namespace projeto_integrador
 {
-    partial class FormCadastrarMovimentacao
+    partial class FormNovaMovimentacao
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadastrarMovimentacao));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNovaMovimentacao));
             this.btnFechar = new System.Windows.Forms.Button();
             this.lblCPF = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
@@ -194,7 +194,9 @@
             this.Controls.Add(this.txtQuantidade);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(420, 456);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(420, 456);
             this.Name = "FormCadastrarMovimentacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -137,7 +137,7 @@ namespace projeto_integrador
         {
             try
             {
-                int flag = 0;
+                //int flag = 0;
                 //Cria a conexão ocm o banco de dados
                 Conexao = new MySqlConnection(data_source);
                 Conexao.Open();
@@ -232,7 +232,7 @@ namespace projeto_integrador
         {
             carregar_clientes();
 
-            FormCadastrarCliente form = new FormCadastrarCliente(codUser);
+            FormNovoCliente form = new FormNovoCliente(codUser);
 
             if (form.ShowDialog() == DialogResult.OK) //Carrega o cliente cadastrado e mostra na consulta
             {

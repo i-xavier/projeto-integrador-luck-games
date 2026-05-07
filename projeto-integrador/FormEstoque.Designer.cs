@@ -34,23 +34,23 @@
             this.panelMedidaMenu = new System.Windows.Forms.Panel();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.panelFundo = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblItensEstoque = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotalProdutos = new System.Windows.Forms.Label();
             this.btnNovoProduto = new System.Windows.Forms.Button();
             this.lstProduto = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblTotalProdutos = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblItensEstoque = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblCategoria = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panelFundo.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNovaMovimentacao
@@ -121,6 +121,90 @@
             this.panelFundo.Size = new System.Drawing.Size(1575, 807);
             this.panelFundo.TabIndex = 7;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.lblCategoria);
+            this.panel4.Location = new System.Drawing.Point(1150, 245);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(269, 126);
+            this.panel4.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(112, 71);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "label7";
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(109, 25);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(52, 13);
+            this.lblCategoria.TabIndex = 0;
+            this.lblCategoria.Text = "Categoria";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.lblItensEstoque);
+            this.panel3.Location = new System.Drawing.Point(794, 245);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(269, 126);
+            this.panel3.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(102, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "label5";
+            // 
+            // lblItensEstoque
+            // 
+            this.lblItensEstoque.AutoSize = true;
+            this.lblItensEstoque.Location = new System.Drawing.Point(99, 24);
+            this.lblItensEstoque.Name = "lblItensEstoque";
+            this.lblItensEstoque.Size = new System.Drawing.Size(89, 13);
+            this.lblItensEstoque.TabIndex = 0;
+            this.lblItensEstoque.Text = "Itens em Estoque";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lblTotalProdutos);
+            this.panel2.Location = new System.Drawing.Point(435, 245);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(269, 126);
+            this.panel2.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(74, 72);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "label3";
+            // 
+            // lblTotalProdutos
+            // 
+            this.lblTotalProdutos.AutoSize = true;
+            this.lblTotalProdutos.Location = new System.Drawing.Point(75, 25);
+            this.lblTotalProdutos.Name = "lblTotalProdutos";
+            this.lblTotalProdutos.Size = new System.Drawing.Size(91, 13);
+            this.lblTotalProdutos.TabIndex = 0;
+            this.lblTotalProdutos.Text = "Total de Produtos";
+            // 
             // btnNovoProduto
             // 
             this.btnNovoProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -138,6 +222,7 @@
             this.btnNovoProduto.TabIndex = 7;
             this.btnNovoProduto.Text = "    Novo Produto";
             this.btnNovoProduto.UseVisualStyleBackColor = false;
+            this.btnNovoProduto.Click += new System.EventHandler(this.btnNovoProduto_Click);
             // 
             // lstProduto
             // 
@@ -175,90 +260,6 @@
             this.panel1.Size = new System.Drawing.Size(1237, 5);
             this.panel1.TabIndex = 5;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.lblTotalProdutos);
-            this.panel2.Location = new System.Drawing.Point(435, 245);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(269, 126);
-            this.panel2.TabIndex = 8;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.lblItensEstoque);
-            this.panel3.Location = new System.Drawing.Point(794, 245);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(269, 126);
-            this.panel3.TabIndex = 9;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.lblCategoria);
-            this.panel4.Location = new System.Drawing.Point(1150, 245);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(269, 126);
-            this.panel4.TabIndex = 9;
-            // 
-            // lblTotalProdutos
-            // 
-            this.lblTotalProdutos.AutoSize = true;
-            this.lblTotalProdutos.Location = new System.Drawing.Point(75, 25);
-            this.lblTotalProdutos.Name = "lblTotalProdutos";
-            this.lblTotalProdutos.Size = new System.Drawing.Size(91, 13);
-            this.lblTotalProdutos.TabIndex = 0;
-            this.lblTotalProdutos.Text = "Total de Produtos";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(74, 72);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "label3";
-            // 
-            // lblItensEstoque
-            // 
-            this.lblItensEstoque.AutoSize = true;
-            this.lblItensEstoque.Location = new System.Drawing.Point(99, 24);
-            this.lblItensEstoque.Name = "lblItensEstoque";
-            this.lblItensEstoque.Size = new System.Drawing.Size(89, 13);
-            this.lblItensEstoque.TabIndex = 0;
-            this.lblItensEstoque.Text = "Itens em Estoque";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(102, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "label5";
-            // 
-            // lblCategoria
-            // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(109, 25);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(52, 13);
-            this.lblCategoria.TabIndex = 0;
-            this.lblCategoria.Text = "Categoria";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(112, 71);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "label7";
-            // 
             // FormEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,12 +272,12 @@
             this.Text = "Form2";
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

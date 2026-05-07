@@ -95,11 +95,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormCadastrarMovimentacao.cs">
+    <Compile Include="FormNovaMovimentacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCadastrarMovimentacao.Designer.cs">
-      <DependentUpon>FormCadastrarMovimentacao.cs</DependentUpon>
+    <Compile Include="FormNovaMovimentacao.Designer.cs">
+      <DependentUpon>FormNovaMovimentacao.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNovoAparelho.cs">
       <SubType>Form</SubType>
@@ -137,6 +137,12 @@
     <Compile Include="FormCadastrarUsuario.Designer.cs">
       <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNovoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNovoProduto.Designer.cs">
+      <DependentUpon>FormNovoProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOrdens.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,11 +161,11 @@
     <Compile Include="FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCadastrarCliente.cs">
+    <Compile Include="FormNovoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCadastrarCliente.Designer.cs">
-      <DependentUpon>FormCadastrarCliente.cs</DependentUpon>
+    <Compile Include="FormNovoCliente.Designer.cs">
+      <DependentUpon>FormNovoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
@@ -172,11 +178,11 @@
     <EmbeddedResource Include="FormAparelho.resx">
       <DependentUpon>FormAparelho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCadastrarCliente.resx">
-      <DependentUpon>FormCadastrarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="FormNovoCliente.resx">
+      <DependentUpon>FormNovoCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCadastrarMovimentacao.resx">
-      <DependentUpon>FormCadastrarMovimentacao.cs</DependentUpon>
+    <EmbeddedResource Include="FormNovaMovimentacao.resx">
+      <DependentUpon>FormNovaMovimentacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNovoAparelho.resx">
       <DependentUpon>FormNovoAparelho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNovoProduto.resx">
+      <DependentUpon>FormNovoProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOrdens.resx">
       <DependentUpon>FormOrdens.cs</DependentUpon>

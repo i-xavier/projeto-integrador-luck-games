@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace projeto_integrador
 {
-    public partial class FormCadastrarMovimentacao : Form
+    public partial class FormNovaMovimentacao : Form
     {
-        public FormCadastrarMovimentacao()
+        public FormNovaMovimentacao()
         {
             InitializeComponent();
         }
