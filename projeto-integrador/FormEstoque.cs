@@ -98,7 +98,7 @@ namespace projeto_integrador
         {
             carregar_produtos();
 
-            FormNovoCliente form = new FormNovoCliente(codProd);
+            FormNovoProduto form = new FormNovoProduto(codProd);
 
             if (form.ShowDialog() == DialogResult.OK) //Carrega o cliente cadastrado e mostra na consulta
             {
@@ -198,8 +198,9 @@ namespace projeto_integrador
                 {
                     string[] row =
                     {
-                        Convert.ToString(reader.GetInt32(0)), //Código
-                        reader.GetString(1),                    //Nome Completo
+                        Convert.ToString(
+                        reader.GetInt32(0)), //Código
+                        reader.GetString(1), //Nome Completo
                         reader.GetString(2),                    //Nome Social
                         reader.GetString(3),                    //E-mail
                         //reader.GetString(4),                     //CPF

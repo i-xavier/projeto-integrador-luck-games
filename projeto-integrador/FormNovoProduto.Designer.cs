@@ -29,46 +29,46 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNovoProduto));
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbProduto = new System.Windows.Forms.ComboBox();
+            this.lblQuantidade = new System.Windows.Forms.Label();
+            this.cbFornecedor = new System.Windows.Forms.ComboBox();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.lblCPF = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
-            this.lblNomeCompleto = new System.Windows.Forms.Label();
+            this.lblFornecedor = new System.Windows.Forms.Label();
+            this.lblValorUnitario = new System.Windows.Forms.Label();
+            this.lblNomeProduto = new System.Windows.Forms.Label();
             this.btnCadastrarCliente = new System.Windows.Forms.Button();
-            this.txtMotivo = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
+            this.txtValorUnitario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtNomeProduto = new System.Windows.Forms.TextBox();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
+            this.txtCodigoProduto = new System.Windows.Forms.TextBox();
+            this.lblCodProd = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.lblQtdMinima = new System.Windows.Forms.Label();
+            this.txtQuantidadeMinima = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label2
+            // lblQuantidade
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(60, 246);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 17);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Quantidade";
+            this.lblQuantidade.AutoSize = true;
+            this.lblQuantidade.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantidade.ForeColor = System.Drawing.Color.White;
+            this.lblQuantidade.Location = new System.Drawing.Point(60, 246);
+            this.lblQuantidade.Name = "lblQuantidade";
+            this.lblQuantidade.Size = new System.Drawing.Size(80, 17);
+            this.lblQuantidade.TabIndex = 36;
+            this.lblQuantidade.Text = "Quantidade";
             // 
-            // cbProduto
+            // cbFornecedor
             // 
-            this.cbProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.cbProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProduto.FormattingEnabled = true;
-            this.cbProduto.Location = new System.Drawing.Point(63, 385);
-            this.cbProduto.Name = "cbProduto";
-            this.cbProduto.Size = new System.Drawing.Size(292, 29);
-            this.cbProduto.TabIndex = 35;
-            this.cbProduto.Text = "Selecione";
+            this.cbFornecedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbFornecedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFornecedor.FormattingEnabled = true;
+            this.cbFornecedor.Location = new System.Drawing.Point(63, 385);
+            this.cbFornecedor.Name = "cbFornecedor";
+            this.cbFornecedor.Size = new System.Drawing.Size(292, 29);
+            this.cbFornecedor.TabIndex = 35;
+            this.cbFornecedor.Text = "Selecione";
             // 
             // btnFechar
             // 
@@ -85,39 +85,40 @@
             this.btnFechar.TabIndex = 33;
             this.btnFechar.Text = "  Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // lblCPF
+            // lblFornecedor
             // 
-            this.lblCPF.AutoSize = true;
-            this.lblCPF.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPF.ForeColor = System.Drawing.Color.White;
-            this.lblCPF.Location = new System.Drawing.Point(60, 362);
-            this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Size = new System.Drawing.Size(77, 17);
-            this.lblCPF.TabIndex = 32;
-            this.lblCPF.Text = "Fornecedor";
+            this.lblFornecedor.AutoSize = true;
+            this.lblFornecedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFornecedor.ForeColor = System.Drawing.Color.White;
+            this.lblFornecedor.Location = new System.Drawing.Point(60, 362);
+            this.lblFornecedor.Name = "lblFornecedor";
+            this.lblFornecedor.Size = new System.Drawing.Size(77, 17);
+            this.lblFornecedor.TabIndex = 32;
+            this.lblFornecedor.Text = "Fornecedor";
             // 
-            // lblID
+            // lblValorUnitario
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.Color.White;
-            this.lblID.Location = new System.Drawing.Point(60, 304);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(93, 17);
-            this.lblID.TabIndex = 31;
-            this.lblID.Text = "Valor unitário";
+            this.lblValorUnitario.AutoSize = true;
+            this.lblValorUnitario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorUnitario.ForeColor = System.Drawing.Color.White;
+            this.lblValorUnitario.Location = new System.Drawing.Point(60, 304);
+            this.lblValorUnitario.Name = "lblValorUnitario";
+            this.lblValorUnitario.Size = new System.Drawing.Size(93, 17);
+            this.lblValorUnitario.TabIndex = 31;
+            this.lblValorUnitario.Text = "Valor unitário";
             // 
-            // lblNomeCompleto
+            // lblNomeProduto
             // 
-            this.lblNomeCompleto.AutoSize = true;
-            this.lblNomeCompleto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeCompleto.ForeColor = System.Drawing.Color.White;
-            this.lblNomeCompleto.Location = new System.Drawing.Point(61, 129);
-            this.lblNomeCompleto.Name = "lblNomeCompleto";
-            this.lblNomeCompleto.Size = new System.Drawing.Size(119, 17);
-            this.lblNomeCompleto.TabIndex = 30;
-            this.lblNomeCompleto.Text = "Nome do Produto";
+            this.lblNomeProduto.AutoSize = true;
+            this.lblNomeProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeProduto.ForeColor = System.Drawing.Color.White;
+            this.lblNomeProduto.Location = new System.Drawing.Point(61, 129);
+            this.lblNomeProduto.Name = "lblNomeProduto";
+            this.lblNomeProduto.Size = new System.Drawing.Size(119, 17);
+            this.lblNomeProduto.TabIndex = 30;
+            this.lblNomeProduto.Text = "Nome do Produto";
             // 
             // btnCadastrarCliente
             // 
@@ -134,26 +135,27 @@
             this.btnCadastrarCliente.TabIndex = 29;
             this.btnCadastrarCliente.Text = "Cadastrar";
             this.btnCadastrarCliente.UseVisualStyleBackColor = false;
-            // 
-            // txtMotivo
-            // 
-            this.txtMotivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtMotivo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotivo.Location = new System.Drawing.Point(64, 266);
-            this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(135, 29);
-            this.txtMotivo.TabIndex = 28;
+            this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click);
             // 
             // txtQuantidade
             // 
             this.txtQuantidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantidade.Location = new System.Drawing.Point(63, 324);
+            this.txtQuantidade.Location = new System.Drawing.Point(64, 266);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(292, 29);
-            this.txtQuantidade.TabIndex = 27;
+            this.txtQuantidade.Size = new System.Drawing.Size(135, 29);
+            this.txtQuantidade.TabIndex = 28;
+            // 
+            // txtValorUnitario
+            // 
+            this.txtValorUnitario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtValorUnitario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValorUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorUnitario.Location = new System.Drawing.Point(63, 324);
+            this.txtValorUnitario.Name = "txtValorUnitario";
+            this.txtValorUnitario.Size = new System.Drawing.Size(292, 29);
+            this.txtValorUnitario.TabIndex = 27;
             // 
             // label1
             // 
@@ -166,79 +168,79 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Cadastrar Produto";
             // 
-            // textBox1
+            // txtNomeProduto
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(64, 152);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(292, 29);
-            this.textBox1.TabIndex = 37;
+            this.txtNomeProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtNomeProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeProduto.Location = new System.Drawing.Point(64, 152);
+            this.txtNomeProduto.Name = "txtNomeProduto";
+            this.txtNomeProduto.Size = new System.Drawing.Size(292, 29);
+            this.txtNomeProduto.TabIndex = 37;
             // 
-            // comboBox1
+            // cbCategoria
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(215, 205);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 29);
-            this.comboBox1.TabIndex = 38;
-            this.comboBox1.Text = "Selecione";
+            this.cbCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(215, 205);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(141, 29);
+            this.cbCategoria.TabIndex = 38;
+            this.cbCategoria.Text = "Selecione";
             // 
-            // textBox2
+            // txtCodigoProduto
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(63, 205);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(136, 29);
-            this.textBox2.TabIndex = 39;
+            this.txtCodigoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtCodigoProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCodigoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoProduto.Location = new System.Drawing.Point(63, 205);
+            this.txtCodigoProduto.Name = "txtCodigoProduto";
+            this.txtCodigoProduto.Size = new System.Drawing.Size(136, 29);
+            this.txtCodigoProduto.TabIndex = 39;
             // 
-            // label3
+            // lblCodProd
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(61, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 17);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Código do Produto";
+            this.lblCodProd.AutoSize = true;
+            this.lblCodProd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodProd.ForeColor = System.Drawing.Color.White;
+            this.lblCodProd.Location = new System.Drawing.Point(61, 185);
+            this.lblCodProd.Name = "lblCodProd";
+            this.lblCodProd.Size = new System.Drawing.Size(126, 17);
+            this.lblCodProd.TabIndex = 40;
+            this.lblCodProd.Text = "Código do Produto";
             // 
-            // label4
+            // lblCategoria
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(212, 185);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 17);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "Categoria";
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.ForeColor = System.Drawing.Color.White;
+            this.lblCategoria.Location = new System.Drawing.Point(212, 185);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(67, 17);
+            this.lblCategoria.TabIndex = 41;
+            this.lblCategoria.Text = "Categoria";
             // 
-            // label5
+            // lblQtdMinima
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(212, 246);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 17);
-            this.label5.TabIndex = 43;
-            this.label5.Text = "Qtd. mínima";
+            this.lblQtdMinima.AutoSize = true;
+            this.lblQtdMinima.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdMinima.ForeColor = System.Drawing.Color.White;
+            this.lblQtdMinima.Location = new System.Drawing.Point(212, 246);
+            this.lblQtdMinima.Name = "lblQtdMinima";
+            this.lblQtdMinima.Size = new System.Drawing.Size(86, 17);
+            this.lblQtdMinima.TabIndex = 43;
+            this.lblQtdMinima.Text = "Qtd. mínima";
             // 
-            // textBox3
+            // txtQuantidadeMinima
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(215, 266);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(141, 29);
-            this.textBox3.TabIndex = 42;
+            this.txtQuantidadeMinima.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtQuantidadeMinima.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQuantidadeMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantidadeMinima.Location = new System.Drawing.Point(215, 266);
+            this.txtQuantidadeMinima.Name = "txtQuantidadeMinima";
+            this.txtQuantidadeMinima.Size = new System.Drawing.Size(141, 29);
+            this.txtQuantidadeMinima.TabIndex = 42;
             // 
             // FormNovoProduto
             // 
@@ -246,22 +248,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(98)))), ((int)(((byte)(131)))));
             this.ClientSize = new System.Drawing.Size(420, 547);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cbProduto);
+            this.Controls.Add(this.lblQtdMinima);
+            this.Controls.Add(this.txtQuantidadeMinima);
+            this.Controls.Add(this.lblCategoria);
+            this.Controls.Add(this.lblCodProd);
+            this.Controls.Add(this.txtCodigoProduto);
+            this.Controls.Add(this.cbCategoria);
+            this.Controls.Add(this.txtNomeProduto);
+            this.Controls.Add(this.lblQuantidade);
+            this.Controls.Add(this.cbFornecedor);
             this.Controls.Add(this.btnFechar);
-            this.Controls.Add(this.lblCPF);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.lblNomeCompleto);
+            this.Controls.Add(this.lblFornecedor);
+            this.Controls.Add(this.lblValorUnitario);
+            this.Controls.Add(this.lblNomeProduto);
             this.Controls.Add(this.btnCadastrarCliente);
-            this.Controls.Add(this.txtMotivo);
             this.Controls.Add(this.txtQuantidade);
+            this.Controls.Add(this.txtValorUnitario);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -276,22 +278,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbProduto;
+        private System.Windows.Forms.Label lblQuantidade;
+        private System.Windows.Forms.ComboBox cbFornecedor;
         private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.Label lblCPF;
-        private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.Label lblNomeCompleto;
+        private System.Windows.Forms.Label lblFornecedor;
+        private System.Windows.Forms.Label lblValorUnitario;
+        private System.Windows.Forms.Label lblNomeProduto;
         private System.Windows.Forms.Button btnCadastrarCliente;
-        private System.Windows.Forms.TextBox txtMotivo;
         private System.Windows.Forms.TextBox txtQuantidade;
+        private System.Windows.Forms.TextBox txtValorUnitario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtNomeProduto;
+        private System.Windows.Forms.ComboBox cbCategoria;
+        private System.Windows.Forms.TextBox txtCodigoProduto;
+        private System.Windows.Forms.Label lblCodProd;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.Label lblQtdMinima;
+        private System.Windows.Forms.TextBox txtQuantidadeMinima;
     }
 }
