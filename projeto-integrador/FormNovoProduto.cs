@@ -107,6 +107,28 @@ namespace projeto_integrador
             }
         }
 
+        private void FormNovoProduto_Load(object sender, EventArgs e)
+        {
+            cbCategoria.DataSource = new List<string>
+            {
+                "Celular",
+                "Notebook",
+                "Tablet",
+                "Computador",
+                "Impressora",
+                "Outro"
+            };
+
+            cbFornecedor.DataSource = new List<string>
+            {
+                "Recebido",
+                "Em análise",
+                "Em reparo",
+                "Pronto",
+                "Entregue"
+            };
+        }
+
         /* private void LimparCampos()
          {
              txtNomeCompleto.Clear();

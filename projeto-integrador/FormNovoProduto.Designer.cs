@@ -271,6 +271,7 @@
             this.Name = "FormNovoProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNovoProduto";
+            this.Load += new System.EventHandler(this.FormNovoProduto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

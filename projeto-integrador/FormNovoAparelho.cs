@@ -9,9 +9,10 @@ namespace projeto_integrador
 {
     public partial class FormNovoAparelho : Form
     {
-        public FormNovoAparelho()
+        public FormNovoAparelho(String texto)
         {
             InitializeComponent();
+            txtCodigoDoCliente.Text = texto;
         }
 
         private void FormNovoAparelho_Load(object sender, EventArgs e)
