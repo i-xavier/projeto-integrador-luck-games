@@ -24,6 +24,15 @@ namespace projeto_integrador
         {
             InitializeComponent();
 
+            cmbFiltro.DataSource = new List<string>
+            {
+                "Selecione",
+                "ID",
+                "Nome",
+                "Telefone",
+                "CPF"
+            };
+
             //Configuração inciial do ListView para exibição dos dados dos clientes
             lstCliente.View = View.Details; //Define a visualização em "detalhes"
             lstCliente.LabelEdit = true; //Permite editar os títulos das colunas
@@ -197,34 +206,54 @@ namespace projeto_integrador
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-
-
-            string campo = "";
-
-            switch (cmbFiltro.SelectedItem.ToString())
+            try
             {
-                case "Nome":
-                    campo = "nome";
-                    break;
-                case "CPF":
-                    campo = "cpf";
-                    break;
-                case "Telefone":
-                    campo = "telefone";
-                    break;
-                case "ID":
-                    campo = "CAST(id_cliente AS CHAR)";
-                    break;
+                string query = "";
+                string campo = "";
+
+                // 1. Verificamos se o item selecionado é nulo ANTES de converter para string
+                // Usamos ?.ToString() que retorna nulo se o objeto for nulo, sem dar erro.
+                string selecionado = cmbFiltro.SelectedItem?.ToString();
+
+                // 2. Lógica de decisão do filtro
+                if (string.IsNullOrEmpty(selecionado) || selecionado == "Selecione")
+                {
+                    // Caso Geral: Busca em todas as colunas
+                    query = @"
+            SELECT id_cliente, nome, telefone, cpf
+            FROM cliente
+            WHERE CAST(id_cliente AS CHAR) LIKE @q
+               OR nome LIKE @q
+               OR telefone LIKE @q
+               OR cpf LIKE @q
+            ORDER BY id_cliente DESC;";
+                }
+                else
+                {
+                    // Caso Específico: Mapeia o nome amigável para o nome da coluna no banco
+                    switch (selecionado)
+                    {
+                        case "Nome": campo = "nome"; break;
+                        case "CPF": campo = "cpf"; break;
+                        case "Telefone": campo = "telefone"; break;
+                        case "ID": campo = "CAST(id_cliente AS CHAR)"; break;
+                        default: campo = "nome"; break;
+                    }
+
+                    query = $@"
+            SELECT id_cliente, nome, telefone, cpf
+            FROM cliente
+            WHERE {campo} LIKE @q
+            ORDER BY id_cliente DESC;";
+                }
+
+                // 3. Execução
+                carregar_clientes_com_query(query);
             }
-
-            string query = $@"
-        SELECT id_cliente, nome, telefone, cpf
-        FROM cliente
-        WHERE {campo} LIKE @q
-        ORDER BY id_cliente DESC;
-    ";
-
-            carregar_clientes_com_query(query);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar: " + ex.Message);
+            }
 
         }
 

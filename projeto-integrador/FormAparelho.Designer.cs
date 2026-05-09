@@ -37,7 +37,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNovoAparelho = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.panelFundo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBuscar
@@ -62,6 +65,8 @@
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.pictureBox1);
+            this.panelFundo.Controls.Add(this.cmbFiltro);
             this.panelFundo.Controls.Add(this.lstAparelho);
             this.panelFundo.Controls.Add(this.btnPesquisar);
             this.panelFundo.Controls.Add(this.label1);
@@ -141,6 +146,29 @@
             this.btnNovoAparelho.UseVisualStyleBackColor = false;
             this.btnNovoAparelho.Click += new System.EventHandler(this.btnNovoAparelho_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(283, 217);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 21);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cmbFiltro
+            // 
+            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
+            "ID",
+            "Nome",
+            "CPF",
+            "Telefone"});
+            this.cmbFiltro.Location = new System.Drawing.Point(320, 217);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cmbFiltro.TabIndex = 9;
+            // 
             // FormAparelho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +181,7 @@
             this.Text = "FormAparelho";
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +197,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnNovoAparelho;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cmbFiltro;
     }
 }

@@ -47,10 +47,13 @@
             this.lstProduto = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.panelFundo.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNovaMovimentacao
@@ -102,11 +105,14 @@
             this.btnPesquisar.Size = new System.Drawing.Size(37, 28);
             this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.pictureBox1);
             this.panelFundo.Controls.Add(this.panel4);
+            this.panelFundo.Controls.Add(this.cmbFiltro);
             this.panelFundo.Controls.Add(this.panel3);
             this.panelFundo.Controls.Add(this.panel2);
             this.panelFundo.Controls.Add(this.btnNovoProduto);
@@ -260,6 +266,29 @@
             this.panel1.Size = new System.Drawing.Size(1237, 5);
             this.panel1.TabIndex = 5;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(674, 173);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 21);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cmbFiltro
+            // 
+            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
+            "ID",
+            "Nome",
+            "CPF",
+            "Telefone"});
+            this.cmbFiltro.Location = new System.Drawing.Point(711, 173);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cmbFiltro.TabIndex = 9;
+            // 
             // FormEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +307,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +333,7 @@
         private System.Windows.Forms.Label lblItensEstoque;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotalProdutos;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cmbFiltro;
     }
 }

@@ -23,6 +23,18 @@ namespace projeto_integrador
         {
             InitializeComponent();
 
+            cmbFiltro.DataSource = new List<string>
+            {
+                "Selecione",
+                "N°Serie",
+                "Tipo",
+                "Marca",
+                "Modelo",
+                "Cliente",
+                "Data Entrada",
+                "Estado"
+            };
+
             //Configuração inciial do ListView para exibição dos dados dos clientes
             lstAparelho.View = View.Details; //Define a visualização em "detalhes"
             lstAparelho.LabelEdit = true; //Permite editar os títulos das colunas
@@ -85,6 +97,61 @@ namespace projeto_integrador
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+                string query = "";
+                string campo = "";
+
+                // 1. Verificamos se o item selecionado é nulo ANTES de converter para string
+                // Usamos ?.ToString() que retorna nulo se o objeto for nulo, sem dar erro.
+                string selecionado = cmbFiltro.SelectedItem?.ToString();
+
+                // 2. Lógica de decisão do filtro
+                if (string.IsNullOrEmpty(selecionado) || selecionado == "Selecione")
+                {
+                    // Caso Geral: Busca em todas as colunas
+                    query = @"
+            SELECT id_aparelho, tipo, marca, modelo, cliente, data_entrada, estado
+            FROM aparelho
+            WHERE CAST(id_aparelho AS CHAR) LIKE @q
+               OR tipo LIKE @q
+               OR marca LIKE @q
+               OR modelo LIKE @q
+               OR cliente LIKE @q
+               OR data_entrada LIKE @q
+               OR estado LIKE @q
+            ORDER BY id_aparelho DESC;";
+                }
+                else
+                {
+                    // Caso Específico: Mapeia o nome amigável para o nome da coluna no banco
+                    switch (selecionado)
+                    {
+                        case "NºSerie": campo = "CAST(id_aparelho AS CHAR)"; break;
+                        case "Tipo": campo = "tipo"; break;
+                        case "Marca": campo = "marca"; break;
+                        case "Modelo": campo = "modelo"; break;
+                        case "Cliente": campo = "cliente"; break;
+                        case "Data Entrada": campo = "data_entrada"; break;
+                        case "Estado": campo = "estado"; break;
+                        default: campo = "tipo"; break;
+                    }
+
+                    query = $@"
+            SELECT id_aparelho, tipo, marca, modelo, cliente, data_entrada, estado
+            FROM aparelho
+            WHERE {campo} LIKE @q
+            ORDER BY id_aparelho DESC;";
+                }
+
+                // 3. Execução
+                carregar_aparelhos_com_query(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar: " + ex.Message);
+            }
 
         }
 

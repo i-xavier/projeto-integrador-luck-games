@@ -72,9 +72,10 @@ CREATE TABLE ordem (
 CREATE TABLE produto(
   id_produto INT PRIMARY KEY AUTO_INCREMENT,
   nome_produto VARCHAR (100),
-  estoque_minimo INT,
+  quantidade_minima INT,
   categoria VARCHAR (50),
-  quantidade INT
+  quantidade_total INT,
+  valor_unitario DECIMAL (10,2)
 );
 
 CREATE TABLE item_ordem(

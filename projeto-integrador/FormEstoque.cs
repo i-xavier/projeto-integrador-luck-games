@@ -21,6 +21,17 @@ namespace projeto_integrador
         {
             InitializeComponent();
 
+            cmbFiltro.DataSource = new List<string>
+            {
+                "Selecione",
+                "ID",
+                "Nome",
+                "Categoria",
+                "Quantidade Mínima",
+                "Valor Unitário",
+                "Quantidade Total"
+            };
+
             //Configuração inciial do ListView para exibição dos dados dos clientes
             lstProduto.View = View.Details; //Define a visualização em "detalhes"
             lstProduto.LabelEdit = true; //Permite editar os títulos das colunas
@@ -57,9 +68,9 @@ namespace projeto_integrador
             lstProduto.Columns.Add("ID", 79, HorizontalAlignment.Left); //Coluna do Código
             lstProduto.Columns.Add("Nome da peça", 158, HorizontalAlignment.Left);//Coluna do Nome da peça
             lstProduto.Columns.Add("Categoria", 158, HorizontalAlignment.Left);//Coluna da categoria
-            lstProduto.Columns.Add("Quantidade", 158, HorizontalAlignment.Left);//Coluna da quantidade
+            lstProduto.Columns.Add("Quantidade mínima", 158, HorizontalAlignment.Left);//Coluna da quantidade
             lstProduto.Columns.Add("Valor unitário", 158, HorizontalAlignment.Left);//Coluna do valor unitário
-            lstProduto.Columns.Add("Fornecedor", 158, HorizontalAlignment.Left);//Coluna do fornecedor
+            lstProduto.Columns.Add("Quantidade total", 158, HorizontalAlignment.Left);//Coluna do fornecedor
 
             AjustarColunasIgualmente();
 
@@ -100,7 +111,7 @@ namespace projeto_integrador
 
             FormNovoProduto form = new FormNovoProduto(codProd);
 
-            if (form.ShowDialog() == DialogResult.OK) //Carrega o cliente cadastrado e mostra na consulta
+            if (form.ShowDialog() == DialogResult.OK) //Carrega o produto cadastrado e mostra na consulta
             {
                 carregar_produtos_com_query(
                     "SELECT * FROM produto ORDER BY id_produto DESC"
@@ -143,7 +154,7 @@ namespace projeto_integrador
                     }
                     else
                     {
-                        codProd = Convert.ToString(reader.GetInt32(0) + 1);
+                        codProd = (reader.GetInt32(0) + 1).ToString();
                     }
                 }
             }
@@ -198,12 +209,13 @@ namespace projeto_integrador
                 {
                     string[] row =
                     {
-                        Convert.ToString(
-                        reader.GetInt32(0)), //Código
-                        reader.GetString(1), //Nome Completo
-                        reader.GetString(2),                    //Nome Social
-                        reader.GetString(3),                    //E-mail
-                        //reader.GetString(4),                     //CPF
+                        reader["id_produto"].ToString(),
+                        reader["nome_produto"].ToString(),
+                        reader["categoria"].ToString(),
+                        reader["quantidade_minima"].ToString(),
+                        reader["valor_unitario"].ToString(),
+                        reader["quantidade_total"].ToString(),
+                        "" 
                     };
 
                     //Adiicona a linha ao ListView
@@ -232,6 +244,64 @@ namespace projeto_integrador
                     Conexao.Close();
                 }
             }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string query = "";
+                string campo = "";
+
+                // 1. Verificamos se o item selecionado é nulo ANTES de converter para string
+                // Usamos ?.ToString() que retorna nulo se o objeto for nulo, sem dar erro.
+                string q = cmbFiltro.SelectedItem?.ToString();
+
+                // 2. Lógica de decisão do filtro
+                if (string.IsNullOrEmpty(q) || q == "Selecione")
+                {
+                    // Caso Geral: Busca em todas as colunas
+                    query = @"
+            SELECT id_produto, nome_produto, categoria, quantidade_minima, valor_unitario, quantidade_total
+            FROM produto
+            WHERE CAST(id_produto AS CHAR) LIKE @q
+               OR nome_produto LIKE @q
+               OR categoria LIKE @q
+               OR CAST(quantidade_minima AS CHAR) LIKE @q
+               OR CAST(valor_unitario AS CHAR) LIKE @q
+               OR CAST(quantidade_total AS CHAR) LIKE @q
+            ORDER BY id_produto DESC;";
+                }
+                else
+                {
+                    // Caso Específico: Mapeia o nome amigável para o nome da coluna no banco
+                    switch (q)
+                    {
+                        case "Nome": campo = "nome_produto"; break;
+                        case "Categoria": campo = "categoria"; break;
+                        case "Quantidade Mínima": campo = "CAST(quantidade_minima AS CHAR)"; break;
+                        case "Valor Unitário": campo = "CAST(valor_unitario AS CHAR)"; break;
+                        case "Quantidade Total": campo = "CAST(quantidade_total AS CHAR)"; break;
+                        case "ID": campo = "CAST(id_produto AS CHAR)"; break;
+                        default: campo = "nome_produto"; break;
+                    }
+
+                    query = $@"
+            SELECT id_produto, nome_produto, categoria, quantidade_minima, valor_unitario, quantidade_total
+            FROM produto
+            WHERE {campo} LIKE @q
+            ORDER BY id_produto DESC;";
+                }
+
+                // 3. Execução
+                carregar_produtos_com_query(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar: " + ex.Message);
+            }
+
         }
     }
 }
