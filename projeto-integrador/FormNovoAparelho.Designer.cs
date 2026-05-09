@@ -213,12 +213,12 @@
             this.btnAnexarFoto.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAnexarFoto.Image = ((System.Drawing.Image)(resources.GetObject("btnAnexarFoto.Image")));
             this.btnAnexarFoto.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAnexarFoto.Location = new System.Drawing.Point(333, 364);
+            this.btnAnexarFoto.Location = new System.Drawing.Point(327, 364);
             this.btnAnexarFoto.Name = "btnAnexarFoto";
             this.btnAnexarFoto.Size = new System.Drawing.Size(39, 38);
             this.btnAnexarFoto.TabIndex = 35;
             this.btnAnexarFoto.UseVisualStyleBackColor = true;
-            this.btnAnexarFoto.Click += new System.EventHandler(this.btnAnexarFoto_Click);
+       
             // 
             // label4
             // 
@@ -266,7 +266,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(327, 364);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 38);
+            this.pictureBox1.Size = new System.Drawing.Size(39, 38);
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
             // 
@@ -283,7 +283,8 @@
             // btnFechar
             // 
             this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFechar.FlatAppearance.BorderSize = 0;
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.Color.White;
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
@@ -292,6 +293,9 @@
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
             this.btnFechar.TabIndex = 43;
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            this.btnFechar.MouseEnter += new System.EventHandler(this.btnFechar_MouseEnter);
+            this.btnFechar.MouseLeave += new System.EventHandler(this.btnFechar_MouseLeave);
             // 
             // FormNovoAparelho
             // 
@@ -324,6 +328,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormNovoAparelho";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Aparelho";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

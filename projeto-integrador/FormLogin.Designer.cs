@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnOlhoAberto = new System.Windows.Forms.Button();
             this.lblAlterasenha = new System.Windows.Forms.LinkLabel();
             this.btnCriarconta = new System.Windows.Forms.Button();
             this.lblCopyRight = new System.Windows.Forms.Label();
             this.lblTextoSenha = new System.Windows.Forms.Label();
             this.lblTextoCodigo = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
-            this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtCodigoUser = new System.Windows.Forms.TextBox();
             this.lblTextoBoasVindas = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.btnOlhoAberto = new System.Windows.Forms.Button();
             this.btnOlhoFechado = new System.Windows.Forms.Button();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(550, 656);
             this.panel1.TabIndex = 0;
+            // 
+            // btnOlhoAberto
+            // 
+            this.btnOlhoAberto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.btnOlhoAberto.FlatAppearance.BorderSize = 0;
+            this.btnOlhoAberto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOlhoAberto.Image = ((System.Drawing.Image)(resources.GetObject("btnOlhoAberto.Image")));
+            this.btnOlhoAberto.Location = new System.Drawing.Point(426, 378);
+            this.btnOlhoAberto.Name = "btnOlhoAberto";
+            this.btnOlhoAberto.Size = new System.Drawing.Size(37, 31);
+            this.btnOlhoAberto.TabIndex = 11;
+            this.btnOlhoAberto.UseVisualStyleBackColor = false;
+            this.btnOlhoAberto.Click += new System.EventHandler(this.btnOlhoAberto_Click);
             // 
             // lblAlterasenha
             // 
@@ -147,18 +160,6 @@
             this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.Logar);
             // 
-            // txtSenha
-            // 
-            this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
-            this.txtSenha.Location = new System.Drawing.Point(84, 378);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(390, 33);
-            this.txtSenha.TabIndex = 3;
-            // 
             // txtCodigoUser
             // 
             this.txtCodigoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
@@ -191,19 +192,6 @@
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
-            // btnOlhoAberto
-            // 
-            this.btnOlhoAberto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.btnOlhoAberto.FlatAppearance.BorderSize = 0;
-            this.btnOlhoAberto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOlhoAberto.Image = ((System.Drawing.Image)(resources.GetObject("btnOlhoAberto.Image")));
-            this.btnOlhoAberto.Location = new System.Drawing.Point(426, 378);
-            this.btnOlhoAberto.Name = "btnOlhoAberto";
-            this.btnOlhoAberto.Size = new System.Drawing.Size(37, 31);
-            this.btnOlhoAberto.TabIndex = 11;
-            this.btnOlhoAberto.UseVisualStyleBackColor = false;
-            this.btnOlhoAberto.Click += new System.EventHandler(this.btnOlhoAberto_Click);
-            // 
             // btnOlhoFechado
             // 
             this.btnOlhoFechado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
@@ -216,6 +204,18 @@
             this.btnOlhoFechado.TabIndex = 12;
             this.btnOlhoFechado.UseVisualStyleBackColor = false;
             this.btnOlhoFechado.Click += new System.EventHandler(this.btnOlhoFechado_Click);
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(134)))));
+            this.txtSenha.Location = new System.Drawing.Point(84, 378);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(390, 33);
+            this.txtSenha.TabIndex = 3;
             // 
             // frmLogin
             // 

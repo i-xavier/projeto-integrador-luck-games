@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using MySql.Data.MySqlClient;
 
 namespace projeto_integrador
 {
     public partial class FormNovoAparelho : Form
     {
+        string conexao = "server=localhost;database=projeto_luck_games;user=root;password=;";
         public FormNovoAparelho()
         {
             InitializeComponent();
@@ -38,22 +41,23 @@ namespace projeto_integrador
             };
 
             dtpDataEntrada.Value = DateTime.Now;
-        }
 
-        private void btnAnexarFoto_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog
+            this.Shown += (s, ev) =>
             {
-                Title = "Selecionar imagem",
-                Filter = "Imagens (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
+                GraphicsPath path = new GraphicsPath();
+                int raio = 20;
+
+                path.AddArc(0, 0, raio, raio, 180, 90);
+                path.AddArc(btnFechar.Width - raio, 0, raio, raio, 270, 90);
+                path.AddArc(btnFechar.Width - raio, btnFechar.Height - raio, raio, raio, 0, 90);
+                path.AddArc(0, btnFechar.Height - raio, raio, raio, 90, 90);
+                path.CloseAllFigures();
+
+                btnFechar.Region = new Region(path);
             };
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Image = Image.FromFile(dialog.FileName);
             }
-        }
 
+    
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             // Pegando valores
@@ -78,28 +82,39 @@ namespace projeto_integrador
                 return;
             }
 
-            if (pictureBox1.Image == null)
+            
+            try
             {
-                MessageBox.Show("Anexe uma foto do aparelho!");
-                return;
+                using (MySqlConnection conn = new MySqlConnection(conexao))
+                {
+                    conn.Open();
+
+                    string sql = @"INSERT INTO aparelho 
+        (codigo_cliente, marca, tipo, num_serie, modelo, estado, data_entrada, descricao_problema)
+        VALUES 
+        (@codigo, @marca, @tipo, @num_serie, @modelo, @estado, @data, @descricao_problema)";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                    cmd.Parameters.AddWithValue("@codigo", codigoCliente);
+                    cmd.Parameters.AddWithValue("@marca", marca);
+                    cmd.Parameters.AddWithValue("@tipo", tipo);
+                    cmd.Parameters.AddWithValue("@num_serie", numeroSerie);
+                    cmd.Parameters.AddWithValue("@modelo", modelo);
+                    cmd.Parameters.AddWithValue("@estado", estado);
+                    cmd.Parameters.AddWithValue("@data", dataEntrada);
+                    cmd.Parameters.AddWithValue("@descricao_problema", descricao);
+                   
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Salvo no banco com sucesso!");
             }
-
-            // SALVAR IMAGEM
-            string pasta = @"C:\AparelhosImagens\";
-
-            if (!Directory.Exists(pasta))
-                Directory.CreateDirectory(pasta);
-
-            string caminhoImagem = Path.Combine(pasta, Guid.NewGuid() + ".jpg");
-
-            pictureBox1.Image.Save(caminhoImagem, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-            // (Aqui futuramente entra o banco de dados)
-
-            MessageBox.Show("Aparelho cadastrado com sucesso!");
-
-            // LIMPAR CAMPOS
-            LimparCampos();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
         }
 
         private void LimparCampos()
@@ -114,9 +129,36 @@ namespace projeto_integrador
             cbEstado.SelectedIndex = 0;
 
             dtpDataEntrada.Value = DateTime.Now;
-
+            
             pictureBox1.Image = null;
         }
 
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+
+            DialogResult resultado = MessageBox.Show(
+                "Tem certeza que deseja sair?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void btnFechar_MouseEnter(object sender, EventArgs e)
+        {
+            btnFechar.BackColor = Color.DarkRed;
+        }
+
+        private void btnFechar_MouseLeave(object sender, EventArgs e)
+        {
+            btnFechar.BackColor = Color.Red;
+        }
+
+    
     }
 }
