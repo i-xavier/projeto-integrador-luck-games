@@ -32,15 +32,16 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panelMedidaMenu = new System.Windows.Forms.Panel();
             this.panelFundo = new System.Windows.Forms.Panel();
-            this.lstAparelho = new System.Windows.Forms.ListView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNovoAparelho = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbFiltro = new System.Windows.Forms.ComboBox();
+            this.dgvAparelho = new System.Windows.Forms.DataGridView();
             this.panelFundo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAparelho)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBuscar
@@ -65,9 +66,9 @@
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.dgvAparelho);
             this.panelFundo.Controls.Add(this.pictureBox1);
             this.panelFundo.Controls.Add(this.cmbFiltro);
-            this.panelFundo.Controls.Add(this.lstAparelho);
             this.panelFundo.Controls.Add(this.btnPesquisar);
             this.panelFundo.Controls.Add(this.label1);
             this.panelFundo.Controls.Add(this.panel1);
@@ -78,20 +79,28 @@
             this.panelFundo.Size = new System.Drawing.Size(934, 561);
             this.panelFundo.TabIndex = 4;
             // 
-            // lstAparelho
+            // pictureBox1
             // 
-            this.lstAparelho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstAparelho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(22)))));
-            this.lstAparelho.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstAparelho.ForeColor = System.Drawing.Color.White;
-            this.lstAparelho.HideSelection = false;
-            this.lstAparelho.Location = new System.Drawing.Point(287, 261);
-            this.lstAparelho.Name = "lstAparelho";
-            this.lstAparelho.Size = new System.Drawing.Size(596, 226);
-            this.lstAparelho.TabIndex = 0;
-            this.lstAparelho.UseCompatibleStateImageBehavior = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(283, 217);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 21);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cmbFiltro
+            // 
+            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
+            "ID",
+            "Nome",
+            "CPF",
+            "Telefone"});
+            this.cmbFiltro.Location = new System.Drawing.Point(320, 217);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cmbFiltro.TabIndex = 9;
             // 
             // btnPesquisar
             // 
@@ -146,28 +155,16 @@
             this.btnNovoAparelho.UseVisualStyleBackColor = false;
             this.btnNovoAparelho.Click += new System.EventHandler(this.btnNovoAparelho_Click);
             // 
-            // pictureBox1
+            // dgvAparelho
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(283, 217);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 21);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
-            // cmbFiltro
-            // 
-            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.cmbFiltro.FormattingEnabled = true;
-            this.cmbFiltro.Items.AddRange(new object[] {
-            "ID",
-            "Nome",
-            "CPF",
-            "Telefone"});
-            this.cmbFiltro.Location = new System.Drawing.Point(320, 217);
-            this.cmbFiltro.Name = "cmbFiltro";
-            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
-            this.cmbFiltro.TabIndex = 9;
+            this.dgvAparelho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAparelho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAparelho.Location = new System.Drawing.Point(287, 261);
+            this.dgvAparelho.Name = "dgvAparelho";
+            this.dgvAparelho.Size = new System.Drawing.Size(596, 226);
+            this.dgvAparelho.TabIndex = 11;
             // 
             // FormAparelho
             // 
@@ -182,6 +179,7 @@
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAparelho)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,12 +190,12 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Panel panelMedidaMenu;
         private System.Windows.Forms.Panel panelFundo;
-        private System.Windows.Forms.ListView lstAparelho;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnNovoAparelho;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbFiltro;
+        private System.Windows.Forms.DataGridView dgvAparelho;
     }
 }

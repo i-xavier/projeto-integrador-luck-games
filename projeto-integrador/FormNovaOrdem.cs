@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace projeto_integrador
 {
-    public partial class FormOrdens : Form
+    public partial class FormNovaOrdem : Form
     {
-        public FormOrdens()
+        public FormNovaOrdem(String texto)
         {
             InitializeComponent();
+
+
         }
     }
 }

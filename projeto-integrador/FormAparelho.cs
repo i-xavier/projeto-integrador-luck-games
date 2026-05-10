@@ -18,7 +18,6 @@ namespace projeto_integrador
         MySqlConnection Conexao;
         string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
 
-        private int? codigo_aparelho = null;
         public FormAparelho()
         {
             InitializeComponent();
@@ -26,6 +25,7 @@ namespace projeto_integrador
             cmbFiltro.DataSource = new List<string>
             {
                 "Selecione",
+                "Nome do aparelho",
                 "N°Serie",
                 "Tipo",
                 "Marca",
@@ -35,51 +35,106 @@ namespace projeto_integrador
                 "Estado"
             };
 
-            //Configuração inciial do ListView para exibição dos dados dos clientes
-            lstAparelho.View = View.Details; //Define a visualização em "detalhes"
-            lstAparelho.LabelEdit = true; //Permite editar os títulos das colunas
-            lstAparelho.AllowColumnReorder = true; //Permite reordenar as colunas
-            lstAparelho.FullRowSelect = true; //Seleciona a linha inteira ao clica
-            lstAparelho.GridLines = false; //Exibe a slinhas de grade no ListView
-            lstAparelho.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lstAparelho.OwnerDraw = true;
+            ConfigurarDataGridView();
 
+        }
 
+        private void ConfigurarDataGridView()
+        {
+            dgvAparelho.AllowUserToAddRows = false;
+            dgvAparelho.AllowUserToDeleteRows = false;
+            dgvAparelho.AllowUserToResizeRows = false;
 
-            lstAparelho.DrawColumnHeader += (sender, e) =>
-            {
-                using (Brush backBrush = new SolidBrush(Color.Black)) // cor do fundo
-                using (Brush textBrush = new SolidBrush(Color.White))    // cor do texto
-                {
-                    e.Graphics.FillRectangle(backBrush, e.Bounds);
-                    e.Graphics.DrawString(e.Header.Text, e.Font, textBrush, e.Bounds);
-                }
-            };
+            dgvAparelho.MultiSelect = false;
 
-            lstAparelho.DrawItem += (sender, e) =>
-            {
-                e.DrawDefault = true;
-            };
+            dgvAparelho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAparelho.ReadOnly = true;
 
-            lstAparelho.DrawSubItem += (sender, e) =>
-            {
-                e.DrawDefault = true;
-            };
+            dgvAparelho.RowHeadersVisible = false;
 
-            //Definindo as colunas do ListView
+            dgvAparelho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            lstAparelho.Columns.Add("NºSerie", 79, HorizontalAlignment.Left); //Coluna do Código/Número de série
-            lstAparelho.Columns.Add("Tipo", 158, HorizontalAlignment.Left);//Coluna do tipo do aparelho
-            lstAparelho.Columns.Add("Marca", 158, HorizontalAlignment.Left);//Coluna da marca do aparelho
-            lstAparelho.Columns.Add("Modelo", 158, HorizontalAlignment.Left);//Coluna do modelo do aparelho
-            lstAparelho.Columns.Add("Cliente", 158, HorizontalAlignment.Left);//Coluna do cliente
-            lstAparelho.Columns.Add("Data Entrada", 158, HorizontalAlignment.Left);//Coluna da data de entrada do aparelho
-            lstAparelho.Columns.Add("Estado", 158, HorizontalAlignment.Left);//Coluna do estado do aparelho
+            dgvAparelho.BackgroundColor = Color.Black;
 
-            AjustarColunasIgualmente();
+            dgvAparelho.BorderStyle = BorderStyle.None;
+            dgvAparelho.EnableHeadersVisualStyles = false;
 
-            lstAparelho.Resize += (s, e) => AjustarColunasIgualmente();
-            this.Resize += (s, e) => AjustarColunasIgualmente();
+            dgvAparelho.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
+            dgvAparelho.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+
+            dgvAparelho.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            dgvAparelho.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 10, FontStyle.Bold);
+
+            dgvAparelho.DefaultCellStyle.BackColor = Color.FromArgb(20, 20, 20);
+
+            dgvAparelho.DefaultCellStyle.ForeColor = Color.White;
+
+            dgvAparelho.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(40, 40, 40);
+
+            dgvAparelho.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dgvAparelho.GridColor = Color.FromArgb(50, 50, 50);
+
+            dgvAparelho.Columns.Clear();
+            // COLUNAS
+            dgvAparelho.Columns.Add("id_aparelho", "ID");
+            dgvAparelho.Columns.Add("nome_aparelho", "ID");
+            dgvAparelho.Columns.Add("tipo", "Tipo");
+            dgvAparelho.Columns.Add("marca", "Marca");
+            dgvAparelho.Columns.Add("modelo", "Modelo");
+            dgvAparelho.Columns.Add("cliente", "Cliente");
+            dgvAparelho.Columns.Add("data_entrada", "Data Entrada");
+            dgvAparelho.Columns.Add("estado", "Estado");
+
+        
+
+            // VISUALIZAR
+            DataGridViewButtonColumn btnVisualizar =
+                new DataGridViewButtonColumn();
+
+            btnVisualizar.Name = "Visualizar";
+
+            btnVisualizar.HeaderText = "";
+
+            btnVisualizar.Text = "👁";
+
+            btnVisualizar.UseColumnTextForButtonValue = true;
+
+            dgvAparelho.Columns.Add(btnVisualizar);
+
+            // EDITAR
+            DataGridViewButtonColumn btnEditar =
+                new DataGridViewButtonColumn();
+
+            btnEditar.Name = "Editar";
+
+            btnEditar.HeaderText = "";
+
+            btnEditar.Text = "✏";
+
+            btnEditar.UseColumnTextForButtonValue = true;
+
+            dgvAparelho.Columns.Add(btnEditar);
+
+            // EXCLUIR
+            DataGridViewButtonColumn btnExcluir =
+                new DataGridViewButtonColumn();
+
+            btnExcluir.Name = "Excluir";
+
+            btnExcluir.HeaderText = "";
+
+            btnExcluir.Text = "🗑";
+
+            btnExcluir.UseColumnTextForButtonValue = true;
+
+            dgvAparelho.Columns.Add(btnExcluir);
+
+            dgvAparelho.CellClick += dgvAparelho_CellClick;
         }
 
         private void btnNovoAparelho_Click(object sender, EventArgs e)
@@ -101,56 +156,102 @@ namespace projeto_integrador
             try
             {
                 string query = "";
+
                 string campo = "";
 
-                // 1. Verificamos se o item selecionado é nulo ANTES de converter para string
-                // Usamos ?.ToString() que retorna nulo se o objeto for nulo, sem dar erro.
-                string selecionado = cmbFiltro.SelectedItem?.ToString();
+                string q = cmbFiltro.SelectedItem?.ToString();
 
-                // 2. Lógica de decisão do filtro
-                if (string.IsNullOrEmpty(selecionado) || selecionado == "Selecione")
+                if (string.IsNullOrEmpty(q) ||
+                    q == "Selecione")
                 {
-                    // Caso Geral: Busca em todas as colunas
                     query = @"
-            SELECT id_aparelho, tipo, marca, modelo, cliente, data_entrada, estado
-            FROM aparelho
-            WHERE CAST(id_aparelho AS CHAR) LIKE @q
-               OR tipo LIKE @q
-               OR marca LIKE @q
-               OR modelo LIKE @q
-               OR cliente LIKE @q
-               OR data_entrada LIKE @q
-               OR estado LIKE @q
-            ORDER BY id_aparelho DESC;";
+                    SELECT
+                        id_aparelho,
+                        nome_aparelho,
+                        marca,
+                        modelo,
+                        tipo,
+                        cliente,
+                        data_entrada,
+                        estado
+                    FROM aparelho
+                    WHERE CAST(id_aparelho AS CHAR) LIKE @q
+                       OR nome_aparelho LIKE @q
+                       OR marca LIKE @q
+                       OR modelo LIKE @q
+                       OR tipo LIKE @q
+                       OR cliente LIKE @q
+                       OR CAST(data_entrada AS CHAR) LIKE @q
+                       OR estado LIKE @q
+                    ORDER BY id_aparelho DESC;";
                 }
                 else
                 {
-                    // Caso Específico: Mapeia o nome amigável para o nome da coluna no banco
-                    switch (selecionado)
+                    switch (q)
                     {
-                        case "NºSerie": campo = "CAST(id_aparelho AS CHAR)"; break;
-                        case "Tipo": campo = "tipo"; break;
-                        case "Marca": campo = "marca"; break;
-                        case "Modelo": campo = "modelo"; break;
-                        case "Cliente": campo = "cliente"; break;
-                        case "Data Entrada": campo = "data_entrada"; break;
-                        case "Estado": campo = "estado"; break;
-                        default: campo = "tipo"; break;
+                        case "Marca":
+                            campo = "marca";
+                            break;
+
+                        case "Modelo":
+                            campo = "modelo";
+                            break;
+
+                        case "Tipo":
+                            campo = "tipo";
+                            break;
+
+                        case "Cliente":
+                            campo = "cliente";
+                            break;
+
+                        case "Data de Entrada":
+                            campo = "CAST(data_entrada AS CHAR)";
+                            break;
+
+                        case "Estado":
+                            campo = "estado";
+                            break;
+
+                        case "Nome do aparelho":
+                            campo = "nome_aparelho";
+                            break;
+
+                        case "Numero de série":
+                            campo = "CAST(num_serie AS CHAR)";
+                            break;
+
+                        case "ID":
+                            campo = "CAST(id_produto AS CHAR)";
+                            break;
+
+                        default:
+                            campo = "nome_aparelho";
+                            break;
                     }
 
                     query = $@"
-            SELECT id_aparelho, tipo, marca, modelo, cliente, data_entrada, estado
-            FROM aparelho
-            WHERE {campo} LIKE @q
-            ORDER BY id_aparelho DESC;";
+                    SELECT
+                        id_aparelho,
+                        marca,
+                        nome_aparelho,
+                        modelo,
+                        tipo,
+                        cliente,
+                        data_entrada,
+                        estado
+                    FROM aparelho
+                    WHERE {campo} LIKE @q
+                    ORDER BY id_aparelho DESC;";
                 }
 
-                // 3. Execução
                 carregar_aparelhos_com_query(query);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao buscar: " + ex.Message);
+                MessageBox.Show(
+                    "Erro ao buscar: " + ex.Message
+                );
             }
 
         }
@@ -159,59 +260,61 @@ namespace projeto_integrador
         {
             try
             {
-                //Cria a conexão ocm o banco de dados
                 Conexao = new MySqlConnection(data_source);
+
                 Conexao.Open();
 
-                //Executa a consulta SQL fornecida
-                MySqlCommand cmd = new MySqlCommand(query, Conexao);
+                MySqlCommand cmd =
+                    new MySqlCommand(query, Conexao);
 
-                //Se a consulta contém o parâmetro @q, adiciona o valor da caixa de pesquisa
                 if (query.Contains("@q"))
                 {
-                    cmd.Parameters.AddWithValue("@q", "%" + txtBuscar.Text + "%");
+                    cmd.Parameters.AddWithValue(
+                        "@q",
+                        "%" + txtBuscar.Text + "%"
+                    );
                 }
 
-                //Executa o comando e obtém os resulttados
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                //Limpa os itens existentes no ListView antes de adiocnar novos
-                lstAparelho.Items.Clear();
+                dgvAparelho.Rows.Clear();
 
-                //Preenche o ListView com os dados dos cliente
                 while (reader.Read())
                 {
-                    string[] row =
-                    {
-                        Convert.ToString(reader.GetInt32(0)), //Código
-                        reader.GetString(1),                    //Nome Completo
-                        reader.GetString(2),                    //Nome Social
-                        reader.GetString(3),                    //E-mail
-                        //reader.GetString(4),                     //CPF
-                    };
-
-                    //Adiicona a linha ao ListView
-                    lstAparelho.Items.Add(new ListViewItem(row));
+                    dgvAparelho.Rows.Add(
+                        reader["id_aparelho"].ToString(),
+                        reader["tipo"].ToString(),
+                        reader["marca"].ToString(),
+                        reader["modelo"].ToString(),
+                        reader["nome_aparelho"].ToString(),
+                        reader["cliente"].ToString(),
+                        reader["data_entrada"].ToString(),
+                        reader["estado"].ToString()
+                    );
                 }
-
             }
             catch (MySqlException ex)
             {
-                //Trata erros relacionados ao MySQL
-                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
-                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Erro " + ex.Number + " ocorreu: " + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
             catch (Exception ex)
             {
-                //Trata outros tipos de erro
-                MessageBox.Show("Ocorreu: " + ex.Message,
-                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Ocorreu: " + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
-
             finally
             {
-                //Garante que a conexão com o banco será fechda, mesmo se ocorrer erro
-                if (Conexao != null && Conexao.State == ConnectionState.Open)
+                if (Conexao != null &&
+                    Conexao.State == ConnectionState.Open)
                 {
                     Conexao.Close();
                 }
@@ -280,26 +383,101 @@ namespace projeto_integrador
             checar_cod(query);
         }
 
-        private void AjustarColunasIgualmente()
+        private void dgvAparelho_CellClick(
+           object sender,
+           DataGridViewCellEventArgs e
+       )
         {
-            int totalColunas = lstAparelho.Columns.Count;
-            if (totalColunas == 0) return;
+            if (e.RowIndex < 0)
+                return;
 
-            int larguraTotal = lstAparelho.ClientSize.Width;
-            int larguraBase = larguraTotal / totalColunas;
-            int resto = larguraTotal % totalColunas;
+            string idAparelho =
+                dgvAparelho.Rows[e.RowIndex]
+                .Cells["id_aparelho"]
+                .Value
+                .ToString();
 
-            for (int i = 0; i < totalColunas; i++)
+            // VISUALIZAR
+            if (dgvAparelho.Columns[e.ColumnIndex].Name
+                == "Visualizar")
             {
-                lstAparelho.Columns[i].Width = larguraBase;
+                MessageBox.Show(
+                    "Visualizar aparelho ID: " + idAparelho
+                );
+            }
 
-                if (resto > 0)
+            // EDITAR
+            if (dgvAparelho.Columns[e.ColumnIndex].Name
+                == "Editar")
+            {
+                MessageBox.Show(
+                    "Editar aparelho ID: " + idAparelho
+                );
+
+                // abrir tela edição aqui
+            }
+
+            // EXCLUIR
+            if (dgvAparelho.Columns[e.ColumnIndex].Name
+                == "Excluir")
+            {
+                DialogResult resultado =
+                    MessageBox.Show(
+                        "Deseja excluir este aparelho?",
+                        "Confirmação",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                if (resultado == DialogResult.Yes)
                 {
-                    lstAparelho.Columns[i].Width += 1;
-                    resto--;
+                    ExcluirAparelho(idAparelho);
                 }
             }
         }
+
+        private void ExcluirAparelho(string id)
+        {
+            try
+            {
+                Conexao = new MySqlConnection(data_source);
+
+                Conexao.Open();
+
+                string sql =
+                    "DELETE FROM aparelho WHERE id_aparelho = @id";
+
+                MySqlCommand cmd =
+                    new MySqlCommand(sql, Conexao);
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show(
+                    "Produto excluído com sucesso!"
+                );
+
+                carregar_aparelhos_com_query(
+                    "SELECT * FROM aparelho ORDER BY id_aparelho DESC"
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Erro ao excluir: " + ex.Message
+                );
+            }
+            finally
+            {
+                if (Conexao != null &&
+                    Conexao.State == ConnectionState.Open)
+                {
+                    Conexao.Close();
+                }
+            }
+        }
+
     }
     }
     

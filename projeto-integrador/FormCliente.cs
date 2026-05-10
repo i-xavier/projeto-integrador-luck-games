@@ -33,109 +33,160 @@ namespace projeto_integrador
                 "CPF"
             };
 
-            //Configuração inciial do ListView para exibição dos dados dos clientes
-            lstCliente.View = View.Details; //Define a visualização em "detalhes"
-            lstCliente.LabelEdit = true; //Permite editar os títulos das colunas
-            lstCliente.AllowColumnReorder = true; //Permite reordenar as colunas
-            lstCliente.FullRowSelect = true; //Seleciona a linha inteira ao clica
-            lstCliente.GridLines = false; //Exibe a slinhas de grade no ListView
-            lstCliente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lstCliente.OwnerDraw = true;
+            ConfigurarDataGridView();
 
+        }
 
+        private void ConfigurarDataGridView()
+        {
+            dgvCliente.AllowUserToAddRows = false;
+            dgvCliente.AllowUserToDeleteRows = false;
+            dgvCliente.AllowUserToResizeRows = false;
 
-            lstCliente.DrawColumnHeader += (sender, e) =>
-            {
-                using (Brush backBrush = new SolidBrush(Color.Black)) // cor do fundo
-                using (Brush textBrush = new SolidBrush(Color.White))    // cor do texto
-                {
-                    e.Graphics.FillRectangle(backBrush, e.Bounds);
-                    e.Graphics.DrawString(e.Header.Text, e.Font, textBrush, e.Bounds);
-                }
-            };
+            dgvCliente.MultiSelect = false;
 
-            lstCliente.DrawItem += (sender, e) =>
-            {
-                e.DrawDefault = true;
-            };
+            dgvCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCliente.ReadOnly = true;
 
-            lstCliente.DrawSubItem += (sender, e) =>
-            {
-                e.DrawDefault = true;
-            };
+            dgvCliente.RowHeadersVisible = false;
 
-            //Definindo as colunas do ListView
+            dgvCliente.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            lstCliente.Columns.Add("ID", 79, HorizontalAlignment.Left); //Coluna do Código
-            lstCliente.Columns.Add("Nome completo", 158, HorizontalAlignment.Left);//Coluna do Nome completo
-            lstCliente.Columns.Add("Telefone", 158, HorizontalAlignment.Left);//Coluna do Nome social
-            lstCliente.Columns.Add("CPF", 158, HorizontalAlignment.Left);//Coluna do E-mail
-            //lstCliente.Columns.Add("CPF", 158, HorizontalAlignment.Left);//Coluna do CPF
+            dgvCliente.BackgroundColor = Color.Black;
 
-            AjustarColunasIgualmente();
+            dgvCliente.BorderStyle = BorderStyle.None;
+            dgvCliente.EnableHeadersVisualStyles = false;
 
-            lstCliente.Resize += (s, e) => AjustarColunasIgualmente();
-            this.Resize += (s, e) => AjustarColunasIgualmente();
+            dgvCliente.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
 
+            dgvCliente.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+
+            dgvCliente.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            dgvCliente.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 10, FontStyle.Bold);
+
+            dgvCliente.DefaultCellStyle.BackColor = Color.FromArgb(20, 20, 20);
+
+            dgvCliente.DefaultCellStyle.ForeColor = Color.White;
+
+            dgvCliente.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(40, 40, 40);
+
+            dgvCliente.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dgvCliente.GridColor = Color.FromArgb(50, 50, 50);
+
+            dgvCliente.Columns.Clear();
+            // COLUNAS
+            dgvCliente.Columns.Add("id_cliente", "ID");
+            dgvCliente.Columns.Add("nome", "Nome do cliente");
+            dgvCliente.Columns.Add("telefone", "Telefone");
+            dgvCliente.Columns.Add("cpf", "CPF");
+
+        
+
+            // VISUALIZAR
+            DataGridViewButtonColumn btnVisualizar =
+                new DataGridViewButtonColumn();
+
+            btnVisualizar.Name = "Visualizar";
+
+            btnVisualizar.HeaderText = "";
+
+            btnVisualizar.Text = "👁";
+
+            btnVisualizar.UseColumnTextForButtonValue = true;
+
+            dgvCliente.Columns.Add(btnVisualizar);
+
+            // EDITAR
+            DataGridViewButtonColumn btnEditar =
+                new DataGridViewButtonColumn();
+
+            btnEditar.Name = "Editar";
+
+            btnEditar.HeaderText = "";
+
+            btnEditar.Text = "✏";
+
+            btnEditar.UseColumnTextForButtonValue = true;
+
+            dgvCliente.Columns.Add(btnEditar);
+
+            // EXCLUIR
+            DataGridViewButtonColumn btnExcluir =
+                new DataGridViewButtonColumn();
+
+            btnExcluir.Name = "Excluir";
+
+            btnExcluir.HeaderText = "";
+
+            btnExcluir.Text = "🗑";
+
+            btnExcluir.UseColumnTextForButtonValue = true;
+
+            dgvCliente.Columns.Add(btnExcluir);
+
+            dgvCliente.CellClick += dgvCliente_CellClick;
         }
 
         private void carregar_clientes_com_query(string query)
         {
             try
             {
-                //Cria a conexão ocm o banco de dados
                 Conexao = new MySqlConnection(data_source);
+
                 Conexao.Open();
 
-                //Executa a consulta SQL fornecida
-                MySqlCommand cmd = new MySqlCommand(query, Conexao);
+                MySqlCommand cmd =
+                    new MySqlCommand(query, Conexao);
 
-                //Se a consulta contém o parâmetro @q, adiciona o valor da caixa de pesquisa
                 if (query.Contains("@q"))
                 {
-                    cmd.Parameters.AddWithValue("@q", "%" + txtBuscar.Text + "%");
+                    cmd.Parameters.AddWithValue(
+                        "@q",
+                        "%" + txtBuscar.Text + "%"
+                    );
                 }
 
-                //Executa o comando e obtém os resulttados
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                //Limpa os itens existentes no ListView antes de adiocnar novos
-                lstCliente.Items.Clear();
+                dgvCliente.Rows.Clear();
 
-                //Preenche o ListView com os dados dos cliente
                 while (reader.Read())
                 {
-                    string[] row =
-                    {
-                        Convert.ToString(reader.GetInt32(0)), //Código
-                        reader.GetString(1),                    //Nome Completo
-                        reader.GetString(2),                    //Nome Social
-                        reader.GetString(3),                    //E-mail
-                        //reader.GetString(4),                     //CPF
-                    };
-
-                    //Adiicona a linha ao ListView
-                    lstCliente.Items.Add(new ListViewItem(row));
+                    dgvCliente.Rows.Add(
+                        reader["id_cliente"].ToString(),
+                        reader["nome"].ToString(),
+                        reader["telefone"].ToString(),
+                        reader["cpf"].ToString()
+                    );
+                    
                 }
-
             }
             catch (MySqlException ex)
             {
-                //Trata erros relacionados ao MySQL
-                MessageBox.Show("Erro " + ex.Number + " ocorreu: " + ex.Message,
-                                "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Erro " + ex.Number + " ocorreu: " + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
             catch (Exception ex)
             {
-                //Trata outros tipos de erro
-                MessageBox.Show("Ocorreu: " + ex.Message,
-                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Ocorreu: " + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
-
             finally
             {
-                //Garante que a conexão com o banco será fechda, mesmo se ocorrer erro
-                if (Conexao != null && Conexao.State == ConnectionState.Open)
+                if (Conexao != null &&
+                    Conexao.State == ConnectionState.Open)
                 {
                     Conexao.Close();
                 }
@@ -209,50 +260,70 @@ namespace projeto_integrador
             try
             {
                 string query = "";
+
                 string campo = "";
 
-                // 1. Verificamos se o item selecionado é nulo ANTES de converter para string
-                // Usamos ?.ToString() que retorna nulo se o objeto for nulo, sem dar erro.
-                string selecionado = cmbFiltro.SelectedItem?.ToString();
+                string q = cmbFiltro.SelectedItem?.ToString();
 
-                // 2. Lógica de decisão do filtro
-                if (string.IsNullOrEmpty(selecionado) || selecionado == "Selecione")
+                if (string.IsNullOrEmpty(q) ||
+                    q == "Selecione")
                 {
-                    // Caso Geral: Busca em todas as colunas
                     query = @"
-            SELECT id_cliente, nome, telefone, cpf
-            FROM cliente
-            WHERE CAST(id_cliente AS CHAR) LIKE @q
-               OR nome LIKE @q
-               OR telefone LIKE @q
-               OR cpf LIKE @q
-            ORDER BY id_cliente DESC;";
+                    SELECT
+                        id_cliente,
+                        nome,
+                        telefone,
+                        cpf
+                    FROM cliente
+                    WHERE CAST(id_cliente AS CHAR) LIKE @q
+                       OR nome LIKE @q
+                       OR telefone LIKE @q
+                       OR cpf LIKE @q
+                    ORDER BY id_cliente DESC;";
                 }
                 else
                 {
-                    // Caso Específico: Mapeia o nome amigável para o nome da coluna no banco
-                    switch (selecionado)
+                    switch (q)
                     {
-                        case "Nome": campo = "nome"; break;
-                        case "CPF": campo = "cpf"; break;
-                        case "Telefone": campo = "telefone"; break;
-                        case "ID": campo = "CAST(id_cliente AS CHAR)"; break;
-                        default: campo = "nome"; break;
+                        case "Nome":
+                            campo = "nome";
+                            break;
+
+                        case "Telefone":
+                            campo = "telefone";
+                            break;
+
+                        case "CPF":
+                            campo = "cpf";
+                            break;
+
+                        case "ID":
+                            campo = "CAST(id_cliente AS CHAR)";
+                            break;
+
+                        default:
+                            campo = "nome";
+                            break;
                     }
 
                     query = $@"
-            SELECT id_cliente, nome, telefone, cpf
-            FROM cliente
-            WHERE {campo} LIKE @q
-            ORDER BY id_cliente DESC;";
+                    SELECT
+                        id_cliente,
+                        nome,
+                        telefone,
+                        cpf
+                    FROM cliente
+                    WHERE {campo} LIKE @q
+                    ORDER BY id_cliente DESC;";
                 }
 
-                // 3. Execução
                 carregar_clientes_com_query(query);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao buscar: " + ex.Message);
+                MessageBox.Show(
+                    "Erro ao buscar: " + ex.Message
+                );
             }
 
         }
@@ -272,23 +343,97 @@ namespace projeto_integrador
 
         }
 
-        private void AjustarColunasIgualmente()
+        private void dgvCliente_CellClick(
+           object sender,
+           DataGridViewCellEventArgs e
+       )
         {
-            int totalColunas = lstCliente.Columns.Count;
-            if (totalColunas == 0) return;
+            if (e.RowIndex < 0)
+                return;
 
-            int larguraTotal = lstCliente.ClientSize.Width;
-            int larguraBase = larguraTotal / totalColunas;
-            int resto = larguraTotal % totalColunas;
+            string idCliente =
+                dgvCliente.Rows[e.RowIndex]
+                .Cells["id_cliente"]
+                .Value
+                .ToString();
 
-            for (int i = 0; i < totalColunas; i++)
+            // VISUALIZAR
+            if (dgvCliente.Columns[e.ColumnIndex].Name
+                == "Visualizar")
             {
-                lstCliente.Columns[i].Width = larguraBase;
+                MessageBox.Show(
+                    "Visualizar cliente ID: " + idCliente
+                );
+            }
 
-                if (resto > 0)
+            // EDITAR
+            if (dgvCliente.Columns[e.ColumnIndex].Name
+                == "Editar")
+            {
+                MessageBox.Show(
+                    "Editar cliente ID: " + idCliente
+                );
+
+                // abrir tela edição aqui
+            }
+
+            // EXCLUIR
+            if (dgvCliente.Columns[e.ColumnIndex].Name
+                == "Excluir")
+            {
+                DialogResult resultado =
+                    MessageBox.Show(
+                        "Deseja excluir este produto?",
+                        "Confirmação",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                if (resultado == DialogResult.Yes)
                 {
-                    lstCliente.Columns[i].Width += 1;
-                    resto--;
+                    ExcluirCliente(idCliente);
+                }
+            }
+        }
+
+        private void ExcluirCliente(string id)
+        {
+            try
+            {
+                Conexao = new MySqlConnection(data_source);
+
+                Conexao.Open();
+
+                string sql =
+                    "DELETE FROM cliente WHERE id_cliente = @id";
+
+                MySqlCommand cmd =
+                    new MySqlCommand(sql, Conexao);
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show(
+                    "Produto excluído com sucesso!"
+                );
+
+                carregar_clientes_com_query(
+                    "SELECT * FROM cliente ORDER BY id_cliente DESC"
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Erro ao excluir: " + ex.Message
+                );
+            }
+            finally
+            {
+                if (Conexao != null &&
+                    Conexao.State == ConnectionState.Open)
+                {
+                    Conexao.Close();
                 }
             }
         }

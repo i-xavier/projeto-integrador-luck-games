@@ -1,6 +1,6 @@
 ﻿namespace projeto_integrador
 {
-    partial class FormOrdens
+    partial class FormOrdemDeServico
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrdens));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrdemDeServico));
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panelMedidaMenu = new System.Windows.Forms.Panel();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnNovoCliente = new System.Windows.Forms.Button();
+            this.btnNovaOS = new System.Windows.Forms.Button();
             this.panelFundo = new System.Windows.Forms.Panel();
-            this.lstCliente = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
+            this.dgvOS = new System.Windows.Forms.DataGridView();
+            this.labelOS = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelFundo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOS)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBuscar
@@ -70,64 +74,84 @@
             this.btnPesquisar.Size = new System.Drawing.Size(37, 28);
             this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // btnNovoCliente
+            // btnNovaOS
             // 
-            this.btnNovoCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNovoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.btnNovoCliente.FlatAppearance.BorderSize = 0;
-            this.btnNovoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoCliente.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovoCliente.ForeColor = System.Drawing.Color.Black;
-            this.btnNovoCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoCliente.Image")));
-            this.btnNovoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovoCliente.Location = new System.Drawing.Point(707, 171);
-            this.btnNovoCliente.Name = "btnNovoCliente";
-            this.btnNovoCliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNovoCliente.Size = new System.Drawing.Size(176, 34);
-            this.btnNovoCliente.TabIndex = 4;
-            this.btnNovoCliente.Text = "    Nova Ordem";
-            this.btnNovoCliente.UseVisualStyleBackColor = false;
+            this.btnNovaOS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNovaOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnNovaOS.FlatAppearance.BorderSize = 0;
+            this.btnNovaOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovaOS.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovaOS.ForeColor = System.Drawing.Color.Black;
+            this.btnNovaOS.Image = ((System.Drawing.Image)(resources.GetObject("btnNovaOS.Image")));
+            this.btnNovaOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNovaOS.Location = new System.Drawing.Point(707, 171);
+            this.btnNovaOS.Name = "btnNovaOS";
+            this.btnNovaOS.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNovaOS.Size = new System.Drawing.Size(176, 34);
+            this.btnNovaOS.TabIndex = 4;
+            this.btnNovaOS.Text = "    Nova Ordem";
+            this.btnNovaOS.UseVisualStyleBackColor = false;
+            this.btnNovaOS.Click += new System.EventHandler(this.btnNovaOS_Click);
             // 
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
-            this.panelFundo.Controls.Add(this.lstCliente);
+            this.panelFundo.Controls.Add(this.pictureBox1);
+            this.panelFundo.Controls.Add(this.cmbFiltro);
+            this.panelFundo.Controls.Add(this.dgvOS);
             this.panelFundo.Controls.Add(this.btnPesquisar);
-            this.panelFundo.Controls.Add(this.label1);
+            this.panelFundo.Controls.Add(this.labelOS);
             this.panelFundo.Controls.Add(this.panel1);
-            this.panelFundo.Controls.Add(this.btnNovoCliente);
+            this.panelFundo.Controls.Add(this.btnNovaOS);
             this.panelFundo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFundo.Location = new System.Drawing.Point(0, 0);
             this.panelFundo.Name = "panelFundo";
             this.panelFundo.Size = new System.Drawing.Size(934, 561);
             this.panelFundo.TabIndex = 4;
             // 
-            // lstCliente
+            // pictureBox1
             // 
-            this.lstCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(22)))));
-            this.lstCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstCliente.ForeColor = System.Drawing.Color.White;
-            this.lstCliente.HideSelection = false;
-            this.lstCliente.Location = new System.Drawing.Point(287, 261);
-            this.lstCliente.Name = "lstCliente";
-            this.lstCliente.Size = new System.Drawing.Size(596, 226);
-            this.lstCliente.TabIndex = 0;
-            this.lstCliente.UseCompatibleStateImageBehavior = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(289, 218);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 21);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // cmbFiltro
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(280, 93);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 37);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Ordens de Serviço";
+            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
+            "ID",
+            "Nome",
+            "CPF",
+            "Telefone"});
+            this.cmbFiltro.Location = new System.Drawing.Point(326, 218);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cmbFiltro.TabIndex = 11;
+            // 
+            // dgvOS
+            // 
+            this.dgvOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOS.Location = new System.Drawing.Point(287, 261);
+            this.dgvOS.Name = "dgvOS";
+            this.dgvOS.Size = new System.Drawing.Size(596, 226);
+            this.dgvOS.TabIndex = 7;
+            // 
+            // labelOS
+            // 
+            this.labelOS.AutoSize = true;
+            this.labelOS.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOS.ForeColor = System.Drawing.Color.White;
+            this.labelOS.Location = new System.Drawing.Point(280, 93);
+            this.labelOS.Name = "labelOS";
+            this.labelOS.Size = new System.Drawing.Size(239, 37);
+            this.labelOS.TabIndex = 6;
+            this.labelOS.Text = "Ordens de Serviço";
             // 
             // panel1
             // 
@@ -151,6 +175,8 @@
             this.Text = "FormOrdens";
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,10 +187,12 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Panel panelMedidaMenu;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.Button btnNovoCliente;
+        private System.Windows.Forms.Button btnNovaOS;
         private System.Windows.Forms.Panel panelFundo;
-        private System.Windows.Forms.ListView lstCliente;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelOS;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dgvOS;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cmbFiltro;
     }
 }

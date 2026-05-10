@@ -35,7 +35,7 @@ namespace projeto_integrador
 
         private void btnOrdens_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormOrdens());
+            openChildForm(new FormOrdemDeServico());
         }
 
 

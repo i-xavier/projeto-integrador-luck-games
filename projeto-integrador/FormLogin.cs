@@ -10,9 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using MySql.Data.MySqlClient;
 
-using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 namespace projeto_integrador
 {
@@ -178,7 +176,7 @@ namespace projeto_integrador
         {
             try
             {
-                int flag = 0;
+           
                 //Cria a conexão ocm o banco de dados
                 Conexao = new MySqlConnection(data_source);
                 Conexao.Open();

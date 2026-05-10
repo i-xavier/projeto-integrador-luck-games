@@ -36,11 +36,12 @@
             this.panelFundo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmbFiltro = new System.Windows.Forms.ComboBox();
-            this.lstCliente = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.panelFundo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMedidaMenu
@@ -97,9 +98,9 @@
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.dgvCliente);
             this.panelFundo.Controls.Add(this.pictureBox1);
             this.panelFundo.Controls.Add(this.cmbFiltro);
-            this.panelFundo.Controls.Add(this.lstCliente);
             this.panelFundo.Controls.Add(this.btnPesquisar);
             this.panelFundo.Controls.Add(this.label1);
             this.panelFundo.Controls.Add(this.panel1);
@@ -133,21 +134,6 @@
             this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
             this.cmbFiltro.TabIndex = 7;
             // 
-            // lstCliente
-            // 
-            this.lstCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(22)))));
-            this.lstCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstCliente.ForeColor = System.Drawing.Color.White;
-            this.lstCliente.HideSelection = false;
-            this.lstCliente.Location = new System.Drawing.Point(287, 261);
-            this.lstCliente.Name = "lstCliente";
-            this.lstCliente.Size = new System.Drawing.Size(916, 342);
-            this.lstCliente.TabIndex = 0;
-            this.lstCliente.UseCompatibleStateImageBehavior = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -169,6 +155,17 @@
             this.panel1.Size = new System.Drawing.Size(916, 5);
             this.panel1.TabIndex = 5;
             // 
+            // dgvCliente
+            // 
+            this.dgvCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCliente.Location = new System.Drawing.Point(287, 261);
+            this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.Size = new System.Drawing.Size(916, 342);
+            this.dgvCliente.TabIndex = 9;
+            // 
             // FormCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,6 +179,7 @@
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,8 +194,8 @@
         private System.Windows.Forms.Panel panelFundo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListView lstCliente;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbFiltro;
+        private System.Windows.Forms.DataGridView dgvCliente;
     }
 }

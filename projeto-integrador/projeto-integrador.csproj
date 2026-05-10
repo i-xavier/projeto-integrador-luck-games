@@ -101,6 +101,12 @@
     <Compile Include="FormNovaMovimentacao.Designer.cs">
       <DependentUpon>FormNovaMovimentacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNovaOrdem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNovaOrdem.Designer.cs">
+      <DependentUpon>FormNovaOrdem.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNovoAparelho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,11 +149,11 @@
     <Compile Include="FormNovoProduto.Designer.cs">
       <DependentUpon>FormNovoProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOrdens.cs">
+    <Compile Include="FormOrdemDeServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormOrdens.Designer.cs">
-      <DependentUpon>FormOrdens.cs</DependentUpon>
+    <Compile Include="FormOrdemDeServico.Designer.cs">
+      <DependentUpon>FormOrdemDeServico.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRecuperarSenha.cs">
       <SubType>Form</SubType>
@@ -205,8 +211,8 @@
     <EmbeddedResource Include="FormNovoProduto.resx">
       <DependentUpon>FormNovoProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOrdens.resx">
-      <DependentUpon>FormOrdens.cs</DependentUpon>
+    <EmbeddedResource Include="FormOrdemDeServico.resx">
+      <DependentUpon>FormOrdemDeServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRecuperarSenha.resx">
       <DependentUpon>FormRecuperarSenha.cs</DependentUpon>

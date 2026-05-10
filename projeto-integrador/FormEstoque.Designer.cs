@@ -34,9 +34,11 @@
             this.panelMedidaMenu = new System.Windows.Forms.Panel();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.panelFundo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.lblItensEstoque = new System.Windows.Forms.Label();
@@ -44,16 +46,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblTotalProdutos = new System.Windows.Forms.Label();
             this.btnNovoProduto = new System.Windows.Forms.Button();
-            this.lstProduto = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbFiltro = new System.Windows.Forms.ComboBox();
+            this.dgvProduto = new System.Windows.Forms.DataGridView();
             this.panelFundo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNovaMovimentacao
@@ -110,13 +111,13 @@
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.dgvProduto);
             this.panelFundo.Controls.Add(this.pictureBox1);
             this.panelFundo.Controls.Add(this.panel4);
             this.panelFundo.Controls.Add(this.cmbFiltro);
             this.panelFundo.Controls.Add(this.panel3);
             this.panelFundo.Controls.Add(this.panel2);
             this.panelFundo.Controls.Add(this.btnNovoProduto);
-            this.panelFundo.Controls.Add(this.lstProduto);
             this.panelFundo.Controls.Add(this.btnPesquisar);
             this.panelFundo.Controls.Add(this.label1);
             this.panelFundo.Controls.Add(this.panel1);
@@ -126,6 +127,15 @@
             this.panelFundo.Name = "panelFundo";
             this.panelFundo.Size = new System.Drawing.Size(1575, 807);
             this.panelFundo.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(674, 173);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 21);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // panel4
             // 
@@ -154,6 +164,20 @@
             this.lblCategoria.Size = new System.Drawing.Size(52, 13);
             this.lblCategoria.TabIndex = 0;
             this.lblCategoria.Text = "Categoria";
+            // 
+            // cmbFiltro
+            // 
+            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
+            "ID",
+            "Nome",
+            "CPF",
+            "Telefone"});
+            this.cmbFiltro.Location = new System.Drawing.Point(711, 173);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cmbFiltro.TabIndex = 9;
             // 
             // panel3
             // 
@@ -230,21 +254,6 @@
             this.btnNovoProduto.UseVisualStyleBackColor = false;
             this.btnNovoProduto.Click += new System.EventHandler(this.btnNovoProduto_Click);
             // 
-            // lstProduto
-            // 
-            this.lstProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(29)))), ((int)(((byte)(22)))));
-            this.lstProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lstProduto.ForeColor = System.Drawing.Color.White;
-            this.lstProduto.HideSelection = false;
-            this.lstProduto.Location = new System.Drawing.Point(287, 386);
-            this.lstProduto.Name = "lstProduto";
-            this.lstProduto.Size = new System.Drawing.Size(1237, 347);
-            this.lstProduto.TabIndex = 0;
-            this.lstProduto.UseCompatibleStateImageBehavior = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -266,28 +275,16 @@
             this.panel1.Size = new System.Drawing.Size(1237, 5);
             this.panel1.TabIndex = 5;
             // 
-            // pictureBox1
+            // dgvProduto
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(674, 173);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 21);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
-            // cmbFiltro
-            // 
-            this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.cmbFiltro.FormattingEnabled = true;
-            this.cmbFiltro.Items.AddRange(new object[] {
-            "ID",
-            "Nome",
-            "CPF",
-            "Telefone"});
-            this.cmbFiltro.Location = new System.Drawing.Point(711, 173);
-            this.cmbFiltro.Name = "cmbFiltro";
-            this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
-            this.cmbFiltro.TabIndex = 9;
+            this.dgvProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduto.Location = new System.Drawing.Point(287, 386);
+            this.dgvProduto.Name = "dgvProduto";
+            this.dgvProduto.Size = new System.Drawing.Size(1237, 347);
+            this.dgvProduto.TabIndex = 11;
             // 
             // FormEstoque
             // 
@@ -301,13 +298,14 @@
             this.Text = "Form2";
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,7 +318,6 @@
         private System.Windows.Forms.Panel panelMedidaMenu;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Panel panelFundo;
-        private System.Windows.Forms.ListView lstProduto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnNovoProduto;
@@ -335,5 +332,6 @@
         private System.Windows.Forms.Label lblTotalProdutos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbFiltro;
+        private System.Windows.Forms.DataGridView dgvProduto;
     }
 }
