@@ -184,6 +184,9 @@
     <EmbeddedResource Include="FormAparelho.resx">
       <DependentUpon>FormAparelho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNovaOrdem.resx">
+      <DependentUpon>FormNovaOrdem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNovoCliente.resx">
       <DependentUpon>FormNovoCliente.cs</DependentUpon>
     </EmbeddedResource>
