@@ -153,7 +153,7 @@ namespace projeto_integrador
 
             if (form.ShowDialog() == DialogResult.OK) //Carrega o produto cadastrado e mostra na consulta
             {
-                carregar_produtos_com_query(
+               carregar_produtos_com_query(
                     "SELECT * FROM produto ORDER BY id_produto DESC"
                 );
             }

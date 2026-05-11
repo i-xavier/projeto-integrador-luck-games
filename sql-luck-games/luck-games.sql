@@ -48,9 +48,10 @@ CREATE TABLE aparelho(
   id_aparelho INT PRIMARY KEY AUTO_INCREMENT,
   marca VARCHAR (100) NOT NULL,
   tipo VARCHAR (100) NOT NULL,
-  num_serie VARCHAR (100) NOT NULL,
+  num_serie VARCHAR (100) UNIQUE,
   modelo VARCHAR (100),
   data_entrada DATETIME,
+  estado VARCHAR (100) NOT NULL,
   descricao_problema TEXT,
   fk_id_cliente INT,
   FOREIGN KEY (fk_id_cliente) REFERENCES cliente(id_cliente)

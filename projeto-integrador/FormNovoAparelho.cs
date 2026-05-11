@@ -11,10 +11,10 @@ namespace projeto_integrador
     public partial class FormNovoAparelho : Form
     {
       string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
-        public FormNovoAparelho(String texto)
+        public FormNovoAparelho()
         {
             InitializeComponent();
-            txtCodigoDoCliente.Text = texto;
+            
         }
 
         private void FormNovoAparelho_Load(object sender, EventArgs e)
@@ -81,6 +81,14 @@ namespace projeto_integrador
                 return;
             }
 
+            int flag = consultarCliente(txtCodigoDoCliente.Text.Trim());
+
+            if (flag == 0)
+            {
+                MessageBox.Show("Cliente não encontrado.", "Erro");
+                return;
+            }
+
             if (pictureBox1.Image == null)
             {
                 MessageBox.Show("Anexe uma foto do aparelho!");
@@ -100,8 +108,6 @@ namespace projeto_integrador
 
 
             // (Aqui futuramente entra o banco de dados)
-
-            MessageBox.Show("Aparelho cadastrado com sucesso!");
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(conexao))
@@ -109,9 +115,9 @@ namespace projeto_integrador
                     conn.Open();
 
                     string sql = @"INSERT INTO aparelho
-        ( marca, tipo, num_serie, modelo, estado, data_entrada, descricao_problema)
+        ( marca, tipo, num_serie, modelo, estado, data_entrada, fk_id_cliente, descricao_problema)
         VALUES
-        ( @marca, @tipo, @num_serie, @modelo, @estado, @data_entrada, @descricao_problema)";
+        ( @marca, @tipo, @num_serie, @modelo, @estado, @data_entrada, @cliente, @descricao_problema)";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
@@ -122,6 +128,7 @@ namespace projeto_integrador
                         cmd.Parameters.AddWithValue("@modelo", modelo);
                         cmd.Parameters.AddWithValue("@estado", estado);
                         cmd.Parameters.AddWithValue("@data_entrada", dataEntrada);
+                        cmd.Parameters.AddWithValue("@cliente", codigoCliente);
                         cmd.Parameters.AddWithValue("@descricao_problema", descricao);
                       
 
@@ -129,17 +136,19 @@ namespace projeto_integrador
                     }
 
                     MessageBox.Show("Aparelho cadastrado com sucesso!");
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
 
-                LimparCampos();
+                //LimparCampos();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao salvar no banco: " + ex.Message);
             }
 
-            // LIMPAR CAMPOS
-            LimparCampos();
+            
         }
 
         private void LimparCampos()
@@ -156,6 +165,34 @@ namespace projeto_integrador
             dtpDataEntrada.Value = DateTime.Now;
 
             pictureBox1.Image = null;
+        }
+
+        private int consultarCliente(string idCliente)
+        {
+            int flag = 0;
+
+
+            string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
+            using (MySqlConnection conn = new MySqlConnection(conexao))
+            {
+                string query = "SELECT id_cliente FROM cliente WHERE id_cliente = @cliente";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add("@cliente", MySqlDbType.VarChar).Value = idCliente;
+                    conn.Open();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            flag = 1;
+
+                        }
+                    }
+                }
+            }
+
+            return flag;
+
         }
 
         private void btnFechar_Click(object sender, EventArgs e)

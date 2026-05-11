@@ -82,15 +82,16 @@ namespace projeto_integrador
             dgvAparelho.Columns.Clear();
             // COLUNAS
             dgvAparelho.Columns.Add("id_aparelho", "ID");
-            dgvAparelho.Columns.Add("nome_aparelho", "ID");
+            // dgvAparelho.Columns.Add("nome_aparelho", "ID"); Não deveria ser salvo no banco?
             dgvAparelho.Columns.Add("tipo", "Tipo");
             dgvAparelho.Columns.Add("marca", "Marca");
+            dgvAparelho.Columns.Add("num_serie", "N°Serie");
             dgvAparelho.Columns.Add("modelo", "Modelo");
             dgvAparelho.Columns.Add("cliente", "Cliente");
             dgvAparelho.Columns.Add("data_entrada", "Data Entrada");
             dgvAparelho.Columns.Add("estado", "Estado");
 
-        
+
 
             // VISUALIZAR
             DataGridViewButtonColumn btnVisualizar =
@@ -140,14 +141,14 @@ namespace projeto_integrador
         private void btnNovoAparelho_Click(object sender, EventArgs e)
         {
             carregar_aparelhos();
-            FormNovoAparelho form = new FormNovoAparelho(codAparelho); // cria novo form
+            FormNovoAparelho form = new FormNovoAparelho(); // cria novo form
             
             if (form.ShowDialog() == DialogResult.OK) //Carrega o cliente cadastrado e mostra na consulta
             {
-                carregar_aparelhos_com_query(
-                    "SELECT * FROM aparelho ORDER BY id_aparelho DESC"
-                );
+                txtBuscar.Clear();
+                carregar_aparelhos_com_query("SELECT * FROM aparelho ORDER BY id_aparelho DESC");
             }
+        
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -167,20 +168,20 @@ namespace projeto_integrador
                     query = @"
                     SELECT
                         id_aparelho,
-                        nome_aparelho,
                         marca,
                         modelo,
+                        num_serie,
                         tipo,
-                        cliente,
+                        fk_id_cliente,
                         data_entrada,
                         estado
                     FROM aparelho
                     WHERE CAST(id_aparelho AS CHAR) LIKE @q
-                       OR nome_aparelho LIKE @q
                        OR marca LIKE @q
                        OR modelo LIKE @q
+                       OR num_serie LIKE @q
                        OR tipo LIKE @q
-                       OR cliente LIKE @q
+                       OR fk_id_cliente LIKE @q
                        OR CAST(data_entrada AS CHAR) LIKE @q
                        OR estado LIKE @q
                     ORDER BY id_aparelho DESC;";
@@ -202,7 +203,7 @@ namespace projeto_integrador
                             break;
 
                         case "Cliente":
-                            campo = "cliente";
+                            campo = "fk_id_cliente";
                             break;
 
                         case "Data de Entrada":
@@ -213,20 +214,16 @@ namespace projeto_integrador
                             campo = "estado";
                             break;
 
-                        case "Nome do aparelho":
-                            campo = "nome_aparelho";
-                            break;
-
                         case "Numero de série":
                             campo = "CAST(num_serie AS CHAR)";
                             break;
 
                         case "ID":
-                            campo = "CAST(id_produto AS CHAR)";
+                            campo = "CAST(id_aparelho AS CHAR)";
                             break;
 
                         default:
-                            campo = "nome_aparelho";
+                            campo = "CAST(num_serie AS CHAR)";
                             break;
                     }
 
@@ -234,10 +231,10 @@ namespace projeto_integrador
                     SELECT
                         id_aparelho,
                         marca,
-                        nome_aparelho,
                         modelo,
                         tipo,
-                        cliente,
+                        num_serie,
+                        fk_id_cliente,
                         data_entrada,
                         estado
                     FROM aparelho
@@ -285,9 +282,9 @@ namespace projeto_integrador
                         reader["id_aparelho"].ToString(),
                         reader["tipo"].ToString(),
                         reader["marca"].ToString(),
+                        reader["num_serie"].ToString(),
                         reader["modelo"].ToString(),
-                        reader["nome_aparelho"].ToString(),
-                        reader["cliente"].ToString(),
+                        reader["fk_id_cliente"].ToString(),
                         reader["data_entrada"].ToString(),
                         reader["estado"].ToString()
                     );
