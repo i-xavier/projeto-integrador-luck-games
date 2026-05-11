@@ -35,6 +35,8 @@ namespace projeto_integrador
 
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
+            int flag = 0;
+
             if (txtNomeCompleto.Text == "" || txtTelefone.Text == "" || txtCPF.Text == "")
             {
                 MessageBox.Show("Preencha todos os campos!");
@@ -60,6 +62,14 @@ namespace projeto_integrador
             if (!txtCPF.Text.All(char.IsDigit) || txtCPF.Text.Length != 11)
             {
                 MessageBox.Show("CPF inválido!");
+                return;
+            }
+
+            flag = consultarCliente(txtCPF.Text.Trim());
+
+            if (flag == 1)
+            {
+                MessageBox.Show("Cliente já foi cadastrado.", "Erro");
                 return;
             }
 
@@ -105,6 +115,33 @@ namespace projeto_integrador
 
         }
 
+        private int consultarCliente(string cpfCliente)
+        {
+            int flag = 0;
+
+
+            string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
+            using (MySqlConnection conn = new MySqlConnection(conexao))
+            {
+                string query = "SELECT * FROM cliente WHERE CPF = @CPF";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cpfCliente;
+                    conn.Open();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            flag = 1;
+
+                        }
+                    }
+                }
+            }
+
+            return flag;
+
+        }
         private void Form6_Load(object sender, EventArgs e)
         {
             txtCPF.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtCPF.Width,

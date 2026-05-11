@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +33,7 @@ namespace projeto_integrador
                 "Quantidade Total"
             };
 
+            preencherBaloes();
             ConfigurarDataGridView();
         }
 
@@ -155,6 +157,8 @@ namespace projeto_integrador
                     "SELECT * FROM produto ORDER BY id_produto DESC"
                 );
             }
+
+            preencherBaloes();
         }
 
         private void carregar_produtos()
@@ -462,6 +466,50 @@ namespace projeto_integrador
                     Conexao.Close();
                 }
             }
+        }
+
+        private void preencherBaloes() { 
+        
+            string queryTiposProdutos = "SELECT COUNT(DISTINCT nome_produto) FROM produto;";
+
+            string queryCategorias = "SELECT COUNT(DISTINCT categoria) FROM produto;";
+
+            string queryTotalProdutos = "SELECT SUM(quantidade_total) FROM produto;";
+
+            lblTotalProdutos.Text = consultarBaloes(queryTotalProdutos);
+
+            lblItensEstoque.Text = consultarBaloes(queryTiposProdutos);
+
+            lblTotalCategorias.Text = consultarBaloes(queryCategorias);
+
+        }
+
+        private string consultarBaloes (string query)
+        {
+            Conexao = new MySqlConnection(data_source);
+
+            Conexao.Open();
+
+            string valorEncontrado = "";
+
+            MySqlCommand cmd = new MySqlCommand(query, Conexao);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                if (reader.IsDBNull(0))
+                {
+                    valorEncontrado = "0"; // Valor padrão se a tabela estiver vazia
+                }
+                else
+                {
+                    valorEncontrado = (reader.GetInt32(0)).ToString();
+                }
+            }
+
+            return valorEncontrado;
+
         }
     }
 }

@@ -34,27 +34,27 @@
             this.panelMedidaMenu = new System.Windows.Forms.Panel();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.panelFundo = new System.Windows.Forms.Panel();
+            this.dgvProduto = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblCategoria = new System.Windows.Forms.Label();
+            this.lblTotalCategorias = new System.Windows.Forms.Label();
+            this.lblTituloTotalCategoria = new System.Windows.Forms.Label();
             this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblItensEstoque = new System.Windows.Forms.Label();
+            this.lblTituloItensEstoque = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.lblTotalProdutos = new System.Windows.Forms.Label();
+            this.lblTituloTotalProdutos = new System.Windows.Forms.Label();
             this.btnNovoProduto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvProduto = new System.Windows.Forms.DataGridView();
             this.panelFundo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNovaMovimentacao
@@ -128,6 +128,17 @@
             this.panelFundo.Size = new System.Drawing.Size(1575, 807);
             this.panelFundo.TabIndex = 7;
             // 
+            // dgvProduto
+            // 
+            this.dgvProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduto.Location = new System.Drawing.Point(287, 386);
+            this.dgvProduto.Name = "dgvProduto";
+            this.dgvProduto.Size = new System.Drawing.Size(1237, 347);
+            this.dgvProduto.TabIndex = 11;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -140,30 +151,32 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.lblCategoria);
+            this.panel4.Controls.Add(this.lblTotalCategorias);
+            this.panel4.Controls.Add(this.lblTituloTotalCategoria);
             this.panel4.Location = new System.Drawing.Point(1150, 245);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(269, 126);
             this.panel4.TabIndex = 9;
             // 
-            // label7
+            // lblTotalCategorias
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(112, 71);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "label7";
+            this.lblTotalCategorias.AutoSize = true;
+            this.lblTotalCategorias.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCategorias.Location = new System.Drawing.Point(151, 71);
+            this.lblTotalCategorias.Name = "lblTotalCategorias";
+            this.lblTotalCategorias.Size = new System.Drawing.Size(115, 47);
+            this.lblTotalCategorias.TabIndex = 1;
+            this.lblTotalCategorias.Text = "label7";
             // 
-            // lblCategoria
+            // lblTituloTotalCategoria
             // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(109, 25);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(52, 13);
-            this.lblCategoria.TabIndex = 0;
-            this.lblCategoria.Text = "Categoria";
+            this.lblTituloTotalCategoria.AutoSize = true;
+            this.lblTituloTotalCategoria.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloTotalCategoria.Location = new System.Drawing.Point(78, 12);
+            this.lblTituloTotalCategoria.Name = "lblTituloTotalCategoria";
+            this.lblTituloTotalCategoria.Size = new System.Drawing.Size(107, 30);
+            this.lblTituloTotalCategoria.TabIndex = 0;
+            this.lblTituloTotalCategoria.Text = "Categoria";
             // 
             // cmbFiltro
             // 
@@ -182,58 +195,62 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.lblItensEstoque);
+            this.panel3.Controls.Add(this.lblTituloItensEstoque);
             this.panel3.Location = new System.Drawing.Point(794, 245);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(269, 126);
             this.panel3.TabIndex = 9;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(102, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "label5";
-            // 
             // lblItensEstoque
             // 
             this.lblItensEstoque.AutoSize = true;
-            this.lblItensEstoque.Location = new System.Drawing.Point(99, 24);
+            this.lblItensEstoque.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItensEstoque.Location = new System.Drawing.Point(137, 71);
             this.lblItensEstoque.Name = "lblItensEstoque";
-            this.lblItensEstoque.Size = new System.Drawing.Size(89, 13);
-            this.lblItensEstoque.TabIndex = 0;
-            this.lblItensEstoque.Text = "Itens em Estoque";
+            this.lblItensEstoque.Size = new System.Drawing.Size(115, 47);
+            this.lblItensEstoque.TabIndex = 1;
+            this.lblItensEstoque.Text = "label5";
+            // 
+            // lblTituloItensEstoque
+            // 
+            this.lblTituloItensEstoque.AutoSize = true;
+            this.lblTituloItensEstoque.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloItensEstoque.Location = new System.Drawing.Point(40, 12);
+            this.lblTituloItensEstoque.Name = "lblTituloItensEstoque";
+            this.lblTituloItensEstoque.Size = new System.Drawing.Size(181, 30);
+            this.lblTituloItensEstoque.TabIndex = 0;
+            this.lblTituloItensEstoque.Text = "Itens em Estoque";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.lblTotalProdutos);
+            this.panel2.Controls.Add(this.lblTituloTotalProdutos);
             this.panel2.Location = new System.Drawing.Point(435, 245);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(269, 126);
             this.panel2.TabIndex = 8;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(74, 72);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "label3";
-            // 
             // lblTotalProdutos
             // 
             this.lblTotalProdutos.AutoSize = true;
-            this.lblTotalProdutos.Location = new System.Drawing.Point(75, 25);
+            this.lblTotalProdutos.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalProdutos.Location = new System.Drawing.Point(133, 71);
             this.lblTotalProdutos.Name = "lblTotalProdutos";
-            this.lblTotalProdutos.Size = new System.Drawing.Size(91, 13);
-            this.lblTotalProdutos.TabIndex = 0;
-            this.lblTotalProdutos.Text = "Total de Produtos";
+            this.lblTotalProdutos.Size = new System.Drawing.Size(115, 47);
+            this.lblTotalProdutos.TabIndex = 1;
+            this.lblTotalProdutos.Text = "label3";
+            // 
+            // lblTituloTotalProdutos
+            // 
+            this.lblTituloTotalProdutos.AutoSize = true;
+            this.lblTituloTotalProdutos.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloTotalProdutos.Location = new System.Drawing.Point(33, 12);
+            this.lblTituloTotalProdutos.Name = "lblTituloTotalProdutos";
+            this.lblTituloTotalProdutos.Size = new System.Drawing.Size(187, 30);
+            this.lblTituloTotalProdutos.TabIndex = 0;
+            this.lblTituloTotalProdutos.Text = "Total de Produtos";
             // 
             // btnNovoProduto
             // 
@@ -275,17 +292,6 @@
             this.panel1.Size = new System.Drawing.Size(1237, 5);
             this.panel1.TabIndex = 5;
             // 
-            // dgvProduto
-            // 
-            this.dgvProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduto.Location = new System.Drawing.Point(287, 386);
-            this.dgvProduto.Name = "dgvProduto";
-            this.dgvProduto.Size = new System.Drawing.Size(1237, 347);
-            this.dgvProduto.TabIndex = 11;
-            // 
             // FormEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +304,7 @@
             this.Text = "Form2";
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -305,7 +312,6 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,12 +330,12 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTotalCategorias;
+        private System.Windows.Forms.Label lblTituloTotalCategoria;
         private System.Windows.Forms.Label lblItensEstoque;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTituloItensEstoque;
         private System.Windows.Forms.Label lblTotalProdutos;
+        private System.Windows.Forms.Label lblTituloTotalProdutos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbFiltro;
         private System.Windows.Forms.DataGridView dgvProduto;

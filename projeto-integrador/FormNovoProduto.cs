@@ -58,6 +58,7 @@ namespace projeto_integrador
         {
             try
             {
+                int flag = 0;
                 // Validando se os combos têm algo selecionado (SelectedIndex != -1)
                 if (string.IsNullOrEmpty(txtNomeProduto.Text.Trim()) ||
                     string.IsNullOrEmpty(txtCodigoProduto.Text.Trim()) ||
@@ -72,12 +73,15 @@ namespace projeto_integrador
                     return;
                 }
 
-                /* if (txtSenha.Text != txtConfirmarSenha.Text)
+                flag = consultarProduto(txtNomeProduto.Text.Trim());
+
+                if (flag == 1)
                  {
-                     MessageBox.Show("As senhas não coincidem.", "Erro");
+                     MessageBox.Show("Produto já existe.", "Erro");
                      return;
                  }
 
+                /*
                  string telefone = txtTelefone.Text.Trim();
                  if (!isValidTelefoneLength(telefone))
                  {
@@ -139,5 +143,33 @@ namespace projeto_integrador
              cbPerguntaSecreta.SelectedIndex = -1;
              cbTipoAcesso.SelectedIndex = -1;
          }*/
+
+        private int consultarProduto(string nomeProduto)
+        {
+            int flag = 0;
+
+            
+                string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
+                using (MySqlConnection conn = new MySqlConnection(conexao))
+                {
+                    string query = "SELECT * FROM produto WHERE nome_produto = @nome";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nomeProduto;
+                        conn.Open();
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                flag = 1;
+                              
+                            }
+                        }
+                    }
+                }
+
+            return flag;
+            
+        }
     }
 }

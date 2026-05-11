@@ -99,7 +99,7 @@
             this.btnCadastrarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.btnCadastrarCliente.FlatAppearance.BorderSize = 0;
             this.btnCadastrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarCliente.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarCliente.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarCliente.ForeColor = System.Drawing.Color.Black;
             this.btnCadastrarCliente.Location = new System.Drawing.Point(63, 156);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
@@ -146,13 +146,13 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(208, 156);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 40);
             this.button1.TabIndex = 23;
-            this.button1.Text = "Ajuste de Estoque";
+            this.button1.Text = "Saída";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // cbProduto
@@ -176,7 +176,7 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "Produto";
             // 
-            // FormCadastrarMovimentacao
+            // FormNovaMovimentacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -198,7 +198,7 @@
             this.MaximumSize = new System.Drawing.Size(420, 456);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(420, 456);
-            this.Name = "FormCadastrarMovimentacao";
+            this.Name = "FormNovaMovimentacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastrarMovimentacao";
             this.ResumeLayout(false);
