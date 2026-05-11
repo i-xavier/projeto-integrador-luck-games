@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace projeto_integrador
 {
     public partial class FormNovoAparelho : Form
     {
+      string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
         public FormNovoAparelho(String texto)
         {
             InitializeComponent();
@@ -95,9 +97,46 @@ namespace projeto_integrador
 
             pictureBox1.Image.Save(caminhoImagem, System.Drawing.Imaging.ImageFormat.Jpeg);
 
+
+
             // (Aqui futuramente entra o banco de dados)
 
             MessageBox.Show("Aparelho cadastrado com sucesso!");
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(conexao))
+                {
+                    conn.Open();
+
+                    string sql = @"INSERT INTO aparelho
+        ( marca, tipo, num_serie, modelo, estado, data_entrada, descricao_problema)
+        VALUES
+        ( @marca, @tipo, @num_serie, @modelo, @estado, @data_entrada, @descricao_problema)";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                       
+                        cmd.Parameters.AddWithValue("@marca", marca);
+                        cmd.Parameters.AddWithValue("@tipo", tipo);
+                        cmd.Parameters.AddWithValue("@num_serie", numeroSerie);
+                        cmd.Parameters.AddWithValue("@modelo", modelo);
+                        cmd.Parameters.AddWithValue("@estado", estado);
+                        cmd.Parameters.AddWithValue("@data_entrada", dataEntrada);
+                        cmd.Parameters.AddWithValue("@descricao_problema", descricao);
+                      
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Aparelho cadastrado com sucesso!");
+                }
+
+                LimparCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar no banco: " + ex.Message);
+            }
 
             // LIMPAR CAMPOS
             LimparCampos();
