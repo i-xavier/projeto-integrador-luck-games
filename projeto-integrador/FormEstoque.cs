@@ -141,7 +141,14 @@ namespace projeto_integrador
         private void btnNovaMovimentacao_Click(object sender, EventArgs e)
         {
             FormNovaMovimentacao form = new FormNovaMovimentacao();
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK) //Carrega a movimentação cadastrada e mostra na consulta
+            {
+                carregar_produtos_com_query(
+                     "SELECT * FROM produto ORDER BY id_produto DESC"
+                 );
+            }
+
+            preencherBaloes();
         }
 
 
@@ -509,6 +516,11 @@ namespace projeto_integrador
             }
 
             return valorEncontrado;
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

@@ -32,16 +32,16 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panelMedidaMenu = new System.Windows.Forms.Panel();
             this.panelFundo = new System.Windows.Forms.Panel();
+            this.dgvAparelho = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNovoAparelho = new System.Windows.Forms.Button();
-            this.dgvAparelho = new System.Windows.Forms.DataGridView();
             this.panelFundo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAparelho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBuscar
@@ -60,7 +60,7 @@
             this.panelMedidaMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMedidaMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMedidaMenu.Name = "panelMedidaMenu";
-            this.panelMedidaMenu.Size = new System.Drawing.Size(236, 561);
+            this.panelMedidaMenu.Size = new System.Drawing.Size(236, 690);
             this.panelMedidaMenu.TabIndex = 3;
             // 
             // panelFundo
@@ -76,13 +76,24 @@
             this.panelFundo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFundo.Location = new System.Drawing.Point(0, 0);
             this.panelFundo.Name = "panelFundo";
-            this.panelFundo.Size = new System.Drawing.Size(934, 561);
+            this.panelFundo.Size = new System.Drawing.Size(1473, 690);
             this.panelFundo.TabIndex = 4;
+            // 
+            // dgvAparelho
+            // 
+            this.dgvAparelho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAparelho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAparelho.Location = new System.Drawing.Point(287, 261);
+            this.dgvAparelho.Name = "dgvAparelho";
+            this.dgvAparelho.Size = new System.Drawing.Size(1135, 355);
+            this.dgvAparelho.TabIndex = 11;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(283, 217);
+            this.pictureBox1.Location = new System.Drawing.Point(673, 173);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 21);
             this.pictureBox1.TabIndex = 10;
@@ -97,7 +108,7 @@
             "Nome",
             "CPF",
             "Telefone"});
-            this.cmbFiltro.Location = new System.Drawing.Point(320, 217);
+            this.cmbFiltro.Location = new System.Drawing.Point(710, 173);
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
             this.cmbFiltro.TabIndex = 9;
@@ -133,7 +144,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.panel1.Location = new System.Drawing.Point(287, 133);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(596, 5);
+            this.panel1.Size = new System.Drawing.Size(1135, 5);
             this.panel1.TabIndex = 5;
             // 
             // btnNovoAparelho
@@ -146,7 +157,7 @@
             this.btnNovoAparelho.ForeColor = System.Drawing.Color.Black;
             this.btnNovoAparelho.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoAparelho.Image")));
             this.btnNovoAparelho.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovoAparelho.Location = new System.Drawing.Point(707, 173);
+            this.btnNovoAparelho.Location = new System.Drawing.Point(1246, 173);
             this.btnNovoAparelho.Name = "btnNovoAparelho";
             this.btnNovoAparelho.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnNovoAparelho.Size = new System.Drawing.Size(176, 34);
@@ -155,22 +166,11 @@
             this.btnNovoAparelho.UseVisualStyleBackColor = false;
             this.btnNovoAparelho.Click += new System.EventHandler(this.btnNovoAparelho_Click);
             // 
-            // dgvAparelho
-            // 
-            this.dgvAparelho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvAparelho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAparelho.Location = new System.Drawing.Point(287, 261);
-            this.dgvAparelho.Name = "dgvAparelho";
-            this.dgvAparelho.Size = new System.Drawing.Size(596, 226);
-            this.dgvAparelho.TabIndex = 11;
-            // 
             // FormAparelho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 561);
+            this.ClientSize = new System.Drawing.Size(1473, 690);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.panelMedidaMenu);
             this.Controls.Add(this.panelFundo);
@@ -178,8 +178,8 @@
             this.Text = "FormAparelho";
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAparelho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
