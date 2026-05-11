@@ -33,13 +33,13 @@
             this.lblCPF = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.lblNomeCompleto = new System.Windows.Forms.Label();
-            this.btnCadastrarCliente = new System.Windows.Forms.Button();
+            this.btnEnviarMovimentacao = new System.Windows.Forms.Button();
             this.txtMotivo = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cbProduto = new System.Windows.Forms.ComboBox();
+            this.cbProdutos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbTipoMovimentacao = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnFechar
@@ -64,7 +64,7 @@
             this.lblCPF.AutoSize = true;
             this.lblCPF.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCPF.ForeColor = System.Drawing.Color.White;
-            this.lblCPF.Location = new System.Drawing.Point(60, 328);
+            this.lblCPF.Location = new System.Drawing.Point(60, 301);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(52, 17);
             this.lblCPF.TabIndex = 20;
@@ -75,7 +75,7 @@
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.ForeColor = System.Drawing.Color.White;
-            this.lblID.Location = new System.Drawing.Point(60, 270);
+            this.lblID.Location = new System.Drawing.Point(60, 243);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(80, 17);
             this.lblID.TabIndex = 18;
@@ -92,28 +92,29 @@
             this.lblNomeCompleto.TabIndex = 17;
             this.lblNomeCompleto.Text = "Tipo de Movimentação";
             // 
-            // btnCadastrarCliente
+            // btnEnviarMovimentacao
             // 
-            this.btnCadastrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.btnCadastrarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.btnCadastrarCliente.FlatAppearance.BorderSize = 0;
-            this.btnCadastrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarCliente.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarCliente.ForeColor = System.Drawing.Color.Black;
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(63, 156);
-            this.btnCadastrarCliente.Name = "btnCadastrarCliente";
-            this.btnCadastrarCliente.Size = new System.Drawing.Size(137, 40);
-            this.btnCadastrarCliente.TabIndex = 16;
-            this.btnCadastrarCliente.Text = "Entrada";
-            this.btnCadastrarCliente.UseVisualStyleBackColor = false;
+            this.btnEnviarMovimentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnEnviarMovimentacao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnviarMovimentacao.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnEnviarMovimentacao.FlatAppearance.BorderSize = 0;
+            this.btnEnviarMovimentacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviarMovimentacao.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviarMovimentacao.ForeColor = System.Drawing.Color.Black;
+            this.btnEnviarMovimentacao.Location = new System.Drawing.Point(141, 373);
+            this.btnEnviarMovimentacao.Name = "btnEnviarMovimentacao";
+            this.btnEnviarMovimentacao.Size = new System.Drawing.Size(137, 40);
+            this.btnEnviarMovimentacao.TabIndex = 16;
+            this.btnEnviarMovimentacao.Text = "Enviar";
+            this.btnEnviarMovimentacao.UseVisualStyleBackColor = false;
+            this.btnEnviarMovimentacao.Click += new System.EventHandler(this.btnEnviarMovimentacao_Click);
             // 
             // txtMotivo
             // 
             this.txtMotivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtMotivo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMotivo.Location = new System.Drawing.Point(63, 348);
+            this.txtMotivo.Location = new System.Drawing.Point(63, 321);
             this.txtMotivo.Name = "txtMotivo";
             this.txtMotivo.Size = new System.Drawing.Size(292, 29);
             this.txtMotivo.TabIndex = 15;
@@ -123,7 +124,7 @@
             this.txtQuantidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantidade.Location = new System.Drawing.Point(63, 290);
+            this.txtQuantidade.Location = new System.Drawing.Point(63, 263);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(292, 29);
             this.txtQuantidade.TabIndex = 14;
@@ -139,42 +140,41 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Registrar Movimentação";
             // 
-            // button1
+            // cbProdutos
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(208, 156);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 40);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Saída";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // cbProduto
-            // 
-            this.cbProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.cbProduto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProduto.FormattingEnabled = true;
-            this.cbProduto.Location = new System.Drawing.Point(63, 233);
-            this.cbProduto.Name = "cbProduto";
-            this.cbProduto.Size = new System.Drawing.Size(292, 29);
-            this.cbProduto.TabIndex = 24;
+            this.cbProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProdutos.FormattingEnabled = true;
+            this.cbProdutos.Location = new System.Drawing.Point(63, 206);
+            this.cbProdutos.Name = "cbProdutos";
+            this.cbProdutos.Size = new System.Drawing.Size(292, 29);
+            this.cbProdutos.TabIndex = 24;
+            this.cbProdutos.Text = "Selecione";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(60, 212);
+            this.label2.Location = new System.Drawing.Point(60, 185);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 25;
             this.label2.Text = "Produto";
+            // 
+            // cbTipoMovimentacao
+            // 
+            this.cbTipoMovimentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbTipoMovimentacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoMovimentacao.FormattingEnabled = true;
+            this.cbTipoMovimentacao.Items.AddRange(new object[] {
+            "Entrada",
+            "Saída"});
+            this.cbTipoMovimentacao.Location = new System.Drawing.Point(63, 149);
+            this.cbTipoMovimentacao.Name = "cbTipoMovimentacao";
+            this.cbTipoMovimentacao.Size = new System.Drawing.Size(292, 29);
+            this.cbTipoMovimentacao.TabIndex = 26;
+            this.cbTipoMovimentacao.Text = "Selecione";
             // 
             // FormNovaMovimentacao
             // 
@@ -182,14 +182,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(98)))), ((int)(((byte)(131)))));
             this.ClientSize = new System.Drawing.Size(420, 456);
+            this.Controls.Add(this.cbTipoMovimentacao);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cbProduto);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cbProdutos);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.lblCPF);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblNomeCompleto);
-            this.Controls.Add(this.btnCadastrarCliente);
+            this.Controls.Add(this.btnEnviarMovimentacao);
             this.Controls.Add(this.txtMotivo);
             this.Controls.Add(this.txtQuantidade);
             this.Controls.Add(this.label1);
@@ -212,12 +212,12 @@
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblNomeCompleto;
-        private System.Windows.Forms.Button btnCadastrarCliente;
+        private System.Windows.Forms.Button btnEnviarMovimentacao;
         private System.Windows.Forms.TextBox txtMotivo;
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox cbProduto;
+        private System.Windows.Forms.ComboBox cbProdutos;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbTipoMovimentacao;
     }
 }
