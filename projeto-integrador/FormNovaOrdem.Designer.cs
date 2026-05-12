@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdOrdem = new System.Windows.Forms.TextBox();
             this.cmbEquipamento = new System.Windows.Forms.ComboBox();
-            this.cmbTecnico = new System.Windows.Forms.ComboBox();
             this.lblTecnico = new System.Windows.Forms.Label();
             this.cmbAprovaçãoOrçamento = new System.Windows.Forms.ComboBox();
             this.lblAprovaçãoOrcamento = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.cmbAdicionarItens = new System.Windows.Forms.ComboBox();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.cmbTecnico = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -118,14 +118,6 @@
             this.cmbEquipamento.Size = new System.Drawing.Size(338, 21);
             this.cmbEquipamento.TabIndex = 6;
             // 
-            // cmbTecnico
-            // 
-            this.cmbTecnico.FormattingEnabled = true;
-            this.cmbTecnico.Location = new System.Drawing.Point(29, 267);
-            this.cmbTecnico.Name = "cmbTecnico";
-            this.cmbTecnico.Size = new System.Drawing.Size(338, 21);
-            this.cmbTecnico.TabIndex = 7;
-            // 
             // lblTecnico
             // 
             this.lblTecnico.AutoSize = true;
@@ -140,6 +132,11 @@
             // cmbAprovaçãoOrçamento
             // 
             this.cmbAprovaçãoOrçamento.FormattingEnabled = true;
+            this.cmbAprovaçãoOrçamento.Items.AddRange(new object[] {
+            "Em Análise",
+            "Aprovado",
+            "Reprovado",
+            "Pendente"});
             this.cmbAprovaçãoOrçamento.Location = new System.Drawing.Point(29, 325);
             this.cmbAprovaçãoOrçamento.Name = "cmbAprovaçãoOrçamento";
             this.cmbAprovaçãoOrçamento.Size = new System.Drawing.Size(148, 21);
@@ -236,6 +233,14 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // cmbTecnico
+            // 
+            this.cmbTecnico.FormattingEnabled = true;
+            this.cmbTecnico.Location = new System.Drawing.Point(29, 267);
+            this.cmbTecnico.Name = "cmbTecnico";
+            this.cmbTecnico.Size = new System.Drawing.Size(338, 21);
+            this.cmbTecnico.TabIndex = 7;
+            // 
             // FormNovaOrdem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,7 +283,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdOrdem;
         private System.Windows.Forms.ComboBox cmbEquipamento;
-        private System.Windows.Forms.ComboBox cmbTecnico;
         private System.Windows.Forms.Label lblTecnico;
         private System.Windows.Forms.ComboBox cmbAprovaçãoOrçamento;
         private System.Windows.Forms.Label lblAprovaçãoOrcamento;
@@ -290,5 +294,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.ComboBox cmbAdicionarItens;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.ComboBox cmbTecnico;
     }
 }
