@@ -14,6 +14,8 @@ namespace projeto_integrador
         public FormNovoAparelho()
         {
             InitializeComponent();
+
+
             
         }
 

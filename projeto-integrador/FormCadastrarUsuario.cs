@@ -162,10 +162,11 @@ namespace projeto_integrador
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmLogin form = new frmLogin();
-            this.Hide();
+            /* frmLogin form = new frmLogin();
+             this.Hide();
+             this.Close();
+             form.ShowDialog();*/
             this.Close();
-            form.ShowDialog();
         }
 
         private void FormCadastrarUsuario_Load(object sender, EventArgs e)

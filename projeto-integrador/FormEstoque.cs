@@ -35,6 +35,12 @@ namespace projeto_integrador
 
             preencherBaloes();
             ConfigurarDataGridView();
+            string query = @"
+                    SELECT
+                        *
+                    FROM produto
+                    ORDER BY id_produto ASC;";
+            carregar_produtos_com_query(query);
         }
 
         private void ConfigurarDataGridView()
@@ -321,7 +327,7 @@ namespace projeto_integrador
                        OR CAST(quantidade_minima AS CHAR) LIKE @q
                        OR CAST(valor_unitario AS CHAR) LIKE @q
                        OR CAST(quantidade_total AS CHAR) LIKE @q
-                    ORDER BY id_produto DESC;";
+                    ORDER BY id_produto ASC;";
                 }
                 else
                 {
@@ -366,7 +372,7 @@ namespace projeto_integrador
                         quantidade_total
                     FROM produto
                     WHERE {campo} LIKE @q
-                    ORDER BY id_produto DESC;";
+                    ORDER BY id_produto ASC;";
                 }
 
                 carregar_produtos_com_query(query);

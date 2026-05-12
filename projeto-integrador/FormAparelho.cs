@@ -36,6 +36,12 @@ namespace projeto_integrador
             };
 
             ConfigurarDataGridView();
+            string query = @"
+                    SELECT
+                        *
+                    FROM aparelho
+                    ORDER BY id_aparelho ASC;";
+            carregar_aparelhos_com_query(query);
 
         }
 

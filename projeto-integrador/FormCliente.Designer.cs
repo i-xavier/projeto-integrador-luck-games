@@ -121,6 +121,7 @@
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.Size = new System.Drawing.Size(916, 342);
             this.dgvCliente.TabIndex = 9;
+            this.dgvCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellContentClick);
             // 
             // pictureBox1
             // 
@@ -176,6 +177,7 @@
             this.Controls.Add(this.panelFundo);
             this.Name = "FormCliente";
             this.Text = "Clientes";
+            this.Load += new System.EventHandler(this.FormCliente_Load);
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,63 +14,120 @@ using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
+
+
 namespace projeto_integrador
 {
     public partial class frmEsqueceuSenha : Form
     {
+        public string Conexao { get; private set; }
+
+
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
-            (
-                int nLeft,
-                int nTop,
-                int nRight,
-                int nBottom,
-                int nWidthEllipse,
-                int nHeightEllipse
-            );
+        (
+        int nLeft,
+        int nTop,
+        int nRight,
+        int nBottom,
+        int nWidthEllipse,
+        int nHeightEllipse
+        );
+
+
 
         public frmEsqueceuSenha()
         {
-   
+
+
 
             InitializeComponent();
         }
 
+
+
         private void frmEsqueceuSenha_Load(object sender, EventArgs e)
         {
+
+
+
+            // Labels
+            lblNovaSenha.Visible = false;
+            lblConfirmarSenha.Visible = false;
+
+
+
+            // TextBox
+            txtNovaSenha.Visible = false;
+            txtConfirmarSenha.Visible = false;
+
+
+
+            // Botão confirmar
+            btnConfirmar.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+            button1.Visible = false;
+
+
+
             txtCodigo.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtCodigo.Width,
-                txtCodigo.Height, 25, 25));
+            txtCodigo.Height, 25, 25));
+
+
 
             txtConfirmarSenha.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtConfirmarSenha.Width,
-                txtConfirmarSenha.Height, 25, 25));
+            txtConfirmarSenha.Height, 25, 25));
+
+
 
             txtNovaSenha.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtNovaSenha.Width,
-                txtNovaSenha.Height, 25, 25));
+            txtNovaSenha.Height, 25, 25));
+
+
 
             panel1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width,
-                panel1.Height, 30, 30));
+            panel1.Height, 30, 30));
+
+
 
             btnConfirmar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnConfirmar.Width,
-                btnConfirmar.Height, 30, 30));
+            btnConfirmar.Height, 30, 30));
+
+
 
             cbPerguntaSecreta.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbPerguntaSecreta.Width,
-                cbPerguntaSecreta.Height, 20, 20));
+            cbPerguntaSecreta.Height, 20, 20));
+
+
 
             txtRespostaPerguntaSecreta.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtRespostaPerguntaSecreta.Width,
-                txtRespostaPerguntaSecreta.Height, 20, 20));
+            txtRespostaPerguntaSecreta.Height, 20, 20));
+
+
 
             button1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button1.Width,
-                button1.Height, 20, 20));
+            button1.Height, 20, 20));
+
+
 
             button2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button2.Width,
-                button2.Height, 20, 20));
+            button2.Height, 20, 20));
+
+
 
             button3.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button3.Width,
-                button3.Height, 20, 20));
+            button3.Height, 20, 20));
+
+
 
             button4.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button4.Width,
-                button4.Height, 20, 20));
+            button4.Height, 20, 20));
         }
+
+
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
@@ -78,6 +136,8 @@ namespace projeto_integrador
             this.Close();
             form.ShowDialog();
         }
+
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -88,6 +148,8 @@ namespace projeto_integrador
             }
         }
 
+
+
         private void button4_Click(object sender, EventArgs e)
         {
             if (txtNovaSenha.PasswordChar == '\0')
@@ -96,6 +158,8 @@ namespace projeto_integrador
                 txtNovaSenha.PasswordChar = '*';
             }
         }
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -106,6 +170,8 @@ namespace projeto_integrador
             }
         }
 
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (txtConfirmarSenha.PasswordChar == '\0')
@@ -114,7 +180,115 @@ namespace projeto_integrador
                 txtConfirmarSenha.PasswordChar = '*';
             }
         }
-    }
-    }
-    
 
+
+
+
+
+
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            if (cbPerguntaSecreta.SelectedIndex == -1 ||
+            txtRespostaPerguntaSecreta.Text.Trim() == "" ||
+            txtCodigo.Text.Trim() == "")
+            {
+                MessageBox.Show("Preencha todos os campos.");
+                return;
+            }
+
+
+
+            int codigo = Convert.ToInt32(txtCodigo.Text);
+            int idPergunta = Convert.ToInt32(cbPerguntaSecreta.SelectedValue);
+            string respostaUsuario = txtRespostaPerguntaSecreta.Text.Trim().ToLower();
+
+
+
+            using (MySqlConnection conn = new MySqlConnection(Conexao))
+            {
+                conn.Open();
+
+
+
+                string sql = @"
+                SELECT resposta_secreta
+                FROM funcionario
+                WHERE id_funcionario = @codigo
+                AND fk_id_pergunta = @idPergunta";
+
+
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@codigo", codigo);
+                cmd.Parameters.AddWithValue("@idPergunta", idPergunta);
+
+
+
+                object resultado = cmd.ExecuteScalar();
+
+
+
+                if (resultado == null)
+                {
+                    MessageBox.Show("Funcionário ou pergunta inválidos.");
+                    return;
+                }
+
+
+
+                string respostaCorreta = resultado.ToString().ToLower();
+
+
+
+                if (respostaUsuario == respostaCorreta)
+                {
+                    // MOSTRA LABEL + TEXTO + BOTÃO
+                    lblNovaSenha.Visible = true;
+                    txtNovaSenha.Visible = true;
+
+
+
+                    lblConfirmarSenha.Visible = true;
+                    txtConfirmarSenha.Visible = true;
+
+
+
+                    btnConfirmar.Visible = true;
+                    button2.Visible = true;
+                    button3.Visible = true;
+                    button4.Visible = true;
+                    button1.Visible = true;
+
+
+
+                    MessageBox.Show("Resposta correta! Defina sua senha.");
+                }
+                else
+                {
+                    //  ESCONDE TUDO DE NOVO
+                    lblNovaSenha.Visible = false;
+                    txtNovaSenha.Visible = false;
+
+
+
+                    lblConfirmarSenha.Visible = false;
+                    txtConfirmarSenha.Visible = false;
+
+
+
+                    btnConfirmar.Visible = false;
+                    button2.Visible = false;
+                    button3.Visible = false;
+                    button4.Visible = false;
+                    button1.Visible = false;
+
+
+
+                    MessageBox.Show("Resposta incorreta!",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+    }
+}

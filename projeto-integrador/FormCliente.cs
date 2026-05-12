@@ -1,6 +1,7 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +35,12 @@ namespace projeto_integrador
             };
 
             ConfigurarDataGridView();
-
+            string query = @"
+                    SELECT
+                        *
+                    FROM cliente
+                    ORDER BY id_cliente ASC;";
+            carregar_clientes_com_query(query);
         }
 
         private void ConfigurarDataGridView()
@@ -332,13 +338,22 @@ namespace projeto_integrador
         {
             carregar_clientes();
 
-            FormNovoCliente form = new FormNovoCliente(codUser);
+           // FormNovoCliente form = new FormNovoCliente(codUser);
 
-            if (form.ShowDialog() == DialogResult.OK) //Carrega o cliente cadastrado e mostra na consulta
+            /*if (form.ShowDialog() == DialogResult.OK) //Carrega o cliente cadastrado e mostra na consulta
             {
                 carregar_clientes_com_query(
                     "SELECT * FROM cliente ORDER BY id_cliente DESC"
                 );
+            }*/
+
+            using (FormNovoCliente form = new FormNovoCliente(codUser))
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    carregar_clientes_com_query(
+                    "SELECT * FROM cliente ORDER BY id_cliente DESC" );
+                }
             }
 
         }
@@ -436,6 +451,16 @@ namespace projeto_integrador
                     Conexao.Close();
                 }
             }
+        }
+
+        private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FormCliente_Load(object sender, EventArgs e)
+        {
+
         }
 
         /*private void lstCliente_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)

@@ -157,16 +157,29 @@ namespace projeto_integrador
 
         private void CriarConta(object sender, EventArgs e)
         {
+            /* try
+             {
+                 carregar_clientes();
+                 FormCadastrarUsuario form = new FormCadastrarUsuario(Valor);
+                 this.Hide();
+                 form.ShowDialog();
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Erro ao abrir cadastro: " + ex.Message);
+             }*/
             try
             {
                 carregar_clientes();
                 FormCadastrarUsuario form = new FormCadastrarUsuario(Valor);
-                this.Hide();
-                form.ShowDialog();
+                this.Hide(); // Esconde o login
+                form.ShowDialog(); // Trava a execução aqui até o cadastro fechar
+                this.Show(); // FAÇA ISSO: Mostra o login de volta quando sair do cadastro
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao abrir cadastro: " + ex.Message);
+                this.Show(); // Garante que o login volte se der erro
             }
 
         }

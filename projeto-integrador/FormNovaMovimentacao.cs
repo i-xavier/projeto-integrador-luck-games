@@ -56,6 +56,7 @@ namespace projeto_integrador
             {
                 MessageBox.Show("Erro ao carregar dados iniciais: " + ex.Message);
             }
+
         }
 
         private void FillComboBox(MySqlConnection conn, string query, ComboBox cb, string display, string value)
