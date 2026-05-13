@@ -128,7 +128,7 @@ namespace projeto_integrador
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Funcionário cadastrado com sucesso!", "Sucesso");
-                LimparCampos();
+                this.Close();
             }
             catch (Exception ex)
             {

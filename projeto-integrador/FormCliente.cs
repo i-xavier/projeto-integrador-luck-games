@@ -382,14 +382,56 @@ namespace projeto_integrador
             }
 
             // EDITAR
-            if (dgvCliente.Columns[e.ColumnIndex].Name
+            /*if (dgvCliente.Columns[e.ColumnIndex].Name
                 == "Editar")
             {
                 MessageBox.Show(
                     "Editar cliente ID: " + idCliente
                 );
 
-                // abrir tela edição aqui
+                FormNovoCliente form = new FormNovoCliente(idCliente);
+                form.ShowDialog();
+
+            }*/
+            // Verifica se clicou no botão de editar (ajuste o índice da coluna)
+
+            if (dgvCliente.Columns[e.ColumnIndex].Name
+                == "Editar")
+
+            {
+
+                int id = Convert.ToInt32(dgvCliente.Rows[e.RowIndex].Cells["id_cliente"].Value);
+
+                string nome = dgvCliente.Rows[e.RowIndex].Cells["nome"].Value.ToString();
+
+                string telefone = dgvCliente.Rows[e.RowIndex].Cells["telefone"].Value.ToString();
+                
+                string cpf = dgvCliente.Rows[e.RowIndex].Cells["cpf"].Value.ToString();
+
+
+
+                using (FormNovoCliente frm = new FormNovoCliente(codUser))
+
+                {
+
+                    // Chamamos o método que criamos para transformar a tela
+
+                    frm.ConfigurarEdicao(id, nome, telefone, cpf);
+
+
+
+                    if (frm.ShowDialog() == DialogResult.OK)
+
+                    {
+
+                        // Recarrega o grid após salvar
+
+                        carregar_clientes_com_query("SELECT * FROM cliente ORDER BY id_cliente DESC");
+
+                    }
+
+                }
+
             }
 
             // EXCLUIR
@@ -451,6 +493,40 @@ namespace projeto_integrador
                     Conexao.Close();
                 }
             }
+        }
+
+        private void AtualizarCliente(string idCliente)
+        {
+
+        }
+
+        private void ConsultarClientePorID(string query)
+        {
+            Conexao = new MySqlConnection(data_source);
+
+            Conexao.Open();
+
+            MySqlCommand cmd =
+                new MySqlCommand(query, Conexao);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            List<string> cliente = new List<string>();
+
+            while (reader.Read())
+            {
+                
+                cliente.Add(reader["id_cliente"].ToString());
+                cliente.Add(reader["nome"].ToString());
+                cliente.Add(reader["telefone"].ToString());
+                cliente.Add(reader["cpf"].ToString());
+
+            }
+            
+            
+
+            Conexao.Close();
+
         }
 
         private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
