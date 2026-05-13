@@ -41,6 +41,7 @@ namespace projeto_integrador
                     FROM produto
                     ORDER BY id_produto ASC;";
             carregar_produtos_com_query(query);
+            balaoNotificacao();
         }
 
         private void ConfigurarDataGridView()
@@ -166,7 +167,8 @@ namespace projeto_integrador
 
             if (form.ShowDialog() == DialogResult.OK) //Carrega o produto cadastrado e mostra na consulta
             {
-               carregar_produtos_com_query(
+                balaoNotificacao();
+                carregar_produtos_com_query(
                     "SELECT * FROM produto ORDER BY id_produto DESC"
                 );
             }
@@ -261,14 +263,41 @@ namespace projeto_integrador
 
                 while (reader.Read())
                 {
-                    dgvProduto.Rows.Add(
-                        reader["id_produto"].ToString(),
-                        reader["nome_produto"].ToString(),
-                        reader["categoria"].ToString(),
-                        reader["quantidade_minima"].ToString(),
-                        reader["valor_unitario"].ToString(),
-                        reader["quantidade_total"].ToString()
+                    /*   dgvProduto.Rows.Add(
+                           reader["id_produto"].ToString(),
+                           reader["nome_produto"].ToString(),
+                           reader["categoria"].ToString(),
+                           reader["quantidade_minima"].ToString(),
+                           reader["valor_unitario"].ToString(),
+                           reader["quantidade_total"].ToString()
+                       );*/
+
+                    int quantidadeTotal =
+                    Convert.ToInt32(reader["quantidade_total"]);
+
+                    int quantidadeMinima =
+                    Convert.ToInt32(reader["quantidade_minima"]);
+
+                    int rowIndex = dgvProduto.Rows.Add(
+                    reader["id_produto"].ToString(),
+                    reader["nome_produto"].ToString(),
+                    reader["categoria"].ToString(),
+                    reader["quantidade_minima"].ToString(),
+                    reader["valor_unitario"].ToString(),
+                    reader["quantidade_total"].ToString()
                     );
+
+                    if (quantidadeTotal < quantidadeMinima)
+                    {
+                        dgvProduto.Rows[rowIndex]
+                            .Cells["quantidade_total"]
+                            .Style.ForeColor = Color.Orange;
+
+                        dgvProduto.Rows[rowIndex]
+                            .Cells["quantidade_total"]
+                            .Style.Font =
+                                new Font("Segoe UI", 10, FontStyle.Bold);
+                    }
                 }
             }
             catch (MySqlException ex)
@@ -525,9 +554,50 @@ namespace projeto_integrador
 
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void balaoNotificacao()
         {
+            string query = @"
+            SELECT nome_produto, quantidade_total, quantidade_minima
+            FROM produto
+            WHERE quantidade_total < quantidade_minima;";
 
+            Conexao = new MySqlConnection(data_source);
+
+            Conexao.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, Conexao);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            List<string> produtosCriticos = new List<string>();
+
+            while (reader.Read())
+            {
+                string nomeProduto = reader["nome_produto"].ToString();
+
+                string qtdAtual = reader["quantidade_total"].ToString();
+
+                string qtdMinima = reader["quantidade_minima"].ToString();
+
+                produtosCriticos.Add(
+                    $"{nomeProduto} ({qtdAtual}/{qtdMinima})"
+                );
+            }
+
+            if (produtosCriticos.Count > 0)
+            {
+                notificaoEstoqueMinimo.Visible = true;
+
+                notificaoEstoqueMinimo.Text =
+                    $"{produtosCriticos.Count} produto(s) abaixo do estoque mínimo:\n\n"
+                    + string.Join("\n", produtosCriticos);
+            }
+            else
+            {
+                notificaoEstoqueMinimo.Visible = false;
+            }
+
+            Conexao.Close();
         }
     }
 }

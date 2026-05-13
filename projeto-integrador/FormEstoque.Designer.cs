@@ -34,26 +34,29 @@
             this.panelMedidaMenu = new System.Windows.Forms.Panel();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.panelFundo = new System.Windows.Forms.Panel();
-            this.dgvProduto = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbFiltro = new System.Windows.Forms.ComboBox();
+            this.notificaoEstoqueMinimo = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblItensEstoque = new System.Windows.Forms.Label();
             this.lblTituloItensEstoque = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.dgvProduto = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTotalCategorias = new System.Windows.Forms.Label();
+            this.lblTituloTotalCategoria = new System.Windows.Forms.Label();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTotalProdutos = new System.Windows.Forms.Label();
+            this.lblTituloTotalProdutos = new System.Windows.Forms.Label();
             this.btnNovoProduto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblTituloTotalCategoria = new System.Windows.Forms.Label();
-            this.lblTotalCategorias = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblTituloTotalProdutos = new System.Windows.Forms.Label();
-            this.lblTotalProdutos = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelFundo.SuspendLayout();
+            this.notificaoEstoqueMinimo.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +115,7 @@
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.notificaoEstoqueMinimo);
             this.panelFundo.Controls.Add(this.panel3);
             this.panelFundo.Controls.Add(this.flowLayoutPanel1);
             this.panelFundo.Controls.Add(this.dgvProduto);
@@ -129,6 +133,54 @@
             this.panelFundo.Name = "panelFundo";
             this.panelFundo.Size = new System.Drawing.Size(1561, 697);
             this.panelFundo.TabIndex = 7;
+            // 
+            // notificaoEstoqueMinimo
+            // 
+            this.notificaoEstoqueMinimo.BackColor = System.Drawing.Color.DarkOrange;
+            this.notificaoEstoqueMinimo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.notificaoEstoqueMinimo.Controls.Add(this.label2);
+            this.notificaoEstoqueMinimo.Location = new System.Drawing.Point(598, 12);
+            this.notificaoEstoqueMinimo.Name = "notificaoEstoqueMinimo";
+            this.notificaoEstoqueMinimo.Size = new System.Drawing.Size(200, 100);
+            this.notificaoEstoqueMinimo.TabIndex = 12;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.panel3.Controls.Add(this.lblItensEstoque);
+            this.panel3.Controls.Add(this.lblTituloItensEstoque);
+            this.panel3.Location = new System.Drawing.Point(423, 245);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(269, 126);
+            this.panel3.TabIndex = 9;
+            // 
+            // lblItensEstoque
+            // 
+            this.lblItensEstoque.AutoSize = true;
+            this.lblItensEstoque.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItensEstoque.Location = new System.Drawing.Point(137, 71);
+            this.lblItensEstoque.Name = "lblItensEstoque";
+            this.lblItensEstoque.Size = new System.Drawing.Size(115, 47);
+            this.lblItensEstoque.TabIndex = 1;
+            this.lblItensEstoque.Text = "label5";
+            // 
+            // lblTituloItensEstoque
+            // 
+            this.lblTituloItensEstoque.AutoSize = true;
+            this.lblTituloItensEstoque.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloItensEstoque.Location = new System.Drawing.Point(40, 12);
+            this.lblTituloItensEstoque.Name = "lblTituloItensEstoque";
+            this.lblTituloItensEstoque.Size = new System.Drawing.Size(181, 30);
+            this.lblTituloItensEstoque.TabIndex = 0;
+            this.lblTituloItensEstoque.Text = "Itens em Estoque";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(423, 245);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(269, 126);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // dgvProduto
             // 
@@ -150,6 +202,37 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.panel4.Controls.Add(this.lblTotalCategorias);
+            this.panel4.Controls.Add(this.lblTituloTotalCategoria);
+            this.panel4.Location = new System.Drawing.Point(1109, 245);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(269, 126);
+            this.panel4.TabIndex = 9;
+            // 
+            // lblTotalCategorias
+            // 
+            this.lblTotalCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotalCategorias.AutoSize = true;
+            this.lblTotalCategorias.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCategorias.Location = new System.Drawing.Point(157, 71);
+            this.lblTotalCategorias.Name = "lblTotalCategorias";
+            this.lblTotalCategorias.Size = new System.Drawing.Size(115, 47);
+            this.lblTotalCategorias.TabIndex = 1;
+            this.lblTotalCategorias.Text = "label7";
+            // 
+            // lblTituloTotalCategoria
+            // 
+            this.lblTituloTotalCategoria.AutoSize = true;
+            this.lblTituloTotalCategoria.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloTotalCategoria.Location = new System.Drawing.Point(78, 12);
+            this.lblTituloTotalCategoria.Name = "lblTituloTotalCategoria";
+            this.lblTituloTotalCategoria.Size = new System.Drawing.Size(107, 30);
+            this.lblTituloTotalCategoria.TabIndex = 0;
+            this.lblTituloTotalCategoria.Text = "Categoria";
+            // 
             // cmbFiltro
             // 
             this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
@@ -164,37 +247,35 @@
             this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
             this.cmbFiltro.TabIndex = 9;
             // 
-            // panel3
+            // panel2
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel3.Controls.Add(this.lblItensEstoque);
-            this.panel3.Controls.Add(this.lblTituloItensEstoque);
-            this.panel3.Location = new System.Drawing.Point(423, 245);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(269, 126);
-            this.panel3.TabIndex = 9;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.panel2.Controls.Add(this.lblTotalProdutos);
+            this.panel2.Controls.Add(this.lblTituloTotalProdutos);
+            this.panel2.Location = new System.Drawing.Point(766, 245);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(269, 126);
+            this.panel2.TabIndex = 8;
             // 
-            // lblItensEstoque
+            // lblTotalProdutos
             // 
-            this.lblItensEstoque.AutoSize = true;
-            this.lblItensEstoque.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItensEstoque.Location = new System.Drawing.Point(137, 71);
-            this.lblItensEstoque.Name = "lblItensEstoque";
-            this.lblItensEstoque.Size = new System.Drawing.Size(115, 47);
-            this.lblItensEstoque.TabIndex = 1;
-            this.lblItensEstoque.Text = "label5";
+            this.lblTotalProdutos.AutoSize = true;
+            this.lblTotalProdutos.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalProdutos.Location = new System.Drawing.Point(133, 71);
+            this.lblTotalProdutos.Name = "lblTotalProdutos";
+            this.lblTotalProdutos.Size = new System.Drawing.Size(115, 47);
+            this.lblTotalProdutos.TabIndex = 1;
+            this.lblTotalProdutos.Text = "label3";
             // 
-            // lblTituloItensEstoque
+            // lblTituloTotalProdutos
             // 
-            this.lblTituloItensEstoque.AutoSize = true;
-            this.lblTituloItensEstoque.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloItensEstoque.Location = new System.Drawing.Point(40, 12);
-            this.lblTituloItensEstoque.Name = "lblTituloItensEstoque";
-            this.lblTituloItensEstoque.Size = new System.Drawing.Size(181, 30);
-            this.lblTituloItensEstoque.TabIndex = 0;
-            this.lblTituloItensEstoque.Text = "Itens em Estoque";
+            this.lblTituloTotalProdutos.AutoSize = true;
+            this.lblTituloTotalProdutos.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloTotalProdutos.Location = new System.Drawing.Point(33, 12);
+            this.lblTituloTotalProdutos.Name = "lblTituloTotalProdutos";
+            this.lblTituloTotalProdutos.Size = new System.Drawing.Size(187, 30);
+            this.lblTituloTotalProdutos.TabIndex = 0;
+            this.lblTituloTotalProdutos.Text = "Total de Produtos";
             // 
             // btnNovoProduto
             // 
@@ -236,73 +317,14 @@
             this.panel1.Size = new System.Drawing.Size(1235, 5);
             this.panel1.TabIndex = 5;
             // 
-            // panel4
+            // label2
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel4.Controls.Add(this.lblTotalCategorias);
-            this.panel4.Controls.Add(this.lblTituloTotalCategoria);
-            this.panel4.Location = new System.Drawing.Point(1109, 245);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(269, 126);
-            this.panel4.TabIndex = 9;
-            // 
-            // lblTituloTotalCategoria
-            // 
-            this.lblTituloTotalCategoria.AutoSize = true;
-            this.lblTituloTotalCategoria.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloTotalCategoria.Location = new System.Drawing.Point(78, 12);
-            this.lblTituloTotalCategoria.Name = "lblTituloTotalCategoria";
-            this.lblTituloTotalCategoria.Size = new System.Drawing.Size(107, 30);
-            this.lblTituloTotalCategoria.TabIndex = 0;
-            this.lblTituloTotalCategoria.Text = "Categoria";
-            // 
-            // lblTotalCategorias
-            // 
-            this.lblTotalCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotalCategorias.AutoSize = true;
-            this.lblTotalCategorias.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCategorias.Location = new System.Drawing.Point(157, 71);
-            this.lblTotalCategorias.Name = "lblTotalCategorias";
-            this.lblTotalCategorias.Size = new System.Drawing.Size(115, 47);
-            this.lblTotalCategorias.TabIndex = 1;
-            this.lblTotalCategorias.Text = "label7";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.panel2.Controls.Add(this.lblTotalProdutos);
-            this.panel2.Controls.Add(this.lblTituloTotalProdutos);
-            this.panel2.Location = new System.Drawing.Point(766, 245);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(269, 126);
-            this.panel2.TabIndex = 8;
-            // 
-            // lblTituloTotalProdutos
-            // 
-            this.lblTituloTotalProdutos.AutoSize = true;
-            this.lblTituloTotalProdutos.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloTotalProdutos.Location = new System.Drawing.Point(33, 12);
-            this.lblTituloTotalProdutos.Name = "lblTituloTotalProdutos";
-            this.lblTituloTotalProdutos.Size = new System.Drawing.Size(187, 30);
-            this.lblTituloTotalProdutos.TabIndex = 0;
-            this.lblTituloTotalProdutos.Text = "Total de Produtos";
-            // 
-            // lblTotalProdutos
-            // 
-            this.lblTotalProdutos.AutoSize = true;
-            this.lblTotalProdutos.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalProdutos.Location = new System.Drawing.Point(133, 71);
-            this.lblTotalProdutos.Name = "lblTotalProdutos";
-            this.lblTotalProdutos.Size = new System.Drawing.Size(115, 47);
-            this.lblTotalProdutos.TabIndex = 1;
-            this.lblTotalProdutos.Text = "label3";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(423, 245);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(269, 126);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Atenção: Estoque baixo.";
             // 
             // FormEstoque
             // 
@@ -317,10 +339,12 @@
             this.Text = "Form2";
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.notificaoEstoqueMinimo.ResumeLayout(false);
+            this.notificaoEstoqueMinimo.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -353,5 +377,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTotalProdutos;
         private System.Windows.Forms.Label lblTituloTotalProdutos;
+        private System.Windows.Forms.Panel notificaoEstoqueMinimo;
+        private System.Windows.Forms.Label label2;
     }
 }
