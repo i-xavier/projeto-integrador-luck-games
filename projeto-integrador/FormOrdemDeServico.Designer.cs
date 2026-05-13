@@ -163,7 +163,7 @@
             this.panel1.Size = new System.Drawing.Size(596, 5);
             this.panel1.TabIndex = 5;
             // 
-            // FormOrdens
+            // FormOrdemDeServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,7 +171,7 @@
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.panelMedidaMenu);
             this.Controls.Add(this.panelFundo);
-            this.Name = "FormOrdens";
+            this.Name = "FormOrdemDeServico";
             this.Text = "FormOrdens";
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();

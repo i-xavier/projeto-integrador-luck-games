@@ -174,7 +174,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(269, 126);
             this.panel3.TabIndex = 9;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // lblItensEstoque
             // 
