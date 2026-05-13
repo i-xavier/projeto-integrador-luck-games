@@ -456,8 +456,9 @@ namespace projeto_integrador
         private void btnNovaOS_Click(object sender, EventArgs e)
         {
             carregar_ordens();
+            FormNovaOrdem form = new FormNovaOrdem();
 
-            FormNovaOrdem form = new FormNovaOrdem(codOrdem);
+            form.ShowDialog();
 
             if (form.ShowDialog() == DialogResult.OK) //Carrega a ordem cadastrada e mostra na consulta
             {

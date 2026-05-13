@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -16,12 +10,13 @@ namespace projeto_integrador
         // STRING DE CONEXÃO
         string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
 
-        public FormNovaOrdem(string texto)
+        public FormNovaOrdem()
         {
             InitializeComponent();
 
-            // CARREGA OS TÉCNICOS NA COMBOBOX
+            // CARREGA OS DADOS DAS COMBOBOX
             carregarTecnicos();
+            carregarClientes();
         }
 
         // MÉTODO PARA CARREGAR TÉCNICOS
@@ -34,7 +29,7 @@ namespace projeto_integrador
                     conn.Open();
 
                     string sql = @"SELECT id_funcionario, nome_funcionario
-               FROM funcionario";
+                                   FROM funcionario";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -44,14 +39,13 @@ namespace projeto_integrador
 
                     da.Fill(dt);
 
-                    // COMBOBOX
+                    // COMBOBOX TÉCNICO
                     cmbTecnico.DataSource = dt;
 
                     cmbTecnico.DisplayMember = "nome_funcionario";
 
                     cmbTecnico.ValueMember = "id_funcionario";
 
-                    // INICIA SEM SELEÇÃO
                     cmbTecnico.SelectedIndex = -1;
                 }
                 catch (Exception erro)
@@ -66,7 +60,46 @@ namespace projeto_integrador
             }
         }
 
+        // MÉTODO PARA CARREGAR CLIENTES
+        private void carregarClientes()
+        {
+            using (MySqlConnection conn = new MySqlConnection(conexao))
+            {
+                try
+                {
+                    conn.Open();
 
+                    string sql = @"SELECT id_cliente, nome
+                                   FROM cliente";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                    DataTable dt = new DataTable();
+
+                    da.Fill(dt);
+
+                    // COMBOBOX CLIENTE
+                    cmbCliente.DataSource = dt;
+
+                    cmbCliente.DisplayMember = "nome";
+
+                    cmbCliente.ValueMember = "id_cliente";
+
+                    cmbCliente.SelectedIndex = -1;
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show(
+                        "Erro ao carregar clientes: " + erro.Message,
+                        "Erro",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
+        }
 
         // BOTÃO FECHAR
         private void btnFechar_Click(object sender, EventArgs e)
@@ -84,12 +117,20 @@ namespace projeto_integrador
             }
         }
 
-        // EXEMPLO PARA PEGAR O TÉCNICO SELECIONADO
+        // BOTÃO SALVAR
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            // VERIFICA TÉCNICO
             if (cmbTecnico.SelectedIndex == -1)
             {
                 MessageBox.Show("Selecione um técnico.");
+                return;
+            }
+
+            // VERIFICA CLIENTE
+            if (cmbCliente.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione um cliente.");
                 return;
             }
 
@@ -97,11 +138,29 @@ namespace projeto_integrador
 
             string nomeTecnico = cmbTecnico.Text;
 
+            int idCliente = Convert.ToInt32(cmbCliente.SelectedValue);
+
+            string nomeCliente = cmbCliente.Text;
+
             MessageBox.Show(
-                "Técnico selecionado:\n\n" +
+                "DADOS SELECIONADOS:\n\n" +
+                "TÉCNICO:\n" +
                 "ID: " + idTecnico +
-                "\nNome: " + nomeTecnico
+                "\nNome: " + nomeTecnico +
+                "\n\nCLIENTE:\n" +
+                "ID: " + idCliente +
+                "\nNome: " + nomeCliente
             );
+        }
+
+        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTecnico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
