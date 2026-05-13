@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace projeto_integrador
 {
@@ -14,9 +15,10 @@ namespace projeto_integrador
         public FormNovoAparelho()
         {
             InitializeComponent();
+            CarregarCombo();
 
 
-            
+
         }
 
         private void FormNovoAparelho_Load(object sender, EventArgs e)
@@ -62,7 +64,7 @@ namespace projeto_integrador
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             // Pegando valores
-            string codigoCliente = txtCodigoDoCliente.Text;
+            string codigoCliente = cbClientes.SelectedValue.ToString();
             string marca = txtMarca.Text;
             string tipo = cbTipodeAparelho.Text;
             string numeroSerie = txtNumerodeSerie.Text;
@@ -83,7 +85,7 @@ namespace projeto_integrador
                 return;
             }
 
-            int flag = consultarCliente(txtCodigoDoCliente.Text.Trim());
+            int flag = consultarCliente(cbClientes.SelectedValue.ToString().Trim());
 
             if (flag == 0)
             {
@@ -155,7 +157,7 @@ namespace projeto_integrador
 
         private void LimparCampos()
         {
-            txtCodigoDoCliente.Clear();
+            cbClientes.SelectedIndex = -1;
             txtMarca.Clear();
             txtNumerodeSerie.Clear();
             txtModelo.Clear();
@@ -167,6 +169,45 @@ namespace projeto_integrador
             dtpDataEntrada.Value = DateTime.Now;
 
             pictureBox1.Image = null;
+        }
+
+        private void CarregarCombo()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(conexao))
+                {
+                    conn.Open();
+
+                    // 1. Carregar Clientes
+                    FillComboBox(conn, "SELECT id_cliente, nome FROM cliente", cbClientes, "nome", "id_cliente");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados iniciais: " + ex.Message);
+            }
+
+        }
+
+        private void FillComboBox(MySqlConnection conn, string query, ComboBox cb, string display, string value)
+        {
+            MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            // Criamos uma nova coluna no C# que combina os dados
+            // Vamos chamar essa coluna de "exibicao_completa"
+            dt.Columns.Add("exibicao_completa", typeof(string), "id_cliente + ' - ' + nome");
+
+            cb.DataSource = dt;
+            cb.DisplayMember = "exibicao_completa"; // Usamos a coluna que acabamos de criar
+            cb.ValueMember = value; // Continua sendo id_cliente
+            // Filtro inteligente
+            cb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            cb.SelectedIndex = -1;
         }
 
         private int consultarCliente(string idCliente)

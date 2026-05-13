@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNovoAparelho));
             this.label1 = new System.Windows.Forms.Label();
             this.lblCodigoDoCliente = new System.Windows.Forms.Label();
-            this.txtCodigoDoCliente = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTipodeAparelho = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtpDataEntrada = new System.Windows.Forms.DateTimePicker();
             this.btnFechar = new System.Windows.Forms.Button();
+            this.cbClientes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,13 +75,6 @@
             this.lblCodigoDoCliente.Size = new System.Drawing.Size(116, 17);
             this.lblCodigoDoCliente.TabIndex = 1;
             this.lblCodigoDoCliente.Text = "Código do Cliente";
-            // 
-            // txtCodigoDoCliente
-            // 
-            this.txtCodigoDoCliente.Location = new System.Drawing.Point(21, 98);
-            this.txtCodigoDoCliente.Name = "txtCodigoDoCliente";
-            this.txtCodigoDoCliente.Size = new System.Drawing.Size(398, 20);
-            this.txtCodigoDoCliente.TabIndex = 2;
             // 
             // txtMarca
             // 
@@ -294,6 +287,14 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
+            // cbClientes
+            // 
+            this.cbClientes.FormattingEnabled = true;
+            this.cbClientes.Location = new System.Drawing.Point(21, 98);
+            this.cbClientes.Name = "cbClientes";
+            this.cbClientes.Size = new System.Drawing.Size(398, 21);
+            this.cbClientes.TabIndex = 44;
+            // 
             // FormNovoAparelho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,6 +302,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(98)))), ((int)(((byte)(131)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(456, 567);
+            this.Controls.Add(this.cbClientes);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.dtpDataEntrada);
             this.Controls.Add(this.btnAnexarFoto);
@@ -320,7 +322,6 @@
             this.Controls.Add(this.lblTipodeAparelho);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtMarca);
-            this.Controls.Add(this.txtCodigoDoCliente);
             this.Controls.Add(this.lblCodigoDoCliente);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -337,7 +338,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCodigoDoCliente;
-        private System.Windows.Forms.TextBox txtCodigoDoCliente;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTipodeAparelho;
@@ -357,5 +357,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dtpDataEntrada;
         private System.Windows.Forms.Button btnFechar;
+        private System.Windows.Forms.ComboBox cbClientes;
     }
 }
