@@ -33,6 +33,12 @@ namespace projeto_integrador
             };
 
             ConfigurarDataGridView();
+            string query = @"
+                    SELECT
+                        *
+                    FROM ordem
+                    ORDER BY id_ordem ASC;";
+            carregar_ordens_com_query(query);
         }
 
         private void ConfigurarDataGridView()
@@ -234,7 +240,7 @@ namespace projeto_integrador
 
         private void carregar_ordens()
         {
-            string query = "SELECT COALESCE(MAX(id_ordem), 0) FROM produto;";
+            string query = "SELECT COALESCE(MAX(id_ordem), 0) FROM ordem;";
             checar_cod(query);
         }
 
@@ -462,7 +468,7 @@ namespace projeto_integrador
             if (form.ShowDialog() == DialogResult.OK) //Carrega a ordem cadastrada e mostra na consulta
             {
                 carregar_ordens_com_query(
-                    "SELECT * FROM ordem_servico ORDER BY id_ordem DESC"
+                    "SELECT * FROM ordem ORDER BY id_ordem DESC"
                 );
             }
         }

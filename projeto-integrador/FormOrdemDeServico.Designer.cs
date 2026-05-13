@@ -60,7 +60,7 @@
             this.panelMedidaMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMedidaMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMedidaMenu.Name = "panelMedidaMenu";
-            this.panelMedidaMenu.Size = new System.Drawing.Size(236, 561);
+            this.panelMedidaMenu.Size = new System.Drawing.Size(236, 638);
             this.panelMedidaMenu.TabIndex = 3;
             // 
             // btnPesquisar
@@ -86,7 +86,7 @@
             this.btnNovaOS.ForeColor = System.Drawing.Color.Black;
             this.btnNovaOS.Image = ((System.Drawing.Image)(resources.GetObject("btnNovaOS.Image")));
             this.btnNovaOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovaOS.Location = new System.Drawing.Point(707, 171);
+            this.btnNovaOS.Location = new System.Drawing.Point(1011, 171);
             this.btnNovaOS.Name = "btnNovaOS";
             this.btnNovaOS.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnNovaOS.Size = new System.Drawing.Size(176, 34);
@@ -108,7 +108,7 @@
             this.panelFundo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFundo.Location = new System.Drawing.Point(0, 0);
             this.panelFundo.Name = "panelFundo";
-            this.panelFundo.Size = new System.Drawing.Size(934, 561);
+            this.panelFundo.Size = new System.Drawing.Size(1238, 638);
             this.panelFundo.TabIndex = 4;
             // 
             // pictureBox1
@@ -136,10 +136,13 @@
             // 
             // dgvOS
             // 
+            this.dgvOS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOS.Location = new System.Drawing.Point(287, 261);
             this.dgvOS.Name = "dgvOS";
-            this.dgvOS.Size = new System.Drawing.Size(596, 226);
+            this.dgvOS.Size = new System.Drawing.Size(916, 342);
             this.dgvOS.TabIndex = 7;
             // 
             // labelOS
@@ -160,18 +163,18 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.panel1.Location = new System.Drawing.Point(287, 133);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(596, 5);
+            this.panel1.Size = new System.Drawing.Size(900, 5);
             this.panel1.TabIndex = 5;
             // 
-            // FormOrdens
+            // FormOrdemDeServico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 561);
+            this.ClientSize = new System.Drawing.Size(1238, 638);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.panelMedidaMenu);
             this.Controls.Add(this.panelFundo);
-            this.Name = "FormOrdens";
+            this.Name = "FormOrdemDeServico";
             this.Text = "FormOrdens";
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
