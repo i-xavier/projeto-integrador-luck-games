@@ -80,6 +80,7 @@
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(338, 21);
             this.cmbCliente.TabIndex = 2;
+           
             // 
             // lblIDOrdem
             // 
