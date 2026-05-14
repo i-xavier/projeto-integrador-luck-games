@@ -20,7 +20,7 @@ namespace projeto_integrador
 {
     public partial class frmEsqueceuSenha : Form
     {
-        public string Conexao { get; private set; }
+        public string Conexao { get; private set; } = "Server=localhost;Database=projeto_luck_games;Uid=root;Pwd=;";
 
 
 
@@ -125,6 +125,9 @@ namespace projeto_integrador
 
             button4.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button4.Width,
             button4.Height, 20, 20));
+
+            btnVerificar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnVerificar.Width,
+            btnVerificar.Height, 20, 20));
         }
 
 
@@ -211,12 +214,7 @@ namespace projeto_integrador
 
 
 
-                string sql = @"
-                SELECT resposta_secreta
-                FROM funcionario
-                WHERE id_funcionario = @codigo
-                AND fk_id_pergunta = @idPergunta";
-
+                string sql = "SELECT resposta_secreta FROM funcionario WHERE id_funcionario = @codigo";
 
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -290,5 +288,97 @@ namespace projeto_integrador
                 }
             }
         }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            // 1. Validar se os campos não estão vazios
+
+            if (string.IsNullOrWhiteSpace(txtNovaSenha.Text) || string.IsNullOrWhiteSpace(txtConfirmarSenha.Text))
+            {
+                MessageBox.Show("Por favor, preencha ambos os campos de senha.");
+                return;
+            }
+
+            // 2. Verificar se as senhas são idênticas
+            if (txtNovaSenha.Text != txtConfirmarSenha.Text)
+            {
+                MessageBox.Show("As senhas não coincidem. Tente novamente.");
+                return;
+            }
+
+            try
+            {
+
+                using (MySqlConnection conn = new MySqlConnection(Conexao))
+
+                {
+
+                    conn.Open();
+
+                    // SQL para atualizar a senha baseando-se no ID do funcionário
+
+                    // O campo 'senha' e a tabela 'funcionario' foram identificados em image_66c3ec.jpg
+
+                    string sql = "UPDATE funcionario SET senha = @novaSenha WHERE id_funcionario = @codigo";
+
+
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+
+
+                    // Parâmetros para evitar SQL Injection
+
+                    cmd.Parameters.AddWithValue("@novaSenha", txtNovaSenha.Text);
+
+                    cmd.Parameters.AddWithValue("@codigo", Convert.ToInt32(txtCodigo.Text));
+
+
+
+                    int linhasAfetadas = cmd.ExecuteNonQuery();
+
+
+
+                    if (linhasAfetadas > 0)
+
+                    {
+
+                        MessageBox.Show("Senha alterada com sucesso!");
+
+
+
+                        // Opcional: Redirecionar para o login após o sucesso
+
+                        frmLogin login = new frmLogin();
+
+                        this.Hide();
+
+                        login.ShowDialog();
+
+                        this.Close();
+
+                    }
+
+                    else
+
+                    {
+
+                        MessageBox.Show("Erro ao atualizar a senha. Verifique o código do funcionário.");
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                MessageBox.Show("Erro técnico: " + ex.Message);
+
+            }
+        
+    }
     }
 }

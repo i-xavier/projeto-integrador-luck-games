@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace projeto_integrador
 {
-    public partial class FormNovoCliente : Form
+    public partial class FormGerenciarCliente : Form
     {
         private bool _isEdicao = false;
         private int _idClienteParaEditar;
@@ -28,7 +28,7 @@ namespace projeto_integrador
                int nHeightEllipse
            );
 
-        public FormNovoCliente(String codUser)
+        public FormGerenciarCliente(String codUser)
         {
             InitializeComponent();
             this.AcceptButton = btnCadastrarCliente;
@@ -68,42 +68,36 @@ namespace projeto_integrador
                 return;
             }
 
-           
 
-            if(_isEdicao){
 
-                // Executa UPDATE cliente SET nome = ... WHERE id_cliente = _idClienteParaEditar
-
-                /*this.DialogResult = DialogResult.OK;
-
-                this.Close();
-                */
-
+            if (_isEdicao)
+            {
+                // MODO EDIÇÃO: Usamos UPDATE
                 using (MySqlConnection conn = new MySqlConnection(conexao))
                 {
-                    string sql = "INSERT INTO cliente(nome, telefone, CPF) " +
-                 "VALUES(@nome, @telefone, @CPF)";
+                    // Removido o parêntese incorreto após @CPF e ajustado o WHERE
+                    string sql = "UPDATE cliente SET nome = @nome, telefone = @telefone, CPF = @CPF WHERE id_cliente = @idcliente";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@nome", txtNomeCompleto.Text);
                         cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
                         cmd.Parameters.AddWithValue("@CPF", txtCPF.Text);
+                        cmd.Parameters.AddWithValue("@idcliente", _idClienteParaEditar); // Use parâmetro aqui também
+
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
 
-
                         MessageBox.Show("Cliente atualizado com sucesso!");
                         this.DialogResult = DialogResult.OK;
                         this.Close();
-
                     }
                 }
-
             }
             else
             {
+                // MODO CADASTRO: Usamos INSERT
                 flag = consultarCliente(txtCPF.Text.Trim());
 
                 if (flag == 1)
@@ -112,40 +106,31 @@ namespace projeto_integrador
                     return;
                 }
 
-                /*this.DialogResult = DialogResult.OK;
-
-                this.Close();*/
-
-
                 using (MySqlConnection conn = new MySqlConnection(conexao))
                 {
-                    string sql = "UPDATE cliente SET nome = @nome, telefone = @telefone, CPF = @CPF) " +
-                 "WHERE " + _idClienteParaEditar + " = @idcliente";
+                    string sql = "INSERT INTO cliente(nome, telefone, CPF) VALUES(@nome, @telefone, @CPF)";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@nome", txtNomeCompleto.Text);
                         cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
                         cmd.Parameters.AddWithValue("@CPF", txtCPF.Text);
+
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
 
-
                         MessageBox.Show("Cliente cadastrado com sucesso!");
                         this.DialogResult = DialogResult.OK;
                         this.Close();
-
                     }
                 }
-                // Executa INSERT INTO cliente ...
-
             }
 
 
-           /* this.DialogResult = DialogResult.OK;
+            /* this.DialogResult = DialogResult.OK;
 
-            this.Close();*/
+             this.Close();*/
 
 
             /*this.DialogResult = DialogResult.OK;
@@ -256,7 +241,7 @@ namespace projeto_integrador
 
             this.Text = "Editar Cliente"; // Título da janela
 
-            lblTitulo.Text = "Editar Dados do Cliente";
+            lblTitulo.Text = "Editar Dados";
 
             btnCadastrarCliente.Text = "Salvar Alterações";
 

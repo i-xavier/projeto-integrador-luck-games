@@ -11,12 +11,12 @@ using MySql.Data.MySqlClient;
 
 namespace projeto_integrador
 {
-    public partial class FormNovaOrdem : Form
+    public partial class FormGerenciarOrdem : Form
     {
         // STRING DE CONEXÃO
         string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
 
-        public FormNovaOrdem(string texto)
+        public FormGerenciarOrdem(string texto)
         {
             InitializeComponent();
 

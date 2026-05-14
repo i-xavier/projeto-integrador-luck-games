@@ -101,17 +101,17 @@
     <Compile Include="FormNovaMovimentacao.Designer.cs">
       <DependentUpon>FormNovaMovimentacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNovaOrdem.cs">
+    <Compile Include="FormGerenciarOrdem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNovaOrdem.Designer.cs">
-      <DependentUpon>FormNovaOrdem.cs</DependentUpon>
+    <Compile Include="FormGerenciarOrdem.Designer.cs">
+      <DependentUpon>FormGerenciarOrdem.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNovoAparelho.cs">
+    <Compile Include="FormGerenciarAparelho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNovoAparelho.Designer.cs">
-      <DependentUpon>FormNovoAparelho.cs</DependentUpon>
+    <Compile Include="FormGerenciarAparelho.Designer.cs">
+      <DependentUpon>FormGerenciarAparelho.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAparelho.cs">
       <SubType>Form</SubType>
@@ -143,11 +143,11 @@
     <Compile Include="FormCadastrarUsuario.Designer.cs">
       <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNovoProduto.cs">
+    <Compile Include="FormGerenciarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNovoProduto.Designer.cs">
-      <DependentUpon>FormNovoProduto.cs</DependentUpon>
+    <Compile Include="FormGerenciarProduto.Designer.cs">
+      <DependentUpon>FormGerenciarProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="FormOrdemDeServico.cs">
       <SubType>Form</SubType>
@@ -167,11 +167,11 @@
     <Compile Include="FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNovoCliente.cs">
+    <Compile Include="FormGerenciarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNovoCliente.Designer.cs">
-      <DependentUpon>FormNovoCliente.cs</DependentUpon>
+    <Compile Include="FormGerenciarCliente.Designer.cs">
+      <DependentUpon>FormGerenciarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
@@ -184,11 +184,11 @@
     <EmbeddedResource Include="FormAparelho.resx">
       <DependentUpon>FormAparelho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNovaOrdem.resx">
-      <DependentUpon>FormNovaOrdem.cs</DependentUpon>
+    <EmbeddedResource Include="FormGerenciarOrdem.resx">
+      <DependentUpon>FormGerenciarOrdem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNovoCliente.resx">
-      <DependentUpon>FormNovoCliente.cs</DependentUpon>
+    <EmbeddedResource Include="FormGerenciarCliente.resx">
+      <DependentUpon>FormGerenciarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNovaMovimentacao.resx">
       <DependentUpon>FormNovaMovimentacao.cs</DependentUpon>
@@ -208,11 +208,11 @@
     <EmbeddedResource Include="FormCadastrarUsuario.resx">
       <DependentUpon>FormCadastrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNovoAparelho.resx">
-      <DependentUpon>FormNovoAparelho.cs</DependentUpon>
+    <EmbeddedResource Include="FormGerenciarAparelho.resx">
+      <DependentUpon>FormGerenciarAparelho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNovoProduto.resx">
-      <DependentUpon>FormNovoProduto.cs</DependentUpon>
+    <EmbeddedResource Include="FormGerenciarProduto.resx">
+      <DependentUpon>FormGerenciarProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOrdemDeServico.resx">
       <DependentUpon>FormOrdemDeServico.cs</DependentUpon>

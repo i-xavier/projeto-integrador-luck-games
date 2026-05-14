@@ -463,7 +463,7 @@ namespace projeto_integrador
         {
             carregar_ordens();
 
-            FormNovaOrdem form = new FormNovaOrdem(codOrdem);
+            FormGerenciarOrdem form = new FormGerenciarOrdem(codOrdem);
 
             if (form.ShowDialog() == DialogResult.OK) //Carrega a ordem cadastrada e mostra na consulta
             {

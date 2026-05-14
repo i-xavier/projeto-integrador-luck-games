@@ -20,7 +20,6 @@ namespace projeto_integrador
         MySqlConnection Conexao;
         string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
 
-        private int? codigo_cliente = null;
         public FormCliente()
         {
             InitializeComponent();
@@ -347,7 +346,7 @@ namespace projeto_integrador
                 );
             }*/
 
-            using (FormNovoCliente form = new FormNovoCliente(codUser))
+            using (FormGerenciarCliente form = new FormGerenciarCliente(codUser))
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -410,7 +409,7 @@ namespace projeto_integrador
 
 
 
-                using (FormNovoCliente frm = new FormNovoCliente(codUser))
+                using (FormGerenciarCliente frm = new FormGerenciarCliente(codUser))
 
                 {
 
@@ -493,40 +492,6 @@ namespace projeto_integrador
                     Conexao.Close();
                 }
             }
-        }
-
-        private void AtualizarCliente(string idCliente)
-        {
-
-        }
-
-        private void ConsultarClientePorID(string query)
-        {
-            Conexao = new MySqlConnection(data_source);
-
-            Conexao.Open();
-
-            MySqlCommand cmd =
-                new MySqlCommand(query, Conexao);
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            List<string> cliente = new List<string>();
-
-            while (reader.Read())
-            {
-                
-                cliente.Add(reader["id_cliente"].ToString());
-                cliente.Add(reader["nome"].ToString());
-                cliente.Add(reader["telefone"].ToString());
-                cliente.Add(reader["cpf"].ToString());
-
-            }
-            
-            
-
-            Conexao.Close();
-
         }
 
         private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)

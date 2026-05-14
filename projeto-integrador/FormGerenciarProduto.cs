@@ -11,12 +11,14 @@ using System.Windows.Forms;
 
 namespace projeto_integrador
 {
-    public partial class FormNovoProduto : Form
+    public partial class FormGerenciarProduto : Form
     {
+        private bool _isEdicao = false;
+        private int _idProdutoParaEditar;
         MySqlConnection Conexao;
-        string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
+        //string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
 
-        public FormNovoProduto(string proximoCodigo)
+        public FormGerenciarProduto(string proximoCodigo)
         {
             InitializeComponent();
             txtCodigoProduto.Text = proximoCodigo;
@@ -59,6 +61,7 @@ namespace projeto_integrador
             try
             {
                 int flag = 0;
+                string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
                 // Validando se os combos têm algo selecionado (SelectedIndex != -1)
                 if (string.IsNullOrEmpty(txtNomeProduto.Text.Trim()) ||
                     string.IsNullOrEmpty(txtCodigoProduto.Text.Trim()) ||
@@ -73,7 +76,44 @@ namespace projeto_integrador
                     return;
                 }
 
-                flag = consultarProduto(txtNomeProduto.Text.Trim());
+               
+                 if (_isEdicao)
+{
+    // MODO EDIÇÃO: Usamos UPDATE
+    using (MySqlConnection conn = new MySqlConnection(conexao))
+    {
+                        // Removido o parêntese incorreto após @CPF e ajustado o WHERE
+                        string sql = @"UPDATE produto SET 
+                       nome_produto = @nome, 
+                       quantidade_minima = @quantidade_minima, 
+                       valor_unitario = @valor_unitario, 
+                       quantidade_total = @quantidade_total, 
+                       categoria = @categoria 
+                       WHERE id_produto = @idproduto";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                        {
+                            cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtNomeProduto.Text;
+                            cmd.Parameters.Add("@quantidade_minima", MySqlDbType.Int32).Value = int.Parse(txtQuantidadeMinima.Text);
+                            cmd.Parameters.Add("@valor_unitario", MySqlDbType.Decimal).Value = decimal.Parse(txtValorUnitario.Text);
+                            cmd.Parameters.Add("@quantidade_total", MySqlDbType.Int32).Value = int.Parse(txtQuantidade.Text);
+                            cmd.Parameters.Add("@categoria", MySqlDbType.VarChar).Value = cbCategoria.SelectedItem.ToString();
+                            cmd.Parameters.AddWithValue("@idproduto", _idProdutoParaEditar);
+
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+
+                            MessageBox.Show("Produto atualizado com sucesso!");
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
+                    }
+}
+else
+{
+    // MODO CADASTRO: Usamos INSERT
+    flag = consultarProduto(txtNomeProduto.Text.Trim());
 
                 if (flag == 1)
                  {
@@ -81,17 +121,7 @@ namespace projeto_integrador
                      return;
                  }
 
-                /*
-                 string telefone = txtTelefone.Text.Trim();
-                 if (!isValidTelefoneLength(telefone))
-                 {
-                     MessageBox.Show("Telefone deve ter 11 dígitos.", "Validação");
-                     return;
-                 }
-                */
-                string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
-
-                using (MySqlConnection conn = new MySqlConnection(conexao))
+    using (MySqlConnection conn = new MySqlConnection(conexao))
                 {
                     string sql = "INSERT INTO produto(nome_produto, quantidade_minima, valor_unitario, quantidade_total, categoria) " +
                  "VALUES(@nome, @quantidade_minima, @valor_unitario, @quantidade_total, @categoria)";
@@ -119,6 +149,10 @@ namespace projeto_integrador
 
                     }
                 }
+}
+                
+
+                
             }
             catch (Exception ex)
             {
@@ -170,6 +204,40 @@ namespace projeto_integrador
 
             return flag;
             
+        }
+
+        public void ConfigurarEdicao(int id, string nome, string categoria, int quantidadeMinima, decimal valorUnitario, int quantidadeTotal)
+
+        {
+
+            _isEdicao = true;
+
+            _idProdutoParaEditar = id;
+
+
+
+            // Altera os textos dos componentes
+
+            this.Text = "Editar Produto"; // Título da janela
+
+            lblTitulo.Text = "Editar Dados";
+
+            btnCadastrarProduto.Text = "Salvar Alterações";
+
+            // Preenche os campos com os dados que vieram do Grid
+
+            txtNomeProduto.Text = nome;
+
+            cbCategoria.SelectedItem = categoria;
+
+            txtQuantidadeMinima.Text = quantidadeMinima.ToString();
+
+            txtValorUnitario.Text = valorUnitario.ToString();
+
+            txtQuantidade.Text = quantidadeTotal.ToString();
+
+            txtCodigoProduto.Text = id.ToString();
+
         }
     }
 }
