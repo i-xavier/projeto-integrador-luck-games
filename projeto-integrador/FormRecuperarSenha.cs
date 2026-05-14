@@ -18,9 +18,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace projeto_integrador
 {
+
     public partial class frmEsqueceuSenha : Form
     {
-        public string Conexao { get; private set; }
+        public string Conexao { get; private set; } =
+ "server=localhost;port=3306;database=projeto_luck_games;uid=root;pwd=;";
 
 
 
@@ -189,39 +191,68 @@ namespace projeto_integrador
 
         private void btnVerificar_Click(object sender, EventArgs e)
         {
+
             if (cbPerguntaSecreta.SelectedIndex == -1 ||
+
             txtRespostaPerguntaSecreta.Text.Trim() == "" ||
+
             txtCodigo.Text.Trim() == "")
+
             {
+
                 MessageBox.Show("Preencha todos os campos.");
+
                 return;
+
             }
 
 
 
+
+
+
+
             int codigo = Convert.ToInt32(txtCodigo.Text);
+
             int idPergunta = Convert.ToInt32(cbPerguntaSecreta.SelectedValue);
+
             string respostaUsuario = txtRespostaPerguntaSecreta.Text.Trim().ToLower();
 
 
 
+
+
+
+
             using (MySqlConnection conn = new MySqlConnection(Conexao))
+
             {
+
                 conn.Open();
 
 
 
-                string sql = @"
-                SELECT resposta_secreta
-                FROM funcionario
-                WHERE id_funcionario = @codigo
-                AND fk_id_pergunta = @idPergunta";
+
+
+
+
+                string sql = "SELECT resposta_secreta FROM funcionario WHERE id_funcionario = @codigo";
+
+
+
+
 
 
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
                 cmd.Parameters.AddWithValue("@codigo", codigo);
+
                 cmd.Parameters.AddWithValue("@idPergunta", idPergunta);
+
+
+
+
 
 
 
@@ -229,11 +260,23 @@ namespace projeto_integrador
 
 
 
+
+
+
+
                 if (resultado == null)
+
                 {
+
                     MessageBox.Show("Funcionário ou pergunta inválidos.");
+
                     return;
+
                 }
+
+
+
+
 
 
 
@@ -241,54 +284,270 @@ namespace projeto_integrador
 
 
 
+
+
+
+
                 if (respostaUsuario == respostaCorreta)
+
                 {
-                    // MOSTRA LABEL + TEXTO + BOTÃO
-                    lblNovaSenha.Visible = true;
+
+                    // MOSTRA LABEL + TEXTO + BOTÃO
+
+                    lblNovaSenha.Visible = true;
+
                     txtNovaSenha.Visible = true;
 
 
 
+
+
+
+
                     lblConfirmarSenha.Visible = true;
+
                     txtConfirmarSenha.Visible = true;
 
 
 
+
+
+
+
                     btnConfirmar.Visible = true;
+
                     button2.Visible = true;
+
                     button3.Visible = true;
+
                     button4.Visible = true;
+
                     button1.Visible = true;
 
 
 
+
+
+
+
                     MessageBox.Show("Resposta correta! Defina sua senha.");
+
                 }
+
                 else
+
                 {
-                    //  ESCONDE TUDO DE NOVO
-                    lblNovaSenha.Visible = false;
+
+                    //  ESCONDE TUDO DE NOVO
+
+                    lblNovaSenha.Visible = false;
+
                     txtNovaSenha.Visible = false;
 
 
 
+
+
+
+
                     lblConfirmarSenha.Visible = false;
+
                     txtConfirmarSenha.Visible = false;
 
 
 
+
+
+
+
                     btnConfirmar.Visible = false;
+
                     button2.Visible = false;
+
                     button3.Visible = false;
+
                     button4.Visible = false;
+
                     button1.Visible = false;
 
 
 
+
+
+
+
                     MessageBox.Show("Resposta incorreta!",
+
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
+
             }
+
         }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            // 1. Validar se os campos não estão vazios
+
+
+
+            if (string.IsNullOrWhiteSpace(txtNovaSenha.Text) || string.IsNullOrWhiteSpace(txtConfirmarSenha.Text))
+
+            {
+
+                MessageBox.Show("Por favor, preencha ambos os campos de senha.");
+
+                return;
+
+            }
+
+
+
+            // 2. Verificar se as senhas são idênticas
+
+            if (txtNovaSenha.Text != txtConfirmarSenha.Text)
+
+            {
+
+                MessageBox.Show("As senhas não coincidem. Tente novamente.");
+
+                return;
+
+            }
+
+
+
+            try
+
+            {
+
+                using (MySqlConnection conn = new MySqlConnection(Conexao))
+
+                {
+
+                    conn.Open();
+
+
+
+                    // SQL para atualizar a senha baseando-se no ID do funcionário
+
+
+
+                    // O campo 'senha' e a tabela 'funcionario' foram identificados em image_66c3ec.jpg
+
+
+
+                    string sql = "UPDATE funcionario SET senha = @novaSenha WHERE id_funcionario = @codigo";
+
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+
+                    // Parâmetros para evitar SQL Injection
+
+
+
+                    cmd.Parameters.AddWithValue("@novaSenha", txtNovaSenha.Text);
+
+
+
+                    cmd.Parameters.AddWithValue("@codigo", txtCodigo.Text);
+
+
+
+
+
+
+
+                    int linhasAfetadas = cmd.ExecuteNonQuery();
+
+
+
+
+
+
+
+                    if (linhasAfetadas > 0)
+
+
+
+                    {
+
+
+
+                        MessageBox.Show("Senha alterada com sucesso!");
+
+
+
+
+
+
+
+                        // Opcional: Redirecionar para o login após o sucesso
+
+
+
+                        frmLogin login = new frmLogin();
+
+
+
+                        this.Hide();
+
+
+
+                        login.ShowDialog();
+
+
+
+                        this.Close();
+
+
+
+                    }
+
+
+
+                    else
+
+
+
+                    {
+
+
+
+                        MessageBox.Show("Erro ao atualizar a senha. Verifique o código do funcionário.");
+
+
+
+                    }
+
+
+
+                }
+
+
+
+            }
+
+
+
+            catch (Exception ex)
+
+
+
+            {
+
+
+
+                MessageBox.Show("Erro técnico: " + ex.Message);
+
+
+
+            }
+
+        }
+
     }
+
 }
