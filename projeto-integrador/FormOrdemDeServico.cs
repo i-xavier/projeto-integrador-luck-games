@@ -462,7 +462,7 @@ namespace projeto_integrador
         private void btnNovaOS_Click(object sender, EventArgs e)
         {
             carregar_ordens();
-            FormNovaOrdem form = new FormNovaOrdem();
+            FormGerenciarOrdem form = new FormGerenciarOrdem();
 
             form.ShowDialog();
 

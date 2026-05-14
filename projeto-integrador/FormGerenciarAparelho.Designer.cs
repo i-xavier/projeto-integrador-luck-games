@@ -1,6 +1,6 @@
 ﻿namespace projeto_integrador
 {
-    partial class FormNovoAparelho
+    partial class FormGerenciarAparelho
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNovoAparelho));
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGerenciarAparelho));
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.lblCodigoDoCliente = new System.Windows.Forms.Label();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblDescriçãoDoProblema = new System.Windows.Forms.Label();
             this.txtDescriçãoDoProblema = new System.Windows.Forms.TextBox();
-            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnCadastrarAparelho = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtpDataEntrada = new System.Windows.Forms.DateTimePicker();
             this.btnFechar = new System.Windows.Forms.Button();
@@ -54,16 +54,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(111, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cadastrar Aparelho";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(111, 33);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(225, 32);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Cadastrar Aparelho";
             // 
             // lblCodigoDoCliente
             // 
@@ -242,18 +242,18 @@
             this.txtDescriçãoDoProblema.Size = new System.Drawing.Size(398, 20);
             this.txtDescriçãoDoProblema.TabIndex = 39;
             // 
-            // btnCadastrar
+            // btnCadastrarAparelho
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCadastrar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(79, 514);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(293, 28);
-            this.btnCadastrar.TabIndex = 40;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = false;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.btnCadastrarAparelho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnCadastrarAparelho.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCadastrarAparelho.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarAparelho.Location = new System.Drawing.Point(79, 514);
+            this.btnCadastrarAparelho.Name = "btnCadastrarAparelho";
+            this.btnCadastrarAparelho.Size = new System.Drawing.Size(293, 28);
+            this.btnCadastrarAparelho.TabIndex = 40;
+            this.btnCadastrarAparelho.Text = "Cadastrar";
+            this.btnCadastrarAparelho.UseVisualStyleBackColor = false;
+            this.btnCadastrarAparelho.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // pictureBox1
             // 
@@ -295,7 +295,7 @@
             this.cbClientes.Size = new System.Drawing.Size(398, 21);
             this.cbClientes.TabIndex = 44;
             // 
-            // FormNovoAparelho
+            // FormGerenciarAparelho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -307,7 +307,7 @@
             this.Controls.Add(this.dtpDataEntrada);
             this.Controls.Add(this.btnAnexarFoto);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.btnCadastrarAparelho);
             this.Controls.Add(this.txtDescriçãoDoProblema);
             this.Controls.Add(this.lblDescriçãoDoProblema);
             this.Controls.Add(this.label4);
@@ -323,11 +323,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.lblCodigoDoCliente);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormNovoAparelho";
+            this.Name = "FormGerenciarAparelho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Aparelho";
+           // this.Load += new System.EventHandler(this.FormGerenciarAparelho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -336,7 +337,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblCodigoDoCliente;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label3;
@@ -353,7 +354,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblDescriçãoDoProblema;
         private System.Windows.Forms.TextBox txtDescriçãoDoProblema;
-        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnCadastrarAparelho;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dtpDataEntrada;
         private System.Windows.Forms.Button btnFechar;

@@ -1,6 +1,6 @@
 ﻿namespace projeto_integrador
 {
-    partial class FormNovaOrdem
+    partial class FormGerenciarOrdem
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNovaOrdem));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGerenciarOrdem));
             this.label1 = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.cmbCliente = new System.Windows.Forms.ComboBox();

@@ -12,8 +12,10 @@ using System.Windows.Forms;
 
 namespace projeto_integrador
 {
-    public partial class FormNovoCliente : Form
+    public partial class FormGerenciarCliente : Form
     {
+        private bool _isEdicao = false;
+        private int _idClienteParaEditar;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -26,7 +28,7 @@ namespace projeto_integrador
                int nHeightEllipse
            );
 
-        public FormNovoCliente(String codUser)
+        public FormGerenciarCliente(String codUser)
         {
             InitializeComponent();
             this.AcceptButton = btnCadastrarCliente;
@@ -36,6 +38,7 @@ namespace projeto_integrador
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
             int flag = 0;
+            string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
 
             if (txtNomeCompleto.Text == "" || txtTelefone.Text == "" || txtCPF.Text == "")
             {
@@ -65,37 +68,65 @@ namespace projeto_integrador
                 return;
             }
 
-            flag = consultarCliente(txtCPF.Text.Trim());
 
-            if (flag == 1)
+
+            if (_isEdicao)
             {
-                MessageBox.Show("Cliente já foi cadastrado.", "Erro");
-                return;
-            }
-
-            string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
-
-            using (MySqlConnection conn = new MySqlConnection(conexao))
-            {
-                string sql = "INSERT INTO cliente(nome, telefone, CPF) " +
-             "VALUES(@nome, @telefone, @CPF)" ;
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                // MODO EDIÇÃO: Usamos UPDATE
+                using (MySqlConnection conn = new MySqlConnection(conexao))
                 {
-                    cmd.Parameters.AddWithValue("@nome", txtNomeCompleto.Text);
-                    cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-                    cmd.Parameters.AddWithValue("@CPF", txtCPF.Text);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
+                    // Removido o parêntese incorreto após @CPF e ajustado o WHERE
+                    string sql = "UPDATE cliente SET nome = @nome, telefone = @telefone, CPF = @CPF WHERE id_cliente = @idcliente";
 
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@nome", txtNomeCompleto.Text);
+                        cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                        cmd.Parameters.AddWithValue("@CPF", txtCPF.Text);
+                        cmd.Parameters.AddWithValue("@idcliente", _idClienteParaEditar); // Use parâmetro aqui também
 
-                    MessageBox.Show("Cliente cadastrado com sucesso!");
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
 
+                        MessageBox.Show("Cliente atualizado com sucesso!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
                 }
             }
+            else
+            {
+                // MODO CADASTRO: Usamos INSERT
+                flag = consultarCliente(txtCPF.Text.Trim());
+
+                if (flag == 1)
+                {
+                    MessageBox.Show("Cliente já foi cadastrado.", "Erro");
+                    return;
+                }
+
+                using (MySqlConnection conn = new MySqlConnection(conexao))
+                {
+                    string sql = "INSERT INTO cliente(nome, telefone, CPF) VALUES(@nome, @telefone, @CPF)";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@nome", txtNomeCompleto.Text);
+                        cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
+                        cmd.Parameters.AddWithValue("@CPF", txtCPF.Text);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        MessageBox.Show("Cliente cadastrado com sucesso!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                }
+            }
+
 
         }
 
@@ -158,6 +189,36 @@ namespace projeto_integrador
 
             btnCadastrarCliente.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0,btnCadastrarCliente.Width,
                btnCadastrarCliente.Height, 25, 25));
+        }
+
+        public void ConfigurarEdicao(int id, string nome, string telefone, string CPF)
+
+        {
+
+            _isEdicao = true;
+
+            _idClienteParaEditar = id;
+
+            // Altera os textos dos componentes
+
+            this.Text = "Editar Cliente"; // Título da janela
+
+            lblTitulo.Text = "Editar Dados";
+
+            btnCadastrarCliente.Text = "Salvar Alterações";
+
+
+
+            // Preenche os campos com os dados que vieram do Grid
+
+            txtNomeCompleto.Text = nome;
+
+            txtCPF.Text = CPF;
+
+            txtTelefone.Text = telefone;
+
+            txtID.Text = id.ToString();
+
         }
     }
 }

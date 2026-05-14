@@ -147,7 +147,7 @@ namespace projeto_integrador
         private void btnNovoAparelho_Click(object sender, EventArgs e)
         {
             carregar_aparelhos();
-            FormNovoAparelho form = new FormNovoAparelho(); // cria novo form
+            FormGerenciarAparelho form = new FormGerenciarAparelho(); // cria novo form
             
             if (form.ShowDialog() == DialogResult.OK) //Carrega o cliente cadastrado e mostra na consulta
             {
@@ -412,16 +412,43 @@ namespace projeto_integrador
             // EDITAR
             if (dgvAparelho.Columns[e.ColumnIndex].Name
                 == "Editar")
-            {
-                MessageBox.Show(
-                    "Editar aparelho ID: " + idAparelho
-                );
 
-                // abrir tela edição aqui
+            {
+
+                int id = Convert.ToInt32(dgvAparelho.Rows[e.RowIndex].Cells["id_aparelho"].Value);
+                string marca = dgvAparelho.Rows[e.RowIndex].Cells["marca"].Value.ToString();
+                string modelo = dgvAparelho.Rows[e.RowIndex].Cells["modelo"].Value.ToString();
+                string tipo = dgvAparelho.Rows[e.RowIndex].Cells["tipo"].Value.ToString();
+                string numSerie = dgvAparelho.Rows[e.RowIndex].Cells["num_serie"].Value.ToString();
+               string fkIdCliente = dgvAparelho.Rows[e.RowIndex].Cells["fk_id_cliente"].Value.ToString();
+                string dataEntrada = dgvAparelho.Rows[e.RowIndex].Cells["data_entrada"].Value.ToString();
+                string estado = dgvAparelho.Rows[e.RowIndex].Cells["estado"].Value.ToString();
+
+                using (FormGerenciarAparelho frm = new FormGerenciarAparelho())
+
+                {
+
+                    // Chamamos o método que criamos para transformar a tela
+
+                    frm.ConfigurarEdicao(id, marca, modelo, tipo, numSerie, fkIdCliente, dataEntrada, estado);
+
+
+
+                    if (frm.ShowDialog() == DialogResult.OK)
+
+                    {
+
+                        // Recarrega o grid após salvar
+
+                        carregar_aparelhos_com_query("SELECT * FROM aparelho ORDER BY id_aparelho DESC");
+
+                    }
+
+                }
             }
 
-            // EXCLUIR
-            if (dgvAparelho.Columns[e.ColumnIndex].Name
+                // EXCLUIR
+                if (dgvAparelho.Columns[e.ColumnIndex].Name
                 == "Excluir")
             {
                 DialogResult resultado =

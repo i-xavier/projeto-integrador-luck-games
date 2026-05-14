@@ -1,6 +1,6 @@
 ﻿namespace projeto_integrador
 {
-    partial class FormNovoCliente
+    partial class FormGerenciarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNovoCliente));
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGerenciarCliente));
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.txtNomeCompleto = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtCPF = new System.Windows.Forms.TextBox();
@@ -42,16 +42,16 @@
             this.btnFechar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(119, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cadastrar Cliente";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(119, 70);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(179, 30);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Cadastrar Cliente";
             // 
             // txtNomeCompleto
             // 
@@ -173,7 +173,7 @@
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // FormNovoCliente
+            // FormGerenciarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -189,9 +189,9 @@
             this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.txtNomeCompleto);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormNovoCliente";
+            this.Name = "FormGerenciarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Cliente";
             this.Load += new System.EventHandler(this.Form6_Load);
@@ -202,7 +202,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtNomeCompleto;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtCPF;

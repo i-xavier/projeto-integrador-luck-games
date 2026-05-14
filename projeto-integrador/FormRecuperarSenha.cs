@@ -25,6 +25,7 @@ namespace projeto_integrador
  "server=localhost;port=3306;database=projeto_luck_games;uid=root;pwd=;";
 
 
+        //Biblioteca para arredondar 
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -385,11 +386,9 @@ namespace projeto_integrador
             }
 
         }
-
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             // 1. Validar se os campos não estão vazios
-
 
 
             if (string.IsNullOrWhiteSpace(txtNovaSenha.Text) || string.IsNullOrWhiteSpace(txtConfirmarSenha.Text))
@@ -403,7 +402,6 @@ namespace projeto_integrador
             }
 
 
-
             // 2. Verificar se as senhas são idênticas
 
             if (txtNovaSenha.Text != txtConfirmarSenha.Text)
@@ -415,8 +413,6 @@ namespace projeto_integrador
                 return;
 
             }
-
-
 
             try
 
@@ -456,53 +452,27 @@ namespace projeto_integrador
 
 
 
-
-
-
-
                     int linhasAfetadas = cmd.ExecuteNonQuery();
-
-
-
 
 
 
 
                     if (linhasAfetadas > 0)
 
-
-
                     {
-
-
 
                         MessageBox.Show("Senha alterada com sucesso!");
 
 
-
-
-
-
-
                         // Opcional: Redirecionar para o login após o sucesso
-
-
 
                         frmLogin login = new frmLogin();
 
-
-
                         this.Hide();
-
-
 
                         login.ShowDialog();
 
-
-
                         this.Close();
-
-
 
                     }
 
@@ -511,38 +481,27 @@ namespace projeto_integrador
                     else
 
 
-
                     {
-
 
 
                         MessageBox.Show("Erro ao atualizar a senha. Verifique o código do funcionário.");
 
 
-
                     }
-
 
 
                 }
 
-
-
             }
-
 
 
             catch (Exception ex)
 
 
-
             {
 
 
-
                 MessageBox.Show("Erro técnico: " + ex.Message);
-
-
 
             }
 

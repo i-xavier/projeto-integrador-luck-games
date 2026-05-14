@@ -347,7 +347,7 @@ namespace projeto_integrador
                 );
             }*/
 
-            using (FormNovoCliente form = new FormNovoCliente(codUser))
+            using (FormGerenciarCliente form = new FormGerenciarCliente(codUser))
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -384,12 +384,41 @@ namespace projeto_integrador
             // EDITAR
             if (dgvCliente.Columns[e.ColumnIndex].Name
                 == "Editar")
-            {
-                MessageBox.Show(
-                    "Editar cliente ID: " + idCliente
-                );
 
-                // abrir tela edição aqui
+            {
+
+                int id = Convert.ToInt32(dgvCliente.Rows[e.RowIndex].Cells["id_cliente"].Value);
+
+                string nome = dgvCliente.Rows[e.RowIndex].Cells["nome"].Value.ToString();
+
+                string telefone = dgvCliente.Rows[e.RowIndex].Cells["telefone"].Value.ToString();
+
+                string cpf = dgvCliente.Rows[e.RowIndex].Cells["cpf"].Value.ToString();
+
+
+
+                using (FormGerenciarCliente frm = new FormGerenciarCliente(codUser))
+
+                {
+
+                    // Chamamos o método que criamos para transformar a tela
+
+                    frm.ConfigurarEdicao(id, nome, telefone, cpf);
+
+
+
+                    if (frm.ShowDialog() == DialogResult.OK)
+
+                    {
+
+                        // Recarrega o grid após salvar
+
+                        carregar_clientes_com_query("SELECT * FROM cliente ORDER BY id_cliente DESC");
+
+                    }
+
+                }
+
             }
 
             // EXCLUIR

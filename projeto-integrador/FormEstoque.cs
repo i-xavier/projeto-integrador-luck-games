@@ -163,7 +163,7 @@ namespace projeto_integrador
         {
             carregar_produtos();
 
-            FormNovoProduto form = new FormNovoProduto(codProd);
+            FormGerenciarProduto form = new FormGerenciarProduto(codProd);
 
             if (form.ShowDialog() == DialogResult.OK) //Carrega o produto cadastrado e mostra na consulta
             {
@@ -442,31 +442,55 @@ namespace projeto_integrador
             if (dgvProduto.Columns[e.ColumnIndex].Name
                 == "Editar")
             {
-                MessageBox.Show(
-                    "Editar produto ID: " + idProduto
-                );
 
-                // abrir tela edição aqui
-            }
+                int id = Convert.ToInt32(dgvProduto.Rows[e.RowIndex].Cells["id_produto"].Value);
+                string nome = dgvProduto.Rows[e.RowIndex].Cells["nome_produto"].Value.ToString();
+                string categoria = dgvProduto.Rows[e.RowIndex].Cells["categoria"].Value.ToString();
+                int quantidadeMinima = Convert.ToInt32(dgvProduto.Rows[e.RowIndex].Cells["quantidade_minima"].Value);
+                decimal valorUnitario = Convert.ToDecimal(dgvProduto.Rows[e.RowIndex].Cells["valor_unitario"].Value);
+                int quantidadeTotal = Convert.ToInt32(dgvProduto.Rows[e.RowIndex].Cells["quantidade_total"].Value);
 
-            // EXCLUIR
-            if (dgvProduto.Columns[e.ColumnIndex].Name
-                == "Excluir")
-            {
-                DialogResult resultado =
-                    MessageBox.Show(
-                        "Deseja excluir este produto?",
-                        "Confirmação",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning
-                    );
 
-                if (resultado == DialogResult.Yes)
+
+                using (FormGerenciarProduto frm = new FormGerenciarProduto(id.ToString()))
+
                 {
-                    ExcluirProduto(idProduto);
+                    // Chamamos o método que criamos para transformar a tela
+
+                    frm.ConfigurarEdicao(id, nome, categoria, quantidadeMinima, valorUnitario, quantidadeTotal);
+
+
+                    if (frm.ShowDialog() == DialogResult.OK)
+
+                    {
+
+                        // Recarrega o grid após salvar
+
+                        carregar_produtos_com_query("SELECT * FROM produto ORDER BY id_produto DESC");
+
+                    }
+
+                }
+
+                // EXCLUIR
+                if (dgvProduto.Columns[e.ColumnIndex].Name
+                    == "Excluir")
+                {
+                    DialogResult resultado =
+                        MessageBox.Show(
+                            "Deseja excluir este produto?",
+                            "Confirmação",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning
+                        );
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        ExcluirProduto(idProduto);
+                    }
+                }
                 }
             }
-        }
 
         private void ExcluirProduto(string id)
         {

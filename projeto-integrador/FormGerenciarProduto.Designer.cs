@@ -1,6 +1,6 @@
 ﻿namespace projeto_integrador
 {
-    partial class FormNovoProduto
+    partial class FormGerenciarProduto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNovoProduto));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGerenciarProduto));
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.lblValorUnitario = new System.Windows.Forms.Label();
@@ -36,7 +36,7 @@
             this.btnCadastrarProduto = new System.Windows.Forms.Button();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.txtValorUnitario = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.txtCodigoProduto = new System.Windows.Forms.TextBox();
@@ -133,16 +133,16 @@
             this.txtValorUnitario.Size = new System.Drawing.Size(292, 29);
             this.txtValorUnitario.TabIndex = 27;
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(97, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 32);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Cadastrar Produto";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(97, 71);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(224, 32);
+            this.lblTitulo.TabIndex = 26;
+            this.lblTitulo.Text = "Cadastrar Produto";
             // 
             // txtNomeProduto
             // 
@@ -219,7 +219,7 @@
             this.txtQuantidadeMinima.Size = new System.Drawing.Size(141, 29);
             this.txtQuantidadeMinima.TabIndex = 42;
             // 
-            // FormNovoProduto
+            // FormGerenciarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -239,11 +239,11 @@
             this.Controls.Add(this.btnCadastrarProduto);
             this.Controls.Add(this.txtQuantidade);
             this.Controls.Add(this.txtValorUnitario);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormNovoProduto";
+            this.Name = "FormGerenciarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNovoProduto";
             this.Load += new System.EventHandler(this.FormNovoProduto_Load);
@@ -261,7 +261,7 @@
         private System.Windows.Forms.Button btnCadastrarProduto;
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.TextBox txtValorUnitario;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtNomeProduto;
         private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.TextBox txtCodigoProduto;
