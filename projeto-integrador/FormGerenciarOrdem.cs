@@ -162,5 +162,50 @@ namespace projeto_integrador
         {
 
         }
+
+        private void btnSalvar_Click_1(object sender, EventArgs e)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conexao))
+            {
+                try
+                {
+                    conn.Open();
+                    // Nomes das colunas conforme sua imagem do phpMyAdmin
+                    string sql = @"INSERT INTO ordem (aprovacao_orcamento, valor, data_ordem, fk_id_cliente, fk_id_aparelho, fk_id_funcionario) 
+                           VALUES (@aprov, @valor, @data, @cliente, @aparelho, @func)";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                    // Pegando os dados dos seus componentes
+                    cmd.Parameters.AddWithValue("@aprov", cmbAprovaçãoOrçamento.Text);
+                    cmd.Parameters.AddWithValue("@valor", txtValorEstimado.Text.Replace(",", "."));
+                    cmd.Parameters.AddWithValue("@data", dateTimePicker1.Value);
+
+                    // Importante: SelectedValue pega o ID, não o Nome
+                    cmd.Parameters.AddWithValue("@cliente", cmbCliente.SelectedValue);
+                    cmd.Parameters.AddWithValue("@aparelho", cmbEquipamento.SelectedValue);
+                    cmd.Parameters.AddWithValue("@func", cmbTecnico.SelectedValue);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Ordem aberta com sucesso!", "Luck Games", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close(); // Fecha a tela de cadastro
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao salvar: " + ex.Message);
+                }
+            }
+
+            AtualizarContadoresDashboard();
+            
+            MessageBox.Show("Dados atualizados com sucesso!", "Sincronização",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void AtualizarContadoresDashboard()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -80,7 +80,6 @@
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(338, 21);
             this.cmbCliente.TabIndex = 2;
-           
             // 
             // lblIDOrdem
             // 
@@ -211,6 +210,7 @@
             this.btnSalvar.TabIndex = 20;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
             // 
             // cmbAdicionarItens
             // 
@@ -242,7 +242,7 @@
             this.cmbTecnico.Size = new System.Drawing.Size(338, 21);
             this.cmbTecnico.TabIndex = 7;
             // 
-            // FormNovaOrdem
+            // FormGerenciarOrdem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -268,7 +268,7 @@
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormNovaOrdem";
+            this.Name = "FormGerenciarOrdem";
             this.Text = "FormNovaOrdem";
             this.ResumeLayout(false);
             this.PerformLayout();
