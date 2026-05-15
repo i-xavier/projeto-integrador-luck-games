@@ -8,8 +8,8 @@ namespace projeto_integrador
 {
     public partial class FormGerenciarOrdem : Form
     {
-        // STRING DE CONEXÃO
-       
+        private bool _isEdicao = false;
+        private int _idAparelhoParaEditar;
         MySqlConnection Conexao;
         string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
         private bool ordemSalvaNoBanco = false;
@@ -473,5 +473,44 @@ namespace projeto_integrador
                 }
             }
         }
+
+        /*public void ConfigurarEdicao(int id, string marca, string modelo, string tipo, string numSerie, string fkIdCliente, string dataEntrada, string estado)
+
+        {
+
+            _isEdicao = true;
+
+            _idAparelhoParaEditar = id;
+
+
+
+            // Altera os textos dos componentes
+
+            this.Text = "Editar Aparelho"; // Título da janela
+
+            lblTitulo.Text = "Editar Dados";
+
+            btnCadastrarAparelho.Text = "Salvar Alterações";
+
+
+
+            // Preenche os campos com os dados que vieram do Grid
+
+            txtMarca.Text = marca;
+
+            txtModelo.Text = modelo;
+
+            cbTipodeAparelho.SelectedValue = tipo;
+
+            txtNumerodeSerie.Text = numSerie;
+
+            cbClientes.SelectedValue = fkIdCliente;
+
+            dtpDataEntrada.Value = DateTime.Parse(dataEntrada);
+
+            cbEstado.SelectedValue = estado;
+            //txtID.Text = id.ToString();
+
+        }*/
     }
 }

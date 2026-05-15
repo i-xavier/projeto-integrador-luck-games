@@ -47,12 +47,12 @@
             this.btnFechar = new System.Windows.Forms.Button();
             this.cmbTecnico = new System.Windows.Forms.ComboBox();
             this.dgvOrdemItens = new System.Windows.Forms.DataGridView();
-            this.txtQtdItens = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnAdicionarItens = new System.Windows.Forms.Button();
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apagar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtQtdItens = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnAdicionarItens = new System.Windows.Forms.Button();
             this.txtIDOrdem = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdemItens)).BeginInit();
@@ -247,6 +247,24 @@
             this.dgvOrdemItens.Size = new System.Drawing.Size(338, 79);
             this.dgvOrdemItens.TabIndex = 45;
             // 
+            // Item
+            // 
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.HeaderText = "Quantidade";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            // 
+            // Apagar
+            // 
+            this.Apagar.HeaderText = "Apagar";
+            this.Apagar.Name = "Apagar";
+            this.Apagar.ReadOnly = true;
+            // 
             // txtQtdItens
             // 
             this.txtQtdItens.Location = new System.Drawing.Point(567, 121);
@@ -274,24 +292,6 @@
             this.btnAdicionarItens.Text = "Adicionar";
             this.btnAdicionarItens.UseVisualStyleBackColor = true;
             this.btnAdicionarItens.Click += new System.EventHandler(this.btnAdicionarItens_Click);
-            // 
-            // Item
-            // 
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            this.Item.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.HeaderText = "Quantidade";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            // 
-            // Apagar
-            // 
-            this.Apagar.HeaderText = "Apagar";
-            this.Apagar.Name = "Apagar";
-            this.Apagar.ReadOnly = true;
             // 
             // txtIDOrdem
             // 
@@ -343,6 +343,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormGerenciarOrdem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNovaOrdem";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdemItens)).EndInit();
             this.ResumeLayout(false);
