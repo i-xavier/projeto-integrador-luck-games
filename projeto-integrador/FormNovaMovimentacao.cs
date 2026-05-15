@@ -25,10 +25,10 @@ namespace projeto_integrador
         private void btnFechar_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show(
-           "Deseja realmente fechar?",
-           "Confirmação",
-           MessageBoxButtons.YesNo,
-           MessageBoxIcon.Question
+               "Deseja realmente fechar?",
+               "Confirmação",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question
            );
 
             if (resultado == DialogResult.Yes)

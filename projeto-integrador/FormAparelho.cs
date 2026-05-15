@@ -93,7 +93,7 @@ namespace projeto_integrador
             dgvAparelho.Columns.Add("marca", "Marca");
             dgvAparelho.Columns.Add("num_serie", "N°Serie");
             dgvAparelho.Columns.Add("modelo", "Modelo");
-            dgvAparelho.Columns.Add("cliente", "Cliente");
+            dgvAparelho.Columns.Add("fk_id_cliente", "Cliente");
             dgvAparelho.Columns.Add("data_entrada", "Data Entrada");
             dgvAparelho.Columns.Add("estado", "Estado");
 
@@ -485,7 +485,7 @@ namespace projeto_integrador
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show(
-                    "Produto excluído com sucesso!"
+                    "Aparelho excluído com sucesso!"
                 );
 
                 carregar_aparelhos_com_query(

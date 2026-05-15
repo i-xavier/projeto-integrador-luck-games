@@ -99,6 +99,18 @@ namespace projeto_integrador
                     return;
                 }
 
+                if (txtSenha.Text.Length > 30 || txtSenha.Text.Length > 30)
+                {
+                    MessageBox.Show("Senha digitada maior que o permitido. Insira um valor menor que 30 dígitos", "Erro");
+                    return;
+                }
+
+                if (txtSenha.Text.Length < 6 || txtConfirmarSenha.Text.Length < 6)
+                {
+                    MessageBox.Show("Senha digitada menor que o permitido. Insira um valor maior que 6 dígitos", "Erro");
+                    return;
+                }
+
                 string telefone = txtTelefone.Text.Trim();
                 if (!isValidTelefoneLength(telefone))
                 {

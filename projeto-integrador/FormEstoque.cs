@@ -79,6 +79,8 @@ namespace projeto_integrador
 
             dgvProduto.DefaultCellStyle.ForeColor = Color.White;
 
+           // dgvProduto.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+
             dgvProduto.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(40, 40, 40);
 
@@ -102,7 +104,7 @@ namespace projeto_integrador
             dgvProduto.Columns.Add("quantidade_total", "Quantidade total");
 
             // VISUALIZAR
-            DataGridViewButtonColumn btnVisualizar =
+           /* DataGridViewButtonColumn btnVisualizar =
                 new DataGridViewButtonColumn();
 
             btnVisualizar.Name = "Visualizar";
@@ -113,7 +115,7 @@ namespace projeto_integrador
 
             btnVisualizar.UseColumnTextForButtonValue = true;
 
-            dgvProduto.Columns.Add(btnVisualizar);
+            dgvProduto.Columns.Add(btnVisualizar);*/
 
             // EDITAR
             DataGridViewButtonColumn btnEditar =
@@ -472,25 +474,26 @@ namespace projeto_integrador
 
                 }
 
-                // EXCLUIR
-                if (dgvProduto.Columns[e.ColumnIndex].Name
-                    == "Excluir")
-                {
-                    DialogResult resultado =
-                        MessageBox.Show(
-                            "Deseja excluir este produto?",
-                            "Confirmação",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Warning
-                        );
+            }
 
-                    if (resultado == DialogResult.Yes)
-                    {
-                        ExcluirProduto(idProduto);
-                    }
-                }
+            // EXCLUIR
+            if (dgvProduto.Columns[e.ColumnIndex].Name
+                == "Excluir")
+            {
+                DialogResult resultado =
+                    MessageBox.Show(
+                        "Deseja excluir este produto?",
+                        "Confirmação",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    ExcluirProduto(idProduto);
                 }
             }
+        }
 
         private void ExcluirProduto(string id)
         {

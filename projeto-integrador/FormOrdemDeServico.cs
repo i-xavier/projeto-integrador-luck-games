@@ -14,6 +14,7 @@ namespace projeto_integrador
     public partial class FormOrdemDeServico : Form
     {
         String codOrdem = "";
+        
 
         MySqlConnection Conexao;
         string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
@@ -237,6 +238,7 @@ namespace projeto_integrador
                 );
             }
         }
+
 
         private void carregar_ordens()
         {
@@ -462,15 +464,15 @@ namespace projeto_integrador
         private void btnNovaOS_Click(object sender, EventArgs e)
         {
             carregar_ordens();
-            FormGerenciarOrdem form = new FormGerenciarOrdem();
 
-            form.ShowDialog();
-
-            if (form.ShowDialog() == DialogResult.OK) //Carrega a ordem cadastrada e mostra na consulta
+            // Usando o bloco using para garantir o descarte correto da tela após fechar
+            using (FormGerenciarOrdem form = new FormGerenciarOrdem(codOrdem))
             {
-                carregar_ordens_com_query(
-                    "SELECT * FROM ordem ORDER BY id_ordem DESC"
-                );
+                form.ShowDialog();
+
+                // Assim que o usuário fechar a tela de gerenciamento (no botão fechar ou no X),
+                // a tela principal atualiza a lista de ordens automaticamente.
+                carregar_ordens_com_query("SELECT * FROM ordem ORDER BY id_ordem DESC");
             }
         }
     }

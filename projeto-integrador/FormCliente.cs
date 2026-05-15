@@ -93,7 +93,7 @@ namespace projeto_integrador
         
 
             // VISUALIZAR
-            DataGridViewButtonColumn btnVisualizar =
+           /*DataGridViewButtonColumn btnVisualizar =
                 new DataGridViewButtonColumn();
 
             btnVisualizar.Name = "Visualizar";
@@ -102,9 +102,11 @@ namespace projeto_integrador
 
             btnVisualizar.Text = "👁";
 
+            //btnVisualizar.Photo
+
             btnVisualizar.UseColumnTextForButtonValue = true;
 
-            dgvCliente.Columns.Add(btnVisualizar);
+            dgvCliente.Columns.Add(btnVisualizar);*/
 
             // EDITAR
             DataGridViewButtonColumn btnEditar =
@@ -121,6 +123,7 @@ namespace projeto_integrador
             dgvCliente.Columns.Add(btnEditar);
 
             // EXCLUIR
+
             DataGridViewButtonColumn btnExcluir =
                 new DataGridViewButtonColumn();
 
@@ -133,6 +136,21 @@ namespace projeto_integrador
             btnExcluir.UseColumnTextForButtonValue = true;
 
             dgvCliente.Columns.Add(btnExcluir);
+            
+            /*
+            DataGridViewImageColumn btnExcluir =
+            new DataGridViewImageColumn();
+
+            btnExcluir.Name = "Excluir";
+
+            btnExcluir.HeaderText = "";
+
+            btnExcluir.Image = Image.FromFile("lixeira.png");
+
+            btnExcluir.ImageLayout =
+                DataGridViewImageCellLayout.Zoom;
+
+            dgvCliente.Columns.Add(btnExcluir);*/
 
             dgvCliente.CellClick += dgvCliente_CellClick;
         }
@@ -466,10 +484,29 @@ namespace projeto_integrador
                     "SELECT * FROM cliente ORDER BY id_cliente DESC"
                 );
             }
+            catch (MySqlException ex)
+            {
+                if (ex.Number == 1451)
+                {
+                    MessageBox.Show(
+                        "Há um aparelho registrado no nome desse cliente.\n\n" +
+                        "Apague os aparelhos vinculados antes de excluir o cliente.",
+                        "Cliente vinculado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Erro ao excluir: " + ex.Message
+                    );
+                }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Erro ao excluir: " + ex.Message
+                    "Erro inesperado: " + ex.Message
                 );
             }
             finally
@@ -492,28 +529,5 @@ namespace projeto_integrador
 
         }
 
-        /*private void lstCliente_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            //Obtém a coleção de itens selecionados
-            ListView.SelectedListViewItemCollection clientedaselecao = lstCliente.SelectedItems;
-
-            //PErcorre todos os itens selecionados (mesmo que normamelmente só tenha um item selecionado)
-            foreach (ListViewItem item in clientedaselecao)
-            {
-                codigo_cliente = Convert.ToInt32(item.SubItems[0].Text);
-
-                // Exibe uma MessageBox com o código do cliente
-                MessageBox.Show("Código do Cliente: " + codigo_cliente.ToString(),
-                                "Código Selecionado",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-
-                // Preenche os campos de texto com os dados do cliente selecionado
-                txtNomeCompleto.Text = item.SubItems[1].Text;
-                txtNomeSocial.Text = item.SubItems[2].Text;
-                txtEmail.Text = item.SubItems[3].Text;
-                txtCPF.Text = item.SubItems[4].Text;
-            }
-        }*/
     }
 }

@@ -60,24 +60,25 @@ namespace projeto_integrador
 
         private void btnCadastrarProduto_Click(object sender, EventArgs e)
         {
+            int flag = 0;
+            string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
+            // Validando se os combos têm algo selecionado (SelectedIndex != -1)
+            if (string.IsNullOrEmpty(txtNomeProduto.Text.Trim()) ||
+                string.IsNullOrEmpty(txtCodigoProduto.Text.Trim()) ||
+                //cbCategoria.SelectedIndex == -1 ||
+                string.IsNullOrEmpty(txtQuantidade.Text.Trim()) ||
+                string.IsNullOrEmpty(txtQuantidadeMinima.Text.Trim()) //||
+                                                                      // cbFornecedor.SelectedIndex == -1 ||
+                /*string.IsNullOrEmpty(txtValorUnitario.Text.Trim())*/
+                /*cbTipoAcesso.SelectedIndex == -1*/)
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos.", "Validação");
+                return;
+            }
+
             try
             {
-                int flag = 0;
-                string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
-                // Validando se os combos têm algo selecionado (SelectedIndex != -1)
-                if (string.IsNullOrEmpty(txtNomeProduto.Text.Trim()) ||
-                    string.IsNullOrEmpty(txtCodigoProduto.Text.Trim()) ||
-                    //cbCategoria.SelectedIndex == -1 ||
-                    string.IsNullOrEmpty(txtQuantidade.Text.Trim()) ||
-                    string.IsNullOrEmpty(txtQuantidadeMinima.Text.Trim()) //||
-                                                                          // cbFornecedor.SelectedIndex == -1 ||
-                    /*string.IsNullOrEmpty(txtValorUnitario.Text.Trim())*/
-                    /*cbTipoAcesso.SelectedIndex == -1*/)
-                {
-                    MessageBox.Show("Todos os campos devem ser preenchidos.", "Validação");
-                    return;
-                }
-
+            
 
                 if (_isEdicao)
                 {
