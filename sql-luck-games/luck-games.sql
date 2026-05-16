@@ -81,7 +81,7 @@ CREATE TABLE produto(
 
 CREATE TABLE item_ordem(
   id_itens_ordem INT PRIMARY KEY AUTO_INCREMENT,
-  quantidade INT,
+  quantidade_total INT,
   valor_unitario DECIMAL (6, 2),
   fk_id_ordem INT,
   fk_id_produto INT,
