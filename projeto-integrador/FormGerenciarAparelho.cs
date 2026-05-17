@@ -185,7 +185,7 @@ namespace projeto_integrador
                         modelo = @modelo, 
                         estado = @estado, 
                         data_entrada = @data_entrada, 
-                        fk_id_cliente = @cliente, 
+                        fk_id_cliente_aparelho = @cliente, 
                         descricao_problema = @descricao_problema 
                       WHERE id_aparelho = @idaparelho";
 
@@ -220,7 +220,7 @@ namespace projeto_integrador
                         conn.Open();
 
                         string sql = @"INSERT INTO aparelho
-        ( marca, tipo, num_serie, modelo, estado, data_entrada, fk_id_cliente, descricao_problema)
+        ( marca, tipo, num_serie, modelo, estado, data_entrada, fk_id_cliente_aparelho, descricao_problema)
         VALUES
         ( @marca, @tipo, @num_serie, @modelo, @estado, @data_entrada, @cliente, @descricao_problema)";
 

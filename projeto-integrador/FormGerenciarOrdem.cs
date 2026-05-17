@@ -278,7 +278,7 @@ namespace projeto_integrador
                     // 3. Se a ordem NÃO existe, insere ela primeiro automaticamente para evitar o erro de FK
                     if (!ordemExiste)
                     {
-                        string sqlOrdem = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, valor, data_ordem, fk_id_cliente, fk_id_aparelho, fk_id_funcionario) 
+                        string sqlOrdem = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, valor, data_ordem, fk_id_cliente_ordem, fk_id_aparelho_ordem, fk_id_funcionario_ordem) 
                                    VALUES (@id, 'Em Aberto', 0.00, @data, @cliente, @aparelho, @funcionario)";
 
                         using (MySqlCommand cmdOrdem = new MySqlCommand(sqlOrdem, conn))
@@ -405,13 +405,13 @@ namespace projeto_integrador
                     if (!existe)
                     {
                         // Se não existe, cria a Ordem pai
-                        sql = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, valor, data_ordem, fk_id_cliente, fk_id_aparelho, fk_id_funcionario) 
+                        sql = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, valor, data_ordem, fk_id_cliente_ordem, fk_id_aparelho_ordem, fk_id_funcionario_ordem) 
                         VALUES (@id, 'Em Aberto', 0, @data, @cliente, @aparelho, @funcionario)";
                     }
                     else
                     {
                         // Se já existe, atualiza os dados caso o usuário tenha mudado o técnico ou cliente na tela
-                        sql = @"UPDATE ordem SET fk_id_cliente = @cliente, fk_id_aparelho = @aparelho, fk_id_funcionario = @funcionario 
+                        sql = @"UPDATE ordem SET fk_id_cliente_ordem = @cliente, fk_id_aparelho_ordem = @aparelho, fk_id_funcionario_ordem = @funcionario 
                         WHERE id_ordem = @id";
                     }
 

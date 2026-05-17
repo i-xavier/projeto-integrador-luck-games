@@ -90,11 +90,11 @@ namespace projeto_integrador
 
             dgvOS.Columns.Add("data_ordem", "Data");
 
-            dgvOS.Columns.Add("fk_id_cliente", "Cliente");
+            dgvOS.Columns.Add("fk_id_cliente_ordem", "Cliente");
 
-            dgvOS.Columns.Add("fk_id_aparelho", "Aparelho");
+            dgvOS.Columns.Add("fk_id_aparelho_ordem", "Aparelho");
 
-            dgvOS.Columns.Add("fk_id_funcionario", "Funcionario");
+            dgvOS.Columns.Add("fk_id_funcionario_ordem", "Funcionario");
 
             // VISUALIZAR
             DataGridViewButtonColumn btnVisualizar =
@@ -161,17 +161,17 @@ namespace projeto_integrador
                         aprovacao_orcamento,
                         valor,
                         data_ordem,
-                        fk_id_cliente,
-                        fk_id_aparelho,
-                        fk_id_funcionario
+                        fk_id_cliente_ordem,
+                        fk_id_aparelho_ordem,
+                        fk_id_funcionario_ordem
                     FROM ordem
                     WHERE CAST(id_ordem AS CHAR) LIKE @q
                        OR CAST(aprovacao_orcamento AS CHAR) LIKE @q
                        OR CAST(valor AS CHAR) LIKE @q
                        OR CAST(data_ordem AS CHAR) LIKE @q
-                       OR CAST(fk_id_cliente AS CHAR) LIKE @q
-                       OR CAST(fk_id_aparelho AS CHAR) LIKE @q
-                       OR CAST(fk_id_funcionario AS CHAR) LIKE @q
+                       OR CAST(fk_id_cliente_ordem AS CHAR) LIKE @q
+                       OR CAST(fk_id_aparelho_ordem AS CHAR) LIKE @q
+                       OR CAST(fk_id_funcionario_ordem AS CHAR) LIKE @q
                     ORDER BY id_ordem DESC;";
                 }
                 else
@@ -195,15 +195,15 @@ namespace projeto_integrador
                             break;
 
                         case "Cliente":
-                            campo = "CAST(fk_id_cliente AS CHAR)";
+                            campo = "CAST(fk_id_cliente_ordem AS CHAR)";
                             break;
 
                         case "Aparelho":
-                            campo = "CAST(fk_id_aparelho AS CHAR)";
+                            campo = "CAST(fk_id_aparelho_ordem AS CHAR)";
                             break;
 
                         case "Funcionario":
-                            campo = "CAST(fk_id_funcionario AS CHAR)";
+                            campo = "CAST(fk_id_funcionario_ordem AS CHAR)";
                             break;
 
                         default:
@@ -221,9 +221,9 @@ namespace projeto_integrador
                         aprovacao_orcamento,
                         valor,
                         data_ordem,
-                        fk_id_cliente,
-                        fk_id_aparelho,
-                        fk_id_funcionario
+                        fk_id_cliente_ordem,
+                        fk_id_aparelho_ordem,
+                        fk_id_funcionario_ordem
                     FROM ordem
                     WHERE {campo} LIKE @q
                     ORDER BY id_ordem DESC;";
@@ -332,9 +332,9 @@ namespace projeto_integrador
                         reader["aprovacao_orcamento"].ToString(),
                         reader["valor"].ToString(),
                         reader["data_ordem"].ToString(),
-                        reader["fk_id_cliente"].ToString(),
-                        reader["fk_id_aparelho"].ToString(),
-                        reader["fk_id_funcionario"].ToString()
+                        reader["fk_id_cliente_ordem"].ToString(),
+                        reader["fk_id_aparelho_ordem"].ToString(),
+                        reader["fk_id_funcionario_ordem"].ToString()
                     );
                 }
             }

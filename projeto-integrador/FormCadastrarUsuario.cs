@@ -125,7 +125,7 @@ namespace projeto_integrador
                 cmd.Connection = Conexao;
 
                 // query 
-                cmd.CommandText = "INSERT INTO funcionario (nome_funcionario, fk_id_cargo, telefone, fk_id_pergunta, resposta_secreta, fk_id_acesso, senha) " +
+                cmd.CommandText = "INSERT INTO funcionario (nome_funcionario, fk_id_cargo_funcionario, telefone, fk_id_pergunta_funcionario, resposta_secreta, fk_id_acesso_funcionario, senha) " +
                                   "VALUES (@nome, @id_cargo, @telefone, @id_pergunta, @resposta, @id_acesso, @senha)";
 
                 // Pegando o SelectedValue (o ID da tabela estrangeira)
