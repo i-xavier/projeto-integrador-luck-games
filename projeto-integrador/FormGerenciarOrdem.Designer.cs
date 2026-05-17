@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGerenciarOrdem));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.lblAprovaçãoOrcamento = new System.Windows.Forms.Label();
             this.txtValorEstimado = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtOrdem = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.lblAdicionarItens = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -51,23 +51,23 @@
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apagar = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtQtdItens = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblQuantidade = new System.Windows.Forms.Label();
             this.btnAdicionarItens = new System.Windows.Forms.Button();
             this.txtIDOrdem = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdemItens)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(248, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Abrir Nova Ordem";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(248, 39);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(241, 37);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Abrir Nova Ordem";
             // 
             // lblCliente
             // 
@@ -157,16 +157,16 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(567, 247);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 17);
+            this.label2.Size = new System.Drawing.Size(106, 17);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Valor Estimado";
+            this.label2.Text = "Valor do Serviço";
             // 
-            // dateTimePicker1
+            // dtOrdem
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(387, 268);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(162, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dtOrdem.Location = new System.Drawing.Point(387, 268);
+            this.dtOrdem.Name = "dtOrdem";
+            this.dtOrdem.Size = new System.Drawing.Size(162, 20);
+            this.dtOrdem.TabIndex = 14;
             // 
             // label4
             // 
@@ -272,16 +272,16 @@
             this.txtQtdItens.Size = new System.Drawing.Size(76, 20);
             this.txtQtdItens.TabIndex = 46;
             // 
-            // label5
+            // lblQuantidade
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(564, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 17);
-            this.label5.TabIndex = 47;
-            this.label5.Text = "Quantidade";
+            this.lblQuantidade.AutoSize = true;
+            this.lblQuantidade.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantidade.ForeColor = System.Drawing.Color.White;
+            this.lblQuantidade.Location = new System.Drawing.Point(564, 100);
+            this.lblQuantidade.Name = "lblQuantidade";
+            this.lblQuantidade.Size = new System.Drawing.Size(79, 17);
+            this.lblQuantidade.TabIndex = 47;
+            this.lblQuantidade.Text = "Quantidade";
             // 
             // btnAdicionarItens
             // 
@@ -321,7 +321,7 @@
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtIDOrdem);
             this.Controls.Add(this.btnAdicionarItens);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblQuantidade);
             this.Controls.Add(this.txtQtdItens);
             this.Controls.Add(this.dgvOrdemItens);
             this.Controls.Add(this.btnFechar);
@@ -329,7 +329,7 @@
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.lblAdicionarItens);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtOrdem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtValorEstimado);
             this.Controls.Add(this.lblAprovaçãoOrcamento);
@@ -340,7 +340,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.lblCliente);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormGerenciarOrdem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -353,7 +353,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.Label label3;
@@ -363,7 +363,7 @@
         private System.Windows.Forms.Label lblAprovaçãoOrcamento;
         private System.Windows.Forms.TextBox txtValorEstimado;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtOrdem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblAdicionarItens;
         private System.Windows.Forms.Button btnSalvar;
@@ -375,7 +375,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewImageColumn Apagar;
         private System.Windows.Forms.TextBox txtQtdItens;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblQuantidade;
         private System.Windows.Forms.Button btnAdicionarItens;
         private System.Windows.Forms.TextBox txtIDOrdem;
         private System.Windows.Forms.Label lblID;

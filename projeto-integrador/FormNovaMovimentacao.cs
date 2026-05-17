@@ -15,7 +15,7 @@ namespace projeto_integrador
     {
 
         MySqlConnection Conexao;
-        string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
+        string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
         public FormNovaMovimentacao()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace projeto_integrador
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(data_source))
+                using (MySqlConnection conn = new MySqlConnection(conexao))
                 {
                     conn.Open();
 
@@ -85,7 +85,7 @@ namespace projeto_integrador
             int estoque = 0;
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(data_source))
+                using (MySqlConnection conn = new MySqlConnection(conexao))
                 {
                     conn.Open();
                     string sql = "SELECT quantidade_total FROM produto WHERE id_produto = @id";
@@ -145,6 +145,36 @@ namespace projeto_integrador
                 novoEstoque = estoqueAtual - qtdInformada;
             }
 
+            using (MySqlConnection conn = new MySqlConnection(conexao))
+            {
+                // 1. Query corrigida: usamos apenas os placeholders (@)
+                string sql = "INSERT INTO movimentacao(tipo_movimentacao, quantidade, motivo, fk_id_produto_movimentacao, data_movimentacao) " +
+                     "VALUES(@tipo, @quantidade, @motivo, @idProduto, @data)";
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    // 2. Adicionando os parâmetros de forma limpa
+                    cmd.Parameters.AddWithValue("@tipo", tipo);
+                    cmd.Parameters.AddWithValue("@quantidade", qtdInformada);
+                    cmd.Parameters.AddWithValue("@motivo", txtMotivo.Text);
+                    cmd.Parameters.AddWithValue("@idProduto", idProduto);
+                    cmd.Parameters.AddWithValue("@data", DateTime.Now);
+
+                    conn.Open();
+                    int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                    if (linhasAfetadas > 0)
+                    {
+                        MessageBox.Show("Movimentação registrada com sucesso!");
+                        // Opcional: limpar campos após o sucesso
+                        txtQuantidade.Clear();
+                        cbProdutos.SelectedIndex = -1;
+                        this.DialogResult = DialogResult.OK;
+                        //this.Close();
+                    }
+                }
+            }
+
             // 5. Agora você envia o 'novoEstoque' para o seu UPDATE no banco de dados
             AtualizarEstoqueNoBanco(idProduto, novoEstoque);
         }
@@ -153,7 +183,7 @@ namespace projeto_integrador
             try
 
             {
-                string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
+                
                 using (MySqlConnection conn = new MySqlConnection(conexao))
                 {
                     // 1. Query corrigida: usamos apenas os placeholders (@)

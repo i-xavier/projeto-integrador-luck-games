@@ -90,11 +90,11 @@ namespace projeto_integrador
 
             dgvOS.Columns.Add("data_ordem", "Data");
 
-            dgvOS.Columns.Add("fk_id_cliente", "Cliente");
+            dgvOS.Columns.Add("fk_id_cliente_ordem", "Cliente");
 
-            dgvOS.Columns.Add("fk_id_aparelho", "Aparelho");
+            dgvOS.Columns.Add("fk_id_aparelho_ordem", "Aparelho");
 
-            dgvOS.Columns.Add("fk_id_funcionario", "Funcionario");
+            dgvOS.Columns.Add("fk_id_funcionario_ordem", "Funcionario");
 
             // VISUALIZAR
             DataGridViewButtonColumn btnVisualizar =
@@ -161,17 +161,17 @@ namespace projeto_integrador
                         aprovacao_orcamento,
                         valor,
                         data_ordem,
-                        fk_id_cliente,
-                        fk_id_aparelho,
-                        fk_id_funcionario
+                        fk_id_cliente_ordem,
+                        fk_id_aparelho_ordem,
+                        fk_id_funcionario_ordem
                     FROM ordem
                     WHERE CAST(id_ordem AS CHAR) LIKE @q
                        OR CAST(aprovacao_orcamento AS CHAR) LIKE @q
                        OR CAST(valor AS CHAR) LIKE @q
                        OR CAST(data_ordem AS CHAR) LIKE @q
-                       OR CAST(fk_id_cliente AS CHAR) LIKE @q
-                       OR CAST(fk_id_aparelho AS CHAR) LIKE @q
-                       OR CAST(fk_id_funcionario AS CHAR) LIKE @q
+                       OR CAST(fk_id_cliente_ordem AS CHAR) LIKE @q
+                       OR CAST(fk_id_aparelho_ordem AS CHAR) LIKE @q
+                       OR CAST(fk_id_funcionario_ordem AS CHAR) LIKE @q
                     ORDER BY id_ordem DESC;";
                 }
                 else
@@ -195,15 +195,15 @@ namespace projeto_integrador
                             break;
 
                         case "Cliente":
-                            campo = "CAST(fk_id_cliente AS CHAR)";
+                            campo = "CAST(fk_id_cliente_ordem AS CHAR)";
                             break;
 
                         case "Aparelho":
-                            campo = "CAST(fk_id_aparelho AS CHAR)";
+                            campo = "CAST(fk_id_aparelho_ordem AS CHAR)";
                             break;
 
                         case "Funcionario":
-                            campo = "CAST(fk_id_funcionario AS CHAR)";
+                            campo = "CAST(fk_id_funcionario_ordem AS CHAR)";
                             break;
 
                         default:
@@ -221,9 +221,9 @@ namespace projeto_integrador
                         aprovacao_orcamento,
                         valor,
                         data_ordem,
-                        fk_id_cliente,
-                        fk_id_aparelho,
-                        fk_id_funcionario
+                        fk_id_cliente_ordem,
+                        fk_id_aparelho_ordem,
+                        fk_id_funcionario_ordem
                     FROM ordem
                     WHERE {campo} LIKE @q
                     ORDER BY id_ordem DESC;";
@@ -332,9 +332,9 @@ namespace projeto_integrador
                         reader["aprovacao_orcamento"].ToString(),
                         reader["valor"].ToString(),
                         reader["data_ordem"].ToString(),
-                        reader["fk_id_cliente"].ToString(),
-                        reader["fk_id_aparelho"].ToString(),
-                        reader["fk_id_funcionario"].ToString()
+                        reader["fk_id_cliente_ordem"].ToString(),
+                        reader["fk_id_aparelho_ordem"].ToString(),
+                        reader["fk_id_funcionario_ordem"].ToString()
                     );
                 }
             }
@@ -389,29 +389,27 @@ namespace projeto_integrador
                 );
             }
 
-            /*
+            
             // EDITAR
-            if (dgvAparelho.Columns[e.ColumnIndex].Name
+            if (dgvOS.Columns[e.ColumnIndex].Name
                 == "Editar")
 
             {
 
-                int id = Convert.ToInt32(dgvAparelho.Rows[e.RowIndex].Cells["id_aparelho"].Value);
-                string marca = dgvAparelho.Rows[e.RowIndex].Cells["marca"].Value.ToString();
-                string modelo = dgvAparelho.Rows[e.RowIndex].Cells["modelo"].Value.ToString();
-                string tipo = dgvAparelho.Rows[e.RowIndex].Cells["tipo"].Value.ToString();
-                string numSerie = dgvAparelho.Rows[e.RowIndex].Cells["num_serie"].Value.ToString();
-                string fkIdCliente = dgvAparelho.Rows[e.RowIndex].Cells["fk_id_cliente"].Value.ToString();
-                string dataEntrada = dgvAparelho.Rows[e.RowIndex].Cells["data_entrada"].Value.ToString();
-                string estado = dgvAparelho.Rows[e.RowIndex].Cells["estado"].Value.ToString();
-
-                using (FormGerenciarAparelho frm = new FormGerenciarAparelho())
+                int id = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["id_ordem"].Value);
+                string aprovacao_orcamento = dgvOS.Rows[e.RowIndex].Cells["aprovacao_orcamento"].Value.ToString();
+                decimal valor = Convert.ToDecimal(dgvOS.Rows[e.RowIndex].Cells["valor"].Value);
+                DateTime data_ordem = Convert.ToDateTime(dgvOS.Rows[e.RowIndex].Cells["data_ordem"].Value);
+                int fkIdCliente = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["fk_id_cliente_ordem"].Value);
+                int fkIdAparelho = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["fk_id_aparelho_ordem"].Value);
+                int fkIdFuncionario = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["fk_id_funcionario_ordem"].Value);
+                using (FormGerenciarOrdem frm = new FormGerenciarOrdem(codOrdem))
 
                 {
 
                     // Chamamos o método que criamos para transformar a tela
 
-                    frm.ConfigurarEdicao(id, marca, modelo, tipo, numSerie, fkIdCliente, dataEntrada, estado);
+                    frm.ConfigurarEdicao(id, aprovacao_orcamento, valor, data_ordem, fkIdCliente, fkIdAparelho, fkIdFuncionario);
 
 
 
@@ -421,11 +419,11 @@ namespace projeto_integrador
 
                         // Recarrega o grid após salvar
 
-                        carregar_aparelhos_com_query("SELECT * FROM aparelho ORDER BY id_aparelho DESC");
+                        carregar_ordens_com_query("SELECT * FROM ordem ORDER BY id_ordem DESC");
 
                     }
 
-                }*/
+                }
 
                 // EXCLUIR
                 if (dgvOS.Columns[e.ColumnIndex].Name
@@ -445,7 +443,7 @@ namespace projeto_integrador
                     }
                 }
             }
-       // }
+        }
 
         private void ExcluirOrdem(string id)
         {

@@ -111,62 +111,6 @@ namespace projeto_integrador
 
             pictureBox1.Image.Save(caminhoImagem, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-            /*if (_isEdicao)
-            {
-                // MODO EDIÇÃO: Usamos UPDATE
-                using (MySqlConnection conn = new MySqlConnection(conexao))
-                {
-                    // Removido o parêntese incorreto após @CPF e ajustado o WHERE
-                    string sql = "UPDATE cliente SET nome = @nome, telefone = @telefone, CPF = @CPF WHERE id_cliente = @idcliente";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@nome", txtNomeCompleto.Text);
-                        cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-                        cmd.Parameters.AddWithValue("@CPF", txtCPF.Text);
-                        cmd.Parameters.AddWithValue("@idcliente", _idClienteParaEditar); // Use parâmetro aqui também
-
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-
-                        MessageBox.Show("Cliente atualizado com sucesso!");
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
-                    }
-                }
-            }
-            else
-            {
-                // MODO CADASTRO: Usamos INSERT
-                flag = consultarCliente(txtCPF.Text.Trim());
-
-                if (flag == 1)
-                {
-                    MessageBox.Show("Cliente já foi cadastrado.", "Erro");
-                    return;
-                }
-
-                using (MySqlConnection conn = new MySqlConnection(conexao))
-                {
-                    string sql = "INSERT INTO cliente(nome, telefone, CPF) VALUES(@nome, @telefone, @CPF)";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@nome", txtNomeCompleto.Text);
-                        cmd.Parameters.AddWithValue("@telefone", txtTelefone.Text);
-                        cmd.Parameters.AddWithValue("@CPF", txtCPF.Text);
-
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-
-                        MessageBox.Show("Cliente cadastrado com sucesso!");
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
-                    }
-                }
-            }*/
 
             // (Aqui futuramente entra o banco de dados)
             try
@@ -185,7 +129,7 @@ namespace projeto_integrador
                         modelo = @modelo, 
                         estado = @estado, 
                         data_entrada = @data_entrada, 
-                        fk_id_cliente = @cliente, 
+                        fk_id_cliente_aparelho = @cliente, 
                         descricao_problema = @descricao_problema 
                       WHERE id_aparelho = @idaparelho";
 
@@ -220,7 +164,7 @@ namespace projeto_integrador
                         conn.Open();
 
                         string sql = @"INSERT INTO aparelho
-        ( marca, tipo, num_serie, modelo, estado, data_entrada, fk_id_cliente, descricao_problema)
+        ( marca, tipo, num_serie, modelo, estado, data_entrada, fk_id_cliente_aparelho, descricao_problema)
         VALUES
         ( @marca, @tipo, @num_serie, @modelo, @estado, @data_entrada, @cliente, @descricao_problema)";
 

@@ -169,10 +169,12 @@ namespace projeto_integrador
 
             if (form.ShowDialog() == DialogResult.OK) //Carrega o produto cadastrado e mostra na consulta
             {
-                balaoNotificacao();
+                
                 carregar_produtos_com_query(
                     "SELECT * FROM produto ORDER BY id_produto DESC"
                 );
+
+                balaoNotificacao();
             }
 
             preencherBaloes();
@@ -265,40 +267,31 @@ namespace projeto_integrador
 
                 while (reader.Read())
                 {
-                    /*   dgvProduto.Rows.Add(
-                           reader["id_produto"].ToString(),
-                           reader["nome_produto"].ToString(),
-                           reader["categoria"].ToString(),
-                           reader["quantidade_minima"].ToString(),
-                           reader["valor_unitario"].ToString(),
-                           reader["quantidade_total"].ToString()
-                       );*/
-
-                    int quantidadeTotal =
-                    Convert.ToInt32(reader["quantidade_total"]);
-
-                    int quantidadeMinima =
-                    Convert.ToInt32(reader["quantidade_minima"]);
+                    int quantidadeTotal = Convert.ToInt32(reader["quantidade_total"]);
+                    int quantidadeMinima = Convert.ToInt32(reader["quantidade_minima"]);
 
                     int rowIndex = dgvProduto.Rows.Add(
-                    reader["id_produto"].ToString(),
-                    reader["nome_produto"].ToString(),
-                    reader["categoria"].ToString(),
-                    reader["quantidade_minima"].ToString(),
-                    reader["valor_unitario"].ToString(),
-                    reader["quantidade_total"].ToString()
+                        reader["id_produto"].ToString(),
+                        reader["nome_produto"].ToString(),
+                        reader["categoria"].ToString(),
+                        reader["quantidade_minima"].ToString(),
+                        reader["valor_unitario"].ToString(),
+                        reader["quantidade_total"].ToString()
                     );
 
+                    // Se estiver abaixo do estoque, aplica o laranja destacado
                     if (quantidadeTotal < quantidadeMinima)
                     {
-                        dgvProduto.Rows[rowIndex]
-                            .Cells["quantidade_total"]
-                            .Style.ForeColor = Color.Orange;
-
-                        dgvProduto.Rows[rowIndex]
-                            .Cells["quantidade_total"]
-                            .Style.Font =
-                                new Font("Segoe UI", 10, FontStyle.Bold);
+                        dgvProduto.Rows[rowIndex].Cells["quantidade_total"].Style.ForeColor = Color.Orange;
+                        dgvProduto.Rows[rowIndex].Cells["quantidade_total"].Style.SelectionForeColor = Color.Orange;
+                        dgvProduto.Rows[rowIndex].Cells["quantidade_total"].Style.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    }
+                    else
+                    {
+                        // Caso o produto tenha sido abastecido, volta para a cor padrão do grid
+                        dgvProduto.Rows[rowIndex].Cells["quantidade_total"].Style.ForeColor = dgvProduto.DefaultCellStyle.ForeColor;
+                        dgvProduto.Rows[rowIndex].Cells["quantidade_total"].Style.SelectionForeColor = dgvProduto.DefaultCellStyle.SelectionForeColor;
+                        dgvProduto.Rows[rowIndex].Cells["quantidade_total"].Style.Font = dgvProduto.DefaultCellStyle.Font;
                     }
                 }
             }
@@ -469,6 +462,7 @@ namespace projeto_integrador
                         // Recarrega o grid após salvar
 
                         carregar_produtos_com_query("SELECT * FROM produto ORDER BY id_produto DESC");
+                        balaoNotificacao();
 
                     }
 
@@ -492,6 +486,8 @@ namespace projeto_integrador
                 {
                     ExcluirProduto(idProduto);
                 }
+
+                balaoNotificacao();
             }
         }
 
@@ -555,25 +551,29 @@ namespace projeto_integrador
 
         private string consultarBaloes (string query)
         {
-            Conexao = new MySqlConnection(data_source);
+            string valorEncontrado = "0";
 
-            Conexao.Open();
-
-            string valorEncontrado = "";
-
-            MySqlCommand cmd = new MySqlCommand(query, Conexao);
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            // O 'using' fecha a conexão e o comando automaticamente ao chegar no fim das chaves {}
+            using (MySqlConnection conexaoBaloes = new MySqlConnection(data_source))
             {
-                if (reader.IsDBNull(0))
+                try
                 {
-                    valorEncontrado = "0"; // Valor padrão se a tabela estiver vazia
+                    conexaoBaloes.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conexaoBaloes))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                            {
+                                valorEncontrado = reader.GetValue(0).ToString();
+                            }
+                        }
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    valorEncontrado = (reader.GetInt32(0)).ToString();
+                    MessageBox.Show("Erro ao carregar balões: " + ex.Message);
                 }
             }
 
@@ -581,7 +581,7 @@ namespace projeto_integrador
 
         }
 
-        private void balaoNotificacao()
+        public void balaoNotificacao()
         {
             string query = @"
             SELECT nome_produto, quantidade_total, quantidade_minima
@@ -611,13 +611,17 @@ namespace projeto_integrador
                 );
             }
 
+            cbProdutosAbaixoDoEstoque.DataSource = produtosCriticos;
+
             if (produtosCriticos.Count > 0)
             {
                 notificaoEstoqueMinimo.Visible = true;
 
-                notificaoEstoqueMinimo.Text =
+                /*notificaoEstoqueMinimo.Text =
                     $"{produtosCriticos.Count} produto(s) abaixo do estoque mínimo:\n\n"
-                    + string.Join("\n", produtosCriticos);
+                    + string.Join("\n", produtosCriticos);*/
+
+                lblnotificaoEstoqueMinimo.Text = $"{produtosCriticos.Count} produto(s) abaixo do estoque mínimo:\n\n";
             }
             else
             {

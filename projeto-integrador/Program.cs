@@ -21,12 +21,11 @@ namespace projeto_integrador
                 {
                     if (login.ShowDialog() != DialogResult.OK)
                     {
-                        break; // fechou ou cancelou → encerra a aplicação
+                        break;
                     }
                 }
 
                 Application.Run(new FormHome());
-                // Quando o FormHome fecha (logout), volta para o login
             }
         }
     }

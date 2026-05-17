@@ -35,6 +35,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.panelFundo = new System.Windows.Forms.Panel();
             this.notificaoEstoqueMinimo = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblItensEstoque = new System.Windows.Forms.Label();
             this.lblTituloItensEstoque = new System.Windows.Forms.Label();
@@ -51,7 +52,9 @@
             this.btnNovoProduto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblnotificaoEstoqueMinimo = new System.Windows.Forms.Label();
+            this.cbProdutosAbaixoDoEstoque = new System.Windows.Forms.ComboBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelFundo.SuspendLayout();
             this.notificaoEstoqueMinimo.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -59,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNovaMovimentacao
@@ -138,11 +142,24 @@
             // 
             this.notificaoEstoqueMinimo.BackColor = System.Drawing.Color.DarkOrange;
             this.notificaoEstoqueMinimo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.notificaoEstoqueMinimo.Controls.Add(this.pictureBox2);
+            this.notificaoEstoqueMinimo.Controls.Add(this.cbProdutosAbaixoDoEstoque);
+            this.notificaoEstoqueMinimo.Controls.Add(this.lblnotificaoEstoqueMinimo);
             this.notificaoEstoqueMinimo.Controls.Add(this.label2);
-            this.notificaoEstoqueMinimo.Location = new System.Drawing.Point(598, 12);
+            this.notificaoEstoqueMinimo.Location = new System.Drawing.Point(533, 12);
             this.notificaoEstoqueMinimo.Name = "notificaoEstoqueMinimo";
-            this.notificaoEstoqueMinimo.Size = new System.Drawing.Size(200, 100);
+            this.notificaoEstoqueMinimo.Size = new System.Drawing.Size(555, 106);
             this.notificaoEstoqueMinimo.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(135, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 30);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Atenção:";
             // 
             // panel3
             // 
@@ -317,14 +334,33 @@
             this.panel1.Size = new System.Drawing.Size(1235, 5);
             this.panel1.TabIndex = 5;
             // 
-            // label2
+            // lblnotificaoEstoqueMinimo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Atenção: Estoque baixo.";
+            this.lblnotificaoEstoqueMinimo.AutoSize = true;
+            this.lblnotificaoEstoqueMinimo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnotificaoEstoqueMinimo.Location = new System.Drawing.Point(136, 39);
+            this.lblnotificaoEstoqueMinimo.Name = "lblnotificaoEstoqueMinimo";
+            this.lblnotificaoEstoqueMinimo.Size = new System.Drawing.Size(0, 21);
+            this.lblnotificaoEstoqueMinimo.TabIndex = 1;
+            // 
+            // cbProdutosAbaixoDoEstoque
+            // 
+            this.cbProdutosAbaixoDoEstoque.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProdutosAbaixoDoEstoque.FormattingEnabled = true;
+            this.cbProdutosAbaixoDoEstoque.Location = new System.Drawing.Point(140, 66);
+            this.cbProdutosAbaixoDoEstoque.Name = "cbProdutosAbaixoDoEstoque";
+            this.cbProdutosAbaixoDoEstoque.Size = new System.Drawing.Size(365, 29);
+            this.cbProdutosAbaixoDoEstoque.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(10, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 79);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // FormEstoque
             // 
@@ -349,6 +385,7 @@
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,5 +416,8 @@
         private System.Windows.Forms.Label lblTituloTotalProdutos;
         private System.Windows.Forms.Panel notificaoEstoqueMinimo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ComboBox cbProdutosAbaixoDoEstoque;
+        private System.Windows.Forms.Label lblnotificaoEstoqueMinimo;
     }
 }

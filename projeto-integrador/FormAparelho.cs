@@ -93,7 +93,7 @@ namespace projeto_integrador
             dgvAparelho.Columns.Add("marca", "Marca");
             dgvAparelho.Columns.Add("num_serie", "N°Serie");
             dgvAparelho.Columns.Add("modelo", "Modelo");
-            dgvAparelho.Columns.Add("fk_id_cliente", "Cliente");
+            dgvAparelho.Columns.Add("fk_id_cliente_aparelho", "Cliente");
             dgvAparelho.Columns.Add("data_entrada", "Data Entrada");
             dgvAparelho.Columns.Add("estado", "Estado");
 
@@ -178,7 +178,7 @@ namespace projeto_integrador
                         modelo,
                         num_serie,
                         tipo,
-                        fk_id_cliente,
+                        fk_id_cliente_aparelho,
                         data_entrada,
                         estado
                     FROM aparelho
@@ -187,7 +187,7 @@ namespace projeto_integrador
                        OR modelo LIKE @q
                        OR num_serie LIKE @q
                        OR tipo LIKE @q
-                       OR fk_id_cliente LIKE @q
+                       OR fk_id_cliente_aparelho LIKE @q
                        OR CAST(data_entrada AS CHAR) LIKE @q
                        OR estado LIKE @q
                     ORDER BY id_aparelho DESC;";
@@ -209,7 +209,7 @@ namespace projeto_integrador
                             break;
 
                         case "Cliente":
-                            campo = "fk_id_cliente";
+                            campo = "fk_id_cliente_aparelho";
                             break;
 
                         case "Data de Entrada":
@@ -240,7 +240,7 @@ namespace projeto_integrador
                         modelo,
                         tipo,
                         num_serie,
-                        fk_id_cliente,
+                        fk_id_cliente_aparelho,
                         data_entrada,
                         estado
                     FROM aparelho
@@ -290,7 +290,7 @@ namespace projeto_integrador
                         reader["marca"].ToString(),
                         reader["num_serie"].ToString(),
                         reader["modelo"].ToString(),
-                        reader["fk_id_cliente"].ToString(),
+                        reader["fk_id_cliente_aparelho"].ToString(),
                         reader["data_entrada"].ToString(),
                         reader["estado"].ToString()
                     );
@@ -423,7 +423,7 @@ namespace projeto_integrador
                 string modelo = dgvAparelho.Rows[e.RowIndex].Cells["modelo"].Value.ToString();
                 string tipo = dgvAparelho.Rows[e.RowIndex].Cells["tipo"].Value.ToString();
                 string numSerie = dgvAparelho.Rows[e.RowIndex].Cells["num_serie"].Value.ToString();
-               string fkIdCliente = dgvAparelho.Rows[e.RowIndex].Cells["fk_id_cliente"].Value.ToString();
+               string fkIdCliente = dgvAparelho.Rows[e.RowIndex].Cells["fk_id_cliente_aparelho"].Value.ToString();
                 string dataEntrada = dgvAparelho.Rows[e.RowIndex].Cells["data_entrada"].Value.ToString();
                 string estado = dgvAparelho.Rows[e.RowIndex].Cells["estado"].Value.ToString();
 

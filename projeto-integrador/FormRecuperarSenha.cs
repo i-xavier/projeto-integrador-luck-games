@@ -39,20 +39,15 @@ namespace projeto_integrador
         );
 
 
-
         public frmEsqueceuSenha()
         {
-
-
 
             InitializeComponent();
         }
 
 
-
         private void frmEsqueceuSenha_Load(object sender, EventArgs e)
         {
-
 
 
             // Labels
@@ -130,16 +125,10 @@ namespace projeto_integrador
             button4.Height, 20, 20));
         }
 
-
-
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            frmLogin form = new frmLogin();
-            this.Hide();
             this.Close();
-            form.ShowDialog();
         }
-
 
 
         private void button3_Click(object sender, EventArgs e)
@@ -152,7 +141,6 @@ namespace projeto_integrador
         }
 
 
-
         private void button4_Click(object sender, EventArgs e)
         {
             if (txtNovaSenha.PasswordChar == '\0')
@@ -161,8 +149,6 @@ namespace projeto_integrador
                 txtNovaSenha.PasswordChar = '*';
             }
         }
-
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -174,7 +160,6 @@ namespace projeto_integrador
         }
 
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (txtConfirmarSenha.PasswordChar == '\0')
@@ -183,13 +168,6 @@ namespace projeto_integrador
                 txtConfirmarSenha.PasswordChar = '*';
             }
         }
-
-
-
-
-
-
-
         private void btnVerificar_Click(object sender, EventArgs e)
         {
 
@@ -208,21 +186,11 @@ namespace projeto_integrador
             }
 
 
-
-
-
-
-
             int codigo = Convert.ToInt32(txtCodigo.Text);
 
             int idPergunta = Convert.ToInt32(cbPerguntaSecreta.SelectedValue);
 
             string respostaUsuario = txtRespostaPerguntaSecreta.Text.Trim().ToLower();
-
-
-
-
-
 
 
             using (MySqlConnection conn = new MySqlConnection(Conexao))
@@ -231,18 +199,7 @@ namespace projeto_integrador
 
                 conn.Open();
 
-
-
-
-
-
-
                 string sql = "SELECT resposta_secreta FROM funcionario WHERE id_funcionario = @codigo";
-
-
-
-
-
 
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -252,16 +209,7 @@ namespace projeto_integrador
                 cmd.Parameters.AddWithValue("@idPergunta", idPergunta);
 
 
-
-
-
-
-
                 object resultado = cmd.ExecuteScalar();
-
-
-
-
 
 
 
@@ -276,17 +224,7 @@ namespace projeto_integrador
                 }
 
 
-
-
-
-
-
                 string respostaCorreta = resultado.ToString().ToLower();
-
-
-
-
-
 
 
                 if (respostaUsuario == respostaCorreta)
@@ -299,21 +237,9 @@ namespace projeto_integrador
 
                     txtNovaSenha.Visible = true;
 
-
-
-
-
-
-
                     lblConfirmarSenha.Visible = true;
 
                     txtConfirmarSenha.Visible = true;
-
-
-
-
-
-
 
                     btnConfirmar.Visible = true;
 
@@ -324,11 +250,6 @@ namespace projeto_integrador
                     button4.Visible = true;
 
                     button1.Visible = true;
-
-
-
-
-
 
 
                     MessageBox.Show("Resposta correta! Defina sua senha.");
@@ -346,20 +267,9 @@ namespace projeto_integrador
                     txtNovaSenha.Visible = false;
 
 
-
-
-
-
-
                     lblConfirmarSenha.Visible = false;
 
                     txtConfirmarSenha.Visible = false;
-
-
-
-
-
-
 
                     btnConfirmar.Visible = false;
 
@@ -370,10 +280,6 @@ namespace projeto_integrador
                     button4.Visible = false;
 
                     button1.Visible = false;
-
-
-
-
 
 
 
@@ -412,6 +318,12 @@ namespace projeto_integrador
 
                 return;
 
+            }
+
+            if (txtNovaSenha.Text.Length > 30 || txtConfirmarSenha.Text.Length > 30)
+            {
+                MessageBox.Show("Senha digitada maior que o permitido. Insira um valor menor que 30 dígitos", "Erro");
+                return;
             }
 
             try
@@ -463,19 +375,9 @@ namespace projeto_integrador
 
                         MessageBox.Show("Senha alterada com sucesso!");
 
-
-                        // Opcional: Redirecionar para o login após o sucesso
-
-                        frmLogin login = new frmLogin();
-
-                        this.Hide();
-
-                        login.ShowDialog();
-
                         this.Close();
 
                     }
-
 
 
                     else
@@ -483,9 +385,7 @@ namespace projeto_integrador
 
                     {
 
-
                         MessageBox.Show("Erro ao atualizar a senha. Verifique o código do funcionário.");
-
 
                     }
 
@@ -493,7 +393,6 @@ namespace projeto_integrador
                 }
 
             }
-
 
             catch (Exception ex)
 
