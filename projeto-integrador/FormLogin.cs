@@ -100,7 +100,7 @@ namespace projeto_integrador
                     {
                         MessageBox.Show("Bem-vindo, " + dr["nome_funcionario"]);
                         this.DialogResult = DialogResult.OK;
-                        this.Close(); // fecha o login
+                        this.Close();
                     }
                     else
                     {
@@ -250,9 +250,12 @@ namespace projeto_integrador
         private void lblAlterasenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmEsqueceuSenha form = new frmEsqueceuSenha();
+
             this.Hide();
-            this.Close();
+
             form.ShowDialog();
+
+            this.Show();
         }
         
         private void btnOlhoAberto_Click(object sender, EventArgs e)

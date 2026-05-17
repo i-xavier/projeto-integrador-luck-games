@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
@@ -9,7 +10,7 @@ namespace projeto_integrador
     public partial class FormGerenciarOrdem : Form
     {
         private bool _isEdicao = false;
-        private int _idAparelhoParaEditar;
+        private int _idOrdemParaEditar;
         MySqlConnection Conexao;
         string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
         private bool ordemSalvaNoBanco = false;
@@ -23,6 +24,11 @@ namespace projeto_integrador
             carregarAparelhos();
             carregarItens();
             txtIDOrdem.Text = id;
+
+            if (!_isEdicao)
+            {
+                MostrarComponentesDeItens(false);
+            }
         }
 
         // MÉTODO PARA CARREGAR TÉCNICOS
@@ -309,12 +315,16 @@ namespace projeto_integrador
 
                     conn.Close();
 
-                    // 5. Atualiza o valor total da ordem (multiplicação e soma)
-                    AtualizarValorTotalOrdem(idOrdem);
+                    // 🔥 CAPTURA O VALOR QUE O USUÁRIO DIGITOU NA TELA
+                    // Se o campo estiver vazio ou incorreto, assume 0 para não quebrar o cálculo
+                    decimal.TryParse(txtValorEstimado.Text.Trim(), out decimal valorBase);
+
+                    // 🔥 ATUALIZA PASSANDO O VALOR DA TELA + OS ITENS
+                    AtualizarValorTotalOrdem(idOrdem, valorBase);
 
                     MessageBox.Show("Produto adicionado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // 6. Atualiza o DataGridView local (Nome do produto e Qtd)
+                    // Atualiza o DataGridView local (Nome do produto e Qtd)
                     carregar_itens_da_ordem(idOrdem);
 
                     // Limpa os campos de itens para a próxima digitação
@@ -381,52 +391,120 @@ namespace projeto_integrador
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            // 1. VALIDAÇÕES DOS CAMPOS OBRIGATÓRIOS
             if (cmbTecnico.SelectedIndex == -1) { MessageBox.Show("Selecione um técnico."); return; }
             if (cmbCliente.SelectedIndex == -1) { MessageBox.Show("Selecione um cliente."); return; }
-            if (cmbAparelho.SelectedIndex == -1) { MessageBox.Show("Selecione um aparelho."); return; }
+            if (cmbAparelho.SelectedIndex == -1) { MessageBox.Show("Selecione um aparelho."); return; return; }
             if (!int.TryParse(txtIDOrdem.Text.Trim(), out int idOrdem)) return;
+
+            // Resgata o valor estimado digitado na tela (caso esteja vazio ou inválido, assume 0)
+            decimal.TryParse(txtValorEstimado.Text.Trim(), out decimal valorEstimado);
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(conexao))
+                if (_isEdicao)
                 {
-                    // Verifica se a ordem já existe para decidir se faz INSERT ou UPDATE
-                    string verificarSql = "SELECT COUNT(*) FROM ordem WHERE id_ordem = @id";
-                    conn.Open();
-
-                    bool existe;
-                    using (MySqlCommand checkCmd = new MySqlCommand(verificarSql, conn))
+                    // ==========================================
+                    // MODO EDIÇÃO: O registro já existe na listagem principal
+                    // ==========================================
+                    using (MySqlConnection conn = new MySqlConnection(conexao))
                     {
-                        checkCmd.Parameters.AddWithValue("@id", idOrdem);
-                        existe = Convert.ToInt32(checkCmd.ExecuteScalar()) > 0;
+                        // Correção: Nomes das colunas ajustados de acordo com o script do seu banco
+                        string sql = @"UPDATE ordem SET 
+                                aprovacao_orcamento = @aprovacao,
+                                valor = @valor,
+                                data_ordem = @data, 
+                                fk_id_cliente_ordem = @cliente, 
+                                fk_id_aparelho_ordem = @aparelho, 
+                                fk_id_funcionario_ordem = @funcionario
+                              WHERE id_ordem = @id";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idOrdem);
+                            cmd.Parameters.AddWithValue("@data", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@cliente", cmbCliente.SelectedValue);
+                            cmd.Parameters.AddWithValue("@aparelho", cmbAparelho.SelectedValue);
+                            cmd.Parameters.AddWithValue("@funcionario", cmbTecnico.SelectedValue);
+                            cmd.Parameters.AddWithValue("@aprovacao", cmbAprovaçãoOrçamento.SelectedItem?.ToString() ?? "Em Aberto");
+                            cmd.Parameters.AddWithValue("@valor", valorEstimado);
+
+                            conn.Open(); // Correção: Abrindo a conexão que estava faltando no seu código
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+
+                            MessageBox.Show("Dados da Ordem de Serviço atualizados com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            this.DialogResult = DialogResult.OK;
+                            this.Close(); // No modo edição de uma OS antiga, geralmente fechamos a tela ao salvar
+                        }
                     }
-
-                    string sql;
-                    if (!existe)
+                }
+                else
+                {
+                    // ==========================================
+                    // MODO CADASTRO: Nova Ordem sendo iniciada
+                    // ==========================================
+                    using (MySqlConnection conn = new MySqlConnection(conexao))
                     {
-                        // Se não existe, cria a Ordem pai
-                        sql = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, valor, data_ordem, fk_id_cliente_ordem, fk_id_aparelho_ordem, fk_id_funcionario_ordem) 
-                        VALUES (@id, 'Em Aberto', 0, @data, @cliente, @aparelho, @funcionario)";
-                    }
-                    else
-                    {
-                        // Se já existe, atualiza os dados caso o usuário tenha mudado o técnico ou cliente na tela
-                        sql = @"UPDATE ordem SET fk_id_cliente_ordem = @cliente, fk_id_aparelho_ordem = @aparelho, fk_id_funcionario_ordem = @funcionario 
-                        WHERE id_ordem = @id";
-                    }
+                        string verificarSql = "SELECT COUNT(*) FROM ordem WHERE id_ordem = @id";
+                        conn.Open();
 
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@id", idOrdem);
-                        cmd.Parameters.AddWithValue("@data", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@cliente", cmbCliente.SelectedValue);
-                        cmd.Parameters.AddWithValue("@aparelho", cmbAparelho.SelectedValue);
-                        cmd.Parameters.AddWithValue("@funcionario", cmbTecnico.SelectedValue);
+                        bool existe;
+                        using (MySqlCommand checkCmd = new MySqlCommand(verificarSql, conn))
+                        {
+                            checkCmd.Parameters.AddWithValue("@id", idOrdem);
+                            existe = Convert.ToInt32(checkCmd.ExecuteScalar()) > 0;
+                        }
 
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
+                        string sql;
+                        if (!existe)
+                        {
+                            sql = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, valor, data_ordem, fk_id_cliente_ordem, fk_id_aparelho_ordem, fk_id_funcionario_ordem) 
+                            VALUES (@id, 'Em Aberto', @valor, @data, @cliente, @aparelho, @funcionario)";
+                        }
+                        else
+                        {
+                            sql = @"UPDATE ordem SET fk_id_cliente_ordem = @cliente, fk_id_aparelho_ordem = @aparelho, fk_id_funcionario_ordem = @funcionario, valor = @valor 
+                            WHERE id_ordem = @id";
+                        }
 
-                        MessageBox.Show("Dados da Ordem de Serviço salvos com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@id", idOrdem);
+                            cmd.Parameters.AddWithValue("@data", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@cliente", cmbCliente.SelectedValue);
+                            cmd.Parameters.AddWithValue("@aparelho", cmbAparelho.SelectedValue);
+                            cmd.Parameters.AddWithValue("@funcionario", cmbTecnico.SelectedValue);
+                            cmd.Parameters.AddWithValue("@valor", valorEstimado);
+
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+
+                            MessageBox.Show("Dados iniciais da Ordem de Serviço salvos com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // ==========================================
+                            // PERGUNTA AO USUÁRIO SE DESEJA ADICIONAR ITENS
+                            // ==========================================
+                            DialogResult resposta = MessageBox.Show(
+                                "Deseja adicionar produtos/itens a esta Ordem de Serviço agora?",
+                                "Adicionar Itens",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question
+                            );
+
+                            if (resposta == DialogResult.Yes)
+                            {
+                                // Se SIM: Exibe os componentes de adicionar itens na tela para continuar nela
+                                MostrarComponentesDeItens(true);
+                            }
+                            else
+                            {
+                                // Se NÃO: Fecha o formulário salvando o estado
+                                this.DialogResult = DialogResult.OK;
+                                this.Close();
+                            }
+                        }
                     }
                 }
             }
@@ -436,13 +514,12 @@ namespace projeto_integrador
             }
         }
 
-        private void AtualizarValorTotalOrdem(int idOrdem)
-        {
-            // 1. Query para somar o total de todos os itens da ordem
-            string sqlSoma = "SELECT COALESCE(SUM(quantidade * valor_unitario), 0) FROM item_ordem WHERE fk_id_ordem = @id";
+        private void AtualizarValorTotalOrdem(int idOrdem, decimal valorBase)
+        {// Query que soma apenas o valor total dos itens (quantidade * valor)
+            string sqlSomaItens = "SELECT COALESCE(SUM(quantidade * valor_unitario), 0) FROM item_ordem WHERE fk_id_ordem = @id";
 
-            // 2. Query para atualizar o valor final na tabela ordem
-            string sqlUpdate = "UPDATE ordem SET valor = @valorTotal WHERE id_ordem = @id";
+            // Query que atualiza o valor final na tabela ordem
+            string sqlUpdateOrdem = "UPDATE ordem SET valor = @valorFinal WHERE id_ordem = @id";
 
             using (MySqlConnection conn = new MySqlConnection(conexao))
             {
@@ -450,22 +527,28 @@ namespace projeto_integrador
                 {
                     conn.Open();
 
-                    decimal valorTotal = 0;
+                    decimal totalItens = 0;
 
-                    // Busca a soma atualizada de todos os itens
-                    using (MySqlCommand cmdSoma = new MySqlCommand(sqlSoma, conn))
+                    // 1. Busca a soma de todos os produtos inseridos
+                    using (MySqlCommand cmdSoma = new MySqlCommand(sqlSomaItens, conn))
                     {
                         cmdSoma.Parameters.AddWithValue("@id", idOrdem);
-                        valorTotal = Convert.ToDecimal(cmdSoma.ExecuteScalar());
+                        totalItens = Convert.ToDecimal(cmdSoma.ExecuteScalar());
                     }
 
-                    // Atualiza o valor na tabela pai 'ordem'
-                    using (MySqlCommand cmdUpdate = new MySqlCommand(sqlUpdate, conn))
+                    // 2. O valor final será o Valor Base (Mão de obra / Inicial) + Total dos Itens
+                    decimal valorFinal = valorBase + totalItens;
+
+                    // 3. Atualiza a tabela pai 'ordem' com o novo total somado
+                    using (MySqlCommand cmdUpdate = new MySqlCommand(sqlUpdateOrdem, conn))
                     {
-                        cmdUpdate.Parameters.AddWithValue("@valorTotal", valorTotal);
+                        cmdUpdate.Parameters.AddWithValue("@valorFinal", valorFinal);
                         cmdUpdate.Parameters.AddWithValue("@id", idOrdem);
                         cmdUpdate.ExecuteNonQuery();
                     }
+
+                    // Opcional: Se você quiser atualizar o campo de texto da tela com o novo total
+                    txtValorEstimado.Text = valorFinal.ToString("F2");
                 }
                 catch (Exception ex)
                 {
@@ -474,43 +557,57 @@ namespace projeto_integrador
             }
         }
 
-        /*public void ConfigurarEdicao(int id, string marca, string modelo, string tipo, string numSerie, string fkIdCliente, string dataEntrada, string estado)
+        public void ConfigurarEdicao(int id, string aprovacao_orcamento, decimal valor, DateTime data_ordem, int fkIdCliente, int fkIdAparelho, int fkIdFuncionario)
 
         {
 
             _isEdicao = true;
 
-            _idAparelhoParaEditar = id;
+            _idOrdemParaEditar = id;
 
 
 
             // Altera os textos dos componentes
 
-            this.Text = "Editar Aparelho"; // Título da janela
+            this.Text = "Editar Ordem"; // Título da janela
 
             lblTitulo.Text = "Editar Dados";
 
-            btnCadastrarAparelho.Text = "Salvar Alterações";
-
-
+            btnSalvar.Text = "Salvar Alterações";
 
             // Preenche os campos com os dados que vieram do Grid
 
-            txtMarca.Text = marca;
+            cmbAparelho.SelectedValue = fkIdAparelho;
 
-            txtModelo.Text = modelo;
+            cmbCliente.SelectedValue = fkIdCliente;
 
-            cbTipodeAparelho.SelectedValue = tipo;
+            cmbAprovaçãoOrçamento.Text = aprovacao_orcamento;
+            
+            cmbTecnico.SelectedValue = fkIdFuncionario;
 
-            txtNumerodeSerie.Text = numSerie;
+            txtValorEstimado.Text = valor.ToString("F2");
 
-            cbClientes.SelectedValue = fkIdCliente;
+            dtOrdem.Value = data_ordem;
 
-            dtpDataEntrada.Value = DateTime.Parse(dataEntrada);
+            txtIDOrdem.Text = id.ToString();
 
-            cbEstado.SelectedValue = estado;
-            //txtID.Text = id.ToString();
+        }
 
-        }*/
+        private void MostrarComponentesDeItens(bool exibir)
+        {
+            // Substitua os nomes abaixo pelos nomes reais dos seus componentes de Itens da tela
+            cmbAdicionarItens.Visible = exibir; // ComboBox de produtos
+            txtQtdItens.Visible = exibir;       // TextBox da quantidade
+            btnAdicionarItens.Visible = exibir; // Botão de Adicionar
+            dgvOrdemItens.Visible = exibir;     // Tabela Grid de itens da ordem
+            lblAdicionarItens.Visible = exibir; // Label de Adicionar Itens
+            lblQuantidade.Visible = exibir;     // Label de Quantidade
+
+            // Opcional: focar no campo de itens se estiver exibindo
+            if (exibir)
+            {
+                cmbAdicionarItens.Focus();
+            }
+        }
     }
 }
