@@ -95,6 +95,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormVisualizarAparelho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVisualizarAparelho.Designer.cs">
+      <DependentUpon>FormVisualizarAparelho.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNovaMovimentacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVisualizarAparelho.resx">
+      <DependentUpon>FormVisualizarAparelho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

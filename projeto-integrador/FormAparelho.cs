@@ -400,13 +400,16 @@ namespace projeto_integrador
                 .Value
                 .ToString();
 
+      
+
             // VISUALIZAR
             if (dgvAparelho.Columns[e.ColumnIndex].Name
                 == "Visualizar")
             {
-                MessageBox.Show(
-                    "Visualizar aparelho ID: " + idAparelho
-                );
+                FormVisualizarAparelho tela =
+                    new FormVisualizarAparelho(idAparelho);
+
+                tela.ShowDialog();
             }
 
             // EDITAR
