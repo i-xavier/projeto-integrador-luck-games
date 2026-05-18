@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,19 @@ namespace projeto_integrador
 {
     public partial class FormOrdemDeServico : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+             int nLeft,
+             int nTop,
+             int nRight,
+             int nBottom,
+             int nWidthEllipse,
+             int nHeightEllipse
+         );
+
+
+
         String codOrdem = "";
         
 
@@ -500,6 +514,21 @@ namespace projeto_integrador
                 // a tela principal atualiza a lista de ordens automaticamente.
                 carregar_ordens_com_query("SELECT * FROM ordem ORDER BY id_ordem DESC");
             }
+        }
+
+        private void FormOrdemDeServico_Load(object sender, EventArgs e)
+        {
+            txtBuscar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtBuscar.Width,
+                txtBuscar.Height, 25, 25));
+
+            btnNovaOS.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnNovaOS.Width,
+                btnNovaOS.Height, 25, 25));
+
+            btnPesquisar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnPesquisar.Width,
+                btnPesquisar.Height, 25, 25));
+
+            cmbFiltro.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbFiltro.Width,
+                cmbFiltro.Height, 20, 20));
         }
     }
 }

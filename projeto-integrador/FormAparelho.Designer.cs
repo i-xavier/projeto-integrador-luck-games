@@ -66,10 +66,11 @@
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.btnPesquisar);
+            this.panelFundo.Controls.Add(this.txtBuscar);
             this.panelFundo.Controls.Add(this.dgvAparelho);
             this.panelFundo.Controls.Add(this.pictureBox1);
             this.panelFundo.Controls.Add(this.cmbFiltro);
-            this.panelFundo.Controls.Add(this.btnPesquisar);
             this.panelFundo.Controls.Add(this.label1);
             this.panelFundo.Controls.Add(this.panel1);
             this.panelFundo.Controls.Add(this.btnNovoAparelho);
@@ -119,7 +120,7 @@
             this.btnPesquisar.FlatAppearance.BorderSize = 0;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(618, 173);
+            this.btnPesquisar.Location = new System.Drawing.Point(584, 173);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(37, 28);
             this.btnPesquisar.TabIndex = 3;
@@ -171,17 +172,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1473, 690);
-            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.panelMedidaMenu);
             this.Controls.Add(this.panelFundo);
             this.Name = "FormAparelho";
             this.Text = "FormAparelho";
+            this.Load += new System.EventHandler(this.FormAparelho_Load);
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAparelho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

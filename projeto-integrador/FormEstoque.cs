@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,17 @@ namespace projeto_integrador
 {
     public partial class FormEstoque : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+             int nLeft,
+             int nTop,
+             int nRight,
+             int nBottom,
+             int nWidthEllipse,
+             int nHeightEllipse
+         );
+
         String codProd = "";
 
         MySqlConnection Conexao;
@@ -629,6 +641,37 @@ namespace projeto_integrador
             }
 
             Conexao.Close();
+        }
+
+        private void FormEstoque_Load(object sender, EventArgs e)
+        {
+            btnNovaMovimentacao.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnNovaMovimentacao.Width,
+                btnNovaMovimentacao.Height, 25, 25));
+
+            btnNovoProduto.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnNovoProduto.Width,
+                btnNovoProduto.Height, 25, 25));
+
+            btnPesquisar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnPesquisar.Width,
+                btnPesquisar.Height, 25, 25));
+
+            panel2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel2.Width,
+                panel2.Height, 25, 25));
+
+            panel3.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel3.Width,
+                panel3.Height, 25, 25));
+
+            panel4.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel4.Width,
+                panel4.Height, 25, 25));
+
+            notificaoEstoqueMinimo.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, notificaoEstoqueMinimo.Width,
+                notificaoEstoqueMinimo.Height, 25, 25));
+
+            txtBuscar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtBuscar.Width,
+                txtBuscar.Height, 25, 25));
+
+            cmbFiltro.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbFiltro.Width,
+                cmbFiltro.Height, 20, 20));
+
         }
     }
 }

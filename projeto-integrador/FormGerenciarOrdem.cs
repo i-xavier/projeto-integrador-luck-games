@@ -3,12 +3,24 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace projeto_integrador
 {
     public partial class FormGerenciarOrdem : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+             int nLeft,
+             int nTop,
+             int nRight,
+             int nBottom,
+             int nWidthEllipse,
+             int nHeightEllipse
+         );
+
         private bool _isEdicao = false;
         private int _idOrdemParaEditar;
         MySqlConnection Conexao;
@@ -608,6 +620,42 @@ namespace projeto_integrador
             {
                 cmbAdicionarItens.Focus();
             }
+        }
+
+        private void FormGerenciarOrdem_Load(object sender, EventArgs e)
+        {
+            cmbAdicionarItens.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbAdicionarItens.Width,
+                cmbAdicionarItens.Height, 20, 20));
+
+            cmbAparelho.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbAparelho.Width,
+                cmbAparelho.Height, 20, 20));
+
+            cmbAprovaçãoOrçamento.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbAprovaçãoOrçamento.Width,
+                cmbAprovaçãoOrçamento.Height, 20, 20));
+
+            cmbCliente.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbCliente.Width,
+                cmbCliente.Height, 20, 20));
+
+            cmbTecnico.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbTecnico.Width,
+                cmbTecnico.Height, 20, 20));
+
+            dtOrdem.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dtOrdem.Width,
+                dtOrdem.Height, 20, 20));
+
+            txtIDOrdem.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtIDOrdem.Width,
+                txtIDOrdem.Height, 20, 20));
+
+            txtQtdItens.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtQtdItens.Width,
+                txtQtdItens.Height, 20, 20));
+
+            txtValorEstimado.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtValorEstimado.Width,
+                txtValorEstimado.Height, 20, 20));
+            
+            btnAdicionarItens.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnAdicionarItens.Width,
+                btnAdicionarItens.Height, 20, 20));
+
+            btnSalvar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnSalvar.Width,
+                btnSalvar.Height, 20, 20));
         }
     }
 }

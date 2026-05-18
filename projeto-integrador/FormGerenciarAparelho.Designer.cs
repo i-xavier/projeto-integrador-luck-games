@@ -78,9 +78,12 @@
             // 
             // txtMarca
             // 
+            this.txtMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtMarca.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarca.Location = new System.Drawing.Point(21, 154);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(131, 20);
+            this.txtMarca.Size = new System.Drawing.Size(131, 28);
             this.txtMarca.TabIndex = 3;
             // 
             // label3
@@ -99,7 +102,7 @@
             this.lblTipodeAparelho.AutoSize = true;
             this.lblTipodeAparelho.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipodeAparelho.ForeColor = System.Drawing.Color.White;
-            this.lblTipodeAparelho.Location = new System.Drawing.Point(210, 128);
+            this.lblTipodeAparelho.Location = new System.Drawing.Point(224, 134);
             this.lblTipodeAparelho.Name = "lblTipodeAparelho";
             this.lblTipodeAparelho.Size = new System.Drawing.Size(112, 17);
             this.lblTipodeAparelho.TabIndex = 5;
@@ -117,7 +120,7 @@
             "Notebook",
             "Computador",
             "Controles"});
-            this.cbTipodeAparelho.Location = new System.Drawing.Point(213, 148);
+            this.cbTipodeAparelho.Location = new System.Drawing.Point(228, 154);
             this.cbTipodeAparelho.Name = "cbTipodeAparelho";
             this.cbTipodeAparelho.Size = new System.Drawing.Size(191, 29);
             this.cbTipodeAparelho.TabIndex = 27;
@@ -136,9 +139,12 @@
             // 
             // txtNumerodeSerie
             // 
+            this.txtNumerodeSerie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtNumerodeSerie.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumerodeSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumerodeSerie.Location = new System.Drawing.Point(21, 214);
             this.txtNumerodeSerie.Name = "txtNumerodeSerie";
-            this.txtNumerodeSerie.Size = new System.Drawing.Size(398, 20);
+            this.txtNumerodeSerie.Size = new System.Drawing.Size(398, 28);
             this.txtNumerodeSerie.TabIndex = 29;
             // 
             // lblModelo
@@ -154,14 +160,18 @@
             // 
             // txtModelo
             // 
+            this.txtModelo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtModelo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtModelo.Location = new System.Drawing.Point(21, 270);
             this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(398, 20);
+            this.txtModelo.Size = new System.Drawing.Size(398, 28);
             this.txtModelo.TabIndex = 31;
             // 
             // cbEstado
             // 
             this.cbEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Items.AddRange(new object[] {
@@ -206,9 +216,9 @@
             this.btnAnexarFoto.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAnexarFoto.Image = ((System.Drawing.Image)(resources.GetObject("btnAnexarFoto.Image")));
             this.btnAnexarFoto.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAnexarFoto.Location = new System.Drawing.Point(333, 364);
+            this.btnAnexarFoto.Location = new System.Drawing.Point(327, 364);
             this.btnAnexarFoto.Name = "btnAnexarFoto";
-            this.btnAnexarFoto.Size = new System.Drawing.Size(39, 38);
+            this.btnAnexarFoto.Size = new System.Drawing.Size(45, 38);
             this.btnAnexarFoto.TabIndex = 35;
             this.btnAnexarFoto.UseVisualStyleBackColor = true;
             this.btnAnexarFoto.Click += new System.EventHandler(this.btnAnexarFoto_Click);
@@ -237,16 +247,20 @@
             // 
             // txtDescriçãoDoProblema
             // 
+            this.txtDescriçãoDoProblema.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtDescriçãoDoProblema.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescriçãoDoProblema.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescriçãoDoProblema.Location = new System.Drawing.Point(21, 476);
             this.txtDescriçãoDoProblema.Name = "txtDescriçãoDoProblema";
-            this.txtDescriçãoDoProblema.Size = new System.Drawing.Size(398, 20);
+            this.txtDescriçãoDoProblema.Size = new System.Drawing.Size(398, 28);
             this.txtDescriçãoDoProblema.TabIndex = 39;
             // 
             // btnCadastrarAparelho
             // 
             this.btnCadastrarAparelho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
-            this.btnCadastrarAparelho.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCadastrarAparelho.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarAparelho.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarAparelho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarAparelho.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarAparelho.Location = new System.Drawing.Point(79, 514);
             this.btnCadastrarAparelho.Name = "btnCadastrarAparelho";
             this.btnCadastrarAparelho.Size = new System.Drawing.Size(293, 28);
@@ -265,12 +279,13 @@
             // 
             // dtpDataEntrada
             // 
+            this.dtpDataEntrada.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.dtpDataEntrada.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpDataEntrada.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.dtpDataEntrada.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDataEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataEntrada.Location = new System.Drawing.Point(21, 405);
             this.dtpDataEntrada.Name = "dtpDataEntrada";
-            this.dtpDataEntrada.Size = new System.Drawing.Size(214, 25);
+            this.dtpDataEntrada.Size = new System.Drawing.Size(214, 29);
             this.dtpDataEntrada.TabIndex = 42;
             // 
             // btnFechar
@@ -289,10 +304,13 @@
             // 
             // cbClientes
             // 
+            this.cbClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbClientes.FormattingEnabled = true;
             this.cbClientes.Location = new System.Drawing.Point(21, 98);
             this.cbClientes.Name = "cbClientes";
-            this.cbClientes.Size = new System.Drawing.Size(398, 21);
+            this.cbClientes.Size = new System.Drawing.Size(398, 28);
             this.cbClientes.TabIndex = 44;
             // 
             // FormGerenciarAparelho
@@ -328,7 +346,7 @@
             this.Name = "FormGerenciarAparelho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Aparelho";
-           // this.Load += new System.EventHandler(this.FormGerenciarAparelho_Load);
+            this.Load += new System.EventHandler(this.FormGerenciarAparelho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

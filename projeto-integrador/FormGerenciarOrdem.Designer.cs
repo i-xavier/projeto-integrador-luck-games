@@ -83,6 +83,8 @@
             // 
             // cmbCliente
             // 
+            this.cmbCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Location = new System.Drawing.Point(26, 169);
             this.cmbCliente.Name = "cmbCliente";
@@ -102,6 +104,8 @@
             // 
             // cmbAparelho
             // 
+            this.cmbAparelho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbAparelho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbAparelho.FormattingEnabled = true;
             this.cmbAparelho.Location = new System.Drawing.Point(26, 218);
             this.cmbAparelho.Name = "cmbAparelho";
@@ -121,6 +125,8 @@
             // 
             // cmbAprovaçãoOrçamento
             // 
+            this.cmbAprovaçãoOrçamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbAprovaçãoOrçamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbAprovaçãoOrçamento.FormattingEnabled = true;
             this.cmbAprovaçãoOrçamento.Items.AddRange(new object[] {
             "Em Análise",
@@ -145,9 +151,12 @@
             // 
             // txtValorEstimado
             // 
+            this.txtValorEstimado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtValorEstimado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValorEstimado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorEstimado.Location = new System.Drawing.Point(570, 268);
             this.txtValorEstimado.Name = "txtValorEstimado";
-            this.txtValorEstimado.Size = new System.Drawing.Size(158, 20);
+            this.txtValorEstimado.Size = new System.Drawing.Size(158, 22);
             this.txtValorEstimado.TabIndex = 11;
             // 
             // label2
@@ -193,7 +202,8 @@
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(228)))), ((int)(((byte)(45)))));
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Location = new System.Drawing.Point(274, 319);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(215, 25);
@@ -204,6 +214,8 @@
             // 
             // cmbAdicionarItens
             // 
+            this.cmbAdicionarItens.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbAdicionarItens.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbAdicionarItens.FormattingEnabled = true;
             this.cmbAdicionarItens.Location = new System.Drawing.Point(387, 120);
             this.cmbAdicionarItens.Name = "cmbAdicionarItens";
@@ -226,6 +238,8 @@
             // 
             // cmbTecnico
             // 
+            this.cmbTecnico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbTecnico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTecnico.FormattingEnabled = true;
             this.cmbTecnico.Location = new System.Drawing.Point(202, 267);
             this.cmbTecnico.Name = "cmbTecnico";
@@ -267,9 +281,12 @@
             // 
             // txtQtdItens
             // 
+            this.txtQtdItens.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtQtdItens.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtQtdItens.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQtdItens.Location = new System.Drawing.Point(567, 121);
             this.txtQtdItens.Name = "txtQtdItens";
-            this.txtQtdItens.Size = new System.Drawing.Size(76, 20);
+            this.txtQtdItens.Size = new System.Drawing.Size(76, 22);
             this.txtQtdItens.TabIndex = 46;
             // 
             // lblQuantidade
@@ -295,10 +312,13 @@
             // 
             // txtIDOrdem
             // 
+            this.txtIDOrdem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtIDOrdem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIDOrdem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDOrdem.Location = new System.Drawing.Point(26, 122);
             this.txtIDOrdem.Name = "txtIDOrdem";
             this.txtIDOrdem.ReadOnly = true;
-            this.txtIDOrdem.Size = new System.Drawing.Size(338, 20);
+            this.txtIDOrdem.Size = new System.Drawing.Size(338, 22);
             this.txtIDOrdem.TabIndex = 49;
             // 
             // lblID
@@ -345,6 +365,7 @@
             this.Name = "FormGerenciarOrdem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormNovaOrdem";
+            this.Load += new System.EventHandler(this.FormGerenciarOrdem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdemItens)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

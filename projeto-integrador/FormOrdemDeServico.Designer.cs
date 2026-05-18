@@ -49,7 +49,7 @@
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(287, 173);
+            this.txtBuscar.Location = new System.Drawing.Point(289, 173);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(334, 28);
             this.txtBuscar.TabIndex = 5;
@@ -69,7 +69,7 @@
             this.btnPesquisar.FlatAppearance.BorderSize = 0;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(618, 173);
+            this.btnPesquisar.Location = new System.Drawing.Point(598, 173);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(37, 28);
             this.btnPesquisar.TabIndex = 3;
@@ -98,10 +98,11 @@
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.btnPesquisar);
+            this.panelFundo.Controls.Add(this.txtBuscar);
             this.panelFundo.Controls.Add(this.pictureBox1);
             this.panelFundo.Controls.Add(this.cmbFiltro);
             this.panelFundo.Controls.Add(this.dgvOS);
-            this.panelFundo.Controls.Add(this.btnPesquisar);
             this.panelFundo.Controls.Add(this.labelOS);
             this.panelFundo.Controls.Add(this.panel1);
             this.panelFundo.Controls.Add(this.btnNovaOS);
@@ -171,17 +172,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1238, 638);
-            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.panelMedidaMenu);
             this.Controls.Add(this.panelFundo);
             this.Name = "FormOrdemDeServico";
             this.Text = "FormOrdens";
+            this.Load += new System.EventHandler(this.FormOrdemDeServico_Load);
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOS)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
