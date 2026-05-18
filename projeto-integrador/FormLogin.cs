@@ -172,9 +172,12 @@ namespace projeto_integrador
             {
                 carregar_clientes();
                 FormCadastrarUsuario form = new FormCadastrarUsuario(Valor);
-                this.Hide(); // Esconde o login
-                form.ShowDialog(); // Trava a execução aqui até o cadastro fechar
-                this.Show(); // FAÇA ISSO: Mostra o login de volta quando sair do cadastro
+
+                this.Hide();
+
+                form.ShowDialog();
+
+                this.Show();
             }
             catch (Exception ex)
             {

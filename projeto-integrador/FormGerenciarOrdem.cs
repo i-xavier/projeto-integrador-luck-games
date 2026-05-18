@@ -11,6 +11,7 @@ namespace projeto_integrador
     {
         private bool _isEdicao = false;
         private int _idOrdemParaEditar;
+        public bool foiExcluido = false;
         MySqlConnection Conexao;
         string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
         private bool ordemSalvaNoBanco = false;
@@ -236,7 +237,7 @@ namespace projeto_integrador
             this.Close();
         }
 
-       
+
         private void btnAdicionarItens_Click(object sender, EventArgs e)
         {
             // 1. Validações básicas de segurança
@@ -342,13 +343,24 @@ namespace projeto_integrador
         {
             // Query que busca a quantidade da tabela 'item_ordem' 
             // e o nome do produto fazendo o JOIN com a tabela 'produto'
-            string query = @"
-        SELECT 
+            string query = "";  
+
+            if (foiExcluido == true)
+            {
+                query = "SELECT * FROM item_ordem ORDER BY id_itens_ordem DESC";
+            }
+
+            else {
+
+                query = @"
+        SELECT
+            io.fk_id_produto,
             io.quantidade, 
             p.nome_produto 
         FROM item_ordem io
         INNER JOIN produto p ON io.fk_id_produto = p.id_produto
         WHERE io.fk_id_ordem = @id_ordem";
+            }
 
             using (MySqlConnection conn = new MySqlConnection(conexao))
             {
@@ -371,6 +383,7 @@ namespace projeto_integrador
                                 // Adiciona no seu Grid: primeiro o Nome do Produto, depois a Quantidade
                                 // (Certifique-se de que a ordem das colunas no seu Grid visual seja essa)
                                 dgvOrdemItens.Rows.Add(
+                                    reader["fk_id_produto"].ToString(),
                                     reader["nome_produto"].ToString(),
                                     reader["quantidade"].ToString()
                                 );
@@ -582,7 +595,7 @@ namespace projeto_integrador
             cmbCliente.SelectedValue = fkIdCliente;
 
             cmbAprovaçãoOrçamento.Text = aprovacao_orcamento;
-            
+
             cmbTecnico.SelectedValue = fkIdFuncionario;
 
             txtValorEstimado.Text = valor.ToString("F2");
@@ -609,5 +622,166 @@ namespace projeto_integrador
                 cmbAdicionarItens.Focus();
             }
         }
+        
+
+        private void ExcluirItemOrdem(string id)
+        {
+            try
+            {
+                Conexao = new MySqlConnection(conexao);
+
+                Conexao.Open();
+
+                string sql =
+                    "DELETE FROM item_ordem WHERE id_itens_ordem = @id";
+
+                MySqlCommand cmd =
+                    new MySqlCommand(sql, Conexao);
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show(
+                    "Produto excluído com sucesso!"
+                );
+
+              carregar_itens_da_ordem(int.Parse(id));
+
+               /* carregar_ordens_com_query(
+                    "SELECT * FROM ordem_servico ORDER BY id_ordem DESC"
+                );*/
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Erro ao excluir: " + ex.Message
+                );
+            }
+            finally
+            {
+                if (Conexao != null &&
+                    Conexao.State == ConnectionState.Open)
+                {
+                    Conexao.Close();
+                }
+            }
+        }
+
+        private void dgvOrdemItens_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            string idItemOrdem =
+                dgvOrdemItens.Rows[e.RowIndex]
+                .Cells["id_itens_ordem"]
+                .Value
+                .ToString();
+
+           /* // Verifique se o clique foi no cabeçalho (RowIndex = -1) ou em uma linha válida
+            if (e.RowIndex >= 0)
+            {
+                // Substitua 'NomeDaColunaImagem' pelo nome ou índice da sua coluna de imagens
+                if (dgvOrdemItens.Columns[e.ColumnIndex].Name == "Apagar")
+                {
+                    // Pega o valor da célula clicada
+                    var imagemSelecionada = dgvOrdemItens.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                    if (imagemSelecionada != null)
+                    {
+                        // Ação: Exemplo abrindo a imagem em um PictureBox ou outro formulário
+                        MessageBox.Show("Você clicou na imagem desta linha!");
+
+                        // Exemplo de como abrir em um form secundário:
+                        // FormImagem formImg = new FormImagem((Image)imagemSelecionada);
+                        // formImg.Show();
+                    }
+                }
+            }*/
+
+            // EXCLUIR
+            if (dgvOrdemItens.Columns[e.ColumnIndex].Name
+            == "Apagar")
+            {
+                DialogResult resultado =
+                    MessageBox.Show(
+                        "Deseja excluir este aparelho?",
+                        "Confirmação",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    ExcluirItemOrdem(idItemOrdem);
+                    foiExcluido = true;
+                }
+            }
+        }
+
+        /* private void carregar_ordens_com_query(string query)
+         {
+             try
+             {
+                 Conexao = new MySqlConnection(data_source);
+
+                 Conexao.Open();
+
+                 MySqlCommand cmd =
+                     new MySqlCommand(query, Conexao);
+
+                 if (query.Contains("@q"))
+                 {
+                     cmd.Parameters.AddWithValue(
+                         "@q",
+                         "%" + txtBuscar.Text + "%"
+                     );
+                 }
+
+                 MySqlDataReader reader = cmd.ExecuteReader();
+
+                 dgvOS.Rows.Clear();
+
+                 while (reader.Read())
+                 {
+                     dgvOS.Rows.Add(
+                         reader["id_ordem"].ToString(),
+                         reader["aprovacao_orcamento"].ToString(),
+                         reader["valor"].ToString(),
+                         reader["data_ordem"].ToString(),
+                         reader["fk_id_cliente_ordem"].ToString(),
+                         reader["fk_id_aparelho_ordem"].ToString(),
+                         reader["fk_id_funcionario_ordem"].ToString()
+                     );
+                 }
+             }
+             catch (MySqlException ex)
+             {
+                 MessageBox.Show(
+                     "Erro " + ex.Number + " ocorreu: " + ex.Message,
+                     "Erro",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error
+                 );
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show(
+                     "Ocorreu: " + ex.Message,
+                     "Erro",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error
+                 );
+             }
+             finally
+             {
+                 if (Conexao != null &&
+                     Conexao.State == ConnectionState.Open)
+                 {
+                     Conexao.Close();
+                 }
+             }
+         }*/
     }
 }
