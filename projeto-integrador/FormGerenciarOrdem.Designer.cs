@@ -47,14 +47,15 @@
             this.btnFechar = new System.Windows.Forms.Button();
             this.cmbTecnico = new System.Windows.Forms.ComboBox();
             this.dgvOrdemItens = new System.Windows.Forms.DataGridView();
-            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apagar = new System.Windows.Forms.DataGridViewImageColumn();
             this.txtQtdItens = new System.Windows.Forms.TextBox();
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.btnAdicionarItens = new System.Windows.Forms.Button();
             this.txtIDOrdem = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
+            this.id_itens_ordem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apagar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdemItens)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(248, 39);
+            this.lblTitulo.Location = new System.Drawing.Point(326, 38);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(241, 37);
             this.lblTitulo.TabIndex = 0;
@@ -151,12 +152,7 @@
             // 
             // txtValorEstimado
             // 
-            this.txtValorEstimado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtValorEstimado.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtValorEstimado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorEstimado.Location = new System.Drawing.Point(570, 268);
-            this.txtValorEstimado.Name = "txtValorEstimado";
-            this.txtValorEstimado.Size = new System.Drawing.Size(158, 22);
+
             this.txtValorEstimado.TabIndex = 11;
             // 
             // label2
@@ -164,7 +160,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(567, 247);
+            this.label2.Location = new System.Drawing.Point(642, 247);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 17);
             this.label2.TabIndex = 12;
@@ -174,7 +170,7 @@
             // 
             this.dtOrdem.Location = new System.Drawing.Point(387, 268);
             this.dtOrdem.Name = "dtOrdem";
-            this.dtOrdem.Size = new System.Drawing.Size(162, 20);
+            this.dtOrdem.Size = new System.Drawing.Size(244, 20);
             this.dtOrdem.TabIndex = 14;
             // 
             // label4
@@ -202,9 +198,6 @@
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(228)))), ((int)(((byte)(45)))));
-            this.btnSalvar.FlatAppearance.BorderSize = 0;
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.Location = new System.Drawing.Point(274, 319);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(215, 25);
             this.btnSalvar.TabIndex = 20;
@@ -252,32 +245,16 @@
             this.dgvOrdemItens.AllowUserToDeleteRows = false;
             this.dgvOrdemItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdemItens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_itens_ordem,
             this.Item,
             this.Quantidade,
             this.Apagar});
             this.dgvOrdemItens.Location = new System.Drawing.Point(387, 157);
             this.dgvOrdemItens.Name = "dgvOrdemItens";
             this.dgvOrdemItens.ReadOnly = true;
-            this.dgvOrdemItens.Size = new System.Drawing.Size(338, 79);
+            this.dgvOrdemItens.Size = new System.Drawing.Size(440, 79);
             this.dgvOrdemItens.TabIndex = 45;
-            // 
-            // Item
-            // 
-            this.Item.HeaderText = "Item";
-            this.Item.Name = "Item";
-            this.Item.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.HeaderText = "Quantidade";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            // 
-            // Apagar
-            // 
-            this.Apagar.HeaderText = "Apagar";
-            this.Apagar.Name = "Apagar";
-            this.Apagar.ReadOnly = true;
+            this.dgvOrdemItens.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdemItens_CellClick);
             // 
             // txtQtdItens
             // 
@@ -286,7 +263,7 @@
             this.txtQtdItens.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQtdItens.Location = new System.Drawing.Point(567, 121);
             this.txtQtdItens.Name = "txtQtdItens";
-            this.txtQtdItens.Size = new System.Drawing.Size(76, 22);
+
             this.txtQtdItens.TabIndex = 46;
             // 
             // lblQuantidade
@@ -302,9 +279,9 @@
             // 
             // btnAdicionarItens
             // 
-            this.btnAdicionarItens.Location = new System.Drawing.Point(653, 119);
+            this.btnAdicionarItens.Location = new System.Drawing.Point(696, 119);
             this.btnAdicionarItens.Name = "btnAdicionarItens";
-            this.btnAdicionarItens.Size = new System.Drawing.Size(75, 23);
+            this.btnAdicionarItens.Size = new System.Drawing.Size(131, 23);
             this.btnAdicionarItens.TabIndex = 48;
             this.btnAdicionarItens.Text = "Adicionar";
             this.btnAdicionarItens.UseVisualStyleBackColor = true;
@@ -332,12 +309,36 @@
             this.lblID.TabIndex = 50;
             this.lblID.Text = "ID Ordem";
             // 
+            // id_itens_ordem
+            // 
+            this.id_itens_ordem.HeaderText = "";
+            this.id_itens_ordem.Name = "id_itens_ordem";
+            this.id_itens_ordem.ReadOnly = true;
+            // 
+            // Item
+            // 
+            this.Item.HeaderText = "Item";
+            this.Item.Name = "Item";
+            this.Item.ReadOnly = true;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.HeaderText = "Quantidade";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            // 
+            // Apagar
+            // 
+            this.Apagar.HeaderText = "Apagar";
+            this.Apagar.Name = "Apagar";
+            this.Apagar.ReadOnly = true;
+            // 
             // FormGerenciarOrdem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(98)))), ((int)(((byte)(131)))));
-            this.ClientSize = new System.Drawing.Size(750, 375);
+            this.ClientSize = new System.Drawing.Size(855, 375);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtIDOrdem);
             this.Controls.Add(this.btnAdicionarItens);
@@ -392,13 +393,14 @@
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.ComboBox cmbTecnico;
         private System.Windows.Forms.DataGridView dgvOrdemItens;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
-        private System.Windows.Forms.DataGridViewImageColumn Apagar;
         private System.Windows.Forms.TextBox txtQtdItens;
         private System.Windows.Forms.Label lblQuantidade;
         private System.Windows.Forms.Button btnAdicionarItens;
         private System.Windows.Forms.TextBox txtIDOrdem;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_itens_ordem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
+        private System.Windows.Forms.DataGridViewImageColumn Apagar;
     }
 }
