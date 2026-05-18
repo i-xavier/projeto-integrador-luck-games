@@ -116,21 +116,21 @@
             // txtQuantidade
             // 
             this.txtQuantidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantidade.Location = new System.Drawing.Point(64, 266);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(135, 29);
+            this.txtQuantidade.Size = new System.Drawing.Size(135, 28);
             this.txtQuantidade.TabIndex = 28;
             // 
             // txtValorUnitario
             // 
             this.txtValorUnitario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtValorUnitario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValorUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorUnitario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValorUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValorUnitario.Location = new System.Drawing.Point(63, 324);
             this.txtValorUnitario.Name = "txtValorUnitario";
-            this.txtValorUnitario.Size = new System.Drawing.Size(292, 29);
+            this.txtValorUnitario.Size = new System.Drawing.Size(292, 28);
             this.txtValorUnitario.TabIndex = 27;
             // 
             // lblTitulo
@@ -147,16 +147,17 @@
             // txtNomeProduto
             // 
             this.txtNomeProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtNomeProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeProduto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeProduto.Location = new System.Drawing.Point(64, 152);
             this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(292, 29);
+            this.txtNomeProduto.Size = new System.Drawing.Size(292, 28);
             this.txtNomeProduto.TabIndex = 37;
             // 
             // cbCategoria
             // 
             this.cbCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Location = new System.Drawing.Point(215, 205);
@@ -168,12 +169,12 @@
             // txtCodigoProduto
             // 
             this.txtCodigoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtCodigoProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCodigoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoProduto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodigoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoProduto.Location = new System.Drawing.Point(63, 205);
             this.txtCodigoProduto.Name = "txtCodigoProduto";
             this.txtCodigoProduto.ReadOnly = true;
-            this.txtCodigoProduto.Size = new System.Drawing.Size(136, 29);
+            this.txtCodigoProduto.Size = new System.Drawing.Size(136, 28);
             this.txtCodigoProduto.TabIndex = 39;
             // 
             // lblCodProd
@@ -212,11 +213,11 @@
             // txtQuantidadeMinima
             // 
             this.txtQuantidadeMinima.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtQuantidadeMinima.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuantidadeMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantidadeMinima.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtQuantidadeMinima.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantidadeMinima.Location = new System.Drawing.Point(215, 266);
             this.txtQuantidadeMinima.Name = "txtQuantidadeMinima";
-            this.txtQuantidadeMinima.Size = new System.Drawing.Size(141, 29);
+            this.txtQuantidadeMinima.Size = new System.Drawing.Size(141, 28);
             this.txtQuantidadeMinima.TabIndex = 42;
             // 
             // FormGerenciarProduto

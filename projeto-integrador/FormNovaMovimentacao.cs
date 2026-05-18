@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,16 @@ namespace projeto_integrador
 {
     public partial class FormNovaMovimentacao : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+             int nLeft,
+             int nTop,
+             int nRight,
+             int nBottom,
+             int nWidthEllipse,
+             int nHeightEllipse
+         );
 
         MySqlConnection Conexao;
         string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
@@ -226,6 +237,23 @@ namespace projeto_integrador
 
         }
 
+        private void FormNovaMovimentacao_Load(object sender, EventArgs e)
+        {
+            btnEnviarMovimentacao.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnEnviarMovimentacao.Width,
+                btnEnviarMovimentacao.Height, 25, 25));
+
+            txtQuantidade.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtQuantidade.Width,
+                txtQuantidade.Height, 25, 25));
+
+            txtMotivo.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtMotivo.Width,
+                txtMotivo.Height, 25, 25));
+
+            cbProdutos.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbProdutos.Width,
+                cbProdutos.Height, 25, 25));
+
+            cbTipoMovimentacao.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbTipoMovimentacao.Width,
+                cbTipoMovimentacao.Height, 25, 25));
+        }
     }
 
 }

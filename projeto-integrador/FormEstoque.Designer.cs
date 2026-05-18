@@ -35,6 +35,9 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.panelFundo = new System.Windows.Forms.Panel();
             this.notificaoEstoqueMinimo = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.cbProdutosAbaixoDoEstoque = new System.Windows.Forms.ComboBox();
+            this.lblnotificaoEstoqueMinimo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblItensEstoque = new System.Windows.Forms.Label();
@@ -52,17 +55,14 @@
             this.btnNovoProduto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblnotificaoEstoqueMinimo = new System.Windows.Forms.Label();
-            this.cbProdutosAbaixoDoEstoque = new System.Windows.Forms.ComboBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelFundo.SuspendLayout();
             this.notificaoEstoqueMinimo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNovaMovimentacao
@@ -71,14 +71,14 @@
             this.btnNovaMovimentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.btnNovaMovimentacao.FlatAppearance.BorderSize = 0;
             this.btnNovaMovimentacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovaMovimentacao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovaMovimentacao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovaMovimentacao.ForeColor = System.Drawing.Color.Black;
             this.btnNovaMovimentacao.Image = ((System.Drawing.Image)(resources.GetObject("btnNovaMovimentacao.Image")));
             this.btnNovaMovimentacao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovaMovimentacao.Location = new System.Drawing.Point(1346, 171);
+            this.btnNovaMovimentacao.Location = new System.Drawing.Point(1317, 169);
             this.btnNovaMovimentacao.Name = "btnNovaMovimentacao";
             this.btnNovaMovimentacao.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNovaMovimentacao.Size = new System.Drawing.Size(176, 34);
+            this.btnNovaMovimentacao.Size = new System.Drawing.Size(205, 34);
             this.btnNovaMovimentacao.TabIndex = 4;
             this.btnNovaMovimentacao.Text = "    Nova Movimentação";
             this.btnNovaMovimentacao.UseVisualStyleBackColor = false;
@@ -109,7 +109,7 @@
             this.btnPesquisar.FlatAppearance.BorderSize = 0;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(618, 173);
+            this.btnPesquisar.Location = new System.Drawing.Point(596, 173);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(37, 28);
             this.btnPesquisar.TabIndex = 3;
@@ -119,6 +119,8 @@
             // panelFundo
             // 
             this.panelFundo.BackColor = System.Drawing.Color.Black;
+            this.panelFundo.Controls.Add(this.btnPesquisar);
+            this.panelFundo.Controls.Add(this.txtBuscar);
             this.panelFundo.Controls.Add(this.notificaoEstoqueMinimo);
             this.panelFundo.Controls.Add(this.panel3);
             this.panelFundo.Controls.Add(this.flowLayoutPanel1);
@@ -128,7 +130,6 @@
             this.panelFundo.Controls.Add(this.cmbFiltro);
             this.panelFundo.Controls.Add(this.panel2);
             this.panelFundo.Controls.Add(this.btnNovoProduto);
-            this.panelFundo.Controls.Add(this.btnPesquisar);
             this.panelFundo.Controls.Add(this.label1);
             this.panelFundo.Controls.Add(this.panel1);
             this.panelFundo.Controls.Add(this.btnNovaMovimentacao);
@@ -150,6 +151,34 @@
             this.notificaoEstoqueMinimo.Name = "notificaoEstoqueMinimo";
             this.notificaoEstoqueMinimo.Size = new System.Drawing.Size(555, 106);
             this.notificaoEstoqueMinimo.TabIndex = 12;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(10, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 79);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // cbProdutosAbaixoDoEstoque
+            // 
+            this.cbProdutosAbaixoDoEstoque.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProdutosAbaixoDoEstoque.FormattingEnabled = true;
+            this.cbProdutosAbaixoDoEstoque.Location = new System.Drawing.Point(140, 66);
+            this.cbProdutosAbaixoDoEstoque.Name = "cbProdutosAbaixoDoEstoque";
+            this.cbProdutosAbaixoDoEstoque.Size = new System.Drawing.Size(365, 29);
+            this.cbProdutosAbaixoDoEstoque.TabIndex = 2;
+            // 
+            // lblnotificaoEstoqueMinimo
+            // 
+            this.lblnotificaoEstoqueMinimo.AutoSize = true;
+            this.lblnotificaoEstoqueMinimo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnotificaoEstoqueMinimo.Location = new System.Drawing.Point(136, 39);
+            this.lblnotificaoEstoqueMinimo.Name = "lblnotificaoEstoqueMinimo";
+            this.lblnotificaoEstoqueMinimo.Size = new System.Drawing.Size(0, 21);
+            this.lblnotificaoEstoqueMinimo.TabIndex = 1;
             // 
             // label2
             // 
@@ -253,6 +282,7 @@
             // cmbFiltro
             // 
             this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbFiltro.FormattingEnabled = true;
             this.cmbFiltro.Items.AddRange(new object[] {
             "ID",
@@ -300,11 +330,11 @@
             this.btnNovoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
             this.btnNovoProduto.FlatAppearance.BorderSize = 0;
             this.btnNovoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoProduto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoProduto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovoProduto.ForeColor = System.Drawing.Color.Black;
             this.btnNovoProduto.Image = ((System.Drawing.Image)(resources.GetObject("btnNovoProduto.Image")));
             this.btnNovoProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNovoProduto.Location = new System.Drawing.Point(1148, 171);
+            this.btnNovoProduto.Location = new System.Drawing.Point(1100, 171);
             this.btnNovoProduto.Name = "btnNovoProduto";
             this.btnNovoProduto.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnNovoProduto.Size = new System.Drawing.Size(176, 34);
@@ -334,49 +364,22 @@
             this.panel1.Size = new System.Drawing.Size(1235, 5);
             this.panel1.TabIndex = 5;
             // 
-            // lblnotificaoEstoqueMinimo
-            // 
-            this.lblnotificaoEstoqueMinimo.AutoSize = true;
-            this.lblnotificaoEstoqueMinimo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnotificaoEstoqueMinimo.Location = new System.Drawing.Point(136, 39);
-            this.lblnotificaoEstoqueMinimo.Name = "lblnotificaoEstoqueMinimo";
-            this.lblnotificaoEstoqueMinimo.Size = new System.Drawing.Size(0, 21);
-            this.lblnotificaoEstoqueMinimo.TabIndex = 1;
-            // 
-            // cbProdutosAbaixoDoEstoque
-            // 
-            this.cbProdutosAbaixoDoEstoque.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProdutosAbaixoDoEstoque.FormattingEnabled = true;
-            this.cbProdutosAbaixoDoEstoque.Location = new System.Drawing.Point(140, 66);
-            this.cbProdutosAbaixoDoEstoque.Name = "cbProdutosAbaixoDoEstoque";
-            this.cbProdutosAbaixoDoEstoque.Size = new System.Drawing.Size(365, 29);
-            this.cbProdutosAbaixoDoEstoque.TabIndex = 2;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(10, 9);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 79);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
             // FormEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1561, 697);
-            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.panelMedidaMenu);
             this.Controls.Add(this.panelFundo);
             this.MinimumSize = new System.Drawing.Size(1577, 736);
             this.Name = "FormEstoque";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.FormEstoque_Load);
             this.panelFundo.ResumeLayout(false);
             this.panelFundo.PerformLayout();
             this.notificaoEstoqueMinimo.ResumeLayout(false);
             this.notificaoEstoqueMinimo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
@@ -385,9 +388,7 @@
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

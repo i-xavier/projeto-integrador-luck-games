@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,17 @@ namespace projeto_integrador
 {
     public partial class FormAparelho : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+             int nLeft,
+             int nTop,
+             int nRight,
+             int nBottom,
+             int nWidthEllipse,
+             int nHeightEllipse
+         );
+
         String codAparelho = "";
 
         MySqlConnection Conexao;
@@ -511,6 +523,20 @@ namespace projeto_integrador
             }
         }
 
+        private void FormAparelho_Load(object sender, EventArgs e)
+        {
+            cmbFiltro.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbFiltro.Width,
+                cmbFiltro.Height, 25, 25));
+
+            btnNovoAparelho.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnNovoAparelho.Width,
+                btnNovoAparelho.Height, 25, 25));
+
+            txtBuscar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtBuscar.Width,
+                txtBuscar.Height, 25, 25));
+
+            btnPesquisar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnPesquisar.Width,
+                btnPesquisar.Height, 25, 25));
+        }
     }
     }
     

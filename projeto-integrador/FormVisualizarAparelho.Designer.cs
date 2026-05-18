@@ -64,9 +64,12 @@
             // 
             // txtNomedoProduto
             // 
+            this.txtNomedoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.txtNomedoProduto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNomedoProduto.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomedoProduto.Location = new System.Drawing.Point(443, 104);
             this.txtNomedoProduto.Name = "txtNomedoProduto";
-            this.txtNomedoProduto.Size = new System.Drawing.Size(306, 25);
+            this.txtNomedoProduto.Size = new System.Drawing.Size(306, 26);
             this.txtNomedoProduto.TabIndex = 2;
             // 
             // lblNomedoProduto
@@ -93,9 +96,12 @@
             // 
             // textBoxCodigodoProduto
             // 
+            this.textBoxCodigodoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.textBoxCodigodoProduto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCodigodoProduto.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCodigodoProduto.Location = new System.Drawing.Point(443, 164);
             this.textBoxCodigodoProduto.Name = "textBoxCodigodoProduto";
-            this.textBoxCodigodoProduto.Size = new System.Drawing.Size(306, 25);
+            this.textBoxCodigodoProduto.Size = new System.Drawing.Size(306, 26);
             this.textBoxCodigodoProduto.TabIndex = 5;
             // 
             // lblQuantidade
@@ -111,16 +117,22 @@
             // 
             // textBoxQuantidade
             // 
+            this.textBoxQuantidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.textBoxQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxQuantidade.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxQuantidade.Location = new System.Drawing.Point(444, 224);
             this.textBoxQuantidade.Name = "textBoxQuantidade";
-            this.textBoxQuantidade.Size = new System.Drawing.Size(118, 25);
+            this.textBoxQuantidade.Size = new System.Drawing.Size(118, 26);
             this.textBoxQuantidade.TabIndex = 7;
             // 
             // textBoxValorUnitario
             // 
+            this.textBoxValorUnitario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.textBoxValorUnitario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxValorUnitario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxValorUnitario.Location = new System.Drawing.Point(602, 224);
             this.textBoxValorUnitario.Name = "textBoxValorUnitario";
-            this.textBoxValorUnitario.Size = new System.Drawing.Size(147, 25);
+            this.textBoxValorUnitario.Size = new System.Drawing.Size(147, 26);
             this.textBoxValorUnitario.TabIndex = 8;
             // 
             // label2
@@ -174,6 +186,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormVisualizarAparelho";
             this.Text = "Visualizar Aparelho";
+            this.Load += new System.EventHandler(this.FormVisualizarAparelho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

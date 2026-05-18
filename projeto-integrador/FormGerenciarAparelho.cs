@@ -5,12 +5,24 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace projeto_integrador
 {
     public partial class FormGerenciarAparelho : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeft,
+            int nTop,
+            int nRight,
+            int nBottom,
+            int nWidthEllipse,
+            int nHeightEllipse
+        );
+
         private bool _isEdicao = false;
         private int _idAparelhoParaEditar;
         string conexao = "server=localhost;database=projeto_luck_games;uid=root;pwd=;";
@@ -340,11 +352,41 @@ namespace projeto_integrador
 
         }
 
-        //Load para carregar o arredondamento de tela
-       /* private void FormGerenciarAparelho_Load(object sender, EventArgs e)
+        private void FormGerenciarAparelho_Load(object sender, EventArgs e)
         {
-            txtCodigo.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtCodigo.Width,
-            txtCodigo.Height, 25, 25));
-        }*/
+            btnCadastrarAparelho.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnCadastrarAparelho.Width,
+                btnCadastrarAparelho.Height, 25, 25));
+
+            dtpDataEntrada.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dtpDataEntrada.Width,
+                dtpDataEntrada.Height, 25, 25));
+
+            cbClientes.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbClientes.Width,
+                cbClientes.Height, 25, 25));
+
+            cbEstado.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbEstado.Width,
+                cbEstado.Height, 25, 25));
+
+            cbTipodeAparelho.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbTipodeAparelho.Width,
+                cbTipodeAparelho.Height, 25, 25));
+
+            txtDescriçãoDoProblema.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtDescriçãoDoProblema.Width,
+                txtDescriçãoDoProblema.Height, 25, 25));
+
+            txtMarca.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtMarca.Width,
+                txtMarca.Height, 25, 25));
+
+            txtModelo.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtModelo.Width,
+                txtModelo.Height, 25, 25));
+
+            txtNumerodeSerie.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtNumerodeSerie.Width,
+                txtNumerodeSerie.Height, 25, 25));
+        }
+
+        //Load para carregar o arredondamento de tela
+        /* private void FormGerenciarAparelho_Load(object sender, EventArgs e)
+         {
+             txtCodigo.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtCodigo.Width,
+             txtCodigo.Height, 25, 25));
+         }*/
     }
 }

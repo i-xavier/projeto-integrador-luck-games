@@ -112,21 +112,21 @@
             // txtMotivo
             // 
             this.txtMotivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtMotivo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMotivo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMotivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMotivo.Location = new System.Drawing.Point(63, 321);
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(292, 29);
+            this.txtMotivo.Size = new System.Drawing.Size(292, 28);
             this.txtMotivo.TabIndex = 15;
             // 
             // txtQuantidade
             // 
             this.txtQuantidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantidade.Location = new System.Drawing.Point(63, 263);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(292, 29);
+            this.txtQuantidade.Size = new System.Drawing.Size(292, 28);
             this.txtQuantidade.TabIndex = 14;
             // 
             // label1
@@ -143,6 +143,7 @@
             // cbProdutos
             // 
             this.cbProdutos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbProdutos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProdutos.FormattingEnabled = true;
             this.cbProdutos.Location = new System.Drawing.Point(63, 206);
@@ -165,6 +166,7 @@
             // cbTipoMovimentacao
             // 
             this.cbTipoMovimentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cbTipoMovimentacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbTipoMovimentacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipoMovimentacao.FormattingEnabled = true;
             this.cbTipoMovimentacao.Items.AddRange(new object[] {
@@ -201,6 +203,7 @@
             this.Name = "FormNovaMovimentacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastrarMovimentacao";
+            this.Load += new System.EventHandler(this.FormNovaMovimentacao_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

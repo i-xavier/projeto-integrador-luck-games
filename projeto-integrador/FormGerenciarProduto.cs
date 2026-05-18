@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,18 @@ namespace projeto_integrador
 
     public partial class FormGerenciarProduto : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+             int nLeft,
+             int nTop,
+             int nRight,
+             int nBottom,
+             int nWidthEllipse,
+             int nHeightEllipse
+         );
+
+
         private bool _isEdicao = false;
         private int _idProdutoParaEditar;
 
@@ -55,7 +68,30 @@ namespace projeto_integrador
                 "Outro"
             };
 
-         
+
+            btnCadastrarProduto.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnCadastrarProduto.Width,
+                btnCadastrarProduto.Height, 25, 25));
+
+            txtCodigoProduto.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtCodigoProduto.Width,
+                            txtCodigoProduto.Height, 25, 25));
+
+            txtNomeProduto.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtNomeProduto.Width,
+                            txtNomeProduto.Height, 25, 25));
+
+            txtQuantidade.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtQuantidade.Width,
+                            txtQuantidade.Height, 25, 25));
+
+            txtQuantidadeMinima.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtQuantidadeMinima.Width,
+                            txtQuantidadeMinima.Height, 25, 25));
+
+            txtValorUnitario.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtValorUnitario.Width,
+                            txtValorUnitario.Height, 25, 25));
+
+            cbCategoria.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cbCategoria.Width,
+                            cbCategoria.Height, 25, 25));
+
+            btnCadastrarProduto.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnCadastrarProduto.Width,
+                            btnCadastrarProduto.Height, 25, 25));
         }
 
         private void btnCadastrarProduto_Click(object sender, EventArgs e)
