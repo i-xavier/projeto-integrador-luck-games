@@ -281,9 +281,9 @@ namespace projeto_integrador
             }
 
             // Validação extra: Para criar a ordem automaticamente, precisamos dos dados do cabeçalho preenchidos
-            if (cmbCliente.SelectedIndex == -1 || cmbAparelho.SelectedIndex == -1 || cmbTecnico.SelectedIndex == -1)
+            if (cmbCliente.SelectedIndex == -1 || cmbAparelho.SelectedIndex == -1 || cmbTecnico.SelectedIndex == -1 || string.IsNullOrWhiteSpace(cmbStatus.Text))
             {
-                MessageBox.Show("Preencha Cliente, Aparelho e Técnico antes de adicionar itens.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Preencha Cliente, Aparelho, Técnico e Status antes de adicionar itens.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -306,13 +306,14 @@ namespace projeto_integrador
                     // 3. Se a ordem NÃO existe, insere ela primeiro automaticamente para evitar o erro de FK
                     if (!ordemExiste)
                     {
-                        string sqlOrdem = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, valor, data_ordem, fk_id_cliente_ordem, fk_id_aparelho_ordem, fk_id_funcionario_ordem) 
-                                   VALUES (@id, 'Em Aberto', 0.00, @data, @cliente, @aparelho, @funcionario)";
+                        string sqlOrdem = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, status_ordem, valor, data_ordem, fk_id_cliente_ordem, fk_id_aparelho_ordem, fk_id_funcionario_ordem) 
+                                           VALUES (@id, 'pendente', @status, 0.00, @data, @cliente, @aparelho, @funcionario)";
 
                         using (MySqlCommand cmdOrdem = new MySqlCommand(sqlOrdem, conn))
                         {
                             cmdOrdem.Parameters.AddWithValue("@id", idOrdem);
                             cmdOrdem.Parameters.AddWithValue("@data", DateTime.Now);
+                            cmdOrdem.Parameters.AddWithValue("@status", cmbStatus.Text);
                             cmdOrdem.Parameters.AddWithValue("@cliente", cmbCliente.SelectedValue);
                             cmdOrdem.Parameters.AddWithValue("@aparelho", cmbAparelho.SelectedValue);
                             cmdOrdem.Parameters.AddWithValue("@funcionario", cmbTecnico.SelectedValue);
@@ -428,7 +429,8 @@ namespace projeto_integrador
             // 1. VALIDAÇÕES DOS CAMPOS OBRIGATÓRIOS
             if (cmbTecnico.SelectedIndex == -1) { MessageBox.Show("Selecione um técnico."); return; }
             if (cmbCliente.SelectedIndex == -1) { MessageBox.Show("Selecione um cliente."); return; }
-            if (cmbAparelho.SelectedIndex == -1) { MessageBox.Show("Selecione um aparelho."); return; return; }
+            if (cmbAparelho.SelectedIndex == -1) { MessageBox.Show("Selecione um aparelho."); return; }
+            if (string.IsNullOrWhiteSpace(cmbStatus.Text)) { MessageBox.Show("Defina o Status da ordem."); return; }
             if (!int.TryParse(txtIDOrdem.Text.Trim(), out int idOrdem)) return;
 
             // Resgata o valor estimado digitado na tela (caso esteja vazio ou inválido, assume 0)
@@ -443,9 +445,9 @@ namespace projeto_integrador
                     // ==========================================
                     using (MySqlConnection conn = new MySqlConnection(conexao))
                     {
-                        // Correção: Nomes das colunas ajustados de acordo com o script do seu banco
                         string sql = @"UPDATE ordem SET 
                                 aprovacao_orcamento = @aprovacao,
+                                status_ordem = @status,
                                 valor = @valor,
                                 data_ordem = @data, 
                                 fk_id_cliente_ordem = @cliente, 
@@ -461,9 +463,10 @@ namespace projeto_integrador
                             cmd.Parameters.AddWithValue("@aparelho", cmbAparelho.SelectedValue);
                             cmd.Parameters.AddWithValue("@funcionario", cmbTecnico.SelectedValue);
                             cmd.Parameters.AddWithValue("@aprovacao", cmbAprovacaoOrcamento.SelectedItem?.ToString() ?? "pendente");
+                            cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
                             cmd.Parameters.AddWithValue("@valor", valorEstimado);
 
-                            conn.Open(); // Correção: Abrindo a conexão que estava faltando no seu código
+                            conn.Open();
                             cmd.ExecuteNonQuery();
                             conn.Close();
 
@@ -494,12 +497,12 @@ namespace projeto_integrador
                         string sql;
                         if (!existe)
                         {
-                            sql = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, valor, data_ordem, fk_id_cliente_ordem, fk_id_aparelho_ordem, fk_id_funcionario_ordem) 
-                            VALUES (@id, @aprovacao, @valor, @data, @cliente, @aparelho, @funcionario)";
+                            sql = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, status_ordem, valor, data_ordem, fk_id_cliente_ordem, fk_id_aparelho_ordem, fk_id_funcionario_ordem) 
+                            VALUES (@id, @aprovacao, @status, @valor, @data, @cliente, @aparelho, @funcionario)";
                         }
                         else
                         {
-                            sql = @"UPDATE ordem SET fk_id_cliente_ordem = @cliente, fk_id_aparelho_ordem = @aparelho, fk_id_funcionario_ordem = @funcionario, valor = @valor 
+                            sql = @"UPDATE ordem SET fk_id_cliente_ordem = @cliente, fk_id_aparelho_ordem = @aparelho, fk_id_funcionario_ordem = @funcionario, valor = @valor, aprovacao_orcamento = @aprovacao, status_ordem = @status 
                             WHERE id_ordem = @id";
                         }
 
@@ -508,6 +511,7 @@ namespace projeto_integrador
                             cmd.Parameters.AddWithValue("@id", idOrdem);
                             cmd.Parameters.AddWithValue("@data", DateTime.Now);
                             cmd.Parameters.AddWithValue("@aprovacao", cmbAprovacaoOrcamento.SelectedItem?.ToString() ?? "pendente");
+                            cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
                             cmd.Parameters.AddWithValue("@cliente", cmbCliente.SelectedValue);
                             cmd.Parameters.AddWithValue("@aparelho", cmbAparelho.SelectedValue);
                             cmd.Parameters.AddWithValue("@funcionario", cmbTecnico.SelectedValue);
@@ -592,7 +596,7 @@ namespace projeto_integrador
             }
         }
 
-        public void ConfigurarEdicao(int id, string aprovacao_orcamento, decimal valor, DateTime data_ordem, int fkIdCliente, int fkIdAparelho, int fkIdFuncionario)
+        public void ConfigurarEdicao(int id, string aprovacao_orcamento, string status_ordem, decimal valor, DateTime data_ordem, int fkIdCliente, int fkIdAparelho, int fkIdFuncionario)
 
         {
 
@@ -619,6 +623,8 @@ namespace projeto_integrador
             cmbAprovacaoOrcamento.Text = aprovacao_orcamento;
 
             cmbTecnico.SelectedValue = fkIdFuncionario;
+
+            cmbStatus.Text = status_ordem;
 
             txtValorEstimado.Text = valor.ToString("F2");
 
@@ -729,6 +735,9 @@ namespace projeto_integrador
 
             cmbAprovacaoOrcamento.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbAprovacaoOrcamento.Width,
                 cmbAprovacaoOrcamento.Height, 20, 20));
+
+            cmbStatus.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbStatus.Width,
+                cmbStatus.Height, 20, 20));
 
             cmbCliente.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbCliente.Width,
                 cmbCliente.Height, 20, 20));

@@ -48,9 +48,8 @@ namespace projeto_integrador
                     MySqlCommand cmdClientes = new MySqlCommand(sqlClientes, conn);
                     lblTotalClientes.Text = cmdClientes.ExecuteScalar().ToString();
 
-                    // 2. BUSCA ORDENS FINALIZADAS (Aprovação = 'Sim')
-                    // Ajuste o nome da coluna 'aprovacao_orcamento' se no seu banco estiver diferente
-                    string sqlOrdens = "SELECT COUNT(*) FROM ordem WHERE aprovacao_orcamento = 'Aprovado'";
+                    // 2. BUSCA ORDENS FINALIZADAS (Aprovação = 'Aprovado' E Status = 'Consertado')
+                    string sqlOrdens = "SELECT COUNT(*) FROM ordem WHERE LOWER(aprovacao_orcamento) = 'aprovado' AND LOWER(status_ordem) = 'consertado'";
                     MySqlCommand cmdOrdens = new MySqlCommand(sqlOrdens, conn);
                     lblOrdensFinalizadas.Text = cmdOrdens.ExecuteScalar().ToString();
 
@@ -169,19 +168,21 @@ namespace projeto_integrador
                 {
                     conn.Open();
 
+                    // QUERY ATUALIZADA: Filtra por Aprovado E Finalizado
                     string sql = @"
-                SELECT 
-                    DATE(o.data_ordem) AS data_dia,
-                    SUM(o.valor) AS faturamento_total,
-                    COALESCE(
-                        (SELECT SUM(io.quantidade * io.valor_unitario) 
-                         FROM item_ordem io 
-                         WHERE io.fk_id_ordem = o.id_ordem), 0
-                    ) AS custo_total
-                FROM ordem o
-                WHERE LOWER(o.aprovacao_orcamento) = 'aprovado'
-                GROUP BY DATE(o.data_ordem)
-                ORDER BY DATE(o.data_ordem) ASC";
+                    SELECT 
+                        DATE(o.data_ordem) AS data_dia,
+                        SUM(o.valor) AS faturamento_total,
+                        COALESCE(
+                            (SELECT SUM(io.quantidade * io.valor_unitario) 
+                             FROM item_ordem io 
+                             WHERE io.fk_id_ordem = o.id_ordem), 0
+                        ) AS custo_total
+                    FROM ordem o
+                    WHERE LOWER(o.aprovacao_orcamento) = 'aprovado'
+                      AND LOWER(o.status_ordem) = 'consertado'
+                    GROUP BY DATE(o.data_ordem)
+                    ORDER BY DATE(o.data_ordem) ASC";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     using (MySqlDataReader reader = cmd.ExecuteReader())

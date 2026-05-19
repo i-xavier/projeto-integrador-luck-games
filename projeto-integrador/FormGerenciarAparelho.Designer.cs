@@ -185,12 +185,7 @@
             "Oxidado",
             "Tela quebrada",
             "Peças faltando",
-            "Em diagnóstico",
-            "Aguardando orçamento",
-            "Aguardando peça",
-            "Em manutenção",
-            "Consertado",
-            "Sem possibilidade de reparo"});
+            "Consertado"});
             this.cbEstado.Location = new System.Drawing.Point(21, 330);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(191, 29);

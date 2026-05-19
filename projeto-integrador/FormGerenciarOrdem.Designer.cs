@@ -56,6 +56,8 @@
             this.txtIDOrdem = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdemItens)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,7 +120,7 @@
             this.lblTecnico.AutoSize = true;
             this.lblTecnico.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTecnico.ForeColor = System.Drawing.Color.White;
-            this.lblTecnico.Location = new System.Drawing.Point(198, 243);
+            this.lblTecnico.Location = new System.Drawing.Point(22, 243);
             this.lblTecnico.Name = "lblTecnico";
             this.lblTecnico.Size = new System.Drawing.Size(65, 21);
             this.lblTecnico.TabIndex = 8;
@@ -133,7 +135,7 @@
             "pendente",
             "aprovado",
             "recusado"});
-            this.cmbAprovacaoOrcamento.Location = new System.Drawing.Point(26, 267);
+            this.cmbAprovacaoOrcamento.Location = new System.Drawing.Point(26, 319);
             this.cmbAprovacaoOrcamento.Name = "cmbAprovacaoOrcamento";
             this.cmbAprovacaoOrcamento.Size = new System.Drawing.Size(162, 21);
             this.cmbAprovacaoOrcamento.TabIndex = 9;
@@ -143,17 +145,17 @@
             this.lblAprovaçãoOrcamento.AutoSize = true;
             this.lblAprovaçãoOrcamento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAprovaçãoOrcamento.ForeColor = System.Drawing.Color.White;
-            this.lblAprovaçãoOrcamento.Location = new System.Drawing.Point(23, 243);
+            this.lblAprovaçãoOrcamento.Location = new System.Drawing.Point(23, 295);
             this.lblAprovaçãoOrcamento.Name = "lblAprovaçãoOrcamento";
-            this.lblAprovaçãoOrcamento.Size = new System.Drawing.Size(165, 17);
+            this.lblAprovaçãoOrcamento.Size = new System.Drawing.Size(76, 17);
             this.lblAprovaçãoOrcamento.TabIndex = 10;
-            this.lblAprovaçãoOrcamento.Text = "Aprovação do Orçamento";
+            this.lblAprovaçãoOrcamento.Text = "Orçamento";
             // 
             // txtValorEstimado
             // 
             this.txtValorEstimado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.txtValorEstimado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValorEstimado.Location = new System.Drawing.Point(645, 267);
+            this.txtValorEstimado.Location = new System.Drawing.Point(645, 320);
             this.txtValorEstimado.Name = "txtValorEstimado";
             this.txtValorEstimado.Size = new System.Drawing.Size(182, 20);
             this.txtValorEstimado.TabIndex = 11;
@@ -163,7 +165,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(641, 243);
+            this.label2.Location = new System.Drawing.Point(641, 291);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 21);
             this.label2.TabIndex = 12;
@@ -172,9 +174,9 @@
             // dtOrdem
             // 
             this.dtOrdem.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.dtOrdem.Location = new System.Drawing.Point(387, 268);
+            this.dtOrdem.Location = new System.Drawing.Point(387, 270);
             this.dtOrdem.Name = "dtOrdem";
-            this.dtOrdem.Size = new System.Drawing.Size(244, 20);
+            this.dtOrdem.Size = new System.Drawing.Size(440, 20);
             this.dtOrdem.TabIndex = 14;
             // 
             // label4
@@ -228,9 +230,9 @@
             this.cmbTecnico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.cmbTecnico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbTecnico.FormattingEnabled = true;
-            this.cmbTecnico.Location = new System.Drawing.Point(202, 267);
+            this.cmbTecnico.Location = new System.Drawing.Point(26, 266);
             this.cmbTecnico.Name = "cmbTecnico";
-            this.cmbTecnico.Size = new System.Drawing.Size(162, 21);
+            this.cmbTecnico.Size = new System.Drawing.Size(338, 21);
             this.cmbTecnico.TabIndex = 7;
             // 
             // dgvOrdemItens
@@ -340,7 +342,7 @@
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(321, 310);
+            this.btnSalvar.Location = new System.Drawing.Point(334, 376);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(215, 41);
             this.btnSalvar.TabIndex = 20;
@@ -348,12 +350,42 @@
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // cmbStatus
+            // 
+            this.cmbStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "Em diagnóstico",
+            "Aguardando orçamento",
+            "Aguardando peça",
+            "Em manutenção",
+            "Consertado",
+            "Sem possibilidade de reparo"});
+            this.cmbStatus.Location = new System.Drawing.Point(202, 320);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(162, 21);
+            this.cmbStatus.TabIndex = 51;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(199, 295);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Status";
+            // 
             // FormGerenciarOrdem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(98)))), ((int)(((byte)(131)))));
-            this.ClientSize = new System.Drawing.Size(855, 375);
+            this.ClientSize = new System.Drawing.Size(855, 451);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtIDOrdem);
             this.Controls.Add(this.btnAdicionarItens);
@@ -417,5 +449,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewImageColumn Apagar;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label label1;
     }
 }

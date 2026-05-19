@@ -39,7 +39,8 @@ namespace projeto_integrador
            cmbFiltro.DataSource = new List<string>
             {
                 "Selecione",
-                "Status",
+                "Aprovação", 
+                "Situação",  
                 "Valor",
                 "Data",
                 "Cliente",
@@ -133,7 +134,12 @@ namespace projeto_integrador
 
             dgvOS.Columns.Add(
                 "aprovacao_orcamento",
-                "Status"
+                "Aprovação"
+            );
+
+            dgvOS.Columns.Add(
+                "status_ordem",
+                "Situação"
             );
 
             dgvOS.Columns.Add(
@@ -237,7 +243,7 @@ namespace projeto_integrador
             dgvOS.Columns.Add(btnExcluir);
 
             // STATUS OCUPA O ESPAÇO SOBRANDO
-            dgvOS.Columns["aprovacao_orcamento"].AutoSizeMode =
+            dgvOS.Columns["status_ordem"].AutoSizeMode =
                 DataGridViewAutoSizeColumnMode.Fill;
 
             dgvOS.CellClick += dgvOS_CellClick;
@@ -261,6 +267,7 @@ namespace projeto_integrador
                     SELECT
                         id_ordem,
                         aprovacao_orcamento,
+                        status_ordem,
                         valor,
                         data_ordem,
                         fk_id_cliente_ordem,
@@ -269,6 +276,7 @@ namespace projeto_integrador
                     FROM ordem
                     WHERE CAST(id_ordem AS CHAR) LIKE @q
                        OR CAST(aprovacao_orcamento AS CHAR) LIKE @q
+                       OR CAST(status_ordem AS CHAR) LIKE @q
                        OR CAST(valor AS CHAR) LIKE @q
                        OR CAST(data_ordem AS CHAR) LIKE @q
                        OR CAST(fk_id_cliente_ordem AS CHAR) LIKE @q
@@ -284,8 +292,12 @@ namespace projeto_integrador
                             campo = "id_ordem";
                             break;
 
-                        case "Status":
+                        case "Aprovação": // Antigo "Status"
                             campo = "aprovacao_orcamento";
+                            break;
+
+                        case "Situação": // Novo "Status" da Ordem
+                            campo = "status_ordem";
                             break;
 
                         case "Valor":
@@ -311,16 +323,17 @@ namespace projeto_integrador
                         default:
                             campo = "id_ordem";
                             break;
-                    
-                    
-                    
-                    
+
+
+
+
                     }
 
                     query = $@"
                     SELECT
                         id_ordem,
                         aprovacao_orcamento,
+                        status_ordem,
                         valor,
                         data_ordem,
                         fk_id_cliente_ordem,
@@ -432,6 +445,7 @@ namespace projeto_integrador
                     dgvOS.Rows.Add(
                         reader["id_ordem"].ToString(),
                         reader["aprovacao_orcamento"].ToString(),
+                        reader["status_ordem"].ToString(),
                         reader["valor"].ToString(),
                         reader["data_ordem"].ToString(),
                         reader["fk_id_cliente_ordem"].ToString(),
@@ -473,80 +487,84 @@ namespace projeto_integrador
            DataGridViewCellEventArgs e
        )
         {
-            if (e.RowIndex < 0)
-                return;
-
-            string idOrdem =
-                dgvOS.Rows[e.RowIndex]
-                .Cells["id_ordem"]
-                .Value
-                .ToString();
-
-            // VISUALIZAR
-            if (dgvOS.Columns[e.ColumnIndex].Name
-                == "Visualizar")
             {
-                MessageBox.Show(
-                    "Visualizar ordem ID: " + idOrdem
-                );
-            }
+                if (e.RowIndex < 0)
+                    return;
 
-            
-            // EDITAR
-            if (dgvOS.Columns[e.ColumnIndex].Name
-                == "Editar")
+                string idOrdem =
+                    dgvOS.Rows[e.RowIndex]
+                    .Cells["id_ordem"]
+                    .Value
+                    .ToString();
 
-            {
+                // VISUALIZAR
+                if (dgvOS.Columns[e.ColumnIndex].Name
+                    == "Visualizar")
+                {
+                    MessageBox.Show(
+                        "Visualizar ordem ID: " + idOrdem
+                    );
+                }
 
-                int id = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["id_ordem"].Value);
-                string aprovacao_orcamento = dgvOS.Rows[e.RowIndex].Cells["aprovacao_orcamento"].Value.ToString();
-                decimal valor = Convert.ToDecimal(dgvOS.Rows[e.RowIndex].Cells["valor"].Value);
-                DateTime data_ordem = Convert.ToDateTime(dgvOS.Rows[e.RowIndex].Cells["data_ordem"].Value);
-                int fkIdCliente = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["fk_id_cliente_ordem"].Value);
-                int fkIdAparelho = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["fk_id_aparelho_ordem"].Value);
-                int fkIdFuncionario = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["fk_id_funcionario_ordem"].Value);
-                using (FormGerenciarOrdem frm = new FormGerenciarOrdem(codOrdem))
+
+                // EDITAR
+                if (dgvOS.Columns[e.ColumnIndex].Name
+                    == "Editar")
 
                 {
 
-                    // Chamamos o método que criamos para transformar a tela
+                    int id = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["id_ordem"].Value);
+                    string aprovacao_orcamento = dgvOS.Rows[e.RowIndex].Cells["aprovacao_orcamento"].Value.ToString();
+                    string status_ordem = dgvOS.Rows[e.RowIndex].Cells["status_ordem"].Value.ToString();
+                    decimal valor = Convert.ToDecimal(dgvOS.Rows[e.RowIndex].Cells["valor"].Value);
+                    DateTime data_ordem = Convert.ToDateTime(dgvOS.Rows[e.RowIndex].Cells["data_ordem"].Value);
+                    int fkIdCliente = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["fk_id_cliente_ordem"].Value);
+                    int fkIdAparelho = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["fk_id_aparelho_ordem"].Value);
+                    int fkIdFuncionario = Convert.ToInt32(dgvOS.Rows[e.RowIndex].Cells["fk_id_funcionario_ordem"].Value);
 
-                    frm.ConfigurarEdicao(id, aprovacao_orcamento, valor, data_ordem, fkIdCliente, fkIdAparelho, fkIdFuncionario);
-
-
-
-                    if (frm.ShowDialog() == DialogResult.OK)
+                    using (FormGerenciarOrdem frm = new FormGerenciarOrdem(codOrdem))
 
                     {
 
-                        // Recarrega o grid após salvar
+                        // Chamamos o método que criamos para transformar a tela
 
-                        carregar_ordens_com_query("SELECT * FROM ordem ORDER BY id_ordem DESC");
+                        frm.ConfigurarEdicao(id, aprovacao_orcamento, status_ordem, valor, data_ordem, fkIdCliente, fkIdAparelho, fkIdFuncionario);
+
+
+
+                        if (frm.ShowDialog() == DialogResult.OK)
+
+                        {
+
+                            // Recarrega o grid após salvar
+
+                            carregar_ordens_com_query("SELECT * FROM ordem ORDER BY id_ordem DESC");
+
+                        }
 
                     }
 
                 }
 
-            }
-
-            // EXCLUIR
-            if (dgvOS.Columns[e.ColumnIndex].Name
-                == "Excluir")
-            {
-                DialogResult resultado =
-                    MessageBox.Show(
-                        "Deseja excluir esta ordem?",
-                        "Confirmação",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning
-                    );
-
-                if (resultado == DialogResult.Yes)
+                // EXCLUIR
+                if (dgvOS.Columns[e.ColumnIndex].Name
+                    == "Excluir")
                 {
-                    ExcluirOrdem(idOrdem);
+                    DialogResult resultado =
+                        MessageBox.Show(
+                            "Deseja excluir esta ordem?",
+                            "Confirmação",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning
+                        );
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        ExcluirOrdem(idOrdem);
+                    }
+                }
                 }
             }
-        }
 
         private void ExcluirOrdem(string id)
         {
