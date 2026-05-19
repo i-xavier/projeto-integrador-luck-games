@@ -59,18 +59,23 @@ namespace projeto_integrador
         private void ConfigurarDataGridView()
         {
             dgvProduto.AllowUserToAddRows = false;
+
             dgvProduto.AllowUserToDeleteRows = false;
+
             dgvProduto.AllowUserToResizeRows = false;
 
             dgvProduto.MultiSelect = false;
 
-            dgvProduto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProduto.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
 
             dgvProduto.ReadOnly = true;
 
             dgvProduto.RowHeadersVisible = false;
 
-            dgvProduto.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // MELHOR AJUSTE DAS COLUNAS
+            dgvProduto.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.AllCells;
 
             dgvProduto.BackgroundColor = Color.Black;
 
@@ -78,58 +83,80 @@ namespace projeto_integrador
 
             dgvProduto.EnableHeadersVisualStyles = false;
 
-            dgvProduto.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvProduto.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
 
-            dgvProduto.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+            // CABEÇALHO
+            dgvProduto.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.Black;
 
-            dgvProduto.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvProduto.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
 
             dgvProduto.ColumnHeadersDefaultCellStyle.Font =
-                new Font("Segoe UI", 10, FontStyle.Bold);
+                new Font("Segoe UI", 13, FontStyle.Bold);
 
-            dgvProduto.DefaultCellStyle.BackColor = Color.FromArgb(20, 20, 20);
+            dgvProduto.ColumnHeadersHeight = 45;
 
-            dgvProduto.DefaultCellStyle.ForeColor = Color.White;
+            // LINHAS
+            dgvProduto.RowTemplate.Height = 38;
 
-           // dgvProduto.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            // CÉLULAS
+            dgvProduto.DefaultCellStyle.BackColor =
+                Color.FromArgb(20, 20, 20);
+
+            dgvProduto.DefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvProduto.DefaultCellStyle.Font =
+                new Font("Segoe UI", 12, FontStyle.Regular);
 
             dgvProduto.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(40, 40, 40);
 
-            dgvProduto.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvProduto.DefaultCellStyle.SelectionForeColor =
+                Color.White;
 
-            dgvProduto.GridColor = Color.FromArgb(50, 50, 50);
+            dgvProduto.DefaultCellStyle.Padding =
+                new Padding(5, 0, 5, 0);
+
+            dgvProduto.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleLeft;
+
+            dgvProduto.GridColor =
+                Color.FromArgb(50, 50, 50);
 
             dgvProduto.Columns.Clear();
 
             // COLUNAS
             dgvProduto.Columns.Add("id_produto", "ID");
 
-            dgvProduto.Columns.Add("nome_produto", "Nome da peça");
+            dgvProduto.Columns.Add(
+                "nome_produto",
+                "Nome da peça"
+            );
 
-            dgvProduto.Columns.Add("categoria", "Categoria");
+            dgvProduto.Columns.Add(
+                "categoria",
+                "Categoria"
+            );
 
-            dgvProduto.Columns.Add("quantidade_minima", "Quantidade mínima");
+            dgvProduto.Columns.Add(
+                "quantidade_minima",
+                "Quantidade mínima"
+            );
 
-            dgvProduto.Columns.Add("valor_unitario", "Valor unitário");
+            dgvProduto.Columns.Add(
+                "valor_unitario",
+                "Valor unitário"
+            );
 
-            dgvProduto.Columns.Add("quantidade_total", "Quantidade total");
+            dgvProduto.Columns.Add(
+                "quantidade_total",
+                "Quantidade total"
+            );
 
-            // VISUALIZAR
-           /* DataGridViewButtonColumn btnVisualizar =
-                new DataGridViewButtonColumn();
-
-            btnVisualizar.Name = "Visualizar";
-
-            btnVisualizar.HeaderText = "";
-
-            btnVisualizar.Text = "👁";
-
-            btnVisualizar.UseColumnTextForButtonValue = true;
-
-            dgvProduto.Columns.Add(btnVisualizar);*/
-
-            // EDITAR
+            // BOTÃO EDITAR
             DataGridViewButtonColumn btnEditar =
                 new DataGridViewButtonColumn();
 
@@ -141,9 +168,20 @@ namespace projeto_integrador
 
             btnEditar.UseColumnTextForButtonValue = true;
 
+            btnEditar.FlatStyle = FlatStyle.Flat;
+
+            btnEditar.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnEditar.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnEditar.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvProduto.Columns.Add(btnEditar);
 
-            // EXCLUIR
+            // BOTÃO EXCLUIR
             DataGridViewButtonColumn btnExcluir =
                 new DataGridViewButtonColumn();
 
@@ -155,7 +193,22 @@ namespace projeto_integrador
 
             btnExcluir.UseColumnTextForButtonValue = true;
 
+            btnExcluir.FlatStyle = FlatStyle.Flat;
+
+            btnExcluir.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnExcluir.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnExcluir.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvProduto.Columns.Add(btnExcluir);
+
+            // NOME DA PEÇA OCUPA O ESPAÇO SOBRANDO
+            dgvProduto.Columns["nome_produto"].AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.Fill;
 
             dgvProduto.CellClick += dgvProduto_CellClick;
         }
@@ -296,7 +349,10 @@ namespace projeto_integrador
                     {
                         dgvProduto.Rows[rowIndex].Cells["quantidade_total"].Style.ForeColor = Color.Orange;
                         dgvProduto.Rows[rowIndex].Cells["quantidade_total"].Style.SelectionForeColor = Color.Orange;
-                        dgvProduto.Rows[rowIndex].Cells["quantidade_total"].Style.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                        dgvProduto.Rows[rowIndex]
+     .Cells["quantidade_total"]
+     .Style.Font =
+         new Font("Segoe UI", 12, FontStyle.Bold);
                     }
                     else
                     {
@@ -671,6 +727,8 @@ namespace projeto_integrador
 
             cmbFiltro.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbFiltro.Width,
                 cmbFiltro.Height, 20, 20));
+
+           // dgvProduto.Dock = DockStyle.Fill;
 
         }
     }

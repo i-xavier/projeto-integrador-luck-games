@@ -59,58 +59,109 @@ namespace projeto_integrador
         private void ConfigurarDataGridView()
         {
             dgvOS.AllowUserToAddRows = false;
+
             dgvOS.AllowUserToDeleteRows = false;
+
             dgvOS.AllowUserToResizeRows = false;
 
             dgvOS.MultiSelect = false;
 
-            dgvOS.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvOS.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
             dgvOS.ReadOnly = true;
 
             dgvOS.RowHeadersVisible = false;
 
-            dgvOS.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // AJUSTE DAS COLUNAS
+            dgvOS.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.AllCells;
+
             dgvOS.BackgroundColor = Color.Black;
 
             dgvOS.BorderStyle = BorderStyle.None;
 
             dgvOS.EnableHeadersVisualStyles = false;
 
-            dgvOS.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvOS.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
 
-            dgvOS.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
-            dgvOS.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            // CABEÇALHO
+            dgvOS.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.Black;
+
+            dgvOS.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
 
             dgvOS.ColumnHeadersDefaultCellStyle.Font =
-                new Font("Segoe UI", 10, FontStyle.Bold);
+                new Font("Segoe UI", 13, FontStyle.Bold);
 
-            dgvOS.DefaultCellStyle.BackColor = Color.FromArgb(20, 20, 20);
+            dgvOS.ColumnHeadersHeight = 45;
 
-            dgvOS.DefaultCellStyle.ForeColor = Color.White;
+            // LINHAS
+            dgvOS.RowTemplate.Height = 38;
+
+            // CÉLULAS
+            dgvOS.DefaultCellStyle.BackColor =
+                Color.FromArgb(20, 20, 20);
+
+            dgvOS.DefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvOS.DefaultCellStyle.Font =
+                new Font("Segoe UI", 12, FontStyle.Regular);
 
             dgvOS.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(40, 40, 40);
 
-            dgvOS.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvOS.DefaultCellStyle.SelectionForeColor =
+                Color.White;
 
-            dgvOS.GridColor = Color.FromArgb(50, 50, 50);
+            dgvOS.DefaultCellStyle.Padding =
+                new Padding(5, 0, 5, 0);
+
+            dgvOS.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleLeft;
+
+            dgvOS.GridColor =
+                Color.FromArgb(50, 50, 50);
 
             dgvOS.Columns.Clear();
+
             // COLUNAS
             dgvOS.Columns.Add("id_ordem", "ID");
 
-            dgvOS.Columns.Add("aprovacao_orcamento", "Status");
-            dgvOS.Columns.Add("valor", "Valor");
+            dgvOS.Columns.Add(
+                "aprovacao_orcamento",
+                "Status"
+            );
 
-            dgvOS.Columns.Add("data_ordem", "Data");
+            dgvOS.Columns.Add(
+                "valor",
+                "Valor"
+            );
 
-            dgvOS.Columns.Add("fk_id_cliente_ordem", "Cliente");
+            dgvOS.Columns.Add(
+                "data_ordem",
+                "Data"
+            );
 
-            dgvOS.Columns.Add("fk_id_aparelho_ordem", "Aparelho");
+            dgvOS.Columns.Add(
+                "fk_id_cliente_ordem",
+                "Cliente"
+            );
 
-            dgvOS.Columns.Add("fk_id_funcionario_ordem", "Funcionario");
+            dgvOS.Columns.Add(
+                "fk_id_aparelho_ordem",
+                "Aparelho"
+            );
 
-            // VISUALIZAR
+            dgvOS.Columns.Add(
+                "fk_id_funcionario_ordem",
+                "Funcionário"
+            );
+
+            // BOTÃO VISUALIZAR
             DataGridViewButtonColumn btnVisualizar =
                 new DataGridViewButtonColumn();
 
@@ -122,9 +173,20 @@ namespace projeto_integrador
 
             btnVisualizar.UseColumnTextForButtonValue = true;
 
+            btnVisualizar.FlatStyle = FlatStyle.Flat;
+
+            btnVisualizar.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnVisualizar.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnVisualizar.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvOS.Columns.Add(btnVisualizar);
 
-            // EDITAR
+            // BOTÃO EDITAR
             DataGridViewButtonColumn btnEditar =
                 new DataGridViewButtonColumn();
 
@@ -136,9 +198,20 @@ namespace projeto_integrador
 
             btnEditar.UseColumnTextForButtonValue = true;
 
+            btnEditar.FlatStyle = FlatStyle.Flat;
+
+            btnEditar.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnEditar.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnEditar.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvOS.Columns.Add(btnEditar);
 
-            // EXCLUIR
+            // BOTÃO EXCLUIR
             DataGridViewButtonColumn btnExcluir =
                 new DataGridViewButtonColumn();
 
@@ -150,7 +223,22 @@ namespace projeto_integrador
 
             btnExcluir.UseColumnTextForButtonValue = true;
 
+            btnExcluir.FlatStyle = FlatStyle.Flat;
+
+            btnExcluir.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnExcluir.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnExcluir.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvOS.Columns.Add(btnExcluir);
+
+            // STATUS OCUPA O ESPAÇO SOBRANDO
+            dgvOS.Columns["aprovacao_orcamento"].AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.Fill;
 
             dgvOS.CellClick += dgvOS_CellClick;
         }
@@ -439,22 +527,23 @@ namespace projeto_integrador
 
                 }
 
-                // EXCLUIR
-                if (dgvOS.Columns[e.ColumnIndex].Name
-                == "Excluir")
-                {
-                    DialogResult resultado =
-                        MessageBox.Show(
-                            "Deseja excluir esta ordem?",
-                            "Confirmação",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Warning
-                        );
+            }
 
-                    if (resultado == DialogResult.Yes)
-                    {
-                        ExcluirOrdem(idOrdem);
-                    }
+            // EXCLUIR
+            if (dgvOS.Columns[e.ColumnIndex].Name
+                == "Excluir")
+            {
+                DialogResult resultado =
+                    MessageBox.Show(
+                        "Deseja excluir esta ordem?",
+                        "Confirmação",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    ExcluirOrdem(idOrdem);
                 }
             }
         }
@@ -468,7 +557,7 @@ namespace projeto_integrador
                 Conexao.Open();
 
                 string sql =
-                    "DELETE FROM ordem_servico WHERE id_ordem = @id";
+                    "DELETE FROM ordem WHERE id_ordem = @id";
 
                 MySqlCommand cmd =
                     new MySqlCommand(sql, Conexao);
@@ -478,11 +567,11 @@ namespace projeto_integrador
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show(
-                    "Produto excluído com sucesso!"
+                    "Ordem de serviço excluída com sucesso!"
                 );
 
                 carregar_ordens_com_query(
-                    "SELECT * FROM ordem_servico ORDER BY id_ordem DESC"
+                    "SELECT * FROM ordem ORDER BY id_ordem DESC"
                 );
             }
             catch (Exception ex)

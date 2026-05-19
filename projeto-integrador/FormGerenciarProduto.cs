@@ -65,6 +65,7 @@ namespace projeto_integrador
                 "Tablet",
                 "Computador",
                 "Impressora",
+                "Periférico",
                 "Outro"
             };
 

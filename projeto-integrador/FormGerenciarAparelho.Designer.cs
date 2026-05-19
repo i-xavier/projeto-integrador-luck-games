@@ -57,11 +57,11 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(111, 33);
+            this.lblTitulo.Location = new System.Drawing.Point(79, 33);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(225, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(282, 40);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Cadastrar Aparelho";
             // 
@@ -175,11 +175,22 @@
             this.cbEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Items.AddRange(new object[] {
-            "Recebido",
-            "Em análise",
-            "Em reparo",
-            "Pronto",
-            "Entregue"});
+            "Novo",
+            "Seminovo",
+            "Bom estado",
+            "Com avarias leves",
+            "Com avarias moderadas",
+            "Muito danificado",
+            "Não liga",
+            "Oxidado",
+            "Tela quebrada",
+            "Peças faltando",
+            "Em diagnóstico",
+            "Aguardando orçamento",
+            "Aguardando peça",
+            "Em manutenção",
+            "Consertado",
+            "Sem possibilidade de reparo"});
             this.cbEstado.Location = new System.Drawing.Point(21, 330);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(191, 29);
@@ -258,6 +269,7 @@
             // btnCadastrarAparelho
             // 
             this.btnCadastrarAparelho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnCadastrarAparelho.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarAparelho.FlatAppearance.BorderSize = 0;
             this.btnCadastrarAparelho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarAparelho.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

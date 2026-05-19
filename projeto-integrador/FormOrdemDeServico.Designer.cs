@@ -66,6 +66,7 @@
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPesquisar.FlatAppearance.BorderSize = 0;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
@@ -80,6 +81,7 @@
             // 
             this.btnNovaOS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovaOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnNovaOS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNovaOS.FlatAppearance.BorderSize = 0;
             this.btnNovaOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovaOS.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,7 +117,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(289, 218);
+            this.pictureBox1.Location = new System.Drawing.Point(660, 173);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 21);
             this.pictureBox1.TabIndex = 12;
@@ -130,7 +132,7 @@
             "Nome",
             "CPF",
             "Telefone"});
-            this.cmbFiltro.Location = new System.Drawing.Point(326, 218);
+            this.cmbFiltro.Location = new System.Drawing.Point(697, 173);
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.Size = new System.Drawing.Size(121, 21);
             this.cmbFiltro.TabIndex = 11;

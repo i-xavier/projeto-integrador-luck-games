@@ -67,6 +67,7 @@
             // 
             // btnLogout
             // 
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -83,9 +84,12 @@
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            this.btnLogout.MouseEnter += new System.EventHandler(this.btnDashboard_MouseEnter);
+            this.btnLogout.MouseLeave += new System.EventHandler(this.btnDashboard_MouseLeave);
             // 
             // btnAparelhos
             // 
+            this.btnAparelhos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAparelhos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAparelhos.FlatAppearance.BorderSize = 0;
             this.btnAparelhos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -102,9 +106,12 @@
             this.btnAparelhos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAparelhos.UseVisualStyleBackColor = true;
             this.btnAparelhos.Click += new System.EventHandler(this.btnAparelhos_Click);
+            this.btnAparelhos.MouseEnter += new System.EventHandler(this.btnDashboard_MouseEnter);
+            this.btnAparelhos.MouseLeave += new System.EventHandler(this.btnDashboard_MouseLeave);
             // 
             // btnEstoque
             // 
+            this.btnEstoque.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEstoque.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEstoque.FlatAppearance.BorderSize = 0;
             this.btnEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -121,9 +128,12 @@
             this.btnEstoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEstoque.UseVisualStyleBackColor = true;
             this.btnEstoque.Click += new System.EventHandler(this.btnEstoque_Click);
+            this.btnEstoque.MouseEnter += new System.EventHandler(this.btnDashboard_MouseEnter);
+            this.btnEstoque.MouseLeave += new System.EventHandler(this.btnDashboard_MouseLeave);
             // 
             // btnOrdens
             // 
+            this.btnOrdens.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOrdens.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOrdens.FlatAppearance.BorderSize = 0;
             this.btnOrdens.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -140,9 +150,12 @@
             this.btnOrdens.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrdens.UseVisualStyleBackColor = true;
             this.btnOrdens.Click += new System.EventHandler(this.btnOrdens_Click);
+            this.btnOrdens.MouseEnter += new System.EventHandler(this.btnDashboard_MouseEnter);
+            this.btnOrdens.MouseLeave += new System.EventHandler(this.btnDashboard_MouseLeave);
             // 
             // btnClientes
             // 
+            this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClientes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -159,9 +172,12 @@
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            this.btnClientes.MouseEnter += new System.EventHandler(this.btnDashboard_MouseEnter);
+            this.btnClientes.MouseLeave += new System.EventHandler(this.btnDashboard_MouseLeave);
             // 
             // btnDashboard
             // 
+            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -178,6 +194,8 @@
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnDashboard.MouseEnter += new System.EventHandler(this.btnDashboard_MouseEnter);
+            this.btnDashboard.MouseLeave += new System.EventHandler(this.btnDashboard_MouseLeave);
             // 
             // panelLogo
             // 
@@ -233,7 +251,7 @@
             this.Controls.Add(this.panelFundo);
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "FormHome";
-            this.Text = "0";
+            this.Text = "Home -- Luck Games";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormHome_Load);
             this.panelSideBar.ResumeLayout(false);

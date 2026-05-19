@@ -56,7 +56,12 @@ namespace projeto_integrador
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult resultado = MessageBox.Show("Deseja se deslogar?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void btnAparelhos_Click(object sender, EventArgs e)
@@ -67,6 +72,22 @@ namespace projeto_integrador
         private void btnEstoque_Click(object sender, EventArgs e)
         {
             openChildForm(new FormEstoque());
+        }
+
+        private void btnDashboard_MouseEnter(object sender, EventArgs e)
+        {
+            Button botao = (Button)sender;
+
+            botao.BackColor = Color.FromArgb(168, 217, 95);
+            botao.ForeColor = Color.White;
+        }
+
+        private void btnDashboard_MouseLeave(object sender, EventArgs e)
+        {
+            Button botao = (Button)sender;
+
+            botao.BackColor = Color.FromArgb(13, 52, 68);
+            botao.ForeColor = Color.White;
         }
     }
 }

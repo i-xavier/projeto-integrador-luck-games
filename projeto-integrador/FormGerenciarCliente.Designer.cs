@@ -45,11 +45,11 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(119, 70);
+            this.lblTitulo.Location = new System.Drawing.Point(70, 61);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(179, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(275, 45);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Cadastrar Cliente";
             // 
@@ -93,7 +93,7 @@
             this.btnCadastrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarCliente.ForeColor = System.Drawing.Color.Black;
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(135, 367);
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(134, 331);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
             this.btnCadastrarCliente.Size = new System.Drawing.Size(147, 40);
             this.btnCadastrarCliente.TabIndex = 5;
@@ -158,6 +158,7 @@
             // 
             // btnFechar
             // 
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFechar.FlatAppearance.BorderSize = 0;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,7 +179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(98)))), ((int)(((byte)(131)))));
-            this.ClientSize = new System.Drawing.Size(420, 456);
+            this.ClientSize = new System.Drawing.Size(420, 408);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.lblCPF);

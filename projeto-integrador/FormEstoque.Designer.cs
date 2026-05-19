@@ -69,6 +69,7 @@
             // 
             this.btnNovaMovimentacao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovaMovimentacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnNovaMovimentacao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNovaMovimentacao.FlatAppearance.BorderSize = 0;
             this.btnNovaMovimentacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovaMovimentacao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,6 +107,7 @@
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPesquisar.FlatAppearance.BorderSize = 0;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
@@ -205,7 +207,7 @@
             // 
             this.lblItensEstoque.AutoSize = true;
             this.lblItensEstoque.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItensEstoque.Location = new System.Drawing.Point(137, 71);
+            this.lblItensEstoque.Location = new System.Drawing.Point(77, 71);
             this.lblItensEstoque.Name = "lblItensEstoque";
             this.lblItensEstoque.Size = new System.Drawing.Size(115, 47);
             this.lblItensEstoque.TabIndex = 1;
@@ -215,7 +217,7 @@
             // 
             this.lblTituloItensEstoque.AutoSize = true;
             this.lblTituloItensEstoque.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloItensEstoque.Location = new System.Drawing.Point(40, 12);
+            this.lblTituloItensEstoque.Location = new System.Drawing.Point(44, 12);
             this.lblTituloItensEstoque.Name = "lblTituloItensEstoque";
             this.lblTituloItensEstoque.Size = new System.Drawing.Size(181, 30);
             this.lblTituloItensEstoque.TabIndex = 0;
@@ -263,7 +265,7 @@
             this.lblTotalCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotalCategorias.AutoSize = true;
             this.lblTotalCategorias.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCategorias.Location = new System.Drawing.Point(157, 71);
+            this.lblTotalCategorias.Location = new System.Drawing.Point(74, 71);
             this.lblTotalCategorias.Name = "lblTotalCategorias";
             this.lblTotalCategorias.Size = new System.Drawing.Size(115, 47);
             this.lblTotalCategorias.TabIndex = 1;
@@ -282,6 +284,7 @@
             // cmbFiltro
             // 
             this.cmbFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.cmbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbFiltro.FormattingEnabled = true;
             this.cmbFiltro.Items.AddRange(new object[] {
@@ -308,7 +311,7 @@
             // 
             this.lblTotalProdutos.AutoSize = true;
             this.lblTotalProdutos.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalProdutos.Location = new System.Drawing.Point(133, 71);
+            this.lblTotalProdutos.Location = new System.Drawing.Point(78, 71);
             this.lblTotalProdutos.Name = "lblTotalProdutos";
             this.lblTotalProdutos.Size = new System.Drawing.Size(115, 47);
             this.lblTotalProdutos.TabIndex = 1;
@@ -318,7 +321,7 @@
             // 
             this.lblTituloTotalProdutos.AutoSize = true;
             this.lblTituloTotalProdutos.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloTotalProdutos.Location = new System.Drawing.Point(33, 12);
+            this.lblTituloTotalProdutos.Location = new System.Drawing.Point(42, 12);
             this.lblTituloTotalProdutos.Name = "lblTituloTotalProdutos";
             this.lblTituloTotalProdutos.Size = new System.Drawing.Size(187, 30);
             this.lblTituloTotalProdutos.TabIndex = 0;
@@ -328,6 +331,7 @@
             // 
             this.btnNovoProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovoProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(217)))), ((int)(((byte)(95)))));
+            this.btnNovoProduto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNovoProduto.FlatAppearance.BorderSize = 0;
             this.btnNovoProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovoProduto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

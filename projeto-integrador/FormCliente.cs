@@ -59,69 +59,94 @@ namespace projeto_integrador
         private void ConfigurarDataGridView()
         {
             dgvCliente.AllowUserToAddRows = false;
+
             dgvCliente.AllowUserToDeleteRows = false;
+
             dgvCliente.AllowUserToResizeRows = false;
 
             dgvCliente.MultiSelect = false;
 
-            dgvCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCliente.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
             dgvCliente.ReadOnly = true;
 
             dgvCliente.RowHeadersVisible = false;
 
-            dgvCliente.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // AJUSTE DAS COLUNAS
+            dgvCliente.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.AllCells;
 
             dgvCliente.BackgroundColor = Color.Black;
 
             dgvCliente.BorderStyle = BorderStyle.None;
+
             dgvCliente.EnableHeadersVisualStyles = false;
 
-            dgvCliente.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvCliente.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
 
-            dgvCliente.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+            // CABEÇALHO
+            dgvCliente.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.Black;
 
-            dgvCliente.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvCliente.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
 
             dgvCliente.ColumnHeadersDefaultCellStyle.Font =
-                new Font("Segoe UI", 10, FontStyle.Bold);
+                new Font("Segoe UI", 13, FontStyle.Bold);
 
-            dgvCliente.DefaultCellStyle.BackColor = Color.FromArgb(20, 20, 20);
+            dgvCliente.ColumnHeadersHeight = 45;
 
-            dgvCliente.DefaultCellStyle.ForeColor = Color.White;
+            // LINHAS
+            dgvCliente.RowTemplate.Height = 38;
+
+            // CÉLULAS
+            dgvCliente.DefaultCellStyle.BackColor =
+                Color.FromArgb(20, 20, 20);
+
+            dgvCliente.DefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvCliente.DefaultCellStyle.Font =
+                new Font("Segoe UI", 12, FontStyle.Regular);
 
             dgvCliente.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(40, 40, 40);
 
-            dgvCliente.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvCliente.DefaultCellStyle.SelectionForeColor =
+                Color.White;
 
-            dgvCliente.GridColor = Color.FromArgb(50, 50, 50);
+            dgvCliente.DefaultCellStyle.Padding =
+                new Padding(5, 0, 5, 0);
+
+            dgvCliente.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleLeft;
+
+            dgvCliente.GridColor =
+                Color.FromArgb(50, 50, 50);
 
             dgvCliente.Columns.Clear();
+
             // COLUNAS
             dgvCliente.Columns.Add("id_cliente", "ID");
-            dgvCliente.Columns.Add("nome", "Nome do cliente");
-            dgvCliente.Columns.Add("telefone", "Telefone");
-            dgvCliente.Columns.Add("cpf", "CPF");
 
-        
+            dgvCliente.Columns.Add(
+                "nome",
+                "Nome do cliente"
+            );
 
-            // VISUALIZAR
-           /*DataGridViewButtonColumn btnVisualizar =
-                new DataGridViewButtonColumn();
+            dgvCliente.Columns.Add(
+                "telefone",
+                "Telefone"
+            );
 
-            btnVisualizar.Name = "Visualizar";
+            dgvCliente.Columns.Add(
+                "cpf",
+                "CPF"
+            );
 
-            btnVisualizar.HeaderText = "";
-
-            btnVisualizar.Text = "👁";
-
-            //btnVisualizar.Photo
-
-            btnVisualizar.UseColumnTextForButtonValue = true;
-
-            dgvCliente.Columns.Add(btnVisualizar);*/
-
-            // EDITAR
+            // BOTÃO EDITAR
             DataGridViewButtonColumn btnEditar =
                 new DataGridViewButtonColumn();
 
@@ -133,10 +158,20 @@ namespace projeto_integrador
 
             btnEditar.UseColumnTextForButtonValue = true;
 
+            btnEditar.FlatStyle = FlatStyle.Flat;
+
+            btnEditar.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnEditar.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnEditar.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvCliente.Columns.Add(btnEditar);
 
-            // EXCLUIR
-
+            // BOTÃO EXCLUIR
             DataGridViewButtonColumn btnExcluir =
                 new DataGridViewButtonColumn();
 
@@ -148,22 +183,22 @@ namespace projeto_integrador
 
             btnExcluir.UseColumnTextForButtonValue = true;
 
+            btnExcluir.FlatStyle = FlatStyle.Flat;
+
+            btnExcluir.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnExcluir.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnExcluir.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvCliente.Columns.Add(btnExcluir);
-            
-            /*
-            DataGridViewImageColumn btnExcluir =
-            new DataGridViewImageColumn();
 
-            btnExcluir.Name = "Excluir";
-
-            btnExcluir.HeaderText = "";
-
-            btnExcluir.Image = Image.FromFile("lixeira.png");
-
-            btnExcluir.ImageLayout =
-                DataGridViewImageCellLayout.Zoom;
-
-            dgvCliente.Columns.Add(btnExcluir);*/
+            // NOME OCUPA O ESPAÇO SOBRANDO
+            dgvCliente.Columns["nome"].AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.Fill;
 
             dgvCliente.CellClick += dgvCliente_CellClick;
         }
@@ -458,7 +493,7 @@ namespace projeto_integrador
             {
                 DialogResult resultado =
                     MessageBox.Show(
-                        "Deseja excluir este produto?",
+                        "Deseja excluir este cliente?",
                         "Confirmação",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning
@@ -490,7 +525,7 @@ namespace projeto_integrador
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show(
-                    "Produto excluído com sucesso!"
+                    "Cliente excluído com sucesso!"
                 );
 
                 carregar_clientes_com_query(

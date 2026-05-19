@@ -38,12 +38,12 @@ namespace projeto_integrador
             {
                 "Selecione",
                 "Nome do aparelho",
-                "N°Serie",
+                "Número de série",
                 "Tipo",
                 "Marca",
                 "Modelo",
                 "Cliente",
-                "Data Entrada",
+                "Data de Entrada",
                 "Estado"
             };
 
@@ -60,58 +60,99 @@ namespace projeto_integrador
         private void ConfigurarDataGridView()
         {
             dgvAparelho.AllowUserToAddRows = false;
+
             dgvAparelho.AllowUserToDeleteRows = false;
+
             dgvAparelho.AllowUserToResizeRows = false;
 
             dgvAparelho.MultiSelect = false;
 
-            dgvAparelho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAparelho.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
             dgvAparelho.ReadOnly = true;
 
             dgvAparelho.RowHeadersVisible = false;
 
-            dgvAparelho.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // AJUSTE DAS COLUNAS
+            dgvAparelho.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.AllCells;
 
             dgvAparelho.BackgroundColor = Color.Black;
 
             dgvAparelho.BorderStyle = BorderStyle.None;
+
             dgvAparelho.EnableHeadersVisualStyles = false;
 
-            dgvAparelho.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvAparelho.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
 
-            dgvAparelho.ColumnHeadersDefaultCellStyle.BackColor = Color.Black;
+            // CABEÇALHO
+            dgvAparelho.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.Black;
 
-            dgvAparelho.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvAparelho.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
 
             dgvAparelho.ColumnHeadersDefaultCellStyle.Font =
-                new Font("Segoe UI", 10, FontStyle.Bold);
+                new Font("Segoe UI", 13, FontStyle.Bold);
 
-            dgvAparelho.DefaultCellStyle.BackColor = Color.FromArgb(20, 20, 20);
+            dgvAparelho.ColumnHeadersHeight = 45;
 
-            dgvAparelho.DefaultCellStyle.ForeColor = Color.White;
+            // LINHAS
+            dgvAparelho.RowTemplate.Height = 38;
+
+            // CÉLULAS
+            dgvAparelho.DefaultCellStyle.BackColor =
+                Color.FromArgb(20, 20, 20);
+
+            dgvAparelho.DefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvAparelho.DefaultCellStyle.Font =
+                new Font("Segoe UI", 12, FontStyle.Regular);
 
             dgvAparelho.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(40, 40, 40);
 
-            dgvAparelho.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvAparelho.DefaultCellStyle.SelectionForeColor =
+                Color.White;
 
-            dgvAparelho.GridColor = Color.FromArgb(50, 50, 50);
+            dgvAparelho.DefaultCellStyle.Padding =
+                new Padding(5, 0, 5, 0);
+
+            dgvAparelho.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleLeft;
+
+            dgvAparelho.GridColor =
+                Color.FromArgb(50, 50, 50);
 
             dgvAparelho.Columns.Clear();
+
             // COLUNAS
             dgvAparelho.Columns.Add("id_aparelho", "ID");
-            // dgvAparelho.Columns.Add("nome_aparelho", "ID"); Não deveria ser salvo no banco?
+
             dgvAparelho.Columns.Add("tipo", "Tipo");
+
             dgvAparelho.Columns.Add("marca", "Marca");
-            dgvAparelho.Columns.Add("num_serie", "N°Serie");
+
+            dgvAparelho.Columns.Add("num_serie", "N° Série");
+
             dgvAparelho.Columns.Add("modelo", "Modelo");
-            dgvAparelho.Columns.Add("fk_id_cliente_aparelho", "Cliente");
-            dgvAparelho.Columns.Add("data_entrada", "Data Entrada");
+
+            dgvAparelho.Columns.Add(
+                "fk_id_cliente_aparelho",
+                "Cliente"
+            );
+
+            dgvAparelho.Columns.Add(
+                "data_entrada",
+                "Data Entrada"
+            );
+
             dgvAparelho.Columns.Add("estado", "Estado");
 
-
-
-            // VISUALIZAR
+            // BOTÃO VISUALIZAR
             DataGridViewButtonColumn btnVisualizar =
                 new DataGridViewButtonColumn();
 
@@ -123,9 +164,20 @@ namespace projeto_integrador
 
             btnVisualizar.UseColumnTextForButtonValue = true;
 
+            btnVisualizar.FlatStyle = FlatStyle.Flat;
+
+            btnVisualizar.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnVisualizar.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnVisualizar.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvAparelho.Columns.Add(btnVisualizar);
 
-            // EDITAR
+            // BOTÃO EDITAR
             DataGridViewButtonColumn btnEditar =
                 new DataGridViewButtonColumn();
 
@@ -137,9 +189,20 @@ namespace projeto_integrador
 
             btnEditar.UseColumnTextForButtonValue = true;
 
+            btnEditar.FlatStyle = FlatStyle.Flat;
+
+            btnEditar.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnEditar.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnEditar.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvAparelho.Columns.Add(btnEditar);
 
-            // EXCLUIR
+            // BOTÃO EXCLUIR
             DataGridViewButtonColumn btnExcluir =
                 new DataGridViewButtonColumn();
 
@@ -151,7 +214,22 @@ namespace projeto_integrador
 
             btnExcluir.UseColumnTextForButtonValue = true;
 
+            btnExcluir.FlatStyle = FlatStyle.Flat;
+
+            btnExcluir.DefaultCellStyle.Font =
+                new Font("Segoe UI Emoji", 12);
+
+            btnExcluir.DefaultCellStyle.BackColor =
+                Color.FromArgb(30, 30, 30);
+
+            btnExcluir.DefaultCellStyle.ForeColor =
+                Color.White;
+
             dgvAparelho.Columns.Add(btnExcluir);
+
+            // MODELO OCUPA ESPAÇO SOBRANDO
+            dgvAparelho.Columns["modelo"].AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.Fill;
 
             dgvAparelho.CellClick += dgvAparelho_CellClick;
         }
@@ -232,7 +310,7 @@ namespace projeto_integrador
                             campo = "estado";
                             break;
 
-                        case "Numero de série":
+                        case "Número de série":
                             campo = "CAST(num_serie AS CHAR)";
                             break;
 

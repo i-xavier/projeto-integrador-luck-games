@@ -17,6 +17,7 @@ namespace projeto_integrador
     public partial class frmLogin : Form
     {
 
+        
         String Valor = "";
         MySqlConnection Conexao;
         string data_source = "datasource=localhost; username=root; password=; database=projeto_luck_games";
@@ -40,7 +41,7 @@ namespace projeto_integrador
             panel1.Resize += panel1_Resize;
             this.AcceptButton = btnEntrar;
         }
-        
+
 
         private void frmLogin_Resize(object sender, EventArgs e)
         {
@@ -65,11 +66,11 @@ namespace projeto_integrador
 
 
 
-                if (!int.TryParse(txtCodigoUser.Text, out codigo))
-                {
-                    MessageBox.Show("Digite um código válido.");
-                    return;
-                }
+            if (!int.TryParse(txtCodigoUser.Text, out codigo))
+            {
+                MessageBox.Show("Digite um código válido.");
+                return;
+            }
 
 
 
@@ -98,6 +99,7 @@ namespace projeto_integrador
 
                     if (dr.Read())
                     {
+                        
                         MessageBox.Show("Bem-vindo, " + dr["nome_funcionario"]);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -192,7 +194,7 @@ namespace projeto_integrador
         {
             try
             {
-           
+
                 //Cria a conexão ocm o banco de dados
                 Conexao = new MySqlConnection(data_source);
                 Conexao.Open();
@@ -260,7 +262,7 @@ namespace projeto_integrador
 
             this.Show();
         }
-        
+
         private void btnOlhoAberto_Click(object sender, EventArgs e)
         {
             if (txtSenha.PasswordChar == '*')
@@ -278,5 +280,6 @@ namespace projeto_integrador
                 txtSenha.PasswordChar = '*';
             }
         }
+
     }
 }

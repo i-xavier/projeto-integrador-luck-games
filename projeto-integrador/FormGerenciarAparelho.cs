@@ -46,17 +46,18 @@ namespace projeto_integrador
                 "Tablet",
                 "Computador",
                 "Impressora",
+                "Periférico",
                 "Outro"
             };
 
-            cbEstado.DataSource = new List<string>
+           /* cbEstado.DataSource = new List<string>
             {
                 "Recebido",
                 "Em análise",
                 "Em reparo",
                 "Pronto",
                 "Entregue"
-            };
+            };*/
 
             dtpDataEntrada.Value = DateTime.Now;
         }

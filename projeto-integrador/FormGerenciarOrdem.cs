@@ -245,8 +245,17 @@ namespace projeto_integrador
         // BOTÃO FECHAR
         private void btnFechar_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult resultado = MessageBox.Show(
+            "Deseja realmente fechar?",
+            "Confirmação",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
 
@@ -328,11 +337,11 @@ namespace projeto_integrador
 
                     conn.Close();
 
-                    // 🔥 CAPTURA O VALOR QUE O USUÁRIO DIGITOU NA TELA
+                    // CAPTURA O VALOR QUE O USUÁRIO DIGITOU NA TELA
                     // Se o campo estiver vazio ou incorreto, assume 0 para não quebrar o cálculo
                     decimal.TryParse(txtValorEstimado.Text.Trim(), out decimal valorBase);
 
-                    // 🔥 ATUALIZA PASSANDO O VALOR DA TELA + OS ITENS
+                    // ATUALIZA PASSANDO O VALOR DA TELA + OS ITENS
                     AtualizarValorTotalOrdem(idOrdem, valorBase);
 
                     MessageBox.Show("Produto adicionado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -451,7 +460,7 @@ namespace projeto_integrador
                             cmd.Parameters.AddWithValue("@cliente", cmbCliente.SelectedValue);
                             cmd.Parameters.AddWithValue("@aparelho", cmbAparelho.SelectedValue);
                             cmd.Parameters.AddWithValue("@funcionario", cmbTecnico.SelectedValue);
-                            cmd.Parameters.AddWithValue("@aprovacao", cmbAprovaçãoOrçamento.SelectedItem?.ToString() ?? "Em Aberto");
+                            cmd.Parameters.AddWithValue("@aprovacao", cmbAprovacaoOrcamento.SelectedItem?.ToString() ?? "pendente");
                             cmd.Parameters.AddWithValue("@valor", valorEstimado);
 
                             conn.Open(); // Correção: Abrindo a conexão que estava faltando no seu código
@@ -486,7 +495,7 @@ namespace projeto_integrador
                         if (!existe)
                         {
                             sql = @"INSERT INTO ordem (id_ordem, aprovacao_orcamento, valor, data_ordem, fk_id_cliente_ordem, fk_id_aparelho_ordem, fk_id_funcionario_ordem) 
-                            VALUES (@id, 'Em Aberto', @valor, @data, @cliente, @aparelho, @funcionario)";
+                            VALUES (@id, @aprovacao, @valor, @data, @cliente, @aparelho, @funcionario)";
                         }
                         else
                         {
@@ -498,6 +507,7 @@ namespace projeto_integrador
                         {
                             cmd.Parameters.AddWithValue("@id", idOrdem);
                             cmd.Parameters.AddWithValue("@data", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@aprovacao", cmbAprovacaoOrcamento.SelectedItem?.ToString() ?? "pendente");
                             cmd.Parameters.AddWithValue("@cliente", cmbCliente.SelectedValue);
                             cmd.Parameters.AddWithValue("@aparelho", cmbAparelho.SelectedValue);
                             cmd.Parameters.AddWithValue("@funcionario", cmbTecnico.SelectedValue);
@@ -606,7 +616,7 @@ namespace projeto_integrador
 
             cmbCliente.SelectedValue = fkIdCliente;
 
-            cmbAprovaçãoOrçamento.Text = aprovacao_orcamento;
+            cmbAprovacaoOrcamento.Text = aprovacao_orcamento;
 
             cmbTecnico.SelectedValue = fkIdFuncionario;
 
@@ -660,9 +670,6 @@ namespace projeto_integrador
 
               carregar_itens_da_ordem(int.Parse(id));
 
-               /* carregar_ordens_com_query(
-                    "SELECT * FROM ordem_servico ORDER BY id_ordem DESC"
-                );*/
             }
             catch (Exception ex)
             {
@@ -691,26 +698,6 @@ namespace projeto_integrador
                 .Value
                 .ToString();
 
-           /* // Verifique se o clique foi no cabeçalho (RowIndex = -1) ou em uma linha válida
-            if (e.RowIndex >= 0)
-            {
-                // Substitua 'NomeDaColunaImagem' pelo nome ou índice da sua coluna de imagens
-                if (dgvOrdemItens.Columns[e.ColumnIndex].Name == "Apagar")
-                {
-                    // Pega o valor da célula clicada
-                    var imagemSelecionada = dgvOrdemItens.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-
-                    if (imagemSelecionada != null)
-                    {
-                        // Ação: Exemplo abrindo a imagem em um PictureBox ou outro formulário
-                        MessageBox.Show("Você clicou na imagem desta linha!");
-
-                        // Exemplo de como abrir em um form secundário:
-                        // FormImagem formImg = new FormImagem((Image)imagemSelecionada);
-                        // formImg.Show();
-                    }
-                }
-            }*/
 
             // EXCLUIR
             if (dgvOrdemItens.Columns[e.ColumnIndex].Name
@@ -732,68 +719,40 @@ namespace projeto_integrador
             }
         }
 
-        /* private void carregar_ordens_com_query(string query)
-         {
-             try
-             {
-                 Conexao = new MySqlConnection(data_source);
+        private void FormGerenciarOrdem_Load(object sender, EventArgs e)
+        {
+            cmbAdicionarItens.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbAdicionarItens.Width,
+               cmbAdicionarItens.Height, 20, 20));
 
-                 Conexao.Open();
+            cmbAparelho.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbAparelho.Width,
+                cmbAparelho.Height, 20, 20));
 
-                 MySqlCommand cmd =
-                     new MySqlCommand(query, Conexao);
+            cmbAprovacaoOrcamento.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbAprovacaoOrcamento.Width,
+                cmbAprovacaoOrcamento.Height, 20, 20));
 
-                 if (query.Contains("@q"))
-                 {
-                     cmd.Parameters.AddWithValue(
-                         "@q",
-                         "%" + txtBuscar.Text + "%"
-                     );
-                 }
+            cmbCliente.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbCliente.Width,
+                cmbCliente.Height, 20, 20));
 
-                 MySqlDataReader reader = cmd.ExecuteReader();
+            cmbTecnico.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, cmbTecnico.Width,
+                cmbTecnico.Height, 20, 20));
 
-                 dgvOS.Rows.Clear();
+            dtOrdem.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dtOrdem.Width,
+                dtOrdem.Height, 20, 20));
 
-                 while (reader.Read())
-                 {
-                     dgvOS.Rows.Add(
-                         reader["id_ordem"].ToString(),
-                         reader["aprovacao_orcamento"].ToString(),
-                         reader["valor"].ToString(),
-                         reader["data_ordem"].ToString(),
-                         reader["fk_id_cliente_ordem"].ToString(),
-                         reader["fk_id_aparelho_ordem"].ToString(),
-                         reader["fk_id_funcionario_ordem"].ToString()
-                     );
-                 }
-             }
-             catch (MySqlException ex)
-             {
-                 MessageBox.Show(
-                     "Erro " + ex.Number + " ocorreu: " + ex.Message,
-                     "Erro",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Error
-                 );
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(
-                     "Ocorreu: " + ex.Message,
-                     "Erro",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Error
-                 );
-             }
-             finally
-             {
-                 if (Conexao != null &&
-                     Conexao.State == ConnectionState.Open)
-                 {
-                     Conexao.Close();
-                 }
-             }
-         }*/
+            txtIDOrdem.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtIDOrdem.Width,
+                txtIDOrdem.Height, 20, 20));
+
+            txtQtdItens.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtQtdItens.Width,
+                txtQtdItens.Height, 20, 20));
+
+            txtValorEstimado.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, txtValorEstimado.Width,
+                txtValorEstimado.Height, 20, 20));
+
+            btnAdicionarItens.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnAdicionarItens.Width,
+                btnAdicionarItens.Height, 20, 20));
+
+            btnSalvar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnSalvar.Width,
+                btnSalvar.Height, 20, 20));
+        }
     }
 }
