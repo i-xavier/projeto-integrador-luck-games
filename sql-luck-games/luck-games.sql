@@ -74,6 +74,8 @@ CREATE TABLE ordem (
         'aprovado',
         'recusado'
     ) DEFAULT 'pendente',
+    
+    status_ordem VARCHAR (100) NOT NULL,
 
     valor DECIMAL(10,2) NOT NULL,
     data_ordem DATETIME NOT NULL,
